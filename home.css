@@ -56,29 +56,14 @@ header .navigation {
 
 .footer ul {
   list-style: none;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background-color: saddlebrown;
 }
-
-/* .footer-list-1 {
-  position: absolute;
-  left: 3vw;
-}
-
-.footer-list-2 {
-  position: absolute;
-  /* left: 3vw; */
-/* }
-
-.footer-list-3 {
-  position: absolute;
-  right: 3vw;
-} */
 
 .footer ul li {
-  padding-right: 3vw;
-  /* background-color: red; */
+  background-color: red;
+  text-align: center;
 }
 
 .footer-link {
