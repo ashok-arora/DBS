@@ -1,0 +1,94 @@
+body {
+  margin: 0;
+}
+
+.logo {
+  padding: 1vw;
+  height: 10vh;
+}
+
+header .navigation {
+  position: absolute;
+  right: 2vw;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  font-size: 3vh;
+  width: 60vw;
+  /* background-color: rosybrown; */
+}
+
+.navigation ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+}
+
+.navigation ul li {
+  text-align: center;
+}
+
+.nav-link:hover {
+  color: red;
+}
+
+.nav-link {
+  text-decoration: none;
+}
+
+.nav-list {
+  width: 10vw;
+  /* background-color: red; */
+}
+
+.nav-link:visited {
+  text-decoration: underline;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  font-size: 3vh;
+  width: 100vw;
+  /* background-color: rosybrown; */
+}
+
+.footer ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+/* .footer-list-1 {
+  position: absolute;
+  left: 3vw;
+}
+
+.footer-list-2 {
+  position: absolute;
+  /* left: 3vw; */
+/* }
+
+.footer-list-3 {
+  position: absolute;
+  right: 3vw;
+} */
+
+.footer ul li {
+  padding-right: 3vw;
+  /* background-color: red; */
+}
+
+.footer-link {
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  color: red;
+}
+
+.footer-link:visited {
+  text-decoration: underline;
+}
