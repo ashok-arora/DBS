@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+  background-color: #000000;
+}
+
+header .navigation {
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 3vh;
+  width: 100vw;
+  height: 12vh;
+  background-color: #131111;
+}
+
+.navigation ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+}
+
+.navigation ul li {
+  text-align: center;
+  align-self: center;
+}
+
+.navigation ul li:hover {
+  background-color: #312c2c;
+}
+
+.nav-link {
+  text-decoration: none;
+}
+
+.nav-list {
+  width: 10vw;
+}
+
+.student-info {
+  position: absolute;
+  top: 15vh;
+  left: 3vw;
+  background-color: #ffffff;
+  width: 20vw;
+  height: 45vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  color: #474040;
+  text-align: center;
+}
+
+.student-image {
+  border-radius: 100%;
+  height: 25vh;
+  width: 25vh;
+  align-self: center;
+}
