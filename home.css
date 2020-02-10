@@ -16,7 +16,6 @@ header .navigation {
   justify-content: flex-end;
   font-size: 3vh;
   width: 60vw;
-  /* background-color: rosybrown; */
 }
 
 .navigation ul {
@@ -39,7 +38,6 @@ header .navigation {
 
 .nav-list {
   width: 10vw;
-  /* background-color: red; */
 }
 
 .nav-link:visited {
@@ -58,11 +56,11 @@ header .navigation {
   list-style: none;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  background-color: saddlebrown;
+  /* background-color: saddlebrown; */
 }
 
 .footer ul li {
-  background-color: red;
+  /* background-color: red; */
   text-align: center;
 }
 
