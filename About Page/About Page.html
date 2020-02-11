@@ -30,68 +30,87 @@
       transform: perspective(1400px) matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
       transform-style: preserve-3d;
     }
-    .gwd-img-16v0 {
-      position: absolute;
-      top: 22.15%;
-      border-radius: 100%;
-      width: 15.1%;
-      height: 26.15%;
-      left: 2.66%;
+    #Vishnu_img {
       background-image: none;
-      background-color: rgb(162, 162, 162);
+      left: 6%;
+      top: 23%;
+    }
+    .vishnu-img {
+      position: absolute;
+      background-image: url("assets/default_profile_pic.jpg");
+      background-size: 100%;
+      width: 15.1%;
+      height: 33.629%;
+      padding: 0px;
+      border-radius: 15%;
     }
     #Vishnu_info {
-      left: 2.66%;
-      top: 56.31%;
-      width: 15.1%;
-      height: 29.54%;
+      width: 15.18%;
+      height: 6.81%;
+      transform-origin: 42.3594px 2.29138px 0px;
+      left: 2.68%;
+      top: 56.35%;
     }
     .vishnu {
       position: absolute;
       font-family: Roboto;
-      color: rgb(255, 255, 255);
+      background-color: rgb(202, 200, 200);
+      color: rgb(71, 65, 65);
       text-align: center;
       font-weight: bold;
       text-decoration: none;
+      font-size: 3vh;
+      padding: 2% 4%;
+    }
+    #Aniket_img {
+      left: 42.95%;
+      top: 22.15%;
     }
     .gwd-img-xuqy {
       position: absolute;
-      border-radius: 100%;
-      left: 42.95%;
-      top: 22.15%;
       width: 15.1%;
       height: 26.15%;
       background-image: none;
       background-color: rgb(162, 162, 162);
+      left: 42.95%;
+      top: 22.15%;
+      border-radius: 25%;
     }
     #Aniket_info {
-      left: 42.81%;
-      top: 56.31%;
-      width: 15.13%;
-      height: 30%;
+      background-image: none;
+      width: 15.18%;
+      left: 40%;
+      top: 56.04%;
+      height: 7.12%;
+      transform-origin: 42.3594px 15.3562px 0px;
+    }
+    #Ashok_img {
+      left: 79%;
+      top: 22%;
     }
     .gwd-img-1q8i {
       position: absolute;
       border-radius: 100%;
-      top: 22.15%;
-      width: 15.1%;
-      height: 26.15%;
-      left: 82%;
       background-image: none;
       background-color: rgb(162, 162, 162);
     }
     #Ashok_info {
-      left: 81.88%;
-      top: 56.31%;
-      width: 15.1%;
-      height: 30%;
+      width: 15.18%;
+      height: 7.12%;
+      transform-origin: 42.3594px 5.15894px 0px;
+      top: 56%;
+      left: 75%;
+    }
+    .gwd-header-16sg {
+      background-image: none;
+      background-color: rgb(64, 64, 64);
     }
   </style>
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic" rel="stylesheet" type="text/css">
 </head>
 
 <body class="htmlNoPages">
-  <header class="">
+  <header class="gwd-header-16sg" id="Header">
     <img src="assets\IIITM useless logo.png" alt="Logo" class="logo">
     <nav class="navigation">
       <ul>
@@ -107,23 +126,17 @@
       </ul>
     </nav>
   </header>
-  <img class="gwd-img-16v0" src="assets/profile photo.jpeg" id="Vishnu_img">
+  <img class="vishnu-img" src="assets/profile_pic.png" id="Vishnu_img">
   <a class="vishnu nav-link" id="Vishnu_info" href="https://www.vishnuworld.wordpress.com">Vishnu<br>
-     2019<br>
-     BCS<br>
-     072
+     2019BCS-072
   </a>
-  <img class="gwd-img-xuqy" id="Aniket_image">
+  <img class="vishnu-img" id="Aniket_img">
   <p class="vishnu" id="Aniket_info">Aniket<br>
-     2019<br>
-     BCS<br>
-     004
+     2019BCS-004
   </p>
-  <img class="gwd-img-1q8i" id="Ashok_image">
+  <img class="vishnu-img" id="Ashok_img">
   <p class="vishnu" id="Ashok_info">Ashok<br>
-     2019<br>
-     BCS<br>
-     075
+     2019BCS-075
   </p>
 </body>
 
