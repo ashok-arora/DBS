@@ -39,14 +39,29 @@ header .navigation {
 }
 
 .student-info {
+  background-color: #ffffff;
+  width: 23.5vw;
+  height: 47vh;
+  display: flex;
+  flex-direction: column;
+  grid-area: student-info;
+}
+
+main {
   position: absolute;
   top: 15vh;
   left: 3vw;
-  background-color: #ffffff;
-  width: 20vw;
-  height: 45vh;
-  display: flex;
-  flex-direction: column;
+  height: 85vh;
+  width: 94vw;
+  /* padding: 0; */
+  display: grid;
+  grid-template-columns: repeat(4, 23.5vw);
+  grid-template-rows: repeat(3, 28.33vh);
+  gap: 2vw;
+  grid-template-areas:
+    "student-info two three four"
+    "student-info six seven eight"
+    "nine ten eleven twelve";
 }
 
 .name {
