@@ -30,10 +30,11 @@
       transform: perspective(1400px) matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
       transform-style: preserve-3d;
     }
+    .rectangle {}
     #Vishnu_img {
       background-image: none;
-      left: 6%;
       top: 23%;
+      left: 6%;
     }
     .vishnu-img {
       position: absolute;
@@ -79,10 +80,10 @@
     #Aniket_info {
       background-image: none;
       width: 15.18%;
-      left: 40%;
-      top: 56.04%;
       height: 7.12%;
       transform-origin: 42.3594px 15.3562px 0px;
+      top: 56%;
+      left: 38.72%;
     }
     #Ashok_img {
       left: 79%;
@@ -105,11 +106,17 @@
       background-image: none;
       background-color: rgb(64, 64, 64);
     }
+    .player {
+      position: absolute;
+      background-color: rgb(248, 228, 4);
+      background-image: none;
+    }
   </style>
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic" rel="stylesheet" type="text/css">
 </head>
 
 <body class="htmlNoPages">
+  <div class="rectangle" id="faltu"></div>
   <header class="gwd-header-16sg" id="Header">
     <img src="assets\IIITM useless logo.png" alt="Logo" class="logo">
     <nav class="navigation">
@@ -138,6 +145,8 @@
   <p class="vishnu" id="Ashok_info">Ashok<br>
      2019BCS-075
   </p>
+  <div class="player" id="test_player" style="left: 2.68%; top: 83.49%; width: 2%; height: 4%;"></div>
+  <script src="Test.js"></script>
 </body>
 
 </html>
