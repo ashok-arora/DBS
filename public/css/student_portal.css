@@ -1,77 +1,129 @@
+html {
+  padding: 0px;
+  height: 100%;
+}
+
 body {
-  margin: 0;
-  background-color: #000000;
+  padding: 50px;
+  background-color: black;
 }
 
-header .navigation {
-  position: absolute;
-  top: 0;
+.MainBody {
+  background-color: #202020;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  font-size: 3vh;
-  width: 100vw;
-  height: 12vh;
-  background-color: #131111;
+  height: calc(100% - 20px);
+  width: calc(100% - 40px);
+  padding: 10px 20px;
+  border-radius: 1em;
 }
 
-.navigation ul {
-  list-style: none;
+.SideNavigationBar {
+  background-color: #909090;
   display: flex;
-  flex-direction: row;
+  border-radius: 1em;
+  height: calc(100% - 20px);
+  width: 60px;
+  padding: 10px 0px;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-right: 20px;
 }
 
-.navigation ul li {
-  text-align: center;
+.ImageWrap {
   align-self: center;
+  /* background-color: red; */
 }
 
-.navigation ul li:hover {
-  background-color: #312c2c;
+.SubSideNavigationBar {
+  display: flex;
+  align-self: stretch;
+  justify-content: space-evenly;
+  flex-direction: column;
+  /* background-color: purple; */
 }
 
-.nav-link {
-  text-decoration: none;
-}
-
-.nav-list {
-  width: 10vw;
-}
-
-.student-info {
-  background-color: #ffffff;
-  width: 23.5vw;
-  height: 47vh;
+.CompleteOptionWrap {
+  position: relative;
   display: flex;
   flex-direction: column;
-  grid-area: student-info;
+  width: 100%;
+  height: 70px;
+  justify-content: center;
+  /* background-color: black; */
 }
 
-main {
+.SelectedPortion {
   position: absolute;
-  top: 15vh;
-  left: 3vw;
-  height: 85vh;
-  width: 94vw;
-  /* padding: 0; */
-  display: grid;
-  grid-template-columns: repeat(4, 23.5vw);
-  grid-template-rows: repeat(3, 28.33vh);
-  gap: 2vw;
-  grid-template-areas:
-    "student-info two three four"
-    "student-info six seven eight"
-    "nine ten eleven twelve";
+  height: calc(100% - 1em);
+  width: 90%;
+  align-self: flex-end;
+  background-color: #202020;
+  border-top-left-radius: 1em;
+  border-bottom-left-radius: 1em;
+  /* z-index: calc(inherit + 2); */
 }
 
-.name {
-  color: #474040;
-  text-align: center;
-}
-
-.student-image {
-  border-radius: 100%;
-  height: 25vh;
-  width: 25vh;
+.IconWrap {
+  position: absolute;
   align-self: center;
+  /* z-index: calc(inherit + 1); */
+}
+
+.SideBarIcon {
+  color: white;
+  align-self: center;
+  /* margin-top: 40px; */
+}
+
+.RightBodyDiv {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  /* background-color: saddlebrown; */
+}
+
+.Header {
+  display: flex;
+  width: calc(100% - 20px);
+  height: 40px;
+  padding: 0px 10px;
+  margin-bottom: 30px;
+  justify-content: space-between;
+}
+
+.SearchBar {
+  background-color: #505050;
+  border-radius: 3em;
+  display: flex;
+  padding-left: 10px;
+  width: 500px;
+}
+
+.HeaderIconDiv {
+  margin-left: 30px;
+  align-self: center;
+  color: #AAAAAA;
+}
+
+i:hover {
+  cursor: pointer;
+}
+
+.ProfilePicDiv {
+  border-radius: 100%;
+  height: 35px;
+  width: 35px;
+  margin-left: 30px;
+  padding: 5px;
+  background-color: #303030;
+}
+
+.ElementsContainer {
+  display: flex;
+  flex-direction: column;
+  border-radius: 1em;
+  background-color: wheat;
+  margin-bottom: 20px;
+  width: 100%;
 }
