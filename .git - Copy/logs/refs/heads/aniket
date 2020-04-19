@@ -1,0 +1,14 @@
+0000000000000000000000000000000000000000 1931be6b62df96b056fcacde536145b2924d5149 Aniket Sharma <Aniket@Joseph.(none)> 1581113696 +0530	branch: Created from master
+1931be6b62df96b056fcacde536145b2924d5149 7cdf7e47b4ac5f3009d3a190e2d4d4b2aea0cc4f aniketsharma00411 <aniketsharma00411@gmail.com> 1581113975 +0530	commit: Basic login page
+7cdf7e47b4ac5f3009d3a190e2d4d4b2aea0cc4f c79f50cd7c4c4d123c8d6cb154de16c54feacd40 aniketsharma00411 <aniketsharma00411@gmail.com> 1587290424 +0530	merge origin/master: Merge made by the 'recursive' strategy.
+c79f50cd7c4c4d123c8d6cb154de16c54feacd40 8c21372c1152a2e4fab581d32e20cf514b3ac6bf aniketsharma00411 <aniketsharma00411@gmail.com> 1587290707 +0530	commit: Deleted extra files not in master
+8c21372c1152a2e4fab581d32e20cf514b3ac6bf bdd8ac7cb1fe35ac725a48b0ed275d2b82b63636 aniketsharma00411 <aniketsharma00411@gmail.com> 1587290960 +0530	commit: Added database info
+bdd8ac7cb1fe35ac725a48b0ed275d2b82b63636 7827ec71d1dd3f115f908d1aa253095e89e0243b aniketsharma00411 <aniketsharma00411@gmail.com> 1587291065 +0530	commit: Deleted test connection file
+7827ec71d1dd3f115f908d1aa253095e89e0243b 7b016d665e567e6bf4c216e29c6a476db331e066 aniketsharma00411 <aniketsharma00411@gmail.com> 1587291130 +0530	commit: Deleted empty extra files
+7b016d665e567e6bf4c216e29c6a476db331e066 24656def0d9aeaefee247af62968c8ef201e5857 aniketsharma00411 <aniketsharma00411@gmail.com> 1587291629 +0530	commit: Removed and relocated some files
+24656def0d9aeaefee247af62968c8ef201e5857 1037e8ec89a845f1ba4a8a7d37f7fe41a9c7e3a3 aniketsharma00411 <aniketsharma00411@gmail.com> 1587292293 +0530	commit: Changed css location
+1037e8ec89a845f1ba4a8a7d37f7fe41a9c7e3a3 787458cc46533f628ec9491bdc7cd9090034a24b aniketsharma00411 <aniketsharma00411@gmail.com> 1587293148 +0530	merge origin/master: Fast-forward
+787458cc46533f628ec9491bdc7cd9090034a24b 43cadf45766c04ae2f2f8ae779188653aea45cf1 aniketsharma00411 <aniketsharma00411@gmail.com> 1587293871 +0530	commit: Removed an error
+43cadf45766c04ae2f2f8ae779188653aea45cf1 c6589f313447671ed2a470db4a7d0f5e9814f140 aniketsharma00411 <aniketsharma00411@gmail.com> 1587293931 +0530	commit: Removed an error
+c6589f313447671ed2a470db4a7d0f5e9814f140 4e0b61f00d6ef43dc80e956ebb574c4e8035ad1b aniketsharma00411 <aniketsharma00411@gmail.com> 1587294186 +0530	commit: Removed an error
+4e0b61f00d6ef43dc80e956ebb574c4e8035ad1b ffb5c8043fd1f5a920450f0afa6baa807781eb4d aniketsharma00411 <aniketsharma00411@gmail.com> 1587295536 +0530	commit: I don't know man what I am doing

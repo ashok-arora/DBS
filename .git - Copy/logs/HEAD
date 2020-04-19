@@ -1,0 +1,60 @@
+0000000000000000000000000000000000000000 1931be6b62df96b056fcacde536145b2924d5149 Aniket Sharma <Aniket@Joseph.(none)> 1581111798 +0530	clone: from https://github.com/ashok-arora/DBS.git
+1931be6b62df96b056fcacde536145b2924d5149 1931be6b62df96b056fcacde536145b2924d5149 Aniket Sharma <Aniket@Joseph.(none)> 1581113707 +0530	checkout: moving from master to aniket
+1931be6b62df96b056fcacde536145b2924d5149 7cdf7e47b4ac5f3009d3a190e2d4d4b2aea0cc4f aniketsharma00411 <aniketsharma00411@gmail.com> 1581113975 +0530	commit: Basic login page
+7cdf7e47b4ac5f3009d3a190e2d4d4b2aea0cc4f 1931be6b62df96b056fcacde536145b2924d5149 aniketsharma00411 <aniketsharma00411@gmail.com> 1581246046 +0530	checkout: moving from aniket to master
+1931be6b62df96b056fcacde536145b2924d5149 804c295bc8459d3f514cf0195bc7998a36b8a52a aniketsharma00411 <aniketsharma00411@gmail.com> 1581246056 +0530	pull: Fast-forward
+804c295bc8459d3f514cf0195bc7998a36b8a52a a293382153dd65583031e2eaff9b006fb556f68b aniketsharma00411 <aniketsharma00411@gmail.com> 1581246553 +0530	commit: Home page
+a293382153dd65583031e2eaff9b006fb556f68b 93d713aea856da9718a2f42984e85b8ce3b94279 aniketsharma00411 <aniketsharma00411@gmail.com> 1581246663 +0530	commit: Dark college logo
+93d713aea856da9718a2f42984e85b8ce3b94279 c31826ce930abda4a7cae86663cef4a464a406d7 aniketsharma00411 <aniketsharma00411@gmail.com> 1581268774 +0530	pull: Fast-forward
+c31826ce930abda4a7cae86663cef4a464a406d7 5825e16d5f7d3b2a9a8d793c4f50e3d2304433ff aniketsharma00411 <aniketsharma00411@gmail.com> 1581285279 +0530	commit: Little changes in home page
+5825e16d5f7d3b2a9a8d793c4f50e3d2304433ff 02db3ff3cb5fff06489cb7a53ca79f5ce19aa37d aniketsharma00411 <aniketsharma00411@gmail.com> 1581351909 +0530	commit: Renamed some files
+02db3ff3cb5fff06489cb7a53ca79f5ce19aa37d db3922306d235c76ed295e8a7f2f5a5403c6f99e aniketsharma00411 <aniketsharma00411@gmail.com> 1581352094 +0530	commit: Deleted icon
+db3922306d235c76ed295e8a7f2f5a5403c6f99e 470bcdeb86987b4f68234480c9a1edd8b14bb63c aniketsharma00411 <aniketsharma00411@gmail.com> 1581352679 +0530	commit: Linked pages to home
+470bcdeb86987b4f68234480c9a1edd8b14bb63c f828159e3ef24c56267f853c38c0f058e6c06b47 aniketsharma00411 <aniketsharma00411@gmail.com> 1581363144 +0530	commit: Student Portal
+f828159e3ef24c56267f853c38c0f058e6c06b47 98cf1ffbb0e308faebd9c5e899034790b09ad6fb aniketsharma00411 <aniketsharma00411@gmail.com> 1581428423 +0530	commit: Updated student portal
+98cf1ffbb0e308faebd9c5e899034790b09ad6fb 7cdf7e47b4ac5f3009d3a190e2d4d4b2aea0cc4f aniketsharma00411 <aniketsharma00411@gmail.com> 1581428481 +0530	checkout: moving from master to aniket
+7cdf7e47b4ac5f3009d3a190e2d4d4b2aea0cc4f 98cf1ffbb0e308faebd9c5e899034790b09ad6fb aniketsharma00411 <aniketsharma00411@gmail.com> 1581428503 +0530	checkout: moving from aniket to master
+98cf1ffbb0e308faebd9c5e899034790b09ad6fb 43afcfc11e0d3e4d358c5d982e89919a8c2cfa16 aniketsharma00411 <aniketsharma00411@gmail.com> 1581428588 +0530	pull: Merge made by the 'recursive' strategy.
+43afcfc11e0d3e4d358c5d982e89919a8c2cfa16 621a34a074f24e1d14e655d61d778071b6fd846e aniketsharma00411 <aniketsharma00411@gmail.com> 1582477800 +0530	pull: Fast-forward
+621a34a074f24e1d14e655d61d778071b6fd846e 2c48f6865a079827dc5b0d188d4c3a82f662f17e aniketsharma00411 <aniketsharma00411@gmail.com> 1582646829 +0530	pull: Fast-forward
+2c48f6865a079827dc5b0d188d4c3a82f662f17e 791c62cce4f001f1c92ca91834a940736f636adf aniketsharma00411 <aniketsharma00411@gmail.com> 1582837095 +0530	pull: Fast-forward
+791c62cce4f001f1c92ca91834a940736f636adf c8f23a8c7c03d76709060e4f6a84067665cd850c aniketsharma00411 <aniketsharma00411@gmail.com> 1584955859 +0530	pull: Fast-forward
+c8f23a8c7c03d76709060e4f6a84067665cd850c ae32a37a76cf666a08462ac319e3fe0841ce8f83 aniketsharma00411 <aniketsharma00411@gmail.com> 1584979574 +0530	commit: Template for Student Portal
+ae32a37a76cf666a08462ac319e3fe0841ce8f83 6eefb8ca23a7be0a3b3fc0c5c0ecf6864d3f931b aniketsharma00411 <aniketsharma00411@gmail.com> 1584979714 +0530	commit: Modules to include
+6eefb8ca23a7be0a3b3fc0c5c0ecf6864d3f931b 947119afb3210ca5b753f23e0606e5b6af26f0a7 aniketsharma00411 <aniketsharma00411@gmail.com> 1584980233 +0530	commit: Removed previous Student Portal
+947119afb3210ca5b753f23e0606e5b6af26f0a7 830ad3a8bccf17f48ca91428172e41c25b55d820 aniketsharma00411 <aniketsharma00411@gmail.com> 1586125790 +0530	commit: Added routes to home and student portal
+830ad3a8bccf17f48ca91428172e41c25b55d820 830ad3a8bccf17f48ca91428172e41c25b55d820 aniketsharma00411 <aniketsharma00411@gmail.com> 1586275765 +0530	checkout: moving from master to garbage
+830ad3a8bccf17f48ca91428172e41c25b55d820 830ad3a8bccf17f48ca91428172e41c25b55d820 aniketsharma00411 <aniketsharma00411@gmail.com> 1586275849 +0530	checkout: moving from garbage to master
+830ad3a8bccf17f48ca91428172e41c25b55d820 ec67a80030eebbd98c19168e91319404a8b03eeb aniketsharma00411 <aniketsharma00411@gmail.com> 1586275913 +0530	commit: Removed some garbage
+ec67a80030eebbd98c19168e91319404a8b03eeb 7cdf7e47b4ac5f3009d3a190e2d4d4b2aea0cc4f aniketsharma00411 <aniketsharma00411@gmail.com> 1587290119 +0530	checkout: moving from master to aniket
+7cdf7e47b4ac5f3009d3a190e2d4d4b2aea0cc4f ec67a80030eebbd98c19168e91319404a8b03eeb aniketsharma00411 <aniketsharma00411@gmail.com> 1587290160 +0530	checkout: moving from aniket to master
+ec67a80030eebbd98c19168e91319404a8b03eeb b538687b7850688a705905387b8af2a30ab2c1b5 aniketsharma00411 <aniketsharma00411@gmail.com> 1587290171 +0530	pull: Fast-forward
+b538687b7850688a705905387b8af2a30ab2c1b5 7cdf7e47b4ac5f3009d3a190e2d4d4b2aea0cc4f aniketsharma00411 <aniketsharma00411@gmail.com> 1587290231 +0530	checkout: moving from master to aniket
+7cdf7e47b4ac5f3009d3a190e2d4d4b2aea0cc4f b538687b7850688a705905387b8af2a30ab2c1b5 aniketsharma00411 <aniketsharma00411@gmail.com> 1587290301 +0530	checkout: moving from aniket to master
+b538687b7850688a705905387b8af2a30ab2c1b5 7cdf7e47b4ac5f3009d3a190e2d4d4b2aea0cc4f aniketsharma00411 <aniketsharma00411@gmail.com> 1587290342 +0530	checkout: moving from master to aniket
+7cdf7e47b4ac5f3009d3a190e2d4d4b2aea0cc4f c79f50cd7c4c4d123c8d6cb154de16c54feacd40 aniketsharma00411 <aniketsharma00411@gmail.com> 1587290424 +0530	merge origin/master: Merge made by the 'recursive' strategy.
+c79f50cd7c4c4d123c8d6cb154de16c54feacd40 b538687b7850688a705905387b8af2a30ab2c1b5 aniketsharma00411 <aniketsharma00411@gmail.com> 1587290472 +0530	checkout: moving from aniket to master
+b538687b7850688a705905387b8af2a30ab2c1b5 c79f50cd7c4c4d123c8d6cb154de16c54feacd40 aniketsharma00411 <aniketsharma00411@gmail.com> 1587290479 +0530	checkout: moving from master to aniket
+c79f50cd7c4c4d123c8d6cb154de16c54feacd40 b538687b7850688a705905387b8af2a30ab2c1b5 aniketsharma00411 <aniketsharma00411@gmail.com> 1587290487 +0530	checkout: moving from aniket to master
+b538687b7850688a705905387b8af2a30ab2c1b5 c79f50cd7c4c4d123c8d6cb154de16c54feacd40 aniketsharma00411 <aniketsharma00411@gmail.com> 1587290496 +0530	checkout: moving from master to aniket
+c79f50cd7c4c4d123c8d6cb154de16c54feacd40 8c21372c1152a2e4fab581d32e20cf514b3ac6bf aniketsharma00411 <aniketsharma00411@gmail.com> 1587290707 +0530	commit: Deleted extra files not in master
+8c21372c1152a2e4fab581d32e20cf514b3ac6bf bdd8ac7cb1fe35ac725a48b0ed275d2b82b63636 aniketsharma00411 <aniketsharma00411@gmail.com> 1587290960 +0530	commit: Added database info
+bdd8ac7cb1fe35ac725a48b0ed275d2b82b63636 7827ec71d1dd3f115f908d1aa253095e89e0243b aniketsharma00411 <aniketsharma00411@gmail.com> 1587291065 +0530	commit: Deleted test connection file
+7827ec71d1dd3f115f908d1aa253095e89e0243b 7b016d665e567e6bf4c216e29c6a476db331e066 aniketsharma00411 <aniketsharma00411@gmail.com> 1587291130 +0530	commit: Deleted empty extra files
+7b016d665e567e6bf4c216e29c6a476db331e066 24656def0d9aeaefee247af62968c8ef201e5857 aniketsharma00411 <aniketsharma00411@gmail.com> 1587291629 +0530	commit: Removed and relocated some files
+24656def0d9aeaefee247af62968c8ef201e5857 1037e8ec89a845f1ba4a8a7d37f7fe41a9c7e3a3 aniketsharma00411 <aniketsharma00411@gmail.com> 1587292293 +0530	commit: Changed css location
+1037e8ec89a845f1ba4a8a7d37f7fe41a9c7e3a3 b538687b7850688a705905387b8af2a30ab2c1b5 aniketsharma00411 <aniketsharma00411@gmail.com> 1587293094 +0530	checkout: moving from aniket to master
+b538687b7850688a705905387b8af2a30ab2c1b5 787458cc46533f628ec9491bdc7cd9090034a24b aniketsharma00411 <aniketsharma00411@gmail.com> 1587293104 +0530	pull: Fast-forward
+787458cc46533f628ec9491bdc7cd9090034a24b 1037e8ec89a845f1ba4a8a7d37f7fe41a9c7e3a3 aniketsharma00411 <aniketsharma00411@gmail.com> 1587293138 +0530	checkout: moving from master to aniket
+1037e8ec89a845f1ba4a8a7d37f7fe41a9c7e3a3 787458cc46533f628ec9491bdc7cd9090034a24b aniketsharma00411 <aniketsharma00411@gmail.com> 1587293148 +0530	merge origin/master: Fast-forward
+787458cc46533f628ec9491bdc7cd9090034a24b 43cadf45766c04ae2f2f8ae779188653aea45cf1 aniketsharma00411 <aniketsharma00411@gmail.com> 1587293871 +0530	commit: Removed an error
+43cadf45766c04ae2f2f8ae779188653aea45cf1 c6589f313447671ed2a470db4a7d0f5e9814f140 aniketsharma00411 <aniketsharma00411@gmail.com> 1587293931 +0530	commit: Removed an error
+c6589f313447671ed2a470db4a7d0f5e9814f140 fc286d13372e4161030dbc996c4f68f87289d97c aniketsharma00411 <aniketsharma00411@gmail.com> 1587293951 +0530	checkout: moving from aniket to ashok
+fc286d13372e4161030dbc996c4f68f87289d97c c6589f313447671ed2a470db4a7d0f5e9814f140 aniketsharma00411 <aniketsharma00411@gmail.com> 1587294043 +0530	checkout: moving from ashok to aniket
+c6589f313447671ed2a470db4a7d0f5e9814f140 4e0b61f00d6ef43dc80e956ebb574c4e8035ad1b aniketsharma00411 <aniketsharma00411@gmail.com> 1587294186 +0530	commit: Removed an error
+4e0b61f00d6ef43dc80e956ebb574c4e8035ad1b 787458cc46533f628ec9491bdc7cd9090034a24b aniketsharma00411 <aniketsharma00411@gmail.com> 1587295065 +0530	checkout: moving from aniket to master
+787458cc46533f628ec9491bdc7cd9090034a24b 3b349605ffd50b21e4df757c736864d01819f996 aniketsharma00411 <aniketsharma00411@gmail.com> 1587295102 +0530	pull: Fast-forward
+3b349605ffd50b21e4df757c736864d01819f996 4e0b61f00d6ef43dc80e956ebb574c4e8035ad1b aniketsharma00411 <aniketsharma00411@gmail.com> 1587295350 +0530	checkout: moving from master to aniket
+4e0b61f00d6ef43dc80e956ebb574c4e8035ad1b ffb5c8043fd1f5a920450f0afa6baa807781eb4d aniketsharma00411 <aniketsharma00411@gmail.com> 1587295536 +0530	commit: I don't know man what I am doing
+ffb5c8043fd1f5a920450f0afa6baa807781eb4d 3b349605ffd50b21e4df757c736864d01819f996 aniketsharma00411 <aniketsharma00411@gmail.com> 1587295552 +0530	checkout: moving from aniket to master
+3b349605ffd50b21e4df757c736864d01819f996 ffb5c8043fd1f5a920450f0afa6baa807781eb4d aniketsharma00411 <aniketsharma00411@gmail.com> 1587295601 +0530	checkout: moving from master to aniket
