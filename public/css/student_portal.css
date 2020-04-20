@@ -4,7 +4,7 @@ html {
 }
 
 body {
-  padding: 50px;
+  padding: 40px;
   background-color: black;
 }
 
@@ -21,9 +21,9 @@ body {
   background-color: #909090;
   display: flex;
   border-radius: 1em;
-  height: calc(100% - 20px);
+  height: calc(100% - 3em);
   width: 60px;
-  padding: 10px 0px;
+  padding: 1.5em 0px;
   flex-direction: column;
   justify-content: space-between;
   margin-right: 20px;
@@ -52,8 +52,19 @@ body {
   /* background-color: black; */
 }
 
+.SelectedPortion::before {
+  position: absolute;
+  content: "";
+  right: 0;
+  top: -1em;
+  height: 1em;
+  width: 1em;
+  background-color: #202020;
+}
+
 .SelectedPortion {
   position: absolute;
+  display: none;
   height: calc(100% - 1em);
   width: 90%;
   align-self: flex-end;
@@ -61,6 +72,46 @@ body {
   border-top-left-radius: 1em;
   border-bottom-left-radius: 1em;
   /* z-index: calc(inherit + 2); */
+}
+
+.SelectedPortion::after {
+  position: absolute;
+  content: "";
+  height: 1em;
+  width: 1em;
+  right: 0;
+  bottom: -1em;
+  background-color: #202020;
+}
+
+.SelectedPortion div::before {
+  position: absolute;
+  content: "";
+  height: 1em;
+  width: 1em;
+  border-bottom-right-radius: 1em;
+  top: -1em;
+  right: 0;
+  background-color: #909090;
+}
+
+.SelectedPortion div {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  /* background-color: green; */
+}
+
+.SelectedPortion div::after {
+  position: absolute;
+  content: "";
+  height: 1em;
+  width: 1em;
+  border-top-right-radius: 1em;
+  bottom: -1em;
+  right: 0;
+  z-index: 2;
+  background-color: #909090;
 }
 
 .IconWrap {
@@ -123,6 +174,7 @@ i:hover {
   display: flex;
   flex-direction: column;
   border-radius: 1em;
+  padding: 10px 0px;
   background-color: wheat;
   margin-bottom: 20px;
   width: 100%;
