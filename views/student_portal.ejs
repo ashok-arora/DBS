@@ -1,45 +1,51 @@
-<header>
-  <img src="#" alt="Logo" class="logo" />
-  <nav class="navigation">
-    <ul>
-      <li class="nav-list">
-        <a href="#" class="nav-link">FACULTY </a>
-      </li>
-      <li class="nav-list">
-        <a href="#" class="nav-link">UPCOMING EVENTS </a>
-      </li>
-      <li class="nav-list">
-        <a href="#" class="nav-link">CALENDAR </a>
-      </li>
-      <li class="nav-list">
-        <a href="#" class="nav-link">ATTENDANCE </a>
-      </li>
-      <li class="nav-list">
-        <a href="#" class="nav-link">GRADES </a>
-      </li>
-      <li class="nav-list">
-        <a href="#" class="nav-link">ACADEMIC CALENDAR </a>
-      </li>
-      <li class="nav-list">
-        <a href="#" class="nav-link">DATESHEET </a>
-      </li>
-      <li class="nav-list">
-        <a href="#" class="nav-link">FEEDBACK FORM </a>
-      </li>
-    </ul>
-  </nav>
-</header>
-<main>
-  <div class="student-info">
-    <img
-      src="./student_portal/assets/profile photo.jpeg"
-      alt="Student's image"
-      class="student-image"
-    />
-    <div class="name">
-      <p><%=name%></p>
-      <p><%=roll%></p>
-      <p>Semester-<%=sem%></p>
+<html>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="css/student_portal.css">
+<% var icons=["home", "school", "people_alt", "date_range", "exit_to_app"]; %>
+<body>
+  <div class="MainBody">
+    <div class="SideNavigationBar">
+      <div class="ImageWrap">
+        <img src="IIIT_logo_dark.png" height="50px">
+        </img>
+      </div>
+      <div class="SubSideNavigationBar">
+        <% for(var i = 0; i < icons.length; i++) {%>
+          <div class="CompleteOptionWrap">
+          <div id="sideBarIcon[<%= i %>]" class="SelectedPortion" style="display: none;">
+              <div></div>
+            </div>
+            <div class="IconWrap">
+              <i class="material-icons SideBarIcon" onclick=<%= "changeSelection(" + i + ")"%>><%= icons[i] %></i>
+            </div>
+          </div>
+        <%}%>
+      </div>
+    </div>
+    <div class="RightBodyDiv">
+      <div class="Header">
+        <div class="SearchBar">
+          <div style="align-self: center;">
+            <i class="material-icons" style="color: white;">search</i>
+          </div>
+        </div>
+        <div style="display: flex;">
+          <div class="HeaderIconDiv"><i class="material-icons">settings</i></div>
+          <div class="HeaderIconDiv"><i class="material-icons">notifications</i></div>
+          <div class="ProfilePicDiv">
+            <img src="profile_pic.png" height="100%">
+          </div>
+          <div class="HeaderIconDiv" style="margin: 0px"><i class="material-icons">keyboard_arrow_down</i></div>
+        </div>
+      </div>
+    <% for(var i = 0; i < icons.length; i++) {%>
+      <div id="belowHeaderBody[<%= i %>]" style="display: none; width: 100%">
+        <%- include("student_portal_pages/page[" + i + "]"); -%>
+      </div>
+    <% } %>
     </div>
   </div>
-</main>
+  <script src="/js/student_portal.js"></script>
+</body>
+
+</html>

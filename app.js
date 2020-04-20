@@ -27,9 +27,13 @@ app.use("/", require("./routes/index.js"));
 
 app.use("/users", require("./routes/users.js"));
 
-app.get("*", (req, res) => {
-  res.redirect("/");
-});
+// app.get("*", (req, res) => {
+//   res.redirect("/");
+// });
+
+app.get("/student_portal", function (req, res) {
+  res.render("student_portal");
+})
 
 const PORT = process.env.PORT || 5000;
 
