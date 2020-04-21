@@ -17,13 +17,15 @@ router.get("/faculty_login", (request, response) => {
   else response.redirect("/users/faculty_portal");
 });
 
-router.get("/student_portal", (request, response) => {
-  response.render("student_portal", {
-    name: "abc",
-    roll: "2019BCS-XXX",
-    sem: "I",
-  });
-});
+// Main student portal which will open after login
+
+// router.get("/student_portal", (request, response) => {
+//   response.render("student_portal", {
+//     name: "abc",
+//     roll: "2019BCS-XXX",
+//     sem: "I",
+//   });
+// });
 
 app.post("/student_login", function (request, response) {
   let(username, password) = request.body;
