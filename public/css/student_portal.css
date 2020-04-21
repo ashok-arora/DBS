@@ -138,12 +138,15 @@ body {
 }
 
 .Header {
+  position: sticky;
+  top: 0;
   display: flex;
   width: calc(100% - 20px);
-  height: 40px;
-  padding: 0px 10px;
+  min-height: 40px;
+  padding: 5px 10px;
   margin-bottom: 30px;
   justify-content: space-between;
+  background-color: #202020;
 }
 
 .SearchBar {
