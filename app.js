@@ -15,21 +15,6 @@ app.use(
   })
 );
 
-const connection = mysql.createConnection({
-  host: "localhost",
-
-  user: "root",
-
-  password: "aniket1234",
-
-  database: "image",
-});
-connection.connect((err) => {
-  if (err) console.log(err);
-
-  console.log("Database Connected!");
-});
-
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, __dirname + "/uploads"); //you tell where to upload the files,
