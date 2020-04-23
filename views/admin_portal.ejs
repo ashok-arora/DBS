@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Portal</title>
+  </head>
+  <body>
+    <!-- <a href="/admin/student_edit"> -->
+    <button onclick="student_edit()" id="student">Students</button>
+    <!-- </a> -->
+    <!-- <a href="/admin/faculty_edit"> -->
+    <button onclick="faculty_edit()" id="faculty">Faculty</button>
+    <!-- </a> -->
+    <!-- <a href="/admin/admin_edit"> -->
+    <button onclick="admin_edit()" id="admin">Admin</button>
+    <!-- </a> -->
+    <form
+      action="./student_edit"
+      method="POST"
+      id="student_form"
+      style="display: none;"
+    >
+      <label for="roll_no">
+        <input type="text" placeholder="20XXYYYZZZ" name="roll_no" required />
+      </label>
+      <button type="submit">SUBMIT</button>
+    </form>
+    <form
+      action="./student_edit"
+      method="POST"
+      id="faculty_form"
+      style="display: none;"
+    >
+      <label for="roll_no">
+        <input type="text" placeholder="20XXYYYZZZ" name="roll_no" required />
+      </label>
+      <button type="submit">SUBMIT</button>
+    </form>
+    <form
+      action="./student_edit"
+      method="POST"
+      id="admin_form"
+      style="display: none;"
+    >
+      <label for="roll_no">
+        <input type="text" placeholder="20XXYYYZZZ" name="roll_no" required />
+      </label>
+      <button type="submit">SUBMIT</button>
+    </form>
+    <script>
+      function student_edit() {
+        document.getElementById("student_form").style.display = "block";
+        document.getElementById("faculty").style.display = "none";
+        document.getElementById("admin").style.display = "none";
+      }
+
+      function faculty_edit() {
+        document.getElementById("faculty_form").style.display = "block";
+        document.getElementById("student").style.display = "none";
+        document.getElementById("admin").style.display = "none";
+      }
+
+      function admin_edit() {
+        document.getElementById("admin_form").style.display = "block";
+        document.getElementById("faculty").style.display = "none";
+        document.getElementById("student").style.display = "none";
+      }
+    </script>
+  </body>
+</html>
