@@ -6,7 +6,7 @@ html {
 body {
   height: calc(100% - 50px);
   width: calc(100% - 10px);
-  background-color: black;
+  background-color: #202020;
 }
 
 .MainBody {
