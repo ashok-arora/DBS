@@ -4,19 +4,22 @@ html {
 }
 
 body {
-  height: calc(100% - 50px);
+  height: calc(100% - 90px);
   width: calc(100% - 10px);
-  background-color: #202020;
+  background-color: #121212;
 }
 
 .MainBody {
-  background-color: #202020;
+  background-color: #121212;
   display: flex;
   min-height: calc(100% - 90px);
   width: calc(100% - 110px);
   padding: 10px 20px;
   border-radius: 1em;
-  margin: 35px;
+  margin-left: 35px;
+  margin-right: 35px;
+  margin-top: 55px;
+  margin-bottom: 0px;
 }
 
 .SideNavigationBar {
@@ -67,7 +70,7 @@ body {
   top: -1em;
   height: 1em;
   width: 1em;
-  background-color: #202020;
+  background-color: #121212;
 }
 
 .SelectedPortion {
@@ -76,7 +79,7 @@ body {
   height: calc(100% - 1em);
   width: 90%;
   align-self: flex-end;
-  background-color: #202020;
+  background-color: #121212;
   border-top-left-radius: 1em;
   border-bottom-left-radius: 1em;
   /* z-index: calc(inherit + 2); */
@@ -89,7 +92,7 @@ body {
   width: 1em;
   right: 0;
   bottom: -1em;
-  background-color: #202020;
+  background-color: #121212;
 }
 
 .SelectedPortion div::before {
@@ -144,15 +147,20 @@ body {
 }
 
 .Header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
   display: flex;
-  width: calc(100% - 20px);
+  width: calc(100% - 185px);
   min-height: 40px;
-  padding: 5px 10px;
+  margin-left: 140px;
+  margin-right: 35px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   margin-bottom: 30px;
+  align-self: center;
   justify-content: space-between;
-  background-color: #202020;
+  background-color: #121212;
 }
 
 .SearchBar {
