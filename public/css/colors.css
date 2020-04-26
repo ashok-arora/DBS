@@ -1,0 +1,12 @@
+:root{
+    --background: #121212;
+    --sidebar: #212b37;
+    --inactive: #212b37;
+    --active: #263745 ;
+    --search: #212b37;
+    --text: #ffffff;
+
+    --primary: #f694d2;
+    --primary2: #f694a1;
+    --secondary: #94f6b8;
+}
