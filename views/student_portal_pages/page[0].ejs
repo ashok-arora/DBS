@@ -17,7 +17,7 @@
     padding: 0px 10px;
     border-radius: 1em;
     justify-content: space-between;
-    background-color: lightcyan;
+    background-color: var(--primary);
     margin-bottom: 20px;
   }
 
@@ -27,7 +27,7 @@
     display: flex;
     width: calc(100% - 40px);
     flex-direction: column;
-    background-color: lightgreen;
+    background-color: var(--primary);
     padding: 10px;
     height: calc(100% - 20px);
   }
@@ -35,7 +35,7 @@
 <div style="display: flex; width: 100%; justify-content: space-between;">
   <div class="LeftContainer">
     <div>
-      <h1 style="color: blue;">
+      <h1 style="color: var(--secondary);">
         Hello, <%=f_name%>!<br />
         Welcome Back!
       </h1>
@@ -43,7 +43,7 @@
     </div>
     <div
       style="
-        background-color: lightpink;
+        background-color: var(--primary);
         padding: 0px 30px;
         height: 100px;
         width: calc(100% - 60px);
@@ -55,27 +55,27 @@
         style="color: white; align-self: center; font-size: 60px;"
         >done_all</i
       >
-      <h2 style="margin-left: 50px; color: red;">
+      <h2 style="margin-left: 50px; color: var(--secondary);">
         No assignments <br />
         due for today!
       </h2>
     </div>
     <div
       style="
-        background-color: sandybrown;
+        background-color: var(--primary);
         flex-direction: column;
         height: 200px;
         margin-bottom: 0px;
       "
     >
-      <h2 style="align-self: center;">
+      <h2 style="align-self: center; color: var(--secondary)">
         College News
       </h2>
     </div>
   </div>
   <div class="RightContainer">
     <div>
-      <h2 style="align-self: center;">
+      <h2 style="align-self: center; color: var(--secondary)">
         Upcoming Events!
       </h2>
     </div>
