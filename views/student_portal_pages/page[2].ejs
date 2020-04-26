@@ -7,9 +7,9 @@
     .GridHeading {
         width: calc(100% - 60px);
         margin: 10px;
-        padding: 0px 20px;
+        padding: 20px 20px;
         border-radius: 1.5em;
-        background-color: rosybrown;
+        background-color: var(--primary2);
         text-align: center;
     }
 
@@ -23,14 +23,14 @@
         height: 100px;
         width: 100px;
         border-radius: 1em;
-        background-color: lightsalmon;
+        background-color: var(--primary);
         margin: 10px;
     }
 </style>
 <div style="display: flex; justify-content: space-between; width: 100%; padding: 10px 0px;">
     <div class="GridContainerWrapper">
         <div class="GridHeading">
-            <h2>Administration</h2>
+            <h3>Administration</h3>
         </div>
         <div class="GridContainer">
             <% for(var i = 0; i < 12; i++) {%>
@@ -40,7 +40,7 @@
     </div>
     <div class="GridContainerWrapper">
         <div class="GridHeading">
-            <h2>Faculty</h2>
+            <h3>Faculty</h3>
         </div>
         <div class="GridContainer">
             <% for(var i = 0; i < 12; i++) {%>

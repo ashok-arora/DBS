@@ -1,42 +1,45 @@
 <html>
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="css/colors.css">
 <link rel="stylesheet" href="css/student_portal.css">
 <% var icons=["home", "school", "people_alt", "date_range", "exit_to_app"]; %>
 <body>
-  <div class="MainBody">
-    <div class="SideNavigationBar">
-      <div class="ImageWrap">
-        <img src="assets/IIIT_logo_dark.png" height="50px">
-        </img>
-      </div>
-      <div class="SubSideNavigationBar">
-        <% for(var i = 0; i < icons.length; i++) {%>
-          <div class="CompleteOptionWrap">
-          <div id="sideBarIcon[<%= i %>]" class="SelectedPortion" style="display: none;">
-              <div></div>
-            </div>
-            <div class="IconWrap">
-              <i class="material-icons SideBarIcon" onclick=<%= "changeSelection(" + i + ")"%>><%= icons[i] %></i>
-            </div>
-          </div>
-        <%}%>
-      </div>
+  <div class="SideNavigationBar">
+    <div class="ImageWrap">
+      <img src="assets/IIIT_logo_dark.png" height="50px">
+      </img>
     </div>
-    <div class="RightBodyDiv">
-      <div class="Header">
-        <div class="SearchBar">
-          <div style="align-self: center;">
-            <i class="material-icons" style="color: white;">search</i>
+    <div class="SubSideNavigationBar">
+      <% for(var i = 0; i < icons.length; i++) {%>
+        <div class="CompleteOptionWrap">
+        <div id="sideBarIcon[<%= i %>]" class="SelectedPortion" style="display: none;">
+            <div></div>
+          </div>
+          <div class="IconWrap">
+            <i class="material-icons SideBarIcon" onclick=<%= "changeSelection(" + i + ")"%>><%= icons[i] %></i>
           </div>
         </div>
-        <div style="display: flex;">
-          <div class="HeaderIconDiv"><i class="material-icons">settings</i></div>
-          <div class="HeaderIconDiv"><i class="material-icons">notifications</i></div>
-          <!-- Profile pic is here -->
-          <div class="ProfilePicDiv">
-            <img src="assets/profile_pic.png" height="100%">
+      <%}%>
+    </div>
+  </div>
+  <div class="MainBody">
+    <div class="RightBodyDiv">
+      <div class="HeaderWrap">
+        <div class="Header">
+          <div class="SearchBar">
+            <div style="align-self: center;">
+              <i class="material-icons" style="color: white;">search</i>
+            </div>
           </div>
-          <div class="HeaderIconDiv" style="margin: 0px"><i class="material-icons">keyboard_arrow_down</i></div>
+          <div style="display: flex;">
+            <div class="HeaderIconDiv"><i class="material-icons">settings</i></div>
+            <div class="HeaderIconDiv"><i class="material-icons">notifications</i></div>
+            <!-- Profile pic is here -->
+            <div class="ProfilePicDiv">
+              <img src="assets/profile_pic.png" height="100%">
+            </div>
+            <div class="HeaderIconDiv" style="margin: 0px"><i class="material-icons">keyboard_arrow_down</i></div>
+          </div>
         </div>
       </div>
     <% for(var i = 0; i < icons.length; i++) {%>
