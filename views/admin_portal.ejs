@@ -6,45 +6,69 @@
     <title>Admin Portal</title>
   </head>
   <body>
-    <!-- <a href="/admin/student_edit"> -->
     <button onclick="student_edit()" id="student">Students</button>
-    <!-- </a> -->
-    <!-- <a href="/admin/faculty_edit"> -->
     <button onclick="faculty_edit()" id="faculty">Faculty</button>
-    <!-- </a> -->
-    <!-- <a href="/admin/admin_edit"> -->
     <button onclick="admin_edit()" id="admin">Admin</button>
-    <!-- </a> -->
+
+    <!-- Student -->
     <form
-      action="./student_edit"
+      action="./admin_portal"
       method="POST"
       id="student_form"
       style="display: none;"
     >
-      <label for="roll_no">
-        <input type="text" placeholder="20XXYYYZZZ" name="roll_no" required />
+      <label for="category">
+        <input
+          type="text"
+          value="student"
+          name="category"
+          style="display: none;"
+        />
+      </label>
+      <label for="id">
+        <input type="text" placeholder="20XXYYYZZZ" name="id" required />
       </label>
       <button type="submit">SUBMIT</button>
     </form>
+
+    <!-- Faculty -->
     <form
-      action="./student_edit"
+      action="./admin_portal"
       method="POST"
       id="faculty_form"
       style="display: none;"
     >
-      <label for="roll_no">
-        <input type="text" placeholder="20XXYYYZZZ" name="roll_no" required />
+      <label for="category">
+        <input
+          type="text"
+          value="faculty"
+          name="category"
+          style="display: none;"
+        />
+      </label>
+      <label for="id">
+        <input type="text" placeholder="20XXYYYZZZ" name="id" required />
       </label>
       <button type="submit">SUBMIT</button>
     </form>
+
+    <!-- Admin -->
     <form
-      action="./student_edit"
+      action="./admin_portal"
       method="POST"
       id="admin_form"
       style="display: none;"
     >
-      <label for="roll_no">
-        <input type="text" placeholder="20XXYYYZZZ" name="roll_no" required />
+      <label for="category">
+        <input
+          type="text"
+          value="admin"
+          name="category"
+          style="display: none;"
+        />
+      </label>
+      <label for="id">
+        <input type="text" placeholder="20XXYYYZZZ" name="id" required />
       </label>
       <button type="submit">SUBMIT</button>
     </form>
