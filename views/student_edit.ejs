@@ -80,6 +80,20 @@
       <button type="submit">SUBMIT</button>
     </form>
 
+    <!-- Phone & E-mail -->
+    <form action="./student_edit" method="POST">
+      <label for="category">
+        <input type="text" value="phone" name="category" style="display: none;" />
+      </label>
+      <label for="phone">
+        <input type="text" value="<%=phone%>" name="phone" required />
+      </label>
+      <label for="email">
+        <input type="text" value="<%=email%>" name="email" required />
+      </label>
+      <button type="submit">SUBMIT</button>
+    </form>
+
     <!-- CGPA & Semester -->
     <form action="./student_edit" method="POST">
       <label for="category">
@@ -177,5 +191,21 @@
       <% } %>
       <button type="submit">SUBMIT</button>
     </form>
+
+    <!-- Photo -->
+    <!-- <form action="./student_edit" method="POST">
+      <label for="category">
+        <input
+          type="text"
+          value="photo"
+          name="category"
+          style="display: none;"
+        />
+      </label>
+      <label for="gender">
+        <input type="text" value="<%=gender%>" name="gender" required />
+      </label>
+      <button type="submit">SUBMIT</button>
+    </form> -->
   </body>
 </html>
