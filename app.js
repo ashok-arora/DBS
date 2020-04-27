@@ -26,10 +26,18 @@ app.use(
 app.use("/", require("./routes/index.js"));
 
 app.use("/users", require("./routes/users.js"));
-
+/* 
 app.get("*", (req, res) => {
   res.redirect("/");
 });
+ */
+app.use(
+  function(req, res, next){
+    res.status(404);
+    app.use(express.static(path.join(__dirname + "../public/css")));
+    res.sendFile(path.join(__dirname + '/404.html'));
+  }
+);
 
 const PORT = process.env.PORT || 5000;
 
