@@ -210,7 +210,7 @@ router.post("/student_edit", (request, response) => {
           if (err) response.status(500).send(err);
           mySqlConnection.query(
             "SELECT * FROM student WHERE roll_no = ?",
-            [id],
+            [roll_no],
             (err, rows) => {
               if (err) response.status(500).send(err);
               edit = rows[0];
@@ -249,7 +249,7 @@ router.post("/student_edit", (request, response) => {
       }
       mySqlConnection.query(
         "SELECT * FROM student WHERE roll_no = ?",
-        [id],
+        [edit.roll_no],
         (err, rows) => {
           if (err) response.status(500).send(err);
           edit = rows[0];
@@ -272,7 +272,7 @@ router.post("/student_edit", (request, response) => {
           if (err) response.status(500).send(err);
           mySqlConnection.query(
             "SELECT * FROM student WHERE roll_no = ?",
-            [id],
+            [edit.roll_no],
             (err, rows) => {
               if (err) response.status(500).send(err);
               edit = rows[0];
@@ -298,7 +298,7 @@ router.post("/student_edit", (request, response) => {
           if (err) response.status(500).send(err);
           mySqlConnection.query(
             "SELECT * FROM student WHERE roll_no = ?",
-            [id],
+            [edit.roll_no],
             (err, rows) => {
               if (err) response.status(500).send(err);
               edit = rows[0];
@@ -324,7 +324,7 @@ router.post("/student_edit", (request, response) => {
           if (err) response.status(500).send(err);
           mySqlConnection.query(
             "SELECT * FROM student WHERE roll_no = ?",
-            [id],
+            [edit.roll_no],
             (err, rows) => {
               if (err) response.status(500).send(err);
               edit = rows[0];
@@ -350,7 +350,7 @@ router.post("/student_edit", (request, response) => {
           if (err) response.status(500).send(err);
           mySqlConnection.query(
             "SELECT * FROM student WHERE roll_no = ?",
-            [id],
+            [edit.roll_no],
             (err, rows) => {
               if (err) response.status(500).send(err);
               edit = rows[0];
@@ -376,7 +376,7 @@ router.post("/student_edit", (request, response) => {
           if (err) response.status(500).send(err);
           mySqlConnection.query(
             "SELECT * FROM student WHERE roll_no = ?",
-            [id],
+            [edit.roll_no],
             (err, rows) => {
               if (err) response.status(500).send(err);
               edit = rows[0];
@@ -440,7 +440,7 @@ router.post("/student_edit", (request, response) => {
       }
       mySqlConnection.query(
         "SELECT * FROM student WHERE roll_no = ?",
-        [id],
+        [edit.roll_no],
         (err, rows) => {
           if (err) response.status(500).send(err);
           edit = rows[0];
@@ -511,7 +511,7 @@ router.post("/faculty_edit", (request, response) => {
           if (err) response.status(500).send(err);
           mySqlConnection.query(
             "SELECT * FROM faculty WHERE faculty_id = ?",
-            [id],
+            [faculty_id],
             (err, rows) => {
               if (err) response.status(500).send(err);
               edit = rows[0];
@@ -550,7 +550,7 @@ router.post("/faculty_edit", (request, response) => {
       }
       mySqlConnection.query(
         "SELECT * FROM faculty WHERE faculty_id = ?",
-        [id],
+        [edit.faculty_id],
         (err, rows) => {
           if (err) response.status(500).send(err);
           edit = rows[0];
@@ -574,7 +574,7 @@ router.post("/faculty_edit", (request, response) => {
           if (err) response.status(500).send(err);
           mySqlConnection.query(
             "SELECT * FROM faculty WHERE faculty_id = ?",
-            [id],
+            [edit.faculty_id],
             (err, rows) => {
               if (err) response.status(500).send(err);
               edit = rows[0];
@@ -600,7 +600,7 @@ router.post("/faculty_edit", (request, response) => {
           if (err) response.status(500).send(err);
           mySqlConnection.query(
             "SELECT * FROM faculty WHERE faculty_id = ?",
-            [id],
+            [edit.faculty_id],
             (err, rows) => {
               if (err) response.status(500).send(err);
               edit = rows[0];
@@ -626,7 +626,7 @@ router.post("/faculty_edit", (request, response) => {
           if (err) response.status(500).send(err);
           mySqlConnection.query(
             "SELECT * FROM faculty WHERE faculty_id = ?",
-            [id],
+            [edit.faculty_id],
             (err, rows) => {
               if (err) response.status(500).send(err);
               edit = rows[0];
@@ -652,7 +652,7 @@ router.post("/faculty_edit", (request, response) => {
           if (err) response.status(500).send(err);
           mySqlConnection.query(
             "SELECT * FROM faculty WHERE faculty_id = ?",
-            [id],
+            [edit.faculty_id],
             (err, rows) => {
               if (err) response.status(500).send(err);
               edit = rows[0];
@@ -678,7 +678,7 @@ router.post("/faculty_edit", (request, response) => {
           if (err) response.status(500).send(err);
           mySqlConnection.query(
             "SELECT * FROM faculty WHERE faculty_id = ?",
-            [id],
+            [edit.faculty_id],
             (err, rows) => {
               if (err) response.status(500).send(err);
               edit = rows[0];
@@ -733,7 +733,7 @@ router.post("/admin_edit", (request, response) => {
           if (err) response.status(500).send(err);
           mySqlConnection.query(
             "SELECT * FROM admin WHERE admin_id = ?",
-            [id],
+            [admin_id],
             (err, rows) => {
               if (err) response.status(500).send(err);
               edit = rows[0];
@@ -772,7 +772,7 @@ router.post("/admin_edit", (request, response) => {
       }
       mySqlConnection.query(
         "SELECT * FROM admin WHERE admin_id = ?",
-        [id],
+        [edit.admin_id],
         (err, rows) => {
           if (err) response.status(500).send(err);
           edit = rows[0];
@@ -796,7 +796,7 @@ router.post("/admin_edit", (request, response) => {
           if (err) response.status(500).send(err);
           mySqlConnection.query(
             "SELECT * FROM admin WHERE admin_id = ?",
-            [id],
+            [edit.admin_id],
             (err, rows) => {
               if (err) response.status(500).send(err);
               edit = rows[0];
@@ -874,7 +874,7 @@ router.post("/club_edit", (request, response) => {
           if (err) response.status(500).send(err);
           mySqlConnection.query(
             "SELECT * FROM club WHERE club_id = ?",
-            [id],
+            [club_id],
             (err, rows) => {
               if (err) response.status(500).send(err);
               edit = rows[0];
@@ -899,7 +899,7 @@ router.post("/club_edit", (request, response) => {
           if (err) response.status(500).send(err);
           mySqlConnection.query(
             "SELECT * FROM club WHERE club_id = ?",
-            [id],
+            [edit.club_id],
             (err, rows) => {
               if (err) response.status(500).send(err);
               edit = rows[0];
@@ -931,7 +931,7 @@ router.post("/club_edit", (request, response) => {
               if (err) response.status(500).send(err);
               mySqlConnection.query(
                 "SELECT * FROM club WHERE club_id = ?",
-                [id],
+                [edit.club_id],
                 (err, rows) => {
                   if (err) response.status(500).send(err);
                   edit = rows[0];
@@ -958,7 +958,7 @@ router.post("/club_edit", (request, response) => {
           if (err) response.status(500).send(err);
           mySqlConnection.query(
             "SELECT * FROM club WHERE club_id = ?",
-            [id],
+            [edit.club_id],
             (err, rows) => {
               if (err) response.status(500).send(err);
               edit = rows[0];
@@ -1022,7 +1022,7 @@ router.post("/club_edit", (request, response) => {
       }
       mySqlConnection.query(
         "SELECT * FROM club WHERE club_id = ?",
-        [id],
+        [edit.club_id],
         (err, rows) => {
           if (err) response.status(500).send(err);
           edit = rows[0];
