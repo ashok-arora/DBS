@@ -1,0 +1,7 @@
+faculty_id (p),f_name,m_name,l_name,password,gender,dob,room,phone,email,post,branch_id,photo
+VA,Vishnu,,Agarwal,$2b$10$ClCW7t1cm1CuFi3k2qcL/OkkIWwelVIpN9NW8cks0QTizOaiJfGee,m,1980-08-15,201,9887543210,va@iiitm.ac.in,Professor,BCS,https://i.ibb.co/RStWntb/pic.jpg
+JD,Joydip,,Dhar,$2b$10$W0jScue8T1LVBPc/kFWxAOvLEpUltWgXHFxTPk8KHWyKX/FgLE2oq,m,1980-08-15,202,9887543211,jd@iiitm.ac.in,Professor,BCS,https://i.ibb.co/RStWntb/pic.jpg
+NK,Nitesh,,Kumar,$2b$10$PJ88WrQeQxujwPHJBNwVouZ.8HCKD0bG9o0.w4pPET39TWh2V8zT2,m,1980-08-15,210,9876543219,nk@iiitm.ac.in,Professor,IMT,https://i.ibb.co/RStWntb/pic.jpg
+AS,Ajay,,Singh,$2b$10$aCqIv43rpI2ZdX8zp.4fN.V8FxML/Y/RFaMsr5UiXVfbEev0y1xUy,m,1980-08-15,203,9887543212,as@iitm.ac.in,Professor Assistant,IMT,https://i.ibb.co/RStWntb/pic.jpg
+OW,Onur,,Waren,$2b$10$gXruarc1Z.jL1qV2Jba3qexInF1kCMxwcMb0s95N7nBq/KMH36weu,m,1980-08-15,204,9887543213,ow@iitm.ac.in,Projessor Assistant,IMG,https://i.ibb.co/RStWntb/pic.jpg
+RS,Roxy,,Spears,$2b$10$pxy6kQW0Oax9JanubEarauY86PZIAkBfDYJEW8W79hQgKyG7SEbli,f,1980-08-15,205,9887543214,rs@iiitm.ac.in,Professor,BCS,https://i.ibb.co/RStWntb/pic.jpg

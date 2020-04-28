@@ -1,0 +1,4 @@
+admin_id (p),f_name ,m_name,l_name,password,post,phone(c),email(c),photo
+1,Vishnu,,Agarwal,$2b$10$LIN6GZFBBgTgT0m86WSF9eTByODZggdKtjjwmxF5q2HB5GktCERbG,Project Manager,7060202011,bcs_2019072@iiitm.ac.in,https://i.ibb.co/RStWntb/pic.jpg
+2,Ashok,,Arora,$2b$10$BlV44xHR.8U6Sc9we/XSrOwLhHiU0W.GIW21I69fnQtpnxgpFZMqy,Software Engineer,9876543210,bcs_2019075@iiitm.ac.in,https://i.ibb.co/RStWntb/pic.jpg
+3,Aniket,,Sharma,$2b$10$KSbFgyyqrvmoQrAVBDafLeQksnvW3aXguhHUA.lmLYT9Hu5lM/zFW,Sleep,9876543120,bcs_2019008@iitm.ac.in,https://i.ibb.co/RStWntb/pic.jpg

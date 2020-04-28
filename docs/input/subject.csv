@@ -1,0 +1,5 @@
+subject_code (p),subject_name,proposer,taught_by,credits,l,t,p,room_no,faculty_attendance
+BCS1101,Mathematics,Vishnu,JD,4,3,1,0,8,10
+BCS1201,Data Structures,Vishnu,RS,3,2,0,1,10,10
+IMT1201,Digital Circuits,Ashok,AS,3,2,0,1,9,8
+IMG1301,Discrete Maths,Aniket,JD,3,2,1,0,7,10
