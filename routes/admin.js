@@ -7,6 +7,7 @@ let user, edit;
 let path = require("path");
 
 app.use(express.static(path.join(__dirname + "../public/css")));
+
 function callStudentEdit(id) {
   mySqlConnection.query(
     "SELECT * FROM student WHERE roll_no = ?",
@@ -58,6 +59,23 @@ function callAdminEdit(id) {
   );
 }
 
+function callClubEdit(id) {
+  mySqlConnection.query(
+    "SELECT * FROM club WHERE club_id = ?",
+    [id],
+    (err, rows) => {
+      if (err) response.status(500).send(err);
+      edit = rows[0];
+      if (edit) {
+        request.session.edit = edit;
+        response.redirect("/admin/club_edit");
+      } else {
+        response.status(400).send("Id does not exist.");
+      }
+    }
+  );
+}
+
 // Redirecting to Admin Login if no page detail provided in URL
 router.get("/", (request, response) => {
   response.redirect("/users/admin_login");
@@ -69,6 +87,32 @@ router.get("/admin_login", (request, response) => {
   if (!request.session.user)
     response.status(200).sendFile(path.join(__dirname + "/../admin.html"));
   else response.redirect("/users/admin_portal");
+});
+
+// Post request for Admin Login
+router.post("/admin_login", function (request, response) {
+  let(id, password) = request.body;
+  mySqlConnection.query(
+    "SELECT * FROM admin WHERE admin_id = ?",
+    [id],
+    (err, rows) => {
+      if (err) response.status(500).send(err);
+      user = rows[0];
+      if (user) {
+        const result = bcrypt.compareSync(password, user.password);
+        // Easy way to prevent extracting password form cookie, will try better solution later
+        password = bcrypt.hashSync(password, 10);
+        if (result) {
+          request.session.user = user;
+          response.redirect("/admin/admin_portal");
+        } else {
+          response.status(400).send("Password incorrect");
+        }
+      } else {
+        response.status(400).send("Enter correct id");
+      }
+    }
+  );
 });
 
 // Get request for Admin Portal
@@ -87,9 +131,27 @@ router.get("/admin_portal", (request, response) => {
   });
 });
 
+// Post request for Admin Portal
+router.post("/admin_portal", (request, response) => {
+  let(id, category) = request.body;
+  switch (category) {
+    case "student":
+      callStudentEdit(id);
+      break;
+    case "faculty":
+      callFacultyEdit(id);
+      break;
+    case "admin":
+      callAdminEdit(id);
+      break;
+    default:
+      response.render("/admin/admin_portal");
+  }
+});
+
 // Get request for editing student data
 router.get("/student_edit", (request, response) => {
-  //Backlogs
+  // Backlogs
   let backlogs = [];
   mySqlConnection.query(
     "SELECT * FROM backlogs WHERE roll_no = ?",
@@ -113,7 +175,7 @@ router.get("/student_edit", (request, response) => {
     (err, rows) => {
       if (err) response.status(500).send(err);
       if (rows) {
-        branch_id = rows[0];
+        branch_id = rows[0].branch_id;
       } else {
         branch_id = "Batch Code is wrong.";
       }
@@ -159,108 +221,6 @@ router.get("/student_edit", (request, response) => {
     backlogs: backlogs,
     // subjects: subjects,
   });
-});
-
-// Get request for editing faculty data
-router.get("/faculty_edit", (request, response) => {
-  // Subjects
-  let subjects = [];
-  mySqlConnection.query(
-    "SELECT * FROM subject WHERE taught_by = ?",
-    [edit.faculty_id],
-    (err, rows) => {
-      if (err) response.status(500).send(err);
-      if (rows) {
-        subjects = rows;
-        subjects.push("Add");
-      } else {
-        subjects = ["Add"];
-      }
-    }
-  );
-
-  // Middle Name
-  let m_name = "";
-  if (edit.m_name) m_name = edit.m_name;
-
-  // Rendering Page
-  response.render("student_edit", {
-    faculty_id: edit.faculty_id,
-    f_name: edit.f_name,
-    m_name: m_name,
-    l_name: edit.l_name,
-    post: edit.post,
-    branch_id: edit.branch_id,
-    gender: edit.gender,
-    dob: edit.dob,
-    room: edit.room,
-    phone: edit.phone,
-    email: edit.email,
-    subjects: subjects,
-  });
-});
-
-// Get request for editing admin data
-router.get("/admin_edit", (request, response) => {
-  // Middle Name
-  let m_name = "";
-  if (edit.m_name) m_name = edit.m_name;
-
-  // Rendering Page
-  response.render("admin_edit", {
-    admin_id: edit.admin_id,
-    f_name: edit.f_name,
-    m_name: m_name,
-    l_name: edit.l_name,
-    post: edit.post,
-    email: edit.email,
-    phone: edit.phone,
-    photo: edit.photo,
-  });
-});
-
-// Post request for Admin Login
-router.post("/admin_login", function (request, response) {
-  let(id, password) = request.body;
-  mySqlConnection.query(
-    "SELECT * FROM admin WHERE admin_id = ?",
-    [id],
-    (err, rows) => {
-      if (err) response.status(500).send(err);
-      user = rows[0];
-      if (user) {
-        const result = bcrypt.compareSync(password, user.password);
-        // Easy way to prevent extracting password form cookie, will try better solution later
-        password = bcrypt.hashSync(password, 10);
-        if (result) {
-          request.session.user = user;
-          response.redirect("/admin/admin_portal");
-        } else {
-          response.status(400).send("Password incorrect");
-        }
-      } else {
-        response.status(400).send("Enter correct id");
-      }
-    }
-  );
-});
-
-// Post request for Admin Portal
-router.post("/admin_portal", (request, response) => {
-  let(id, category) = request.body;
-  switch (category) {
-    case "student":
-      callStudentEdit(id);
-      break;
-    case "faculty":
-      callFacultyEdit(id);
-      break;
-    case "admin":
-      callAdminEdit(id);
-      break;
-    default:
-      response.render("/admin/admin_portal");
-  }
 });
 
 // Post request for editing student data
@@ -421,6 +381,45 @@ router.post("/student_edit", (request, response) => {
   }
 });
 
+// Get request for editing faculty data
+router.get("/faculty_edit", (request, response) => {
+  // Subjects
+  let subjects = [];
+  mySqlConnection.query(
+    "SELECT * FROM subject WHERE taught_by = ?",
+    [edit.faculty_id],
+    (err, rows) => {
+      if (err) response.status(500).send(err);
+      if (rows) {
+        subjects = rows;
+        subjects.push("Add");
+      } else {
+        subjects = ["Add"];
+      }
+    }
+  );
+
+  // Middle Name
+  let m_name = "";
+  if (edit.m_name) m_name = edit.m_name;
+
+  // Rendering Page
+  response.render("student_edit", {
+    faculty_id: edit.faculty_id,
+    f_name: edit.f_name,
+    m_name: m_name,
+    l_name: edit.l_name,
+    post: edit.post,
+    branch_id: edit.branch_id,
+    gender: edit.gender,
+    dob: edit.dob,
+    room: edit.room,
+    phone: edit.phone,
+    email: edit.email,
+    subjects: subjects,
+  });
+});
+
 // Post request for editing faculty data
 router.post("/faculty_edit", (request, response) => {
   let category = request.body.category;
@@ -531,6 +530,25 @@ router.post("/faculty_edit", (request, response) => {
   }
 });
 
+// Get request for editing admin data
+router.get("/admin_edit", (request, response) => {
+  // Middle Name
+  let m_name = "";
+  if (edit.m_name) m_name = edit.m_name;
+
+  // Rendering Page
+  response.render("admin_edit", {
+    admin_id: edit.admin_id,
+    f_name: edit.f_name,
+    m_name: m_name,
+    l_name: edit.l_name,
+    post: edit.post,
+    email: edit.email,
+    phone: edit.phone,
+    photo: edit.photo,
+  });
+});
+
 // Post request for editing admin data
 router.post("/admin_edit", (request, response) => {
   let category = request.body.category;
@@ -585,6 +603,174 @@ router.post("/admin_edit", (request, response) => {
       break;
 
     case "photo":
+      break;
+  }
+});
+
+// Get request for editing club data
+router.get("/club_edit", (request, response) => {
+  // Members
+  let members = [];
+  mySqlConnection.query(
+    "SELECT * FROM student_club WHERE club_id = ?",
+    [edit.club_id],
+    (err, rows) => {
+      if (err) response.status(500).send(err);
+      if (rows) {
+        members = rows;
+        members.push("Add");
+      } else {
+        members = ["Add"];
+      }
+    }
+  );
+
+  // Faculty phone and email
+  let phone, email;
+  mySqlConnection.query(
+    "SELECT * FROM batch WHERE batch_code = ?",
+    [edit.batch_code],
+    (err, rows) => {
+      if (err) response.status(500).send(err);
+      if (rows) {
+        phone = rows[0].phone;
+        email = rows[0].email;
+      }
+    }
+  );
+
+  // Rendering Page
+  response.render("student_edit", {
+    club_id: edit.club_id,
+    club_name: edit.club_name,
+    club_room_no: edit.club_room_no,
+    faculty_coordinator: edit.faculty_coordinator,
+    phone: phone,
+    email: email,
+    members: members,
+  });
+});
+
+// Post request for editing club data
+router.post("/club_edit", (request, response) => {
+  let category = request.body.category;
+  switch (category) {
+    case "id":
+      let club_id = request.body.club_id;
+      mySqlConnection.query(
+        "UPDATE club SET club_id = ? WHERE club_id = ?",
+        [club_id, edit.club_id],
+        (err) => {
+          if (err) response.status(500).send(err);
+          callClubEdit(club_id);
+        }
+      );
+      break;
+
+    case "name":
+      let club_name = request.body.club_name;
+      mySqlConnection.query(
+        "UPDATE club SET club_name = ? WHERE club_id = ?",
+        [club_name, edit.club_id],
+        (err) => {
+          if (err) response.status(500).send(err);
+          callClubEdit(edit.club_id);
+        }
+      );
+      break;
+
+    case "batch":
+      let batch_code = request.body.batch_code;
+      mySqlConnection.query(
+        "UPDATE student SET batch_code = ? WHERE roll_no = ?",
+        [batch_code, edit.roll_no],
+        (err) => {
+          if (err) response.status(500).send(err);
+          callStudentEdit(edit.roll_no);
+        }
+      );
+      break;
+
+    case "coordinator":
+      let faculty_coordinator = request.body.faculty_coordinator,
+        phone = request.body.phone,
+        email = request.body.email;
+      mySqlConnection.query(
+        "UPDATE club SET faculty_coordinator = ? WHERE club_id = ?",
+        [faculty_coordinator, edit.club_id],
+        (err) => {
+          if (err) response.status(500).send(err);
+          mySqlConnection.query(
+            "UPDATE faculty SET phone, email WHERE faculty_id = ?",
+            [phone, email, faculty_coordinator],
+            (err) => {
+              if (err) response.status(500).send(err);
+              callClubEdit(edit.club_id);
+            }
+          );
+        }
+      );
+      break;
+
+    case "room":
+      let club_room_no = request.body.club_room_no;
+      mySqlConnection.query(
+        "UPDATE club SET club_room_no = ? WHERE club_id = ?",
+        [club_room_no, edit.club_id],
+        (err) => {
+          if (err) response.status(500).send(err);
+          callClubEdit(edit.club_id);
+        }
+      );
+      break;
+
+    case "members":
+      let number = request.body.number,
+        members = request.body.members;
+      if (!(members.length == 1 && members[0] == "Add")) {
+        let id = [];
+        mySqlConnection.query(
+          "SELECT * FROM student_club WHERE club_id = ?",
+          [edit.club_id],
+          (err, rows) => {
+            if (err) response.status(500).send(err);
+            for (let i = 0; i < rows.length; i++) {
+              id.push(rows[i].s_no);
+            }
+          }
+        );
+        // if (id.length == number) {
+        //   for (let i = 0; i < number; i++) {
+        //     mySqlConnection.query(
+        //       "UPDATE backlogs SET subject_code = ? WHERE s_no = ?",
+        //       [backlogs[i], id[i]],
+        //       (err) => {
+        //         if (err) response.status(500).send(err);
+        //       }
+        //     );
+        //   }
+        // } else {
+        for (let i = 0; i < id.length; i++) {
+          mySqlConnection.query(
+            "UPDATE student_club SET roll_no = ? WHERE s_no = ?",
+            [members[i], id[i]],
+            (err) => {
+              if (err) response.status(500).send(err);
+            }
+          );
+        }
+        if (members[members.length - 1] != "Add") {
+          mySqlConnection.query(
+            "INSERT INTO student_club (roll_no, club_id) VALUES = ?",
+            [members[members.length - 1], edit.club_id],
+            (err) => {
+              if (err) response.status(500).send(err);
+            }
+          );
+        }
+        // }
+      }
+      callClubEdit(edit.club_id);
       break;
   }
 });

@@ -9,6 +9,7 @@
     <button onclick="student_edit()" id="student">Students</button>
     <button onclick="faculty_edit()" id="faculty">Faculty</button>
     <button onclick="admin_edit()" id="admin">Admin</button>
+    <button onclick="club_edit()" id="club">Club</button>
 
     <!-- Student -->
     <form
@@ -72,23 +73,55 @@
       </label>
       <button type="submit">SUBMIT</button>
     </form>
+
+    <!-- Club -->
+    <form
+      action="./admin_portal"
+      method="POST"
+      id="club_form"
+      style="display: none;"
+    >
+      <label for="category">
+        <input
+          type="text"
+          value="club"
+          name="category"
+          style="display: none;"
+        />
+      </label>
+      <label for="id">
+        <input type="text" placeholder="20XXYYYZZZ" name="id" required />
+      </label>
+      <button type="submit">SUBMIT</button>
+    </form>
+
     <script>
       function student_edit() {
         document.getElementById("student_form").style.display = "block";
         document.getElementById("faculty").style.display = "none";
         document.getElementById("admin").style.display = "none";
+        document.getElementById("club").style.display = "none";
       }
 
       function faculty_edit() {
         document.getElementById("faculty_form").style.display = "block";
         document.getElementById("student").style.display = "none";
         document.getElementById("admin").style.display = "none";
+        document.getElementById("club").style.display = "none";
       }
 
       function admin_edit() {
         document.getElementById("admin_form").style.display = "block";
         document.getElementById("faculty").style.display = "none";
         document.getElementById("student").style.display = "none";
+        document.getElementById("club").style.display = "none";
+      }
+
+      function club_edit() {
+        document.getElementById("club_form").style.display = "block";
+        document.getElementById("student").style.display = "none";
+        document.getElementById("faculty").style.display = "none";
+        document.getElementById("admin").style.display = "none";
       }
     </script>
   </body>
