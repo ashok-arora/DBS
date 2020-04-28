@@ -1,0 +1,6 @@
+roll_no (p),f_name,m_name,l_name,password,gender,dob,cgpa,semester,hostel_no,room,phone,email,batch_code,photo
+2019BCS-072,Vishnu,,Agarwal,$2b$10$/DwoAUDJLx7JUVnyf5CH7uvCjy6rPdokbIL1FXrZ1xfcjOy1JZzje,m,2001-04-30,8.7,1,2,231,7060202011,bcs_2019072@iiitm.ac.in,BCS,https://i.ibb.co/RStWntb/pic.jpg
+2019BCS-075,Ashok,,Arora,$2b$10$37KuVow1dvNtrRbgtfAaou0M3293tbwe/mk/rBKrJHeGNKgVH9GHe,m,2001-04-30,8.2,1,2,290,9876543210,bcs_2019075@iiitm.ac.in,BCS,https://i.ibb.co/RStWntb/pic.jpg
+2019BCS-008,Aniket,,Sharma,$2b$10$EEJlx7rj5DiaAhftGHtyHOzAXuendXDE6cqvoHfydgsEf2YMjf6ve,m,2001-04-30,11,1,2,286,9876569420,bcs_2019008@iitm.ac.in,BCS,https://i.ibb.co/RStWntb/pic.jpg
+2019IMT-002,Satakshi,,Goel,$2b$10$5Y8gq4zfBgPbPLsBkB4uE.Zz.GAnNZmM7psnSYPzb9fPSLIbzhct6,f,2001-04-30,9.1,1,4,3,9876543211,imt_2019002@iiitm.ac.in,IMT,https://i.ibb.co/RStWntb/pic.jpg
+2019IMG-019,Subhi,,Sharma,$2b$10$mYNjCdq5jtvX8stZjqHT2.gKwAuq4gSzUYF6/BvXkru2AjLUPaibi,f,2001-04-30,8.9,1,4,137,9876543212,img_2019019@iiitm.ac.in,IMG,https://i.ibb.co/RStWntb/pic.jpg
