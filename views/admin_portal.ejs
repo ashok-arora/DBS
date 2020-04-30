@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Portal</title>
+  </head>
+  <body>
+    <button onclick="student_edit()" id="student">Students</button>
+    <button onclick="faculty_edit()" id="faculty">Faculty</button>
+    <button onclick="admin_edit()" id="admin">Admin</button>
+    <button onclick="club_edit()" id="club">Club</button>
+    <button onclick="research_edit()" id="research">Research</button>
+    <button onclick="subjects_edit()" id="subjects">Subjects</button>
+
+    <!-- Student -->
+    <form
+      action="./admin_portal"
+      method="POST"
+      id="student_form"
+      style="display: none;"
+    >
+      <label for="category">
+        <input
+          type="text"
+          value="student"
+          name="category"
+          style="display: none;"
+        />
+      </label>
+      <label for="id">
+        <input type="text" placeholder="20XXYYYZZZ" name="id" required />
+      </label>
+      <button type="submit">SUBMIT</button>
+    </form>
+
+    <!-- Faculty -->
+    <form
+      action="./admin_portal"
+      method="POST"
+      id="faculty_form"
+      style="display: none;"
+    >
+      <label for="category">
+        <input
+          type="text"
+          value="faculty"
+          name="category"
+          style="display: none;"
+        />
+      </label>
+      <label for="id">
+        <input type="text" placeholder="20XXYYYZZZ" name="id" required />
+      </label>
+      <button type="submit">SUBMIT</button>
+    </form>
+
+    <!-- Admin -->
+    <form
+      action="./admin_portal"
+      method="POST"
+      id="admin_form"
+      style="display: none;"
+    >
+      <label for="category">
+        <input
+          type="text"
+          value="admin"
+          name="category"
+          style="display: none;"
+        />
+      </label>
+      <label for="id">
+        <input type="text" placeholder="20XXYYYZZZ" name="id" required />
+      </label>
+      <button type="submit">SUBMIT</button>
+    </form>
+
+    <!-- Club -->
+    <form
+      action="./admin_portal"
+      method="POST"
+      id="club_form"
+      style="display: none;"
+    >
+      <label for="category">
+        <input
+          type="text"
+          value="club"
+          name="category"
+          style="display: none;"
+        />
+      </label>
+      <label for="id">
+        <input type="text" placeholder="20XXYYYZZZ" name="id" required />
+      </label>
+      <button type="submit">SUBMIT</button>
+    </form>
+
+    <!-- Research -->
+    <form
+      action="./admin_portal"
+      method="POST"
+      id="research_form"
+      style="display: none;"
+    >
+      <label for="category">
+        <input
+          type="text"
+          value="research"
+          name="category"
+          style="display: none;"
+        />
+      </label>
+      <label for="id">
+        <input type="text" placeholder="20XXYYYZZZ" name="id" required />
+      </label>
+      <button type="submit">SUBMIT</button>
+    </form>
+
+    <!-- Subjects -->
+    <form
+      action="./admin_portal"
+      method="POST"
+      id="subjects_form"
+      style="display: none;"
+    >
+      <label for="category">
+        <input
+          type="text"
+          value="subjects"
+          name="category"
+          style="display: none;"
+        />
+      </label>
+      <label for="id">
+        <input type="text" placeholder="Batch Code" name="id" required />
+      </label>
+      <button type="submit">SUBMIT</button>
+    </form>
+
+    <script>
+      function student_edit() {
+        document.getElementById("student_form").style.display = "block";
+        document.getElementById("faculty").style.display = "none";
+        document.getElementById("admin").style.display = "none";
+        document.getElementById("club").style.display = "none";
+        document.getElementById("research").style.display = "none";
+        document.getElementById("subjects").style.display = "none";
+      }
+
+      function faculty_edit() {
+        document.getElementById("faculty_form").style.display = "block";
+        document.getElementById("student").style.display = "none";
+        document.getElementById("admin").style.display = "none";
+        document.getElementById("club").style.display = "none";
+        document.getElementById("research").style.display = "none";
+        document.getElementById("subjects").style.display = "none";
+      }
+
+      function admin_edit() {
+        document.getElementById("admin_form").style.display = "block";
+        document.getElementById("faculty").style.display = "none";
+        document.getElementById("student").style.display = "none";
+        document.getElementById("club").style.display = "none";
+        document.getElementById("research").style.display = "none";
+        document.getElementById("subjects").style.display = "none";
+      }
+
+      function club_edit() {
+        document.getElementById("club_form").style.display = "block";
+        document.getElementById("student").style.display = "none";
+        document.getElementById("faculty").style.display = "none";
+        document.getElementById("admin").style.display = "none";
+        document.getElementById("research").style.display = "none";
+        document.getElementById("subjects").style.display = "none";
+      }
+
+      function research_edit() {
+        document.getElementById("research_form").style.display = "block";
+        document.getElementById("student").style.display = "none";
+        document.getElementById("faculty").style.display = "none";
+        document.getElementById("admin").style.display = "none";
+        document.getElementById("club").style.display = "none";
+        document.getElementById("subjects").style.display = "none";
+      }
+
+      function subjects_edit() {
+        document.getElementById("subjects_form").style.display = "block";
+        document.getElementById("student").style.display = "none";
+        document.getElementById("faculty").style.display = "none";
+        document.getElementById("admin").style.display = "none";
+        document.getElementById("club").style.display = "none";
+        document.getElementById("research").style.display = "none";
+      }
+    </script>
+  </body>
+</html>

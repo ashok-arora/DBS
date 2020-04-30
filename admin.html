@@ -2,14 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Faculty Login</title>
-    <link rel="stylesheet" href="/css/faculty.css" />
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="/css/student.css" />
   </head>
 
   <body>
-    <form class="form" action="./faculty_login" method="POST">
+    <form class="form" action="./admin_login" method="POST">
       <div class="form-inner">
-        <h2 style="color: var(--color-primary);">Faculty Login</h2>
+        <h2 style="color: var(--color-primary);">Admin Login</h2>
         <div class="input-wrapper">
           <label for="login-username">Username</label>
           <div class="input-group">
@@ -20,7 +20,7 @@
                 ></path>
               </svg>
             </span>
-            <input type="text" id="login-username" name="faculty_id" />
+            <input type="text" id="login-username" name="id" />
           </div>
         </div>
         <div class="input-wrapper">
@@ -42,5 +42,6 @@
         </div>
       </div>
     </form>
+    <!-- partial -->
   </body>
 </html>

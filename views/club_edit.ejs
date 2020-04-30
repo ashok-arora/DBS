@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Club Edit</title>
+  </head>
+  <body>
+    <!-- Club Id -->
+    <p><%=club_id%></p>
+    
+    <!-- Name -->
+    <form action="./club_edit" method="POST">
+        <label for="category">
+            <input type="text" value="name" name="category" style="display: none;" />
+        </label>
+        <label for="club_name">
+            <input type="text" value="<%=club_name%>" name="club_name" required />
+        </label>
+        <button type="submit" formnovalidate>SUBMIT</button>
+    </form>
+
+    <!-- Faculty Coordinator Details -->
+    <form action="./club_edit" method="POST">
+        <label for="category">
+            <input type="text" value="coordinator" name="category" style="display: none;" />
+        </label>
+        <label for="faculty_coordinator">
+            <input type="text" value="<%=faculty_coordinator%>" name="faculty_coordinator" required />
+        </label>
+        <label for="phone">
+            <input type="text" value="<%=phone%>" name="phone" required />
+        </label>
+        <label for="email">
+            <input type="text" value="<%=email%>" name="email" required />
+        </label>
+        <button type="submit">SUBMIT</button>
+    </form>
+    
+    <!-- Room Details -->
+    <form action="./club_edit" method="POST">
+        <label for="category">
+            <input type="text" value="room" name="category" style="display: none;" />
+        </label>
+        <label for="club_room_no">
+            <input type="text" value="<%=club_room_no%>" name="club_room_no" required />
+        </label>
+        <button type="submit">SUBMIT</button>
+    </form>
+    
+    <!-- Members -->
+    <form action="./club_edit" method="POST">
+        <label for="category">
+            <input type="text" value="members" name="category" style="display: none;" />
+        </label>
+        <% if(members.length != 0) { %>
+        <% for(let i=0; i<members.length; i++) {%>
+        <label for="members">
+            <input type="text" value="<%=members[i]%>" name="members" required />
+        </label>
+        <% } %>
+        <button type="submit">SUBMIT</button>
+        <% } %>
+    </form>
+  </body>
+</html>
