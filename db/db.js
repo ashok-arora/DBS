@@ -8,8 +8,6 @@ const mySqlConnection = mysql.createConnection({
   password: "c1clM66WzV",
 
   database: "rEm5rfwMmJ",
-
-  multipleStatements: true,
 });
 
 mySqlConnection.connect((err) => {
