@@ -508,6 +508,7 @@ router.post("/student_edit", (request, response) => {
 
     case "photo":
       {
+        // Photo change
       }
       break;
   }
@@ -737,6 +738,7 @@ router.post("/faculty_edit", (request, response) => {
 
     case "photo":
       {
+        // Photo change
       }
       break;
   }
@@ -834,6 +836,7 @@ router.post("/admin_edit", (request, response) => {
 
     case "photo":
       {
+        // Photo change
       }
       break;
   }
