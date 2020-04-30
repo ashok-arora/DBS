@@ -25,7 +25,7 @@
         <label for="club_name">
             <input type="text" value="<%=club_name%>" name="club_name" required />
         </label>
-        <button type="submit">SUBMIT</button>
+        <button type="submit" formnovalidate>SUBMIT</button>
     </form>
 
     <!-- Faculty Coordinator Details -->
@@ -61,18 +61,14 @@
         <label for="category">
             <input type="text" value="members" name="category" style="display: none;" />
         </label>
-        <label for="number">
-            <input type="text" value="<%=members.lenth%>" name="number" style="display: none;" />
-        </label>
         <% if(members.length != 0) { %>
         <% for(let i=0; i<members.length; i++) {%>
-        <label for="member<%=i%>">
-            <input type="text" value="<%=members[i]%>" name="members[]" required />
-            <!-- https://stackoverflow.com/questions/9073690/post-an-array-from-an-html-form-without-javascript -->
+        <label for="members">
+            <input type="text" value="<%=members[i]%>" name="members" required />
         </label>
         <% } %>
-        <% } %>
         <button type="submit">SUBMIT</button>
+        <% } %>
     </form>
   </body>
 </html>

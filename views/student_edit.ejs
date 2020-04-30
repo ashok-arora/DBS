@@ -41,7 +41,7 @@
       <label for="l_name">
         <input type="text" value="<%=l_name%>" name="l_name" required />
       </label>
-      <button type="submit">SUBMIT</button>
+      <button type="submit" formnovalidate>SUBMIT</button>
     </form>
 
     <!-- Batch & Branch -->
@@ -173,19 +173,10 @@
           style="display: none;"
         />
       </label>
-      <label for="number">
-        <input
-          type="text"
-          value="<%=backlogs.lenth%>"
-          name="number"
-          style="display: none;"
-        />
-      </label>
       <% if(backlogs.length != 0) { %>
         <% for(let i=0; i<backlogs.length; i++) {%>
-        <label for="backlog<%=i%>">
-          <input type="text" value="<%=backlogs[i]%>" name="backlogs[]" required />
-          <!-- https://stackoverflow.com/questions/9073690/post-an-array-from-an-html-form-without-javascript -->
+        <label for="backlogs">
+          <input type="text" value="<%=backlogs[i]%>" name="backlogs" required />
         </label>
         <% } %>
       <% } %>

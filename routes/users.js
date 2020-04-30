@@ -3,7 +3,9 @@ const app = express();
 const router = express.Router();
 const mySqlConnection = require("../db/db");
 const bcrypt = require("bcrypt");
-let user;
+var user,
+  m_name = "",
+  assignment_number = "";
 var path = require("path");
 
 app.use(express.static(path.join(__dirname + "../public/css")));
@@ -32,7 +34,7 @@ router.post("/student_login", function (request, response) {
         password = bcrypt.hashSync(password, 10);
         if (result) {
           request.session.user = user;
-          response.redirect("/users/student_portal");
+          findStudentSubjects(request, response);
         } else {
           response.status(400).send("Incorrect Password");
         }
@@ -43,56 +45,85 @@ router.post("/student_login", function (request, response) {
   );
 });
 
+function findStudentSubjects(request, response) {
+  if (!request.session.user) response.redirect("/users/student_login");
+  if (user != undefined) {
+    // Middle Name
+    if (user.m_name) m_name = user.m_name;
+    else m_name = "";
+
+    // Assignments
+    let subjects = [];
+    mySqlConnection.query(
+      "SELECT * FROM batch_subjects WHERE batch_code = ?",
+      [user.batch_code],
+      (err, rows) => {
+        if (err) response.status(500).send(err);
+        if (rows) {
+          for (row of rows) {
+            subjects.push(row.subject_code);
+          }
+          findStudentAssignments(request, response, subjects);
+        } else {
+          assignment_number = "No Assignments";
+          response.redirect("/users/student_portal");
+        }
+      }
+    );
+  }
+}
+
+function findStudentAssignments(request, response, subjects) {
+  let assignments = [];
+  if (subjects.length != 0) {
+    mySqlConnection.query("SELECT * FROM assignment", (err, rows) => {
+      if (err) response.status(500).send(err);
+      for (row of rows) {
+        for (subject of subjects) {
+          if (row.subject_code == subject) {
+            assignments.push(row.assignment_name);
+          }
+        }
+      }
+      let number = assignments.length;
+      if (number != 1) assignment_number = number.toString() + " Assignments";
+      else assignment_number = number.toString() + " Assignment";
+      response.redirect("/users/student_portal");
+    });
+  }
+}
+
 // Get request for Student Portal
 router.get("/student_portal", (request, response) => {
   if (!request.session.user) response.redirect("/users/student_login");
-  let m_name = "";
-  if (m_name) m_name = user.m_name;
-  // Assignments
-  let subjects = [];
-  mySqlConnection.query(
-    "SELECT * FROM batch_subjects WHERE batch_code = ?",
-    [user.batch_code],
-    (err, rows) => {
-      if (err) response.status(500).send(err);
-      if (rows) {
-        for (row of rows) {
-          subjects.push(subjects, row.subject_code);
-        }
-      }
-    }
-  );
-  let assignments = [];
-  if (subjects != []) {
-    for (subject of subjects) {
-      mySqlConnection.query("SELECT * FROM assignment WHERE subject_code = ?", [
-        [subject],
-        (err, rows) => {
-          if (err) response.status(500).send(err);
-          if (rows) {
-            for (row of rows) {
-              assignments.push(assignment, row.assignment_name);
-            }
-          }
-        },
-      ]);
-    }
+  if (user != undefined) {
+    response.render("student_portal", {
+      roll_no: user.roll_no,
+      f_name: user.f_name,
+      m_name: m_name,
+      l_name: user.l_name,
+      assignment_number: assignment_number,
+      phone: user.phone,
+      email: user.email,
+      photo: user.photo,
+      batch_code: user.batch_code,
+    });
   }
-  let number = assignments.length;
-  let assignment_number = "";
-  if (number != 1) assignment_number = number.toString() + " Assignments";
-  else assignment_number = number.toString() + " Assignment";
-  response.render("student_portal", {
-    roll_no: user.roll_no,
-    f_name: user.f_name,
-    m_name: m_name,
-    l_name: user.l_name,
-    assignment_number: assignment_number,
-    phone: user.phone,
-    email: user.email,
-    photo: user.photo,
-  });
 });
+
+// function renderStudentPortal(m_name, assignment_number, response) {
+//   response.render("student_portal", {
+//     roll_no: user.roll_no,
+//     f_name: user.f_name,
+//     m_name: m_name,
+//     l_name: user.l_name,
+//     assignment_number: assignment_number,
+//     phone: user.phone,
+//     email: user.email,
+//     photo: user.photo,
+//     batch_code: user.batch_code,
+//   });
+// }
 
 // Post request for Student Portal
 
