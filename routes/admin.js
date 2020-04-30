@@ -758,8 +758,6 @@ router.get("/admin_edit", (request, response) => {
     Email: edit.Email,
     phone: edit.phone,
     photo: edit.photo,
-    // @Aniket Remove below line
-    gender: "M",
   });
 });
 
