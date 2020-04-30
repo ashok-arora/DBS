@@ -154,6 +154,23 @@ router.post("/admin_portal", (request, response) => {
       );
       break;
 
+    case "subjects":
+      mySqlConnection.query(
+        "SELECT * FROM batch WHERE batch_code = ?",
+        [id],
+        (err, rows) => {
+          if (err) response.status(500).send(err);
+          edit = rows;
+          if (edit) {
+            request.session.edit = edit;
+            response.redirect("/admin/subjects_edit");
+          } else {
+            response.status(400).send("Id does not exist.");
+          }
+        }
+      );
+      break;
+
     default:
       response.render("/admin/admin_portal");
   }
@@ -1170,6 +1187,94 @@ router.post("/research_edit", (request, response) => {
           if (edit) {
             request.session.edit = edit;
             response.redirect("/admin/research_edit");
+          } else {
+            response.status(400).send("Id does not exist.");
+          }
+        }
+      );
+      break;
+  }
+});
+
+// Get request for editing Subject data
+router.get("/subjects_edit", (request, response) => {
+  // Subjects
+  let subjects = [];
+  mySqlConnection.query(
+    "SELECT * FROM batch_subjects WHERE batch_code = ?",
+    [edit.batch_code],
+    (err, rows) => {
+      if (err) response.status(500).send(err);
+      if (rows) {
+        for (row of rows) {
+          subjects.push(row.subject_code);
+        }
+        subjects.push("Add");
+      } else {
+        subjects = ["Add"];
+      }
+      // Rendering Page
+      response.render("subjects_edit", {
+        batch_code: edit.batch_code,
+        branch_id: edit.branch_id,
+        subjects: subjects,
+      });
+    }
+  );
+});
+
+// Post request for editing Subject data
+router.post("/subjects_edit", (request, response) => {
+  let category = request.body.category;
+  switch (category) {
+    case "subjects":
+      let subjects = request.body.subjects;
+      if (!(subjects.length == 1 && subjects[0] == "Add")) {
+        let id = [];
+        mySqlConnection.query(
+          "SELECT * FROM batch_subjects WHERE batch_code = ?",
+          [edit.batch_code],
+          (err, rows) => {
+            if (err) response.status(500).send(err);
+            for (let i = 0; i < rows.length; i++) {
+              id.push(rows[i].s_no);
+            }
+          }
+        );
+        for (let i = 0; i < id.length; i++) {
+          mySqlConnection.query(
+            "UPDATE batch_subjects SET subject_code = ? WHERE batch_code = ?",
+            [subjects[i], id[i]],
+            (err) => {
+              if (err) response.status(500).send(err);
+            }
+          );
+        }
+        if (subjects[subjects.length - 1] != "Add") {
+          input =
+            `("` +
+            subjects[subjects.length - 1].toString() +
+            `", "` +
+            edit.batch_code.toString() +
+            `")`;
+          mySqlConnection.query(
+            "INSERT INTO research_assistants (subject_code, batch_code) VALUES " +
+              input,
+            (err) => {
+              if (err) response.status(500).send(err);
+            }
+          );
+        }
+      }
+      mySqlConnection.query(
+        "SELECT * FROM batch WHERE batch_code = ?",
+        [id],
+        (err, rows) => {
+          if (err) response.status(500).send(err);
+          edit = rows;
+          if (edit) {
+            request.session.edit = edit;
+            response.redirect("/admin/subjects_edit");
           } else {
             response.status(400).send("Id does not exist.");
           }

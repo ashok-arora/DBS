@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Batch Code -->
+    <p><%=batch_code%></p>
+    <p><%=branch_id%></p>
+    <!-- Subjects -->
+    <form action="./subjects_edit" method="POST">
+        <label for="category">
+            <input type="text" value="subjects" name="category" style="display: none;" />
+        </label>
+        <% if(subjects.length != 0) { %>
+        <% for(let i=0; i<subjects.length; i++) {%>
+        <label for="subjects">
+            <input type="text" value="<%=subjects[i]%>" name="subjects" required />
+        </label>
+        <% } %>
+        <button type="submit">SUBMIT</button>
+        <% } %>
+    </form>
+
+  </body>
+</html>

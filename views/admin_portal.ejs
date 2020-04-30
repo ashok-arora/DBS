@@ -11,6 +11,7 @@
     <button onclick="admin_edit()" id="admin">Admin</button>
     <button onclick="club_edit()" id="club">Club</button>
     <button onclick="research_edit()" id="research">Research</button>
+    <button onclick="subjects_edit()" id="subjects">Subjects</button>
 
     <!-- Student -->
     <form
@@ -117,12 +118,35 @@
       <button type="submit">SUBMIT</button>
     </form>
 
+    <!-- Subjects -->
+    <form
+      action="./admin_portal"
+      method="POST"
+      id="subjects_form"
+      style="display: none;"
+    >
+      <label for="category">
+        <input
+          type="text"
+          value="subjects"
+          name="category"
+          style="display: none;"
+        />
+      </label>
+      <label for="id">
+        <input type="text" placeholder="Batch Code" name="id" required />
+      </label>
+      <button type="submit">SUBMIT</button>
+    </form>
+
     <script>
       function student_edit() {
         document.getElementById("student_form").style.display = "block";
         document.getElementById("faculty").style.display = "none";
         document.getElementById("admin").style.display = "none";
         document.getElementById("club").style.display = "none";
+        document.getElementById("research").style.display = "none";
+        document.getElementById("subjects").style.display = "none";
       }
 
       function faculty_edit() {
@@ -131,6 +155,7 @@
         document.getElementById("admin").style.display = "none";
         document.getElementById("club").style.display = "none";
         document.getElementById("research").style.display = "none";
+        document.getElementById("subjects").style.display = "none";
       }
 
       function admin_edit() {
@@ -139,6 +164,7 @@
         document.getElementById("student").style.display = "none";
         document.getElementById("club").style.display = "none";
         document.getElementById("research").style.display = "none";
+        document.getElementById("subjects").style.display = "none";
       }
 
       function club_edit() {
@@ -147,6 +173,7 @@
         document.getElementById("faculty").style.display = "none";
         document.getElementById("admin").style.display = "none";
         document.getElementById("research").style.display = "none";
+        document.getElementById("subjects").style.display = "none";
       }
 
       function research_edit() {
@@ -155,6 +182,16 @@
         document.getElementById("faculty").style.display = "none";
         document.getElementById("admin").style.display = "none";
         document.getElementById("club").style.display = "none";
+        document.getElementById("subjects").style.display = "none";
+      }
+
+      function subjects_edit() {
+        document.getElementById("subjects_form").style.display = "block";
+        document.getElementById("student").style.display = "none";
+        document.getElementById("faculty").style.display = "none";
+        document.getElementById("admin").style.display = "none";
+        document.getElementById("club").style.display = "none";
+        document.getElementById("research").style.display = "none";
       }
     </script>
   </body>
