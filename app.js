@@ -33,7 +33,7 @@ app.use("/admin", require("./routes/admin.js"));
 //   res.redirect("/");
 // });
 
-app.use(function (req, res, next) {
+app.use(function (req, res) {
   res.status(404);
   app.use(express.static(path.join(__dirname + "../public/css")));
   res.sendFile(path.join(__dirname + "/404.html"));
