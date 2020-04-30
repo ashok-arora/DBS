@@ -10,7 +10,7 @@ app.use(express.static(path.join(__dirname + "../public/css")));
 
 // Redirecting to Admin Login if no page detail provided in URL
 router.get("/", (request, response) => {
-  response.redirect("/users/admin_login");
+  response.redirect("/admin/admin_login");
 });
 
 // Get request for Admin Login
