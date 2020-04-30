@@ -1,42 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Project Olly</title>
-    <link rel="stylesheet" href="./css/home.css" />
-  </head>
-  <body>
-    <header>
-      <img src="./IIIT_logo_dark.png" alt="Logo" class="logo" />
-      <nav class="navigation">
-        <ul>
-          <li class="nav-list">
-            <a href="./student_login.html" class="nav-link">STUDENT LOGIN </a>
-          </li>
-          <li class="nav-list">
-            <a href="./faculty_login.html" class="nav-link">FACULTY LOGIN </a>
-          </li>
-          <li class="nav-list">
-            <a href="./contact_us.html" class="nav-link">CONTACT US </a>
-          </li>
-        </ul>
-      </nav>
-    </header>
-    <footer>
-      <div class="footer">
-        <ul>
-          <li>
-            <a href="about.html" class="footer-link">ABOUT</a>
-          </li>
-          <li>
-            <a href="faq.html" class="footer-link">FAQ</a>
-          </li>
-          <li>
-            <a href="feedback.html" class="footer-link">FEEDBACK</a>
-          </li>
-        </ul>
-      </div>
-    </footer>
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Home</title>
+        <link rel="stylesheet" href="./css/home.css"/>
+    </head>
+    <body>
+        <div class="wrapper">
+            <h1>ABV - Indian Institute of Information Technology, Gwalior</h1>
+            <div class="cols">
+                <div class="col" onClick="window.open( '/student_portal','_top' ); return false;">
+                    <div class="container">
+                        <div class="front" style="background-image: url(https://images.unsplash.com/photo-1476842634003-7dcca8f832de?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=500&h=500&fit=crop&ixid=eyJhcHBfaWQiOjF9)">
+                            <div class="inner">
+                                <p>Student Portal</p> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col"  onClick="window.open( '/faculty_portal','_top' ); return false;">
+                    <div class="container">
+                        <div class="front" style="background-image: url(https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=500&h=500&fit=crop&ixid=eyJhcHBfaWQiOjF9)">
+                            <div class="inner">
+                                <p>Faculty Portal</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col"  onClick="window.open( '/contact_us','_top' ); return false;">
+                    <div class="container">
+                        <div class="front" style="background-image: url(https://images.unsplash.com/photo-1530811761207-8d9d22f0a141?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=500&h=500&fit=crop&ixid=eyJhcHBfaWQiOjF9)">
+                            <div class="inner">
+                                <p>Contact Us</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col" onClick="window.open( '/project','_top' ); return false;">
+                    <div class="container">
+                        <div class="front" style="background-image: url(https://images.unsplash.com/photo-1533474616770-c995695e4921?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=500&h=500&fit=crop&ixid=eyJhcHBfaWQiOjF9)">
+                            <div class="inner">
+                                <p>Project Details</br>& </br>Credits</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col" onClick="window.open( '/faq','_top' ); return false;">
+                    <div class="container">
+                        <div class="front" style="background-image: url(https://images.unsplash.com/photo-1501522774256-bd04816aaf24?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=500&h=500&fit=crop&ixid=eyJhcHBfaWQiOjF9)">
+                            <div class="inner">
+                                <p>FAQ</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col" onClick="window.open( '/feedback','_top' ); return false;">
+                    <div class="container">
+                        <div class="front" style="background-image: url(https://images.unsplash.com/photo-1569513589209-18a39b58bcbd?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=500&h=500&fit=crop&ixid=eyJhcHBfaWQiOjF9)">
+                            <div class="inner">
+                                <p>Feedback</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>
