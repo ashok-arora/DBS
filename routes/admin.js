@@ -85,6 +85,7 @@ router.post("/admin_portal", (request, response) => {
         }
       );
       break;
+
     case "faculty":
       mySqlConnection.query(
         "SELECT * FROM faculty WHERE faculty_id = ?",
@@ -101,6 +102,7 @@ router.post("/admin_portal", (request, response) => {
         }
       );
       break;
+
     case "admin":
       mySqlConnection.query(
         "SELECT * FROM admin WHERE admin_id = ?",
@@ -117,6 +119,7 @@ router.post("/admin_portal", (request, response) => {
         }
       );
       break;
+
     case "club":
       mySqlConnection.query(
         "SELECT * FROM club WHERE club_id = ?",
@@ -133,6 +136,24 @@ router.post("/admin_portal", (request, response) => {
         }
       );
       break;
+
+    case "research":
+      mySqlConnection.query(
+        "SELECT * FROM research WHERE research_id = ?",
+        [id],
+        (err, rows) => {
+          if (err) response.status(500).send(err);
+          edit = rows[0];
+          if (edit) {
+            request.session.edit = edit;
+            response.redirect("/admin/research_edit");
+          } else {
+            response.status(400).send("Id does not exist.");
+          }
+        }
+      );
+      break;
+
     default:
       response.render("/admin/admin_portal");
   }
@@ -222,31 +243,6 @@ router.get("/student_edit", (request, response) => {
 router.post("/student_edit", (request, response) => {
   let category = request.body.category;
   switch (category) {
-    case "roll":
-      let roll_no = request.body.roll_no;
-      mySqlConnection.query(
-        "UPDATE student SET roll_no = ? WHERE roll_no = ?",
-        [roll_no, edit.roll_no],
-        (err) => {
-          if (err) response.status(500).send(err);
-          mySqlConnection.query(
-            "SELECT * FROM student WHERE roll_no = ?",
-            [roll_no],
-            (err, rows) => {
-              if (err) response.status(500).send(err);
-              edit = rows[0];
-              if (edit) {
-                request.session.edit = edit;
-                response.redirect("/admin/student_edit");
-              } else {
-                response.status(400).send("Roll No. does not exist.");
-              }
-            }
-          );
-        }
-      );
-      break;
-
     case "name":
       let f_name = request.body.f_name,
         m_name = request.body.m_name,
@@ -515,31 +511,6 @@ router.get("/faculty_edit", (request, response) => {
 router.post("/faculty_edit", (request, response) => {
   let category = request.body.category;
   switch (category) {
-    case "id":
-      let faculty_id = request.body.faculty_id;
-      mySqlConnection.query(
-        "UPDATE faculty SET faculty_id = ? WHERE faculty_id = ?",
-        [faculty_id, edit.faculty_id],
-        (err) => {
-          if (err) response.status(500).send(err);
-          mySqlConnection.query(
-            "SELECT * FROM faculty WHERE faculty_id = ?",
-            [faculty_id],
-            (err, rows) => {
-              if (err) response.status(500).send(err);
-              edit = rows[0];
-              if (edit) {
-                request.session.edit = edit;
-                response.redirect("/admin/faculty_edit");
-              } else {
-                response.status(400).send("Id does not exist.");
-              }
-            }
-          );
-        }
-      );
-      break;
-
     case "name":
       let f_name = request.body.f_name,
         m_name = request.body.m_name,
@@ -737,31 +708,6 @@ router.get("/admin_edit", (request, response) => {
 router.post("/admin_edit", (request, response) => {
   let category = request.body.category;
   switch (category) {
-    case "id":
-      let admin_id = request.body.admin_id;
-      mySqlConnection.query(
-        "UPDATE admin SET admin_id = ? WHERE admin_id = ?",
-        [admin_id, edit.admin_id],
-        (err) => {
-          if (err) response.status(500).send(err);
-          mySqlConnection.query(
-            "SELECT * FROM admin WHERE admin_id = ?",
-            [admin_id],
-            (err, rows) => {
-              if (err) response.status(500).send(err);
-              edit = rows[0];
-              if (edit) {
-                request.session.edit = edit;
-                response.redirect("/admin/admin_edit");
-              } else {
-                response.status(400).send("Id does not exist.");
-              }
-            }
-          );
-        }
-      );
-      break;
-
     case "name":
       let f_name = request.body.f_name,
         m_name = request.body.m_name,
@@ -840,7 +786,6 @@ router.get("/club_edit", (request, response) => {
     (err, rows) => {
       if (err) response.status(500).send(err);
       if (rows) {
-        console.log(rows);
         for (row of rows) {
           members.push(row.roll_no);
         }
@@ -881,31 +826,6 @@ router.get("/club_edit", (request, response) => {
 router.post("/club_edit", (request, response) => {
   let category = request.body.category;
   switch (category) {
-    case "id":
-      let club_id = request.body.club_id;
-      mySqlConnection.query(
-        "UPDATE club SET club_id = ? WHERE club_id = ?",
-        [club_id, edit.club_id],
-        (err) => {
-          if (err) response.status(500).send(err);
-          mySqlConnection.query(
-            "SELECT * FROM club WHERE club_id = ?",
-            [club_id],
-            (err, rows) => {
-              if (err) response.status(500).send(err);
-              edit = rows[0];
-              if (edit) {
-                request.session.edit = edit;
-                response.redirect("/admin/club_edit");
-              } else {
-                response.status(400).send("Id does not exist.");
-              }
-            }
-          );
-        }
-      );
-      break;
-
     case "name":
       let club_name = request.body.club_name;
       mySqlConnection.query(
@@ -992,7 +912,6 @@ router.post("/club_edit", (request, response) => {
 
     case "members":
       let members = request.body.members;
-      console.log(members);
       if (!(members.length == 1 && members[0] == "Add")) {
         let id = [];
         mySqlConnection.query(
@@ -1038,6 +957,219 @@ router.post("/club_edit", (request, response) => {
           if (edit) {
             request.session.edit = edit;
             response.redirect("/admin/club_edit");
+          } else {
+            response.status(400).send("Id does not exist.");
+          }
+        }
+      );
+      break;
+  }
+});
+
+// Get request for editing Research data
+router.get("/research_edit", (request, response) => {
+  // Members
+  let students = [];
+  mySqlConnection.query(
+    "SELECT * FROM research_assistants WHERE research_id = ?",
+    [edit.research_id],
+    (err, rows) => {
+      if (err) response.status(500).send(err);
+      if (rows) {
+        for (row of rows) {
+          students.push(row.roll_no);
+        }
+        students.push("Add");
+      } else {
+        students = ["Add"];
+      }
+    }
+  );
+
+  let proposers = [];
+  mySqlConnection.query(
+    "SELECT * FROM research_proposers WHERE research_id = ?",
+    [edit.research_id],
+    (err, rows) => {
+      if (err) response.status(500).send(err);
+      if (rows) {
+        for (row of rows) {
+          proposers.push(row.faculty_id);
+        }
+        proposers.push("Add");
+      } else {
+        proposers = ["Add"];
+      }
+      // Rendering Page
+      response.render("research_edit", {
+        research_id: edit.research_id,
+        research_name: edit.research_name,
+        room: edit.room,
+        expected_completion_date: edit.expected_completion_date,
+        proposers: proposers,
+        students: students,
+      });
+    }
+  );
+});
+
+// Post request for editing Research data
+router.post("/research_edit", (request, response) => {
+  let category = request.body.category;
+  switch (category) {
+    case "name":
+      let research_name = request.body.research_name;
+      mySqlConnection.query(
+        "UPDATE research SET research_name = ? WHERE research_id = ?",
+        [research_name, edit.research_id],
+        (err) => {
+          if (err) response.status(500).send(err);
+          mySqlConnection.query(
+            "SELECT * FROM research WHERE research_id = ?",
+            [edit.research_id],
+            (err, rows) => {
+              if (err) response.status(500).send(err);
+              edit = rows[0];
+              if (edit) {
+                request.session.edit = edit;
+                response.redirect("/admin/research_edit");
+              } else {
+                response.status(400).send("Id does not exist.");
+              }
+            }
+          );
+        }
+      );
+      break;
+
+    case "date":
+      let expected_completion_date = request.body.expected_completion_date;
+      mySqlConnection.query(
+        "UPDATE research SET expected_completion_date = ? WHERE research_id = ?",
+        [expected_completion_date, edit.reseach_id],
+        (err) => {
+          if (err) response.status(500).send(err);
+          mySqlConnection.query(
+            "SELECT * FROM research WHERE research_id = ?",
+            [edit.research_id],
+            (err, rows) => {
+              if (err) response.status(500).send(err);
+              edit = rows[0];
+              if (edit) {
+                request.session.edit = edit;
+                response.redirect("/admin/research_edit");
+              } else {
+                response.status(400).send("Id does not exist.");
+              }
+            }
+          );
+        }
+      );
+      break;
+
+    case "proposers":
+      let proposers = request.body.proposers;
+      if (!(proposers.length == 1 && proposers[0] == "Add")) {
+        let id = [];
+        mySqlConnection.query(
+          "SELECT * FROM research_proposers WHERE research_id = ?",
+          [edit.research_id],
+          (err, rows) => {
+            if (err) response.status(500).send(err);
+            for (let i = 0; i < rows.length; i++) {
+              id.push(rows[i].s_no);
+            }
+          }
+        );
+        for (let i = 0; i < id.length; i++) {
+          mySqlConnection.query(
+            "UPDATE research_proposers SET faculty_id = ? WHERE s_no = ?",
+            [proposers[i], id[i]],
+            (err) => {
+              if (err) response.status(500).send(err);
+            }
+          );
+        }
+        if (proposers[proposers.length - 1] != "Add") {
+          input =
+            `("` +
+            proposers[proposers.length - 1].toString() +
+            `", "` +
+            edit.research_id.toString() +
+            `")`;
+          mySqlConnection.query(
+            "INSERT INTO research_proposers (faculty_id, research_id) VALUES " +
+              input,
+            (err) => {
+              if (err) response.status(500).send(err);
+            }
+          );
+        }
+      }
+      mySqlConnection.query(
+        "SELECT * FROM research WHERE research_id = ?",
+        [edit.research_id],
+        (err, rows) => {
+          if (err) response.status(500).send(err);
+          edit = rows[0];
+          if (edit) {
+            request.session.edit = edit;
+            response.redirect("/admin/research_edit");
+          } else {
+            response.status(400).send("Id does not exist.");
+          }
+        }
+      );
+      break;
+
+    case "students":
+      let students = request.body.students;
+      if (!(students.length == 1 && students[0] == "Add")) {
+        let id = [];
+        mySqlConnection.query(
+          "SELECT * FROM research_assistants WHERE research_id = ?",
+          [edit.research_id],
+          (err, rows) => {
+            if (err) response.status(500).send(err);
+            for (let i = 0; i < rows.length; i++) {
+              id.push(rows[i].s_no);
+            }
+          }
+        );
+        for (let i = 0; i < id.length; i++) {
+          mySqlConnection.query(
+            "UPDATE research_assistants SET roll_no = ? WHERE s_no = ?",
+            [students[i], id[i]],
+            (err) => {
+              if (err) response.status(500).send(err);
+            }
+          );
+        }
+        if (students[students.length - 1] != "Add") {
+          input =
+            `("` +
+            students[students.length - 1].toString() +
+            `", "` +
+            edit.research_id.toString() +
+            `")`;
+          mySqlConnection.query(
+            "INSERT INTO research_assistants (roll_no, research_id) VALUES " +
+              input,
+            (err) => {
+              if (err) response.status(500).send(err);
+            }
+          );
+        }
+      }
+      mySqlConnection.query(
+        "SELECT * FROM research WHERE research_id = ?",
+        [edit.research_id],
+        (err, rows) => {
+          if (err) response.status(500).send(err);
+          edit = rows[0];
+          if (edit) {
+            request.session.edit = edit;
+            response.redirect("/admin/research_edit");
           } else {
             response.status(400).send("Id does not exist.");
           }

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Research Edit</title>
+  </head>
+  <body>
+    <!-- Research Id -->
+    <p><%=research_id%></p>
+    
+    <!-- Name -->
+    <form action="./research_edit" method="POST">
+        <label for="category">
+            <input type="text" value="name" name="category" style="display: none;" />
+        </label>
+        <label for="research_name">
+            <input type="text" value="<%=research_name%>" name="research_name" required />
+        </label>
+        <button type="submit" formnovalidate>SUBMIT</button>
+    </form>
+    
+    <!-- Proposers -->
+    <form action="./research_edit" method="POST">
+        <label for="category">
+            <input type="text" value="proposers" name="category" style="display: none;" />
+        </label>
+        <% if(proposers.length != 0) { %>
+        <% for(let i=0; i<proposers.length; i++) {%>
+        <label for="proposers">
+            <input type="text" value="<%=proposers[i]%>" name="proposers" required />
+        </label>
+        <% } %>
+        <button type="submit">SUBMIT</button>
+        <% } %>
+    </form>
+
+    <!-- Completion Date -->
+    <form action="./research_edit" method="POST">
+        <label for="category">
+            <input type="text" value="date" name="category" style="display: none;" />
+        </label>
+        <label for="expected_completion_date">
+            <input type="text" value="<%=expected_completion_date%>" name="expected_completion_date" required />
+        </label>
+        <button type="submit">SUBMIT</button>
+    </form>
+    
+    <!-- Students -->
+    <form action="./research_edit" method="POST">
+        <label for="category">
+            <input type="text" value="students" name="category" style="display: none;" />
+        </label>
+        <% if(students.length != 0) { %>
+        <% for(let i=0; i<students.length; i++) {%>
+        <label for="students">
+            <input type="text" value="<%=students[i]%>" name="students" required />
+        </label>
+        <% } %>
+        <button type="submit">SUBMIT</button>
+        <% } %>
+    </form>
+
+  </body>
+</html>
