@@ -1,20 +1,17 @@
+<!DOCTYPE html>
 <html lang="en">
-  <link rel="stylesheet" href="/css/admin_portal.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Portal</title>
+  </head>
   <body>
-    <nav class="menu" tabindex="0">
-      <header class="logo">
-      <img src="/assets/IIIT_logo_dark.png">
-      </header>
-      <ul>
-        <li>Dashboard</li>
-        <li onclick="student_edit()">Student</li>
-        <li onclick="faculty_edit()">Faculty</li>
-        <li onclick="research_edit()">Research</li>
-        <li onclick="club_edit()">Club</li>
-        <li onclick="admin_edit()">Admin</li>
-        <li>Logout</li>
-      </ul>
-    </nav>
+    <button onclick="student_edit()" id="student">Students</button>
+    <button onclick="faculty_edit()" id="faculty">Faculty</button>
+    <button onclick="admin_edit()" id="admin">Admin</button>
+    <button onclick="club_edit()" id="club">Club</button>
+    <button onclick="research_edit()" id="research">Research</button>
+    <button onclick="subjects_edit()" id="subjects">Subjects</button>
 
     <!-- Student -->
     <form
@@ -197,7 +194,5 @@
         document.getElementById("research").style.display = "none";
       }
     </script>
-    <main>
-    </main>
   </body>
 </html>
