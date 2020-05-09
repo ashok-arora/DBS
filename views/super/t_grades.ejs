@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Theory Grades Edit</title>
+  </head>
+
+  <body style="color: white;">
+    <!-- Serial No. -->
+    <p>Serial No.: <%=s_no%></p>
+    <!-- Other Info -->
+    <form action="./t_grades" method="POST">
+      <label for="roll_no">
+        Roll No.:
+        <input type="text" value="<%=roll_no%>" name="roll_no" required />
+      </label>
+      <label for="subject_code">
+        Subject Code:
+        <input
+          type="text"
+          value="<%=subject_code%>"
+          name="subject_code"
+          required
+        />
+      </label>
+      <label for="assignment_marks">
+        Assignment Marks:
+        <input
+          type="text"
+          value="<%=assignment_marks%>"
+          name="assignment_marks"
+          required
+        />
+      </label>
+      <label for="attendance_marks">
+        Attendance Marks:
+        <input
+          type="text"
+          value="<%=attendance_marks%>"
+          name="attendance_marks"
+          required
+        />
+      </label>
+      <label for="minor1">
+        Minor 1:
+        <input type="text" value="<%=minor1%>" name="minor1" required />
+      </label>
+      <label for="minor2">
+        Minor 2:
+        <input type="text" value="<%=minor2%>" name="minor2" required />
+      </label>
+      <label for="major">
+        Major:
+        <input type="text" value="<%=major%>" name="major" required />
+      </label>
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>

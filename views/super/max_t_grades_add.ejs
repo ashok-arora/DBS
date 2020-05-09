@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maximum Theory Grades Add</title>
+  </head>
+
+  <body style="color: white;">
+    <!-- Subject Code -->
+    <p>Subject Code: <%=subject_code%></p>
+    <!-- Other Info -->
+    <form action="./max_t_grades_add" method="POST">
+      <label for="assignment_marks">
+        Assignment Marks:
+        <input
+          type="text"
+          name="assignment_marks"
+          placeholder="Assignment Marks"
+          required
+        />
+      </label>
+      <label for="attendance_marks">
+        Attendance Marks:
+        <input
+          type="text"
+          name="attendance_marks"
+          placeholder="Attendance Marks"
+          required
+        />
+      </label>
+      <label for="minor1">
+        Minor 1:
+        <input type="text" name="minor1" placeholder="Minor 1" required />
+      </label>
+      <label for="minor2">
+        Minor 2:
+        <input type="text" name="minor2" placeholder="Minor 2" required />
+      </label>
+      <label for="major">
+        Major:
+        <input type="text" name="major" placeholder="Major" required />
+      </label>
+      <button type="submit">SUBMIT</button>
+    </form>
+  </body>
+</html>

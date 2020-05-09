@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hostel Edit</title>
+  </head>
+
+  <body style="color: white;">
+    <!-- Hostel No. -->
+    <p>Hostel No.: <%=hostel_number%></p>
+    <!-- Other Info -->
+    <form action="./hostel" method="POST">
+      <label for="hostel_name">
+        Hostel Name:
+        <input
+          type="text"
+          value="<%=hostel_name%>"
+          name="hostel_name"
+          required
+        />
+      </label>
+      <label for="boys_girls">
+        Boy's Hostel or Girl's Hostel:
+        <input type="text" value="<%=boys_girls%>" name="boys_girls" required />
+      </label>
+      <label for="rooms">
+        No. of rooms:
+        <input type="text" value="<%=rooms%>" name="rooms" required />
+      </label>
+      <label for="day_supervisor">
+        Day Supervisor:
+        <input
+          type="text"
+          value="<%=day_supervisor%>"
+          name="day_supervisor"
+          required
+        />
+      </label>
+      <label for="evening_supervisor">
+        Evening Supervisor:
+        <input
+          type="text"
+          value="<%=evening_supervisor%>"
+          name="evening_supervisor"
+          required
+        />
+      </label>
+      <label for="night_supervisor">
+        Night Supervisor:
+        <input
+          type="text"
+          value="<%=night_supervisor%>"
+          name="night_supervisor"
+          required
+        />
+      </label>
+      <label for="mess_head">
+        Mess Head:
+        <input type="text" value="<%=mess_head%>" name="mess_head" required />
+      </label>
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>

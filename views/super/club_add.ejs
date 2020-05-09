@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Club Add</title>
+  </head>
+
+  <body style="color: white;">
+    <!-- Club Id -->
+    <p>Club Id: <%=club_id%></p>
+    <!-- Other Info -->
+    <form action="./club_add" method="POST">
+      <label for="club_name">
+        Club Name:
+        <input type="text" name="club_name" placeholder="Club Name" required />
+      </label>
+      <label for="club_room_no">
+        Room No.:
+        <input
+          type="text"
+          name="club_room_no"
+          placeholder="Room No."
+          required
+        />
+      </label>
+      <label for="faculty_coordinator">
+        Faculty Coordinator:
+        <input
+          type="text"
+          name="faculty_coordinator"
+          placeholder="Faculty Coordinator"
+          required
+        />
+      </label>
+      <button type="submit">SUBMIT</button>
+    </form>
+  </body>
+</html>

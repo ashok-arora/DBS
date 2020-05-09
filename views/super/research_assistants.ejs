@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Research Assistants Edit</title>
+  </head>
+
+  <body style="color: white;">
+    <!-- Serial No. -->
+    <p>Serial No.: <%=s_no%></p>
+    <!-- Other Info -->
+    <form action="./research_assistants" method="POST">
+      <label for="roll_no">
+        Roll No.:
+        <input type="text" value="<%=roll_no%>" name="roll_no" required />
+      </label>
+      <label for="research_id">
+        Research Id:
+        <input
+          type="text"
+          value="<%=research_id%>"
+          name="research_id"
+          required
+        />
+      </label>
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>

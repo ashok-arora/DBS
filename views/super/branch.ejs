@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Branch Edit</title>
+  </head>
+
+  <body style="color: white;">
+    <!-- Branch Id -->
+    <p>Branch Id: <%=branch_id%></p>
+    <!-- Other Info -->
+    <form action="./branch" method="POST">
+      <label for="branch_name">
+        Branch Name:
+        <input
+          type="text"
+          value="<%=branch_name%>"
+          name="branch_name"
+          required
+        />
+      </label>
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Subject Edit</title>
+  </head>
+
+  <body style="color: white;">
+    <!-- Subject Code -->
+    <p>Subject Code: <%=subject_code%></p>
+    <!-- Other Info -->
+    <form action="./subject" method="POST">
+      <label for="subject_name">
+        Subject Name:
+        <input
+          type="text"
+          value="<%=subject_name%>"
+          name="subject_name"
+          required
+        />
+      </label>
+      <label for="proposer">
+        Proposer:
+        <input type="text" value="<%=proposer%>" name="proposer" required />
+      </label>
+      <label for="taught_by">
+        Taught by:
+        <input type="text" value="<%=taught_by%>" name="taught_by" required />
+      </label>
+      <label for="credits">
+        Credits:
+        <input type="text" value="<%=credits%>" name="credits" required />
+      </label>
+      <label for="l">
+        L: <input type="text" value="<%=l%>" name="l" required />
+      </label>
+      <label for="t">
+        T: <input type="text" value="<%=t%>" name="t" required />
+      </label>
+      <label for="p">
+        P: <input type="text" value="<%=p%>" name="p" required />
+      </label>
+      <label for="room_no">
+        Room No.:
+        <input type="text" value="<%=room_no%>" name="room_no" required />
+      </label>
+      <label for="faculty_attendance">
+        Faculty Attendance:
+        <input
+          type="text"
+          value="<%=faculty_attendance%>"
+          name="faculty_attendance"
+          required
+        />
+      </label>
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>

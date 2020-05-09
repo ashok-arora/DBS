@@ -6,6 +6,10 @@ const app = express();
 var path = require("path");
 
 app.use(expressLayouts);
+app.set("views", [
+  path.join(__dirname, "/views/"),
+  path.join(__dirname, "/views/super/"),
+]);
 app.set("view engine", "ejs");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -28,6 +32,8 @@ app.use("/", require("./routes/index.js"));
 app.use("/users", require("./routes/users.js"));
 
 app.use("/admin", require("./routes/admin.js"));
+
+app.use("/super", require("./routes/super.js"));
 
 // app.get("*", (req, res) => {
 //   res.redirect("/");

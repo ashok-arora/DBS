@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Research Add</title>
+  </head>
+
+  <body style="color: white;">
+    <!-- Research Id -->
+    <p>Research Id: <%=research_id%></p>
+    <!-- Other Info -->
+    <form action="./research_add" method="POST">
+      <label for="research_name">
+        Research Name:
+        <input
+          type="text"
+          name="research_name"
+          placeholder="Research Name"
+          required
+        />
+      </label>
+      <label for="expected_completion_date">
+        Expected Completion Date:
+        <input
+          type="text"
+          name="expected_completion_date"
+          placeholder="Expected Completion Date"
+          required
+        />
+      </label>
+      <label for="room">
+        Room No.:
+        <input type="text" name="room" placeholder="Room No." required />
+      </label>
+      <button type="submit">SUBMIT</button>
+    </form>
+  </body>
+</html>

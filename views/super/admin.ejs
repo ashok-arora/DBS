@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Edit</title>
+  </head>
+
+  <body style="color: white;">
+    <!-- Admin id -->
+    <p>Admin id: <%=admin_id%></p>
+    <!-- Other Info -->
+    <form action="./admin" method="POST">
+      <label for="f_name">
+        First Name:
+        <input type="text" value="<%=f_name%>" name="f_name" required />
+      </label>
+      <label for="m_name">
+        Middle Name:
+        <input type="text" value="<%=m_name%>" name="m_name" required />
+      </label>
+      <label for="l_name">
+        Last Name:
+        <input type="text" value="<%=l_name%>" name="l_name" required />
+      </label>
+      <label for="post">
+        Post: <input type="text" value="<%=post%>" name="post" required />
+      </label>
+      <label for="phone">
+        Phone: <input type="text" value="<%=phone%>" name="phone" required />
+      </label>
+      <label for="Email">
+        E-Mail: <input type="text" value="<%=Email%>" name="Email" required />
+      </label>
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hostel Add</title>
+  </head>
+
+  <body style="color: white;">
+    <!-- Hostel No. -->
+    <p>Hostel No.: <%=hostel_number%></p>
+    <!-- Other Info -->
+    <form action="./hostel_add" method="POST">
+      <label for="hostel_name">
+        Hostel Name:
+        <input
+          type="text"
+          name="hostel_name"
+          placeholder="Hostel Name"
+          required
+        />
+      </label>
+      <label for="boys_girls">
+        Boy's Hostel or Girl's Hostel:
+        <input
+          type="text"
+          name="boys_girls"
+          placeholder="boys/girls"
+          required
+        />
+      </label>
+      <label for="rooms">
+        No. of Rooms:
+        <input type="text" name="rooms" placeholder="No. of Rooms" required />
+      </label>
+      <label for="day_supervisor">
+        Day Supervisor:
+        <input
+          type="text"
+          name="day_supervisor"
+          placeholder="Day Supervisor"
+          required
+        />
+      </label>
+      <label for="evening_supervisor">
+        Evening Supervisor:
+        <input
+          type="text"
+          name="evening_supervisor"
+          placeholder="Evening Supervisor"
+          required
+        />
+      </label>
+      <label for="night_supervisor">
+        Night Supervisor:
+        <input
+          type="text"
+          name="night_supervisor"
+          placeholder="Night Supervisor"
+          required
+        />
+      </label>
+      <label for="mess_head">
+        Mess Head:
+        <input type="text" name="mess_head" placeholder="Mess Head" required />
+      </label>
+      <button type="submit">SUBMIT</button>
+    </form>
+  </body>
+</html>

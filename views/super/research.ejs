@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Research Edit</title>
+  </head>
+
+  <body style="color: white;">
+    <!-- Research Id -->
+    <p>Research Id: <%=research_id%></p>
+    <!-- Other Info -->
+    <form action="./research" method="POST">
+      <label for="research_name">
+        Research Name:
+        <input
+          type="text"
+          value="<%=research_name%>"
+          name="research_name"
+          required
+        />
+      </label>
+      <label for="expected_completion_date">
+        Expected Completion Date:
+        <input
+          type="text"
+          value="<%=expected_completion_date%>"
+          name="expected_completion_date"
+          required
+        />
+      </label>
+      <label for="room">
+        Room No.:
+        <input type="text" value="<%=room%>" name="room" required />
+      </label>
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>

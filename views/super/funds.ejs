@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Funds Edit</title>
+  </head>
+
+  <body style="color: white;">
+    <!-- Serial No. -->
+    <p>Serial No.: <%=s_no%></p>
+    <!-- Other Info -->
+    <form action="./funds" method="POST">
+      <label for="organization">
+        Organization:
+        <input
+          type="text"
+          value="<%=organization%>"
+          name="organization"
+          required
+        />
+      </label>
+      <label for="research_id">
+        Research Id:
+        <input
+          type="text"
+          value="<%=research_id%>"
+          name="research_id"
+          required
+        />
+      </label>
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>

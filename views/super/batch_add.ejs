@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Batch Add</title>
+  </head>
+
+  <body style="color: white;">
+    <!-- Batch Code -->
+    <p>Batch Code: <%=batch_code%></p>
+    <!-- Other Info -->
+    <form action="./batch_add" method="POST">
+      <label for="branch_id">
+        Branch Id:
+        <input type="text" name="branch_id" placeholder="Branch Id" required />
+      </label>
+      <button type="submit">SUBMIT</button>
+    </form>
+  </body>
+</html>

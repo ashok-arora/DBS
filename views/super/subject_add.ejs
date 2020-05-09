@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Subject Add</title>
+  </head>
+
+  <body style="color: white;">
+    <!-- Subject Code -->
+    <p>Subject Code: <%=subject_code%></p>
+    <!-- Other Info -->
+    <form action="./subject_add" method="POST">
+      <label for="subject_name">
+        Subject Name:
+        <input
+          type="text"
+          name="subject_name"
+          placeholder="Subject Name"
+          required
+        />
+      </label>
+      <label for="proposer">
+        Proposer:
+        <input type="text" name="proposer" placeholder="Proposer" required />
+      </label>
+      <label for="taught_by">
+        Taught by:
+        <input type="text" name="taught_by" placeholder="Taught by" required />
+      </label>
+      <label for="credits">
+        Credits:
+        <input type="text" name="credits" placeholder="Credits" required />
+      </label>
+      <label for="l">
+        L:
+        <input type="text" name="l" placeholder="L" required />
+      </label>
+      <label for="t">
+        T:
+        <input type="text" name="t" placeholder="T" required />
+      </label>
+      <label for="p">
+        P:
+        <input type="text" name="p" placeholder="P" required />
+      </label>
+      <label for="room_no">
+        Room No.:
+        <input type="text" name="room_no" placeholder="Room No." required />
+      </label>
+      <label for="faculty_attendance">
+        Faculty Attendance:
+        <input
+          type="text"
+          name="faculty_attendance"
+          placeholder="Faculty Attendance"
+          required
+        />
+      </label>
+      <button type="submit">SUBMIT</button>
+    </form>
+  </body>
+</html>

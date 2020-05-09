@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Batch Subjects Add</title>
+  </head>
+
+  <body style="color: white;">
+    <!-- Info -->
+    <form action="./batch_subjects_add" method="POST">
+      <label for="batch_code">
+        Batch Code:
+        <input
+          type="text"
+          name="batch_code"
+          placeholder="Batch Code"
+          required
+        />
+      </label>
+      <label for="subject_code">
+        Subject Code:
+        <input
+          type="text"
+          name="subject_code"
+          placeholder="Subject Code"
+          required
+        />
+      </label>
+      <button type="submit">SUBMIT</button>
+    </form>
+  </body>
+</html>

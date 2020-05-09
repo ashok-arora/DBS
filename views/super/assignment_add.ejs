@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment Add</title>
+  </head>
+
+  <body style="color: white;">
+    <!-- Info -->
+    <form action="./assignment_add" method="POST">
+      <label for="subject_code">
+        Subject Code:
+        <input
+          type="text"
+          name="subject_code"
+          placeholder="Subject Code"
+          required
+        />
+      </label>
+      <label for="assignment_name">
+        Assignment Name:
+        <input
+          type="text"
+          name="assignment_name"
+          value=""
+          placeholder="Assignment Name"
+        />
+      </label>
+      <label for="due_date">
+        Due Date:
+        <input type="text" name="due_date" placeholder="Due Date" required />
+      </label>
+      <button type="submit">SUBMIT</button>
+    </form>
+  </body>
+</html>

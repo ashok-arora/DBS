@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maximum Lab Grades Edit</title>
+  </head>
+
+  <body style="color: white;">
+    <!-- Subject Code -->
+    <p>Subject Code: <%=subject_code%></p>
+    <!-- Other Info -->
+    <form action="./max_l_grades" method="POST">
+      <label for="assignment_marks">
+        Assignment Marks:
+        <input
+          type="text"
+          value="<%=assignment_marks%>"
+          name="assignment_marks"
+          required
+        />
+      </label>
+      <label for="attendance_marks">
+        Attendance Marks:
+        <input
+          type="text"
+          value="<%=attendance_marks%>"
+          name="attendance_marks"
+          required
+        />
+      </label>
+      <label for="mid_sem">
+        Mid Semester:
+        <input type="text" value="<%=mid_sem%>" name="mid_sem" required />
+      </label>
+      <label for="major">
+        Major:
+        <input type="text" value="<%=major%>" name="major" required />
+      </label>
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
