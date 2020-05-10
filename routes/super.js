@@ -333,7 +333,7 @@ router.post("/portal", (request, response) => {
             {
               mySqlConnection.query("SELECT * FROM batch", (err, rows) => {
                 if (err) response.status(500).send(err);
-                if (rows) {
+                if (rows.length) {
                   response.render("table", {
                     table: rows,
                   });
@@ -384,11 +384,40 @@ router.post("/portal", (request, response) => {
             {
               let id = request.body.id;
               mySqlConnection.query(
-                "DELETE FROM batch WHERE batch_code = ?",
+                "SELECT * FROM student WHERE batch_code = ?",
                 [id],
-                (err) => {
+                (err, rows) => {
                   if (err) response.status(500).send(err);
-                  response.redirect("/super/portal");
+                  if (rows) {
+                    response
+                      .status(400)
+                      .send(
+                        "Can't Delete. There are some students with this Batch Code."
+                      );
+                  } else {
+                    mySqlConnection.query(
+                      "DELETE FROM batch WHERE batch_code = ?",
+                      [id],
+                      (err) => {
+                        if (err) response.status(500).send(err);
+                        mySqlConnection.query(
+                          "DELETE FROM batch_subjects WHERE batch_code = ?",
+                          [id],
+                          (err) => {
+                            if (err) response.status(500).send(err);
+                            mySqlConnection.query(
+                              "DELETE FROM s_time_table WHERE batch_code = ?",
+                              [id],
+                              (err) => {
+                                if (err) response.status(500).send(err);
+                                response.redirect("/super/portal");
+                              }
+                            );
+                          }
+                        );
+                      }
+                    );
+                  }
                 }
               );
             }
@@ -518,11 +547,26 @@ router.post("/portal", (request, response) => {
             {
               let id = request.body.id;
               mySqlConnection.query(
-                "DELETE FROM branch WHERE branch_id = ?",
+                "SELECT * FROM faculty WHERE branch_id = ?",
                 [id],
-                (err) => {
+                (err, rows) => {
                   if (err) response.status(500).send(err);
-                  response.redirect("/super/portal");
+                  if (rows.length) {
+                    response
+                      .status(400)
+                      .send(
+                        "Can't delete. There is some faculty with this branch_id."
+                      );
+                  } else {
+                    mySqlConnection.query(
+                      "DELETE FROM branch WHERE branch_id = ?",
+                      [id],
+                      (err) => {
+                        if (err) response.status(500).send(err);
+                        response.redirect("/super/portal");
+                      }
+                    );
+                  }
                 }
               );
             }
@@ -594,7 +638,14 @@ router.post("/portal", (request, response) => {
                 [id],
                 (err) => {
                   if (err) response.status(500).send(err);
-                  response.redirect("/super/portal");
+                  mySqlConnection.query(
+                    "DELETE FROM student_club WHERE club_id = ?",
+                    [id],
+                    (err) => {
+                      if (err) response.status(500).send(err);
+                      else response.redirect("/super/portal");
+                    }
+                  );
                 }
               );
             }
@@ -662,11 +713,71 @@ router.post("/portal", (request, response) => {
             {
               let id = request.body.id;
               mySqlConnection.query(
-                "DELETE FROM faculty WHERE faculty_id = ?",
+                "SELECT * FROM club WHERE faculty_coordinator = ?",
                 [id],
-                (err) => {
+                (err, rows) => {
                   if (err) response.status(500).send(err);
-                  response.redirect("/super/portal");
+                  if (rows.length) {
+                    response
+                      .status(400)
+                      .send(
+                        "Can't delete. There are some clubs associated with this Faculty Id."
+                      );
+                  } else {
+                    mySqlConnection.query(
+                      "SELECT * FROM subject WHERE taught_by = ?",
+                      [id],
+                      (err, rows) => {
+                        if (err) response.status(500).send(err);
+                        if (rows.length) {
+                          response
+                            .status(400)
+                            .send(
+                              "Can't delete. This faculty teaches some subjects."
+                            );
+                        } else {
+                          mySqlConnection.query(
+                            "SELECT * FROM subject WHERE proposer = ?",
+                            [id],
+                            (err, rows) => {
+                              if (err) response.status(500).send(err);
+                              if (rows.length) {
+                                response
+                                  .status(400)
+                                  .send(
+                                    "Can't delete. This faculty has proposed some subjects."
+                                  );
+                              } else {
+                                mySqlConnection.query(
+                                  "DELETE FROM faculty WHERE faculty_id = ?",
+                                  [id],
+                                  (err) => {
+                                    if (err) response.status(500).send(err);
+                                    mySqlConnection.query(
+                                      "DELETE FROM f_time_table WHERE faculty_id = ?",
+                                      [id],
+                                      (err) => {
+                                        if (err) response.status(500).send(err);
+                                        mySqlConnection.query(
+                                          "DELETE FROM research_proposers WHERE faculty_id = ?",
+                                          [id],
+                                          (err) => {
+                                            if (err)
+                                              response.status(500).send(err);
+                                            response.redirect("/super/portal");
+                                          }
+                                        );
+                                      }
+                                    );
+                                  }
+                                );
+                              }
+                            }
+                          );
+                        }
+                      }
+                    );
+                  }
                 }
               );
             }
@@ -855,11 +966,26 @@ router.post("/portal", (request, response) => {
             {
               let id = request.body.id;
               mySqlConnection.query(
-                "DELETE FROM hostel WHERE hostel_number = ?",
+                "SELECT * FROM student WHERE hostel_no = ?",
                 [id],
-                (err) => {
+                (err, rows) => {
                   if (err) response.status(500).send(err);
-                  response.redirect("/super/portal");
+                  if (rows.length) {
+                    response
+                      .status(400)
+                      .send(
+                        "Can't delete. There are some students who live in this hostel."
+                      );
+                  } else {
+                    mySqlConnection.query(
+                      "DELETE FROM hostel WHERE hostel_number = ?",
+                      [id],
+                      (err) => {
+                        if (err) response.status(500).send(err);
+                        response.redirect("/super/portal");
+                      }
+                    );
+                  }
                 }
               );
             }
@@ -1140,7 +1266,28 @@ router.post("/portal", (request, response) => {
                 [id],
                 (err) => {
                   if (err) response.status(500).send(err);
-                  response.redirect("/super/portal");
+                  mySqlConnection.query(
+                    "DELETE FROM funds WHERE research_id = ?",
+                    [id],
+                    (err) => {
+                      if (err) response.status(500).send(err);
+                      mySqlConnection.query(
+                        "DELETE FROM research_assistants WHERE research_id = ?",
+                        [id],
+                        (err) => {
+                          if (err) response.status(500).send(err);
+                          mySqlConnection.query(
+                            "DELETE FROM research_proposers WHERE research_id = ?",
+                            [id],
+                            (err) => {
+                              if (err) response.status(500).send(err);
+                              response.redirect("/super/portal");
+                            }
+                          );
+                        }
+                      );
+                    }
+                  );
                 }
               );
             }
@@ -1336,7 +1483,51 @@ router.post("/portal", (request, response) => {
                 [id],
                 (err) => {
                   if (err) response.status(500).send(err);
-                  response.redirect("/super/portal");
+                  mySqlConnection.query(
+                    "DELETE FROM student_club WHERE roll_no = ?",
+                    [id],
+                    (err) => {
+                      if (err) response.status(500).send(err);
+                      mySqlConnection.query(
+                        "DELETE FROM l_grades WHERE roll_no = ?",
+                        [id],
+                        (err) => {
+                          if (err) response.status(500).send(err);
+                          mySqlConnection.query(
+                            "DELETE FROM t_grades WHERE roll_no = ?",
+                            [id],
+                            (err) => {
+                              if (err) response.status(500).send(err);
+                              mySqlConnection.query(
+                                "DELETE FROM attendance WHERE roll_no = ?",
+                                [id],
+                                (err) => {
+                                  if (err) response.status(500).send(err);
+                                  mySqlConnection.query(
+                                    "DELETE FROM backlogs WHERE roll_no = ?",
+                                    [id],
+                                    (err) => {
+                                      if (err) response.status(500).send(err);
+                                      mySqlConnection.query(
+                                        "DELETE FROM research_assistants WHERE roll_no = ?",
+                                        [id],
+                                        (err) => {
+                                          if (err)
+                                            response.status(500).send(err);
+                                          else
+                                            response.redirect("/super/portal");
+                                        }
+                                      );
+                                    }
+                                  );
+                                }
+                              );
+                            }
+                          );
+                        }
+                      );
+                    }
+                  );
                 }
               );
             }
@@ -1466,11 +1657,104 @@ router.post("/portal", (request, response) => {
             {
               let id = request.body.id;
               mySqlConnection.query(
-                "DELETE FROM subject WHERE subject_code = ?",
+                "SELECT * FROM batch_subjects WHERE subject_code = ?",
                 [id],
-                (err) => {
+                (err, rows) => {
                   if (err) response.status(500).send(err);
-                  response.redirect("/super/portal");
+                  if (rows.length) {
+                    response
+                      .status(400)
+                      .send(
+                        "Can't delete. There are some batches which study this subject."
+                      );
+                  } else {
+                    mySqlConnection.query(
+                      "SELECT * FROM batch_subjects WHERE subject_code = ?",
+                      [id],
+                      (err, rows) => {
+                        if (err) response.status(500).send(err);
+                        if (rows.length) {
+                          response
+                            .status(400)
+                            .send(
+                              "Can't delete. There are some batches which study this subject."
+                            );
+                        } else {
+                          mySqlConnection.query(
+                            "DELETE FROM subject WHERE subject_code = ?",
+                            [id],
+                            (err) => {
+                              if (err) response.status(500).send(err);
+                              mySqlConnection.query(
+                                "DELETE FROM assignment WHERE subject_code = ?",
+                                [id],
+                                (err) => {
+                                  if (err) response.status(500).send(err);
+                                  mySqlConnection.query(
+                                    "DELETE FROM attendance WHERE subject_code = ?",
+                                    [id],
+                                    (err) => {
+                                      if (err) response.status(500).send(err);
+                                      mySqlConnection.query(
+                                        "DELETE FROM backlogs WHERE subject_code = ?",
+                                        [id],
+                                        (err) => {
+                                          if (err)
+                                            response.status(500).send(err);
+                                          mySqlConnection.query(
+                                            "DELETE FROM l_grades WHERE subject_code = ?",
+                                            [id],
+                                            (err) => {
+                                              if (err)
+                                                response.status(500).send(err);
+                                              mySqlConnection.query(
+                                                "DELETE FROM t_grades WHERE subject_code = ?",
+                                                [id],
+                                                (err) => {
+                                                  if (err)
+                                                    response
+                                                      .status(500)
+                                                      .send(err);
+                                                  mySqlConnection.query(
+                                                    "DELETE FROM max_l_grades WHERE subject_code = ?",
+                                                    [id],
+                                                    (err) => {
+                                                      if (err)
+                                                        response
+                                                          .status(500)
+                                                          .send(err);
+                                                      mySqlConnection.query(
+                                                        "DELETE FROM max_t_grades WHERE subject_code = ?",
+                                                        [id],
+                                                        (err) => {
+                                                          if (err)
+                                                            response
+                                                              .status(500)
+                                                              .send(err);
+                                                          else
+                                                            response.redirect(
+                                                              "/super/portal"
+                                                            );
+                                                        }
+                                                      );
+                                                    }
+                                                  );
+                                                }
+                                              );
+                                            }
+                                          );
+                                        }
+                                      );
+                                    }
+                                  );
+                                }
+                              );
+                            }
+                          );
+                        }
+                      }
+                    );
+                  }
                 }
               );
             }
