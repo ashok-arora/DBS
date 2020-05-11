@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Batch Add</title>
+  </head>
+
+  <body style="color: white;">
+    <!-- Batch Code -->
+    <p>Batch Code: <%=batch_code%></p>
+    <!-- Other Info -->
+    <form action="./batch_add" method="POST">
+      <label for="branch_id">
+        Branch Id:
+        <input type="text" name="branch_id" placeholder="Branch Id" required />
+      </label>
+      <button type="submit">SUBMIT</button>
+    </form>
+    <button
+      style="
+        background-color: #282828;
+        border: 1px solid #fabd2f;
+        color: #ebdbb2;
+        padding: 20px 20px;
+        text-align: center;
+        font-size: 20px;
+        position: absolute;
+        top: 50px;
+        left: 80px;
+        border-radius: 10px;
+      "
+      onclick="window.location.href = '/super/portal';"
+    >
+      Back
+    </button>
+  </body>
+</html>

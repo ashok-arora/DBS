@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Club Add</title>
+  </head>
+
+  <body style="color: white;">
+    <!-- Club Id -->
+    <p>Club Id: <%=club_id%></p>
+    <!-- Other Info -->
+    <form action="./club_add" method="POST">
+      <label for="club_name">
+        Club Name:
+        <input type="text" name="club_name" placeholder="Club Name" required />
+      </label>
+      <label for="club_room_no">
+        Room No.:
+        <input
+          type="text"
+          name="club_room_no"
+          placeholder="Room No."
+          required
+        />
+      </label>
+      <label for="faculty_coordinator">
+        Faculty Coordinator:
+        <input
+          type="text"
+          name="faculty_coordinator"
+          placeholder="Faculty Coordinator"
+          required
+        />
+      </label>
+      <button type="submit">SUBMIT</button>
+    </form>
+    <button
+      style="
+        background-color: #282828;
+        border: 1px solid #fabd2f;
+        color: #ebdbb2;
+        padding: 20px 20px;
+        text-align: center;
+        font-size: 20px;
+        position: absolute;
+        top: 50px;
+        left: 80px;
+        border-radius: 10px;
+      "
+      onclick="window.location.href = '/super/portal';"
+    >
+      Back
+    </button>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Table</title>
+  </head>
+
+  <body>
+    <% for (row of table) {%> <% for (item in row) {%>
+    <p style="color: white;"><%=item%>: <%=row[item]%></p>
+    <%}%>
+    <br />
+    <%}%>
+    <button
+      style="
+        background-color: #282828;
+        border: 1px solid #fabd2f;
+        color: #ebdbb2;
+        padding: 20px 20px;
+        text-align: center;
+        font-size: 20px;
+        position: absolute;
+        top: 50px;
+        left: 80px;
+        border-radius: 10px;
+      "
+      onclick="window.location.href = '/super/portal';"
+    >
+      Back
+    </button>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Faculty Add</title>
+  </head>
+
+  <body style="color: white;">
+    <!-- Faculty Id -->
+    <p>Faculty Id: <%=faculty_id%></p>
+    <!-- Other Info -->
+    <form action="./faculty_add" method="POST">
+      <label for="f_name">
+        First Name:
+        <input type="text" name="f_name" placeholder="First Name" required />
+      </label>
+      <label for="m_name">
+        Middle Name:
+        <input type="text" name="m_name" value="" placeholder="Middle Name" />
+      </label>
+      <label for="l_name">
+        Last Name:
+        <input type="text" name="l_name" placeholder="Last Name" required />
+      </label>
+      <label for="gender">
+        Gender:
+        <input type="text" name="gender" placeholder="Gender" required />
+      </label>
+      <label for="dob">
+        Date of Birth:
+        <input type="text" name="dob" placeholder="Date of Birth" required />
+      </label>
+      <label for="room">
+        Room: <input type="text" name="room" placeholder="Room" required />
+      </label>
+      <label for="phone">
+        Phone: <input type="text" name="phone" placeholder="Phone" required />
+      </label>
+      <label for="email">
+        E-Mail: <input type="text" name="email" placeholder="E-Mail" required />
+      </label>
+      <label for="post">
+        Post: <input type="text" name="post" placeholder="Post" required />
+      </label>
+      <label for="branch_id">
+        Branch Id:
+        <input type="text" name="branch_id" placeholder="Branch Id" required />
+      </label>
+      <button type="submit">SUBMIT</button>
+    </form>
+    <button
+      style="
+        background-color: #282828;
+        border: 1px solid #fabd2f;
+        color: #ebdbb2;
+        padding: 20px 20px;
+        text-align: center;
+        font-size: 20px;
+        position: absolute;
+        top: 50px;
+        left: 80px;
+        border-radius: 10px;
+      "
+      onclick="window.location.href = '/super/portal';"
+    >
+      Back
+    </button>
+  </body>
+</html>

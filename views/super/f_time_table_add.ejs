@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Faculty Time Table Add</title>
+  </head>
+
+  <body style="color: white;">
+    <!-- Info -->
+    <form action="./f_time_table_add" method="POST">
+      <label for="faculty_id">
+        Faculty Id:
+        <input
+          type="text"
+          name="faculty_id"
+          placeholder="Faculty Id"
+          required
+        />
+      </label>
+      <label for="day">
+        Day:
+        <input type="text" name="day" placeholder="Day" required />
+      </label>
+      <label for="t_9">
+        09:00 - 10:00:
+        <input type="text" name="t_9" placeholder="09:00 - 10:00" required />
+      </label>
+      <label for="t_10">
+        10:00 - 11:00:
+        <input type="text" name="t_10" placeholder="10:00 - 11:00" required />
+      </label>
+      <label for="t_11">
+        11:00 - 12:00:
+        <input type="text" name="t_11" placeholder="11:00 - 12:00" required />
+      </label>
+      <label for="t_12">
+        12:00 - 13:00:
+        <input type="text" name="t_12" placeholder="12:00 - 13:00" required />
+      </label>
+      <label for="t_2">
+        14:00 - 15:00:
+        <input type="text" name="t_2" placeholder="14:00 - 15:00" required />
+      </label>
+      <label for="t_3">
+        15:00 - 16:00:
+        <input type="text" name="t_3" placeholder="15:00 - 16:00" required />
+      </label>
+      <label for="t_4">
+        16:00 - 17:00:
+        <input type="text" name="t_4" placeholder="16:00 - 17:00" required />
+      </label>
+      <label for="t_5">
+        17:00 - 18:00:
+        <input type="text" name="t_5" placeholder="17:00 - 18:00" required />
+      </label>
+      <button type="submit">SUBMIT</button>
+    </form>
+    <button
+      style="
+        background-color: #282828;
+        border: 1px solid #fabd2f;
+        color: #ebdbb2;
+        padding: 20px 20px;
+        text-align: center;
+        font-size: 20px;
+        position: absolute;
+        top: 50px;
+        left: 80px;
+        border-radius: 10px;
+      "
+      onclick="window.location.href = '/super/portal';"
+    >
+      Back
+    </button>
+  </body>
+</html>

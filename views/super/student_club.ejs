@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Club Edit</title>
+  </head>
+
+  <body style="color: white;">
+    <!-- Serial No. -->
+    <p>Serial No.: <%=s_no%></p>
+    <!-- Other Info -->
+    <form action="./student_club" method="POST">
+      <label for="roll_no">
+        Roll No.:
+        <input type="text" value="<%=roll_no%>" name="roll_no" required />
+      </label>
+      <label for="club_id">
+        Club Id:
+        <input type="text" value="<%=club_id%>" name="club_id" required />
+      </label>
+      <button type="submit">Submit</button>
+    </form>
+    <button
+      style="
+        background-color: #282828;
+        border: 1px solid #fabd2f;
+        color: #ebdbb2;
+        padding: 20px 20px;
+        text-align: center;
+        font-size: 20px;
+        position: absolute;
+        top: 50px;
+        left: 80px;
+        border-radius: 10px;
+      "
+      onclick="window.location.href = '/super/portal';"
+    >
+      Back
+    </button>
+  </body>
+</html>

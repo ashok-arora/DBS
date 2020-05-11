@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Research Add</title>
+  </head>
+
+  <body style="color: white;">
+    <!-- Research Id -->
+    <p>Research Id: <%=research_id%></p>
+    <!-- Other Info -->
+    <form action="./research_add" method="POST">
+      <label for="research_name">
+        Research Name:
+        <input
+          type="text"
+          name="research_name"
+          placeholder="Research Name"
+          required
+        />
+      </label>
+      <label for="expected_completion_date">
+        Expected Completion Date:
+        <input
+          type="text"
+          name="expected_completion_date"
+          placeholder="Expected Completion Date"
+          required
+        />
+      </label>
+      <label for="room">
+        Room No.:
+        <input type="text" name="room" placeholder="Room No." required />
+      </label>
+      <button type="submit">SUBMIT</button>
+    </form>
+    <button
+      style="
+        background-color: #282828;
+        border: 1px solid #fabd2f;
+        color: #ebdbb2;
+        padding: 20px 20px;
+        text-align: center;
+        font-size: 20px;
+        position: absolute;
+        top: 50px;
+        left: 80px;
+        border-radius: 10px;
+      "
+      onclick="window.location.href = '/super/portal';"
+    >
+      Back
+    </button>
+  </body>
+</html>
