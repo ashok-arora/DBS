@@ -32,24 +32,24 @@ router.post("/login", function (request, response) {
     (err, rows) => {
       if (err) response.status(500).send(err);
       user = rows[0];
-      //Commented for testing purposes, will uncomment later
-      //   if (user.super) {
-      if (user) {
-        const result = bcrypt.compareSync(password, user.password);
-        // Easy way to prevent extracting password form cookie, will try better solution later
-        password = bcrypt.hashSync(password, 10);
-        if (result) {
-          request.session.user = user;
-          response.redirect("/super/portal");
+      // Checking if the admin is super user or not
+      if (user.super) {
+        if (user) {
+          const result = bcrypt.compareSync(password, user.password);
+          // Easy way to prevent extracting password form cookie, will try better solution later
+          password = bcrypt.hashSync(password, 10);
+          if (result) {
+            request.session.user = user;
+            response.redirect("/super/portal");
+          } else {
+            response.status(400).send("Password incorrect");
+          }
         } else {
-          response.status(400).send("Password incorrect");
+          response.status(400).send("Enter correct id");
         }
       } else {
-        response.status(400).send("Enter correct id");
+        response.status(400).send("Not a super user");
       }
-      //   } else {
-      //     response.status(400).send("Not a super user");
-      //   }
     }
   );
 });
