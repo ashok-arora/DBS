@@ -1351,4 +1351,13 @@ router.post("/subjects_edit", (request, response) => {
   }
 });
 
+router.get("/logout", (request, response) => {
+  if (request.session.user) {
+    request.session.destroy(() => {
+      response.redirect("/admin/admin_login");
+    });
+  }
+});
+
+
 module.exports = router;

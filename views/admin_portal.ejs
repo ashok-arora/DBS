@@ -6,15 +6,17 @@
       <img src="/assets/IIIT_logo_dark.png">
       </header>
       <ul>
-        <li>Dashboard</li>
-        <li onclick="student_edit()">Student</li>
-        <li onclick="faculty_edit()">Faculty</li>
-        <li onclick="research_edit()">Research</li>
-        <li onclick="club_edit()">Club</li>
-        <li onclick="admin_edit()">Admin</li>
-        <li>Logout</li>
+        <li class="tablinks" onclick="dashboard()">Dashboard</li>
+        <li class="tablinks" onclick="student_edit()">Student</li>
+        <li class="tablinks" onclick="faculty_edit()">Faculty</li>
+        <li class="tablinks" onclick="admin_edit()">Admin</li>
+        <li class="tablinks" onclick="club_edit()">Club</li>
+        <li class="tablinks" onclick="research_edit()">Research</li>
+        <li class="tablinks" onclick="subjects_edit()">Subjects</li>
+        <a href="./logout" style="text-decoration: none; color:#ebdbb2;"><li class="tablinks">Logout</li></a>
       </ul>
     </nav>
+
 
     <!-- Student -->
     <form
@@ -32,11 +34,11 @@
         />
       </label>
       <label for="id">
-        <input type="text" placeholder="20XXYYYZZZ" name="id" required />
+        <input type="text" placeholder="stud" name="id" required />
       </label>
       <button type="submit">SUBMIT</button>
     </form>
-
+    
     <!-- Faculty -->
     <form
       action="./admin_portal"
@@ -53,7 +55,7 @@
         />
       </label>
       <label for="id">
-        <input type="text" placeholder="20XXYYYZZZ" name="id" required />
+        <input type="text" placeholder="fac" name="id" required />
       </label>
       <button type="submit">SUBMIT</button>
     </form>
@@ -116,7 +118,7 @@
         />
       </label>
       <label for="id">
-        <input type="text" placeholder="20XXYYYZZZ" name="id" required />
+        <input type="text" placeholder="res" name="id" required />
       </label>
       <button type="submit">SUBMIT</button>
     </form>
@@ -143,58 +145,71 @@
     </form>
 
     <script>
+      
+      function dashboard() {
+        document.getElementById("student_form").style.display = "none";
+        document.getElementById("faculty_form").style.display = "none";
+        document.getElementById("admin_form").style.display = "none";
+        document.getElementById("club_form").style.display = "none";
+        document.getElementById("research_form").style.display = "none";
+        document.getElementById("subjects_form").style.display = "none";
+
+      }
+
       function student_edit() {
         document.getElementById("student_form").style.display = "block";
-        document.getElementById("faculty").style.display = "none";
-        document.getElementById("admin").style.display = "none";
-        document.getElementById("club").style.display = "none";
-        document.getElementById("research").style.display = "none";
-        document.getElementById("subjects").style.display = "none";
+        document.getElementById("faculty_form").style.display = "none";
+        document.getElementById("admin_form").style.display = "none";
+        document.getElementById("club_form").style.display = "none";
+        document.getElementById("research_form").style.display = "none";
+        document.getElementById("subjects_form").style.display = "none";
+
       }
 
       function faculty_edit() {
         document.getElementById("faculty_form").style.display = "block";
-        document.getElementById("student").style.display = "none";
-        document.getElementById("admin").style.display = "none";
-        document.getElementById("club").style.display = "none";
-        document.getElementById("research").style.display = "none";
-        document.getElementById("subjects").style.display = "none";
+        document.getElementById("student_form").style.display = "none";
+        document.getElementById("admin_form").style.display = "none";
+        document.getElementById("club_form").style.display = "none";
+        document.getElementById("research_form").style.display = "none";
+        document.getElementById("subjects_form").style.display = "none";
+
       }
 
       function admin_edit() {
         document.getElementById("admin_form").style.display = "block";
-        document.getElementById("faculty").style.display = "none";
-        document.getElementById("student").style.display = "none";
-        document.getElementById("club").style.display = "none";
-        document.getElementById("research").style.display = "none";
-        document.getElementById("subjects").style.display = "none";
+        document.getElementById("faculty_form").style.display = "none";
+        document.getElementById("student_form").style.display = "none";
+        document.getElementById("club_form").style.display = "none";
+        document.getElementById("research_form").style.display = "none";
+        document.getElementById("subjects_form").style.display = "none";
       }
 
       function club_edit() {
         document.getElementById("club_form").style.display = "block";
-        document.getElementById("student").style.display = "none";
-        document.getElementById("faculty").style.display = "none";
-        document.getElementById("admin").style.display = "none";
-        document.getElementById("research").style.display = "none";
-        document.getElementById("subjects").style.display = "none";
+        document.getElementById("student_form").style.display = "none";
+        document.getElementById("faculty_form").style.display = "none";
+        document.getElementById("admin_form").style.display = "none";
+        document.getElementById("research_form").style.display = "none";
+        document.getElementById("subjects_form").style.display = "none";
       }
 
       function research_edit() {
         document.getElementById("research_form").style.display = "block";
-        document.getElementById("student").style.display = "none";
-        document.getElementById("faculty").style.display = "none";
-        document.getElementById("admin").style.display = "none";
-        document.getElementById("club").style.display = "none";
-        document.getElementById("subjects").style.display = "none";
+        document.getElementById("student_form").style.display = "none";
+        document.getElementById("faculty_form").style.display = "none";
+        document.getElementById("admin_form").style.display = "none";
+        document.getElementById("club_form").style.display = "none";
+        document.getElementById("subjects_form").style.display = "none";
       }
 
       function subjects_edit() {
         document.getElementById("subjects_form").style.display = "block";
-        document.getElementById("student").style.display = "none";
-        document.getElementById("faculty").style.display = "none";
-        document.getElementById("admin").style.display = "none";
-        document.getElementById("club").style.display = "none";
-        document.getElementById("research").style.display = "none";
+        document.getElementById("student_form").style.display = "none";
+        document.getElementById("faculty_form").style.display = "none";
+        document.getElementById("admin_form").style.display = "none";
+        document.getElementById("club_form").style.display = "none";
+        document.getElementById("research_form").style.display = "none";
       }
     </script>
     <main>
