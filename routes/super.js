@@ -1905,7 +1905,7 @@ router.post("/admin_add", (request, response) => {
   mySqlConnection.query(
     "INSERT INTO admin VALUES (?)",
     [[add_id, f_name, m_name, l_name, password, post, phone, Email, photo]],
-    (err, rows) => {
+    (err) => {
       if (err) response.status(500).send(err);
       else response.redirect("/super/portal");
     }
@@ -1967,7 +1967,7 @@ router.post("/assignment_add", (request, response) => {
   mySqlConnection.query(
     "INSERT INTO assignment (subject_code, assignment_name, due_date) VALUES (?)",
     [[subject_code, assignment_name, due_date]],
-    (err, rows) => {
+    (err) => {
       if (err) response.status(500).send(err);
       else response.redirect("/super/portal");
     }
@@ -2010,7 +2010,7 @@ router.post("/attendance_add", (request, response) => {
   mySqlConnection.query(
     "INSERT INTO attendance (roll_no, subject_code, attendance) VALUES (?)",
     [[roll_no, subject_code, attendance]],
-    (err, rows) => {
+    (err) => {
       if (err) response.status(500).send(err);
       else response.redirect("/super/portal");
     }
@@ -2053,7 +2053,7 @@ router.post("/backlogs_add", (request, response) => {
   mySqlConnection.query(
     "INSERT INTO backlogs (roll_no, subject_code) VALUES (?)",
     [[roll_no, subject_code]],
-    (err, rows) => {
+    (err) => {
       if (err) response.status(500).send(err);
       else response.redirect("/super/portal");
     }
@@ -2097,7 +2097,7 @@ router.post("/batch_add", (request, response) => {
   mySqlConnection.query(
     "INSERT INTO batch VALUES (?)",
     [[add_id, branch_id]],
-    (err, rows) => {
+    (err) => {
       if (err) response.status(500).send(err);
       else response.redirect("/super/portal");
     }
@@ -2139,7 +2139,7 @@ router.post("/batch_subjects_add", (request, response) => {
   mySqlConnection.query(
     "INSERT INTO batch_subjects VALUES (?)",
     [[batch_code, subject_code]],
-    (err, rows) => {
+    (err) => {
       if (err) response.status(500).send(err);
       else response.redirect("/super/portal");
     }
@@ -2183,7 +2183,7 @@ router.post("/branch_add", (request, response) => {
   mySqlConnection.query(
     "INSERT INTO branch VALUES (?)",
     [[add_id, branch_name]],
-    (err, rows) => {
+    (err) => {
       if (err) response.status(500).send(err);
       else response.redirect("/super/portal");
     }
@@ -2227,7 +2227,7 @@ router.post("/club_add", (request, response) => {
   mySqlConnection.query(
     "INSERT INTO club VALUES (?)",
     [[add_id, club_name, club_room_no, faculty_coordinator]],
-    (err, rows) => {
+    (err) => {
       if (err) response.status(500).send(err);
       else response.redirect("/super/portal");
     }
@@ -2302,7 +2302,7 @@ router.post("/faculty_add", (request, response) => {
         photo,
       ],
     ],
-    (err, rows) => {
+    (err) => {
       if (err) response.status(500).send(err);
       else response.redirect("/super/portal");
     }
@@ -2402,7 +2402,7 @@ router.post("/funds_add", (request, response) => {
   mySqlConnection.query(
     "INSERT INTO funds VALUES (?)",
     [[organization, research_id]],
-    (err, rows) => {
+    (err) => {
       if (err) response.status(500).send(err);
       else response.redirect("/super/portal");
     }
@@ -2455,7 +2455,7 @@ router.post("/f_time_table_add", (request, response) => {
   mySqlConnection.query(
     "INSERT INTO f_time_table VALUES (?)",
     [[faculty_id, day, t_9, t_10, t_11, t_12, t_2, t_3, t_4, t_5]],
-    (err, rows) => {
+    (err) => {
       if (err) response.status(500).send(err);
       else response.redirect("/super/portal");
     }
@@ -2537,7 +2537,7 @@ router.post("/hostel_add", (request, response) => {
         mess_head,
       ],
     ],
-    (err, rows) => {
+    (err) => {
       if (err) response.status(500).send(err);
       else response.redirect("/super/portal");
     }
@@ -2618,7 +2618,7 @@ router.post("/l_grades_add", (request, response) => {
         major,
       ],
     ],
-    (err, rows) => {
+    (err) => {
       if (err) response.status(500).send(err);
       else response.redirect("/super/portal");
     }
@@ -2681,7 +2681,7 @@ router.post("/max_l_grades_add", (request, response) => {
   mySqlConnection.query(
     "INSERT INTO max_l_grades VALUES (?)",
     [[add_id, assignment_marks, attendance_marks, mid_sem, major]],
-    (err, rows) => {
+    (err) => {
       if (err) response.status(500).send(err);
       else response.redirect("/super/portal");
     }
@@ -2734,7 +2734,7 @@ router.post("/max_t_grades_add", (request, response) => {
   mySqlConnection.query(
     "INSERT INTO max_t_grades VALUES (?)",
     [[add_id, assignment_marks, attendance_marks, minor1, minor2, major]],
-    (err, rows) => {
+    (err) => {
       if (err) response.status(500).send(err);
       else response.redirect("/super/portal");
     }
@@ -2795,7 +2795,7 @@ router.post("/research_add", (request, response) => {
   mySqlConnection.query(
     "INSERT INTO research VALUES (?)",
     [[add_id, research_name, expected_completion_date, room]],
-    (err, rows) => {
+    (err) => {
       if (err) response.status(500).send(err);
       else response.redirect("/super/portal");
     }
@@ -2839,7 +2839,7 @@ router.post("/research_assistants_add", (request, response) => {
   mySqlConnection.query(
     "INSERT INTO research_assistants VALUES (?)",
     [[roll_no, research_id]],
-    (err, rows) => {
+    (err) => {
       if (err) response.status(500).send(err);
       else response.redirect("/super/portal");
     }
@@ -2881,7 +2881,7 @@ router.post("/research_proposers_add", (request, response) => {
   mySqlConnection.query(
     "INSERT INTO research_proposers VALUES (?)",
     [[research_id, faculty_id]],
-    (err, rows) => {
+    (err) => {
       if (err) response.status(500).send(err);
       else response.redirect("/super/portal");
     }
@@ -2958,7 +2958,7 @@ router.post("/student_add", (request, response) => {
         photo,
       ],
     ],
-    (err, rows) => {
+    (err) => {
       if (err) response.status(500).send(err);
       else response.redirect("/super/portal");
     }
@@ -3066,7 +3066,7 @@ router.post("/student_club_add", (request, response) => {
   mySqlConnection.query(
     "INSERT INTO student_club VALUES (?)",
     [[roll_no, club_id]],
-    (err, rows) => {
+    (err) => {
       if (err) response.status(500).send(err);
       else response.redirect("/super/portal");
     }
@@ -3133,7 +3133,7 @@ router.post("/subject_add", (request, response) => {
         faculty_attendance,
       ],
     ],
-    (err, rows) => {
+    (err) => {
       if (err) response.status(500).send(err);
       else response.redirect("/super/portal");
     }
@@ -3214,7 +3214,7 @@ router.post("/s_time_table_add", (request, response) => {
   mySqlConnection.query(
     "INSERT INTO s_time_table VALUES (?)",
     [[batch_code, day, t_9, t_10, t_11, t_12, t_2, t_3, t_4, t_5]],
-    (err, rows) => {
+    (err) => {
       if (err) response.status(500).send(err);
       else response.redirect("/super/portal");
     }
@@ -3293,7 +3293,7 @@ router.post("/t_grades_add", (request, response) => {
         major,
       ],
     ],
-    (err, rows) => {
+    (err) => {
       if (err) response.status(500).send(err);
       else response.redirect("/super/portal");
     }
