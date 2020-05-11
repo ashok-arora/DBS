@@ -1,0 +1,51 @@
+<style>
+    .GridContainerWrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .GridHeading {
+        width: calc(100% - 60px);
+        margin: 10px;
+        padding: 20px 20px;
+        border-radius: 1.5em;
+        background-color: var(--primary2);
+        text-align: center;
+    }
+
+    .GridContainer {
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        gap: 10px;
+    }
+
+    .GridContainer div {
+        height: 100px;
+        width: 100px;
+        border-radius: 1em;
+        background-color: var(--primary);
+        margin: 10px;
+    }
+</style>
+<div style="display: flex; justify-content: space-between; width: 100%; padding: 10px 0px;">
+    <div class="GridContainerWrapper">
+        <div class="GridHeading">
+            <h3>Administration</h3>
+        </div>
+        <div class="GridContainer">
+            <% for(var i = 0; i < 12; i++) {%>
+            <div></div>
+            <% } %>
+        </div>
+    </div>
+    <div class="GridContainerWrapper">
+        <div class="GridHeading">
+            <h3>Other Faculty/ Children</h3>
+        </div>
+        <div class="GridContainer">
+            <% for(var i = 0; i < 12; i++) {%>
+            <div></div>
+            <% } %>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,84 @@
+<style>
+  .LeftContainer {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    /* background-color: red; */
+  }
+
+  .RightContainer {
+    flex: 2;
+  }
+
+  .LeftContainer div {
+    display: flex;
+    width: calc(100% - 20px);
+    height: 170px;
+    padding: 0px 10px;
+    border-radius: 1em;
+    justify-content: space-between;
+    background-color: var(--primary);
+    margin-bottom: 20px;
+  }
+
+  .RightContainer div {
+    margin-left: 20px;
+    border-radius: 1em;
+    display: flex;
+    width: calc(100% - 40px);
+    flex-direction: column;
+    background-color: var(--primary);
+    padding: 10px;
+    height: calc(100% - 20px);
+  }
+</style>
+<% var f_name = "Vishnu Sir"; assignment_number = "Assignments"%>
+<div style="display: flex; width: 100%; justify-content: space-between;">
+  <div class="LeftContainer">
+    <div>
+      <h1 style="color: var(--secondary);">
+        Hello, <%=f_name%>!<br />
+        Welcome Back!
+      </h1>
+      <img src="/assets/man_with_laptop.png" height="150px" />
+    </div>
+    <div
+      style="
+        background-color: var(--primary);
+        padding: 0px 30px;
+        height: 100px;
+        width: calc(100% - 60px);
+        justify-content: flex-start;
+      "
+    >
+      <i
+        class="material-icons"
+        style="color: white; align-self: center; font-size: 60px;"
+        >done_all</i
+      >
+      <h2 style="margin-left: 50px; color: var(--secondary);">
+        <%=assignment_number%> <br />
+        given for today!
+      </h2>
+    </div>
+    <div
+      style="
+        background-color: var(--primary);
+        flex-direction: column;
+        height: 200px;
+        margin-bottom: 0px;
+      "
+    >
+      <h2 style="align-self: center; color: var(--secondary);">
+        College News
+      </h2>
+    </div>
+  </div>
+  <div class="RightContainer">
+    <div>
+      <h2 style="align-self: center; color: var(--secondary);">
+        Upcoming Events!
+      </h2>
+    </div>
+  </div>
+</div>
