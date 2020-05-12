@@ -296,26 +296,46 @@ router.get("/faculty_login", (request, response) => {
 });
 
 // Post request for Faculty Login
-app.post("/faculty_login", function (request, response) {
-  let { username, password } = request.body;
-  if (username && password) {
-    connection.query(
-      "SELECT * FROM students WHERE username = ? AND password = ?",
-      [username, password],
-      function (error, results, fields) {
-        if (results.length > 0) {
-          request.session.loggedin = true;
-          request.session.username = username;
+router.post("/faculty_login", function (request, response) {
+  let { faculty_id, password } = request.body;
+  mySqlConnection.query(
+    "SELECT * FROM faculty WHERE faculty_id = ?",
+    [faculty_id],
+    (err, rows) => {
+      if (err) response.status(500).send(err);
+      user = rows[0];
+      if (user) {
+        const result = bcrypt.compareSync(password, user.password);
+        // Easy way to prevent extracting password form cookie, will try better solution later
+        password = bcrypt.hashSync(password, 10);
+        if (result) {
+          request.session.user = user;
           response.redirect("/users/faculty_portal");
         } else {
-          response.send("Incorrect Username and/or Password!");
+          response.status(400).send("Incorrect Password");
         }
-        response.end();
+      } else {
+        response.status(400).send("Invalid Id");
       }
-    );
-  } else {
-    response.send("Please enter Username and Password!");
-    response.end();
+    }
+  );
+});
+
+// Get request for Faculty Portal
+router.get("/faculty_portal", (request, response) => {
+  if (!request.session.user) response.redirect("/users/faculty_login");
+  if (user != undefined) {
+    response.render("faculty_portal", {
+      roll_no: user.roll_no,
+      f_name: user.f_name,
+      m_name: m_name,
+      l_name: user.l_name,
+      assignment_number: assignment_number,
+      phone: user.phone,
+      email: user.email,
+      photo: user.photo,
+      batch_code: user.batch_code,
+    });
   }
 });
 
