@@ -1,0 +1,67 @@
+
+      let v = 0;
+      let i = "chartContainer" + v.toString()
+      list = <%-JSON.stringify(attendanceChartData);%>
+      for (data of list) {
+        window.onload = function () {
+          var chart = new CanvasJS.Chart(i, {
+            theme: "dark2", // "light1", "light2", "dark1"
+            animationEnabled: false,
+            height:120,
+            width: 170,
+            title: {
+              text: <%-JSON.stringify(attendanceSubjects[subjectIterator-1]);%>,
+            },
+            data: [
+              {
+                type: "doughnut",
+                dataPoints: data,
+              },
+            ],
+            options: {
+            //   responsive: false//,
+            maintainAspectRatio: false
+            }
+          });
+          chart.render();
+        };
+        v++;
+          i = "chartContainer" + v.toString();
+        <%-JSON.stringify(subjectIterator++);%>
+      }
+        let w = 0;
+        let j = "gradesContainer" + w.toString()
+        gradesList = <% -JSON.stringify(gradesChartData);%>
+      for (data of gradesList) {
+          window.onload = function () {
+            var chart = new CanvasJS.Chart(j, {
+              theme: "dark2", // "light1", "light2", "dark1"
+              animationEnabled: false,
+              height: 120,
+              width: 170,
+              title: {
+                text: <% -JSON.stringify(gradesSubjects[gradesIterator - 1]);%>,
+            },
+              data: [
+              {
+                type: "doughnut",
+                dataPoints: data,
+              },
+            ],
+              options: {
+              //   responsive: false//,
+              maintainAspectRatio: false
+            }
+          });
+          chart.render();
+        };
+        w++;
+        j = "gradesContainer" + w.toString();
+        <% -JSON.stringify(gradesIterator++);%>
+      }
+
+
+
+
+      
+var myChart = new Chart(ctx, {...});
