@@ -59,7 +59,7 @@ router.get("/admin_portal", (request, response) => {
     l_name: user.l_name,
     post: user.post,
     phone: user.phone,
-    email: user.email,
+    Email: user.Email,
     photo: user.photo,
   });
 });

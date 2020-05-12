@@ -1,7 +1,9 @@
 <html lang="en">
   <link rel="stylesheet" href="/css/admin_portal.css">
   <style>
-
+/*     :root{
+      dashboard-wi
+    } */
     button {
       box-shadow: 0px 5px 0px 0px #282828;
       background:linear-gradient(to bottom, #eae0c2 5%, #ccc2a6 100%);
@@ -12,7 +14,6 @@
       color:#32302f;
       font-family: 'Montserrat';
       font-size:20px;
-      font-weight:bold;
       padding:12px 16px;
       text-decoration:none;
       text-shadow:0px 1px 0px #ffffff;
@@ -25,12 +26,11 @@
     input[type=text] {
       font-family: 'Montserrat';
       font-size:20px;
-      font-weight:bold;
       padding: 12px 16px;
       margin: 8px 0;
       box-sizing: border-box;
       background-color:#32302f;
-      border:2px solid #ebdbb2;
+      border:1px solid #ebdbb2;
       color: #ebdbb2;
       border-radius:20px;
     }
@@ -41,8 +41,46 @@
     body{
       overflow:hidden;
     }
+    
+    #dashboard{
+      margin-top: 100px;
+      margin-left: 200px;
+      width: 850px;
+      height: 450px;
+      padding: 10px;
+      border: 2px solid #ebdbb2;
+      border-radius: 15px;
+      background-color: #282828;
+    }
 
+    #photo{
+      width: 200px; 
+      height: 200px; 
+      margin-top: 125px; 
+      margin-left:112.5px;
+      border-radius: 15px;
+    }
+
+    #info{ 
+      font-family: 'Montserrat';
+      font-size:20px;
+      width:400px;
+      height: 200px; 
+      margin-top: 25px; 
+      margin-left: 400px;
+    }
+
+    #label{
+      font-size:22px;
+      font-weight: 600;
+    }
+
+    tr:hover {
+      background-color: rgba(0, 0, 0, 0.3);
+    }
   </style>
+
+
   <body>
     <nav class="menu" tabindex="0">
       <header class="logo">
@@ -59,6 +97,47 @@
         <a href="./logout" style="text-decoration: none; color:#ebdbb2;"><li class="tablinks">Logout</li></a>
       </ul>
     </nav>
+
+    <!-- Dashboard -->
+    <div id="dashboard">
+      <div id="image" style="float:left">
+        <img id="photo" src="<%=photo%>">
+      </div>
+      <div id="info"  style="float:none">
+        <table border="0" cellpadding="15">
+          <tbody>
+          <tr>
+            <td id="label">Admin ID</td>
+            <td><%=admin_id%></td>
+          </tr>
+          <tr>
+            <td id="label">First Name</td>
+            <td><%=f_name%></td>
+          </tr>
+          <tr>
+            <td id="label">Middle Name</td>
+            <td><%=m_name%></td>
+          </tr>
+          <tr>
+            <td id="label">Last Name</td>
+            <td><%=l_name%></td>
+          </tr>
+          <tr>
+            <td id="label">Post</td>
+            <td><%=post%></td>
+          </tr>
+          <tr>
+            <td id="label">Phone Number</td>
+            <td><%=phone%></td>
+          </tr>
+          <tr>
+            <td id="label">Email</td>
+            <td><%=Email%></td>
+          </tr>
+          </tbody>
+          </table>
+      </div>
+    </div>
 
     <!-- Student -->
     <form
@@ -191,6 +270,7 @@
     <script>
       
       function dashboard() {
+        document.getElementById("dashboard").style.display = "block";
         document.getElementById("student_form").style.display = "none";
         document.getElementById("faculty_form").style.display = "none";
         document.getElementById("admin_form").style.display = "none";
@@ -201,6 +281,7 @@
       }
 
       function student_edit() {
+        document.getElementById("dashboard").style.display = "none";
         document.getElementById("student_form").style.display = "block";
         document.getElementById("faculty_form").style.display = "none";
         document.getElementById("admin_form").style.display = "none";
@@ -211,6 +292,7 @@
       }
 
       function faculty_edit() {
+        document.getElementById("dashboard").style.display = "none";
         document.getElementById("faculty_form").style.display = "block";
         document.getElementById("student_form").style.display = "none";
         document.getElementById("admin_form").style.display = "none";
@@ -221,6 +303,7 @@
       }
 
       function admin_edit() {
+        document.getElementById("dashboard").style.display = "none";
         document.getElementById("admin_form").style.display = "block";
         document.getElementById("faculty_form").style.display = "none";
         document.getElementById("student_form").style.display = "none";
@@ -230,6 +313,7 @@
       }
 
       function club_edit() {
+        document.getElementById("dashboard").style.display = "none";
         document.getElementById("club_form").style.display = "block";
         document.getElementById("student_form").style.display = "none";
         document.getElementById("faculty_form").style.display = "none";
@@ -239,6 +323,7 @@
       }
 
       function research_edit() {
+        document.getElementById("dashboard").style.display = "none";
         document.getElementById("research_form").style.display = "block";
         document.getElementById("student_form").style.display = "none";
         document.getElementById("faculty_form").style.display = "none";
@@ -248,6 +333,7 @@
       }
 
       function subjects_edit() {
+        document.getElementById("dashboard").style.display = "none";
         document.getElementById("subjects_form").style.display = "block";
         document.getElementById("student_form").style.display = "none";
         document.getElementById("faculty_form").style.display = "none";
