@@ -116,7 +116,7 @@
         left:350px;
         border-radius: 10px;
         width:150px;"
-        onclick="window.location.href = '/admin/admin_portal';">Go Back</button>
+        onclick="window.location.href = '/admin/portal';">Go Back</button>
         <div id="info"  style="float:none">
 
 
@@ -151,7 +151,7 @@
               <td>Middle Name</td>
               <td>      
                 <label for="m_name">
-                <input type="text" value="<%=m_name%>" name="m_name" required />
+                <input type="text" value="<%=m_name%>" name="m_name"/>
                 </label>
               </td>
             </tr>
@@ -229,7 +229,7 @@
               <td>D.O.B.</td>
               <td>      
                 <label for="dob">
-                <input type="text" value="<%=dob%>" name="dob" required />
+                <input type="text" value="<%=dob%>" name="dob" placeholder="YYYYMMDD" required />
                 </label>
               </td>
             </tr>
@@ -380,7 +380,7 @@
                   <td>Backlog <%=i+1%></td>
                   <td>     
                     <label for="backlogs">
-                      <input type="text" value="<%=backlogs[i]%>" name="backlogs" required />
+                      <input type="text" value="<%=backlogs[i]%>" name="backlogs"/>
                     </label>
                   </td>
                 </tr>

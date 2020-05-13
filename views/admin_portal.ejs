@@ -1,46 +1,45 @@
 <html lang="en">
-  <link rel="stylesheet" href="/css/admin_portal.css">
+  <link rel="stylesheet" href="/css/admin_portal.css" />
   <style>
-
     button {
       box-shadow: 0px 5px 0px 0px #282828;
-      background:linear-gradient(to bottom, #eae0c2 5%, #ccc2a6 100%);
-      background-color:#ebdbb2;
-      border-radius:15px;
-      border:2px solid #282828;
-      cursor:pointer;
-      color:#32302f;
-      font-family: 'Montserrat';
-      font-size:20px;
-      padding:12px 16px;
-      text-decoration:none;
-      text-shadow:0px 1px 0px #ffffff;
+      background: linear-gradient(to bottom, #eae0c2 5%, #ccc2a6 100%);
+      background-color: #ebdbb2;
+      border-radius: 15px;
+      border: 2px solid #282828;
+      cursor: pointer;
+      color: #32302f;
+      font-family: "Montserrat";
+      font-size: 20px;
+      padding: 12px 16px;
+      text-decoration: none;
+      text-shadow: 0px 1px 0px #ffffff;
     }
     button:hover {
-      background:linear-gradient(to bottom, #ccc2a6 5%, #ebdbb2 100%);
-      background-color:#ebdbb2;
+      background: linear-gradient(to bottom, #ccc2a6 5%, #ebdbb2 100%);
+      background-color: #ebdbb2;
     }
 
-    input[type=text] {
-      font-family: 'Montserrat';
-      font-size:20px;
+    input[type="text"] {
+      font-family: "Montserrat";
+      font-size: 20px;
       padding: 12px 16px;
       margin: 8px 0;
       box-sizing: border-box;
-      background-color:#32302f;
-      border:1px solid #ebdbb2;
+      background-color: #32302f;
+      border: 1px solid #ebdbb2;
       color: #ebdbb2;
-      border-radius:20px;
+      border-radius: 20px;
     }
-    form{
+    form {
       margin-top: 200px;
       margin-left: 450px;
     }
-    body{
-      overflow:hidden;
+    body {
+      overflow: hidden;
     }
-    
-    #dashboard{
+
+    #dashboard {
       margin-top: 100px;
       margin-left: 200px;
       width: 850px;
@@ -51,25 +50,25 @@
       background-color: #282828;
     }
 
-    #photo{
-      width: 200px; 
-      height: 200px; 
-      margin-top: 125px; 
-      margin-left:112.5px;
+    #photo {
+      width: 200px;
+      height: 200px;
+      margin-top: 125px;
+      margin-left: 112.5px;
       border-radius: 15px;
     }
 
-    #info{ 
-      font-family: 'Montserrat';
-      font-size:20px;
-      width:400px;
-      height: 200px; 
-      margin-top: 25px; 
+    #info {
+      font-family: "Montserrat";
+      font-size: 20px;
+      width: 400px;
+      height: 200px;
+      margin-top: 25px;
       margin-left: 400px;
     }
 
-    #label{
-      font-size:20px;
+    #label {
+      font-size: 20px;
       font-weight: 600;
     }
 
@@ -78,11 +77,10 @@
     }
   </style>
 
-
   <body>
     <nav class="menu" tabindex="0">
       <header class="logo">
-      <img src="/assets/IIIT_logo_dark.png">
+        <img src="/assets/IIIT_logo_dark.png" />
       </header>
       <ul>
         <li class="tablinks" onclick="dashboard()">Dashboard</li>
@@ -92,54 +90,56 @@
         <li class="tablinks" onclick="club_edit()">Club</li>
         <li class="tablinks" onclick="research_edit()">Research</li>
         <li class="tablinks" onclick="subjects_edit()">Subjects</li>
-        <a href="./logout" style="text-decoration: none; color:#ebdbb2;"><li class="tablinks">Logout</li></a>
+        <a href="./logout" style="text-decoration: none; color: #ebdbb2;"
+          ><li class="tablinks">Logout</li></a
+        >
       </ul>
     </nav>
 
     <!-- Dashboard -->
     <div id="dashboard">
-      <div id="image" style="float:left">
-        <img id="photo" src="<%=photo%>">
+      <div id="image" style="float: left;">
+        <img id="photo" src="<%=photo%>" />
       </div>
-      <div id="info"  style="float:none">
+      <div id="info" style="float: none;">
         <table border="0" cellpadding="15">
           <tbody>
-          <tr>
-            <td id="label">Admin ID</td>
-            <td><%=admin_id%></td>
-          </tr>
-          <tr>
-            <td id="label">First Name</td>
-            <td><%=f_name%></td>
-          </tr>
-          <tr>
-            <td id="label">Middle Name</td>
-            <td><%=m_name%></td>
-          </tr>
-          <tr>
-            <td id="label">Last Name</td>
-            <td><%=l_name%></td>
-          </tr>
-          <tr>
-            <td id="label">Post</td>
-            <td><%=post%></td>
-          </tr>
-          <tr>
-            <td id="label">Phone Number</td>
-            <td><%=phone%></td>
-          </tr>
-          <tr>
-            <td id="label">Email</td>
-            <td><%=Email%></td>
-          </tr>
+            <tr>
+              <td id="label">Admin ID</td>
+              <td><%=admin_id%></td>
+            </tr>
+            <tr>
+              <td id="label">First Name</td>
+              <td><%=f_name%></td>
+            </tr>
+            <tr>
+              <td id="label">Middle Name</td>
+              <td><%=m_name%></td>
+            </tr>
+            <tr>
+              <td id="label">Last Name</td>
+              <td><%=l_name%></td>
+            </tr>
+            <tr>
+              <td id="label">Post</td>
+              <td><%=post%></td>
+            </tr>
+            <tr>
+              <td id="label">Phone Number</td>
+              <td><%=phone%></td>
+            </tr>
+            <tr>
+              <td id="label">Email</td>
+              <td><%=Email%></td>
+            </tr>
           </tbody>
-          </table>
+        </table>
       </div>
     </div>
 
     <!-- Student -->
     <form
-      action="./admin_portal"
+      action="./portal"
       method="POST"
       id="student_form"
       style="display: none;"
@@ -156,13 +156,13 @@
         <input type="text" placeholder="Enter Student ID" name="id" required />
       </label>
       <button type="submit">
-      Search
+        Search
       </button>
     </form>
-    
+
     <!-- Faculty -->
     <form
-      action="./admin_portal"
+      action="./portal"
       method="POST"
       id="faculty_form"
       style="display: none;"
@@ -183,7 +183,7 @@
 
     <!-- Admin -->
     <form
-      action="./admin_portal"
+      action="./portal"
       method="POST"
       id="admin_form"
       style="display: none;"
@@ -203,12 +203,7 @@
     </form>
 
     <!-- Club -->
-    <form
-      action="./admin_portal"
-      method="POST"
-      id="club_form"
-      style="display: none;"
-    >
+    <form action="./portal" method="POST" id="club_form" style="display: none;">
       <label for="category">
         <input
           type="text"
@@ -225,7 +220,7 @@
 
     <!-- Research -->
     <form
-      action="./admin_portal"
+      action="./portal"
       method="POST"
       id="research_form"
       style="display: none;"
@@ -246,7 +241,7 @@
 
     <!-- Subjects -->
     <form
-      action="./admin_portal"
+      action="./portal"
       method="POST"
       id="subjects_form"
       style="display: none;"
@@ -266,7 +261,6 @@
     </form>
 
     <script>
-      
       function dashboard() {
         document.getElementById("dashboard").style.display = "block";
         document.getElementById("student_form").style.display = "none";
@@ -275,7 +269,6 @@
         document.getElementById("club_form").style.display = "none";
         document.getElementById("research_form").style.display = "none";
         document.getElementById("subjects_form").style.display = "none";
-
       }
 
       function student_edit() {
@@ -286,7 +279,6 @@
         document.getElementById("club_form").style.display = "none";
         document.getElementById("research_form").style.display = "none";
         document.getElementById("subjects_form").style.display = "none";
-
       }
 
       function faculty_edit() {
@@ -297,7 +289,6 @@
         document.getElementById("club_form").style.display = "none";
         document.getElementById("research_form").style.display = "none";
         document.getElementById("subjects_form").style.display = "none";
-
       }
 
       function admin_edit() {
@@ -340,7 +331,6 @@
         document.getElementById("research_form").style.display = "none";
       }
     </script>
-    <main>
-    </main>
+    <main></main>
   </body>
 </html>
