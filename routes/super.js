@@ -9,6 +9,13 @@ let path = require("path");
 app.use(express.static(path.join(__dirname + "../public/css")));
 app.use(express.static(path.join(__dirname + "../public/js")));
 
+function convertDate(str) {
+  var date = new Date(str),
+    mnth = ("0" + (date.getMonth() + 1)).slice(-2),
+    day = ("0" + date.getDate()).slice(-2);
+  return [date.getFullYear(), mnth, day].join("");
+}
+
 // Redirecting to Super Admin Login if no page detail provided in URL
 router.get("/", (request, response) => {
   response.redirect("/super/login");
@@ -58,18 +65,20 @@ router.post("/login", function (request, response) {
 router.get("/portal", (request, response) => {
   // If not logged in open login page
   if (!request.session.user) response.redirect("/super/login");
-  let m_name = "";
-  if (user.m_name) m_name = user.m_name;
-  response.render("super_portal", {
-    admin_id: user.admin_id,
-    f_name: user.f_name,
-    m_name: m_name,
-    l_name: user.l_name,
-    post: user.post,
-    phone: user.phone,
-    email: user.email,
-    photo: user.photo,
-  });
+  else {
+    let m_name = "";
+    if (user.m_name) m_name = user.m_name;
+    response.render("super_portal", {
+      admin_id: user.admin_id,
+      f_name: user.f_name,
+      m_name: m_name,
+      l_name: user.l_name,
+      post: user.post,
+      phone: user.phone,
+      email: user.email,
+      photo: user.photo,
+    });
+  }
 });
 
 // Post request for Super Admin Portal
@@ -1981,7 +1990,7 @@ router.get("/assignment", (request, response) => {
     s_no: edit.s_no,
     subject_code: edit.subject_code,
     assignment_name: edit.assignment_name,
-    due_date: edit.due_date,
+    due_date: convertDate(edit.due_date),
   });
 });
 
@@ -2322,7 +2331,7 @@ router.get("/faculty", (request, response) => {
     m_name: m_name,
     l_name: edit.l_name,
     gender: edit.gender,
-    dob: edit.dob,
+    dob: convertDate(edit.dob),
     room: edit.room,
     phone: edit.phone,
     email: edit.email,
@@ -2808,7 +2817,7 @@ router.get("/research", (request, response) => {
   response.render("research", {
     research_id: edit.research_id,
     research_name: edit.research_name,
-    expected_completion_date: edit.expected_completion_date,
+    expected_completion_date: convertDate(edit.expected_completion_date),
     room: edit.room,
   });
 });
@@ -2978,7 +2987,7 @@ router.get("/student", (request, response) => {
     m_name: m_name,
     l_name: edit.l_name,
     gender: edit.gender,
-    dob: edit.dob,
+    dob: convertDate(edit.dob),
     cgpa: edit.cgpa,
     semester: edit.semester,
     hostel_no: edit.hostel_no,
