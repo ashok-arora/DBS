@@ -208,7 +208,7 @@ i:hover {
 .Element {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: calc(100% - 20px);
   border-radius: 1em;
   padding: 10px;
   margin-bottom: 20px;
@@ -229,8 +229,35 @@ tbody {
   border-color: inherit;
 }
 
+.FormTbody td {
+  border: none;
+  padding: 10px;
+}
+
 td,
 th {
     padding: 5px;
     border: 1px solid;
+}
+
+label {
+  color: var(--secondary);
+  font-size: 20px;
+}
+
+input[type = text] {
+  padding: 12px 16px;
+  margin: 8px 0px;
+  box-sizing: border-box;
+  background-color: var(--inactive);
+  border: 2px solid var(--secondary);
+  border-radius: 1em;
+  width: 400px;
+}
+
+input[type = submit] {
+  padding: 10px 20px;
+  border-radius: 2em;
+  border: none;
+  background-color: var(--secondary);
 }
