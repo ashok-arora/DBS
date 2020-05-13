@@ -1,6 +1,8 @@
+<% var gradesAssignment = 30; var gradesExam = 90;%>
 <style>
-    .GridContainerWrapper {
+    .ContainerWrapper2 {
         display: flex;
+        flex: 1;
         flex-direction: column;
     }
 
@@ -26,26 +28,97 @@
         background-color: var(--primary);
         margin: 10px;
     }
+
+    .Page2Form input[type=text] {
+        width: 250px;
+    }
+
+    .Page2Form .ResultTd{
+        display: flex;
+        justify-content: center;
+    }
+
+    .Page2Form .ResultPage2 {
+        display: flex;
+        background-color: var(--inactive);
+        border: 2px solid var(--secondary);
+        width: 245px;
+        padding: 10px 0px;
+        justify-content: center;
+        border-radius: 1em;
+    }
 </style>
-<div style="display: flex; justify-content: space-between; width: 100%; padding: 10px 0px;">
-    <div class="GridContainerWrapper">
+<div style="display: flex; justify-content: space-between; width: 100%;">
+    <div class="ContainerWrapper2">
         <div class="GridHeading">
-            <h3>Administration</h3>
+            <h3>Assignments</h3>
         </div>
-        <div class="GridContainer">
-            <% for(var i = 0; i < 12; i++) {%>
-            <div></div>
-            <% } %>
+        <div class="Element" style="padding: 5px; width: calc(100% - 30px);align-self: center;">
+            <form>
+                <table>
+                    <tbody class="FormTbody Page2Form">
+                        <tr>
+                            <td><label>Assignment</label></td>
+                            <td><input type="text" placeholder="Assignemnt name"></td>
+                        </tr>
+                        <tr>
+                            <td><label>Roll no</label></td>
+                            <td><input type="text" placeholder="Roll no"></td>
+                        </tr>
+                        <tr>
+                            <td><label>Grades</label></td>
+                            <td class="ResultTd">
+                                <div class="ResultPage2">
+                                    <label style="color: white; font-weight: bold;">
+                                        <%= gradesAssignment %>
+                                    </label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td style="display: flex; justify-content: center;"><input type="submit" value="Submit" name="examSubmit"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
         </div>
     </div>
-    <div class="GridContainerWrapper">
-        <div class="GridHeading">
-            <h3>Other Faculty/ Children</h3>
-        </div>
-        <div class="GridContainer">
-            <% for(var i = 0; i < 12; i++) {%>
-            <div></div>
-            <% } %>
+    <div class="ContainerWrapper2">
+        <div class="ContainerWrapper2">
+            <div class="GridHeading">
+                <h3>Exams</h3>
+            </div>
+            <div class="Element" style="padding: 5px; width: calc(100% - 30px);align-self: center;">
+                <form>
+                    <table>
+                        <tbody class="FormTbody Page2Form">
+                            <tr>
+                                <td><label>Exam</label></td>
+                                <td><input type="text" placeholder="Exam"></td>
+                            </tr>
+                            <tr>
+                                <td><label>Roll no</label></td>
+                                <td><input type="text" placeholder="Roll no"></td>
+                            </tr>
+                            <tr>
+                                <td><label>Grades</label></td>
+                                <td class="ResultTd">
+                                    <div class="ResultPage2">
+                                        <label style="color: white; font-weight: bold;">
+                                            <%= gradesExam %>
+                                        </label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td style="display: flex; justify-content: center;"><input type="submit" value="submit" name="examSubmit"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
         </div>
     </div>
 </div>

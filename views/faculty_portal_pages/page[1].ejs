@@ -1,5 +1,11 @@
 <link rel="stylesheet" href="../../public/css/student_portal.css">
 <% var facultyCode, assignment_number = "ASSIGNMENTS";%>
+<style>
+  .AttendanceButton {
+    display: flex;
+    justify-content: flex-end;
+  }
+</style>
 <div style="display: flex; flex-direction: column; width: 100%; height: 100%">
   <div class="Element">
     <h3 style="color: var(--secondary); margin-bottom: 10px;">
@@ -8,15 +14,30 @@
     <!-- TODO add link in action method -->
     <div style="height: 100%; flex: 2; margin: 0; align-self: center;">
       <form action="" ; method="POST">
-        <label>Subject Code: </label>
-        <input type="text" ; placeholder="XXXNNNN" name="subjectCode">
-        <br><br><label>Assignment Name: </label>
-        <input type="text" ; placeholder="Assignment Name" name="assignmentName">
-        <br><br><label>Due Date:</label>
-        <input type="text" ; placeholder="Date Format" name="dueDate">
-        <br><br><input type="submit" ; value="Add" name="action">
-        <input type="submit" ; value="Remove" name="action">
-        <input type="submit" ; value="Edit" name="action">
+        <table style="border-width: 0px;">
+          <tbody class="FormTbody">
+            <tr>
+              <td><label>Subject Code</label></td>
+              <td><input type="text" ; placeholder="XXXNNNN" name="subjectCode"></td>
+            </tr>
+            <tr>
+              <td><label>Assignment Name</label></td>
+              <td><input type="text" ; placeholder="Assignment Name" name="assignmentName"></td>
+            </tr>
+            <tr>
+              <td><label>Due Date</label></td>
+              <td><input type="text" ; placeholder="Date Format" name="dueDate"></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td style="display: flex; justify-content: space-between;">
+                <input class="AssignmentButtons" type="submit" ; value="Add" name="action">
+                <input type="submit" ; value="Remove" name="action">
+                <input type="submit" ; value="Edit" name="action">
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </form>
     </div>
   </div>
@@ -24,22 +45,35 @@
     <h3 style="color: var(--secondary); margin-bottom: 10px;">ATTENDANCE</h3>
     <!-- TODO set studentCode on submission and change defaultPage to this page -->
     <form action="" ; method="POST">
-      <table style="">
-        <tbody>
-          <% if(faculyCode == null) {%>
-            <label>Faculty Code</label>
-            <input type="text" ; placeholder="Faculty code" ; name="faculty">
-            <br><br><label>Timing</label>
-            <input type="text" ; placeholder="X - Y" name="timing">
-            <br><br><label>BATCH</label>
-            <input type="text" ; placeholder="20XXAAA" name="batch">
-            <br><br><input type="submit" ; value="Add" name="action">
-            <input type="submit" ; value="Remove" name="action">
-            <% } else { %>
-            <label>Student Roll No</label>
-            <input type="text" ; placeholder="XXXNNNN" ; name="studentRollNo">
-            <br><br><input type="submit" ; value="submit" name="action">
-            <% } %>
+      <table style="border-width: 0px">
+        <tbody class="FormTbody">
+          <% if(facultyCode == null) {%>
+          <tr>
+            <td><label>Faculty Code</label></td>
+            <td><input type="text" ; placeholder="Faculty code" ; name="faculty"></td>
+          </tr>
+          <tr>
+            <td><label>Timing</label></td>
+            <td><input type="text" ; placeholder="X - Y" name="timing"></td>
+          </tr>
+          <tr>
+            <td><label>Batch</label></td>
+            <td><input type="text" ; placeholder="20XXAAA" name="batch"></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td class="AttendanceButton"><input type="submit" ; value="Submit" name="action"></td>
+          </tr>
+          <% } else { %>
+          <tr>
+            <td><label>Student Roll No</label></td>
+            <td><input type="text" ; placeholder="XXXNNNN" ; name="studentRollNo"></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td class="AttendanceButton"><input type="submit" ; value="submit" name="action"></td>
+          </tr>
+          <% } %>
         </tbody>
       </table>
     </form>
