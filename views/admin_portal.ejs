@@ -1,17 +1,141 @@
-<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Admin Portal</title>
-  </head>
+  <link rel="stylesheet" href="/css/admin_portal.css">
+  <style>
+
+    button {
+      box-shadow: 0px 5px 0px 0px #282828;
+      background:linear-gradient(to bottom, #eae0c2 5%, #ccc2a6 100%);
+      background-color:#ebdbb2;
+      border-radius:15px;
+      border:2px solid #282828;
+      cursor:pointer;
+      color:#32302f;
+      font-family: 'Montserrat';
+      font-size:20px;
+      padding:12px 16px;
+      text-decoration:none;
+      text-shadow:0px 1px 0px #ffffff;
+    }
+    button:hover {
+      background:linear-gradient(to bottom, #ccc2a6 5%, #ebdbb2 100%);
+      background-color:#ebdbb2;
+    }
+
+    input[type=text] {
+      font-family: 'Montserrat';
+      font-size:20px;
+      padding: 12px 16px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      background-color:#32302f;
+      border:1px solid #ebdbb2;
+      color: #ebdbb2;
+      border-radius:20px;
+    }
+    form{
+      margin-top: 200px;
+      margin-left: 450px;
+    }
+    body{
+      overflow:hidden;
+    }
+    
+    #dashboard{
+      margin-top: 100px;
+      margin-left: 200px;
+      width: 850px;
+      height: 450px;
+      padding: 10px;
+      border: 2px solid #ebdbb2;
+      border-radius: 15px;
+      background-color: #282828;
+    }
+
+    #photo{
+      width: 200px; 
+      height: 200px; 
+      margin-top: 125px; 
+      margin-left:112.5px;
+      border-radius: 15px;
+    }
+
+    #info{ 
+      font-family: 'Montserrat';
+      font-size:20px;
+      width:400px;
+      height: 200px; 
+      margin-top: 25px; 
+      margin-left: 400px;
+    }
+
+    #label{
+      font-size:20px;
+      font-weight: 600;
+    }
+
+    tr:hover {
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+  </style>
+
+
   <body>
-    <button onclick="student_edit()" id="student">Students</button>
-    <button onclick="faculty_edit()" id="faculty">Faculty</button>
-    <button onclick="admin_edit()" id="admin">Admin</button>
-    <button onclick="club_edit()" id="club">Club</button>
-    <button onclick="research_edit()" id="research">Research</button>
-    <button onclick="subjects_edit()" id="subjects">Subjects</button>
+    <nav class="menu" tabindex="0">
+      <header class="logo">
+      <img src="/assets/IIIT_logo_dark.png">
+      </header>
+      <ul>
+        <li class="tablinks" onclick="dashboard()">Dashboard</li>
+        <li class="tablinks" onclick="student_edit()">Student</li>
+        <li class="tablinks" onclick="faculty_edit()">Faculty</li>
+        <li class="tablinks" onclick="admin_edit()">Admin</li>
+        <li class="tablinks" onclick="club_edit()">Club</li>
+        <li class="tablinks" onclick="research_edit()">Research</li>
+        <li class="tablinks" onclick="subjects_edit()">Subjects</li>
+        <a href="./logout" style="text-decoration: none; color:#ebdbb2;"><li class="tablinks">Logout</li></a>
+      </ul>
+    </nav>
+
+    <!-- Dashboard -->
+    <div id="dashboard">
+      <div id="image" style="float:left">
+        <img id="photo" src="<%=photo%>">
+      </div>
+      <div id="info"  style="float:none">
+        <table border="0" cellpadding="15">
+          <tbody>
+          <tr>
+            <td id="label">Admin ID</td>
+            <td><%=admin_id%></td>
+          </tr>
+          <tr>
+            <td id="label">First Name</td>
+            <td><%=f_name%></td>
+          </tr>
+          <tr>
+            <td id="label">Middle Name</td>
+            <td><%=m_name%></td>
+          </tr>
+          <tr>
+            <td id="label">Last Name</td>
+            <td><%=l_name%></td>
+          </tr>
+          <tr>
+            <td id="label">Post</td>
+            <td><%=post%></td>
+          </tr>
+          <tr>
+            <td id="label">Phone Number</td>
+            <td><%=phone%></td>
+          </tr>
+          <tr>
+            <td id="label">Email</td>
+            <td><%=Email%></td>
+          </tr>
+          </tbody>
+          </table>
+      </div>
+    </div>
 
     <!-- Student -->
     <form
@@ -29,11 +153,13 @@
         />
       </label>
       <label for="id">
-        <input type="text" placeholder="20XXYYYZZZ" name="id" required />
+        <input type="text" placeholder="Enter Student ID" name="id" required />
       </label>
-      <button type="submit">SUBMIT</button>
+      <button type="submit">
+      Search
+      </button>
     </form>
-
+    
     <!-- Faculty -->
     <form
       action="./admin_portal"
@@ -50,9 +176,9 @@
         />
       </label>
       <label for="id">
-        <input type="text" placeholder="20XXYYYZZZ" name="id" required />
+        <input type="text" placeholder="Enter Faculty ID" name="id" required />
       </label>
-      <button type="submit">SUBMIT</button>
+      <button type="submit">Search</button>
     </form>
 
     <!-- Admin -->
@@ -71,9 +197,9 @@
         />
       </label>
       <label for="id">
-        <input type="text" placeholder="20XXYYYZZZ" name="id" required />
+        <input type="text" placeholder="Enter Admin ID" name="id" required />
       </label>
-      <button type="submit">SUBMIT</button>
+      <button type="submit">Search</button>
     </form>
 
     <!-- Club -->
@@ -92,9 +218,9 @@
         />
       </label>
       <label for="id">
-        <input type="text" placeholder="20XXYYYZZZ" name="id" required />
+        <input type="text" placeholder="Enter Club ID" name="id" required />
       </label>
-      <button type="submit">SUBMIT</button>
+      <button type="submit">Search</button>
     </form>
 
     <!-- Research -->
@@ -113,9 +239,9 @@
         />
       </label>
       <label for="id">
-        <input type="text" placeholder="20XXYYYZZZ" name="id" required />
+        <input type="text" placeholder="Enter Research ID" name="id" required />
       </label>
-      <button type="submit">SUBMIT</button>
+      <button type="submit">Search</button>
     </form>
 
     <!-- Subjects -->
@@ -134,65 +260,87 @@
         />
       </label>
       <label for="id">
-        <input type="text" placeholder="Batch Code" name="id" required />
+        <input type="text" placeholder="Enter Batch Code" name="id" required />
       </label>
-      <button type="submit">SUBMIT</button>
+      <button type="submit">Search</button>
     </form>
 
     <script>
+      
+      function dashboard() {
+        document.getElementById("dashboard").style.display = "block";
+        document.getElementById("student_form").style.display = "none";
+        document.getElementById("faculty_form").style.display = "none";
+        document.getElementById("admin_form").style.display = "none";
+        document.getElementById("club_form").style.display = "none";
+        document.getElementById("research_form").style.display = "none";
+        document.getElementById("subjects_form").style.display = "none";
+
+      }
+
       function student_edit() {
+        document.getElementById("dashboard").style.display = "none";
         document.getElementById("student_form").style.display = "block";
-        document.getElementById("faculty").style.display = "none";
-        document.getElementById("admin").style.display = "none";
-        document.getElementById("club").style.display = "none";
-        document.getElementById("research").style.display = "none";
-        document.getElementById("subjects").style.display = "none";
+        document.getElementById("faculty_form").style.display = "none";
+        document.getElementById("admin_form").style.display = "none";
+        document.getElementById("club_form").style.display = "none";
+        document.getElementById("research_form").style.display = "none";
+        document.getElementById("subjects_form").style.display = "none";
+
       }
 
       function faculty_edit() {
+        document.getElementById("dashboard").style.display = "none";
         document.getElementById("faculty_form").style.display = "block";
-        document.getElementById("student").style.display = "none";
-        document.getElementById("admin").style.display = "none";
-        document.getElementById("club").style.display = "none";
-        document.getElementById("research").style.display = "none";
-        document.getElementById("subjects").style.display = "none";
+        document.getElementById("student_form").style.display = "none";
+        document.getElementById("admin_form").style.display = "none";
+        document.getElementById("club_form").style.display = "none";
+        document.getElementById("research_form").style.display = "none";
+        document.getElementById("subjects_form").style.display = "none";
+
       }
 
       function admin_edit() {
+        document.getElementById("dashboard").style.display = "none";
         document.getElementById("admin_form").style.display = "block";
-        document.getElementById("faculty").style.display = "none";
-        document.getElementById("student").style.display = "none";
-        document.getElementById("club").style.display = "none";
-        document.getElementById("research").style.display = "none";
-        document.getElementById("subjects").style.display = "none";
+        document.getElementById("faculty_form").style.display = "none";
+        document.getElementById("student_form").style.display = "none";
+        document.getElementById("club_form").style.display = "none";
+        document.getElementById("research_form").style.display = "none";
+        document.getElementById("subjects_form").style.display = "none";
       }
 
       function club_edit() {
+        document.getElementById("dashboard").style.display = "none";
         document.getElementById("club_form").style.display = "block";
-        document.getElementById("student").style.display = "none";
-        document.getElementById("faculty").style.display = "none";
-        document.getElementById("admin").style.display = "none";
-        document.getElementById("research").style.display = "none";
-        document.getElementById("subjects").style.display = "none";
+        document.getElementById("student_form").style.display = "none";
+        document.getElementById("faculty_form").style.display = "none";
+        document.getElementById("admin_form").style.display = "none";
+        document.getElementById("research_form").style.display = "none";
+        document.getElementById("subjects_form").style.display = "none";
       }
 
       function research_edit() {
+        document.getElementById("dashboard").style.display = "none";
         document.getElementById("research_form").style.display = "block";
-        document.getElementById("student").style.display = "none";
-        document.getElementById("faculty").style.display = "none";
-        document.getElementById("admin").style.display = "none";
-        document.getElementById("club").style.display = "none";
-        document.getElementById("subjects").style.display = "none";
+        document.getElementById("student_form").style.display = "none";
+        document.getElementById("faculty_form").style.display = "none";
+        document.getElementById("admin_form").style.display = "none";
+        document.getElementById("club_form").style.display = "none";
+        document.getElementById("subjects_form").style.display = "none";
       }
 
       function subjects_edit() {
+        document.getElementById("dashboard").style.display = "none";
         document.getElementById("subjects_form").style.display = "block";
-        document.getElementById("student").style.display = "none";
-        document.getElementById("faculty").style.display = "none";
-        document.getElementById("admin").style.display = "none";
-        document.getElementById("club").style.display = "none";
-        document.getElementById("research").style.display = "none";
+        document.getElementById("student_form").style.display = "none";
+        document.getElementById("faculty_form").style.display = "none";
+        document.getElementById("admin_form").style.display = "none";
+        document.getElementById("club_form").style.display = "none";
+        document.getElementById("research_form").style.display = "none";
       }
     </script>
+    <main>
+    </main>
   </body>
 </html>

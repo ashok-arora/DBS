@@ -1,66 +1,273 @@
 <!DOCTYPE html>
 <html lang="en">
+
+  <style>
+
+    button, .bt {
+      box-shadow: 0px 5px 0px 0px #282828;
+      background:linear-gradient(to bottom, #eae0c2 5%, #ccc2a6 100%);
+      background-color:#ebdbb2;
+      border-radius:15px;
+      border:2px solid #282828;
+      cursor:pointer;
+      color:#32302f;
+      font-family: 'Montserrat';
+      font-size:20px;
+      padding:12px 20px;
+      text-decoration:none;
+      text-shadow:0px 1px 0px #ffffff;
+      width: 200px;
+    }
+    button, .bt:hover {
+      background:linear-gradient(to bottom, #ccc2a6 5%, #ebdbb2 100%);
+      background-color:#ebdbb2;
+    }
+
+    input[type=text] {
+      font-family: 'Montserrat';
+      font-size:20px;
+      padding: 12px 16px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      background-color:#32302f;
+      border:1px solid #ebdbb2;
+      color: #ebdbb2;
+      border-radius:20px;
+      width: 400px;
+    }
+
+    form{
+      margin-top: 0px;
+      margin-left: 300px;
+    }
+
+    #dashboard{
+      margin-top: 50px;
+      margin-left: 30px;
+      width: 1000px;
+      height: 600px;
+      padding: 10px;
+      border: 2px solid #ebdbb2;
+      border-radius: 15px;
+      background-color: #282828;
+      overflow-y:auto;
+    }
+
+    #photo{
+      width: 200px; 
+      height: 200px; 
+      margin-top: 125px; 
+      margin-left: 60px;
+      border-radius: 15px;
+    }
+
+    #info{ 
+      font-family: 'Montserrat';
+      font-size:20px;
+      width:200px;
+      height: 100px; 
+      margin-top: 0; 
+      margin-left: 0;
+    }
+
+    #label{
+      font-size:20px;
+      font-weight: 600;
+    }
+
+    td{
+      min-width: 150px;
+      padding: 0px 20px 0px 20px;
+    }
+
+    input{
+      text-align: center;
+    }
+
+    tr#label:hover {
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    a{
+      text-decoration: none;
+    }
+
+    bt{
+      width: 200px; 
+      height: 200px; 
+      margin-top: 125px; 
+      margin-left: 60px;
+      border-radius: 15px;
+    }
+
+  </style>
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Club Edit</title>
+    <title>Student Edit</title>
   </head>
   <body>
-    <!-- Club Id -->
-    <p><%=club_id%></p>
-    
-    <!-- Name -->
-    <form action="./club_edit" method="POST">
-        <label for="category">
-            <input type="text" value="name" name="category" style="display: none;" />
-        </label>
-        <label for="club_name">
-            <input type="text" value="<%=club_name%>" name="club_name" required />
-        </label>
-        <button type="submit" formnovalidate>SUBMIT</button>
-    </form>
+      <div id="dashboard">
+      <button 
+      style=
+        "position: absolute;
+        top:80px;
+        left:350px;
+        border-radius: 10px;
+        width:150px;"
+        onclick="window.location.href = '/admin/admin_portal';">Go Back</button>
+      <div id="info"  style="float:none">
+      
+        <!-- Club ID & Name -->
+        <form action="./club_edit" method="POST">
+            <label for="category">
+            <input
+                type="text"
+                value="name"
+                name="category"
+                style="display: none;"
+            />
+            </label>
+            <table border="0" cellpadding="3">
+            <tr id="label">
+                <td>Club ID</td>
+                <td>      
+                <label for="club_id">
+                <input type="text" value="<%=club_id%>" name="club_id" required />
+                </label>
+                </td>
+            </tr>
+            <tr id="label">
+                <td>Club Name</td>
+                <td>      
+                    <label for="club_name">
+                        <input type="text" value="<%=club_name%>" name="club_name" required />
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align:center; padding: 20px 0 20px 0">
+                </td>
+                <td style="text-align:center; padding: 20px 0 20px 0">
+                <button type="submit">Save Changes</button>
+                </td>
+                </tr>
+            </tbody>
+            </table>
+        </form>    
 
-    <!-- Faculty Coordinator Details -->
-    <form action="./club_edit" method="POST">
-        <label for="category">
-            <input type="text" value="coordinator" name="category" style="display: none;" />
-        </label>
-        <label for="faculty_coordinator">
-            <input type="text" value="<%=faculty_coordinator%>" name="faculty_coordinator" required />
-        </label>
-        <label for="phone">
-            <input type="text" value="<%=phone%>" name="phone" required />
-        </label>
-        <label for="email">
-            <input type="text" value="<%=email%>" name="email" required />
-        </label>
-        <button type="submit">SUBMIT</button>
-    </form>
-    
-    <!-- Room Details -->
-    <form action="./club_edit" method="POST">
-        <label for="category">
-            <input type="text" value="room" name="category" style="display: none;" />
-        </label>
-        <label for="club_room_no">
-            <input type="text" value="<%=club_room_no%>" name="club_room_no" required />
-        </label>
-        <button type="submit">SUBMIT</button>
-    </form>
-    
-    <!-- Members -->
-    <form action="./club_edit" method="POST">
-        <label for="category">
-            <input type="text" value="members" name="category" style="display: none;" />
-        </label>
-        <% if(members.length != 0) { %>
-        <% for(let i=0; i<members.length; i++) {%>
-        <label for="members">
-            <input type="text" value="<%=members[i]%>" name="members" required />
-        </label>
-        <% } %>
-        <button type="submit">SUBMIT</button>
-        <% } %>
-    </form>
-  </body>
+        <!-- Faculty Coordinator Details -->
+        <form action="./club_edit" method="POST">
+            <label for="category">
+            <input
+                type="text"
+                value="coordinator"
+                name="category"
+                style="display: none;"
+            />
+            </label>
+            <table border="0" cellpadding="3">
+            <tr id="label">
+                <td>Faculty Coordinator</td>
+                <td>      
+                    <label for="faculty_coordinator">
+                        <input type="text" value="<%=faculty_coordinator%>" name="faculty_coordinator" required />
+                    </label>
+                </td>
+            </tr>
+            <tr id="label">
+                <td>Phone</td>
+                <td>      
+                    <label for="phone">
+                        <input type="text" value="<%=phone%>" name="phone" required />
+                    </label>
+                </td>
+            </tr>
+            <tr id="label">
+                <td>Email</td>
+                <td>      
+                    <label for="email">
+                        <input type="text" value="<%=email%>" name="email" required />
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align:center; padding: 20px 0 20px 0">
+                </td>
+                <td style="text-align:center; padding: 20px 0 20px 0">
+                <button type="submit">Save Changes</button>
+                </td>
+                </tr>
+            </tbody>
+            </table>
+        </form>    
+
+
+        <!-- Room Details -->
+        <form action="./club_edit" method="POST">
+            <label for="category">
+            <input
+                type="text"
+                value="room"
+                name="category"
+                style="display: none;"
+            />
+            </label>
+            <table border="0" cellpadding="3">
+            <tr id="label">
+                <td>Room</td>
+                <td>      
+                    <label for="club_room_no">
+                        <input type="text" value="<%=club_room_no%>" name="club_room_no" required />
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align:center; padding: 20px 0 20px 0">
+                </td>
+                <td style="text-align:center; padding: 20px 0 20px 0">
+                <button type="submit">Save Changes</button>
+                </td>
+                </tr>
+            </tbody>
+            </table>
+        </form>  
+        
+        
+        <!-- Members -->
+        <form action="./club_edit" method="POST">
+            <label for="category">
+            <input
+                type="text"
+                value="members"
+                name="category"
+                style="display: none;"
+            />
+            </label>
+            <table border="0" cellpadding="3">
+            <% if(members.length != 0) { %>
+                <% for(let i=0; i<members.length; i++) {%>
+                    <tr id="label">
+                    <td>Member <%=i+1%></td>
+                    <td>     
+                        <label for="members">
+                            <input type="text" value="<%=members[i]%>" name="members" required />
+                        </label>
+                    </td>
+                </tr>
+                <% } %>
+                <% } %>
+            <tr>
+                <td style="text-align:center; padding: 20px 0 20px 0">
+                </td>
+                <td style="text-align:center; padding: 20px 0 20px 0">
+                <button type="submit">Save Changes</button>
+                </td>
+                </tr>
+            </tbody>
+            </table>
+        </form>  
+
+    </body>
 </html>

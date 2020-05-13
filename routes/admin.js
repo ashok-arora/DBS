@@ -59,7 +59,7 @@ router.get("/admin_portal", (request, response) => {
     l_name: user.l_name,
     post: user.post,
     phone: user.phone,
-    email: user.email,
+    Email: user.Email,
     photo: user.photo,
   });
 });
@@ -1350,5 +1350,14 @@ router.post("/subjects_edit", (request, response) => {
       break;
   }
 });
+
+router.get("/logout", (request, response) => {
+  if (request.session.user) {
+    request.session.destroy(() => {
+      response.redirect("/admin/admin_login");
+    });
+  }
+});
+
 
 module.exports = router;
