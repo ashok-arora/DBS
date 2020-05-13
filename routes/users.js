@@ -45,6 +45,7 @@ router.post("/student_login", function (request, response) {
   );
 });
 
+// Post request for student portal
 function findStudentSubjects(request, response) {
   if (!request.session.user) response.redirect("/users/student_login");
   if (user != undefined) {
@@ -88,9 +89,54 @@ function findStudentAssignments(request, response, subjects) {
       let number = assignments.length;
       if (number != 1) assignment_number = number.toString() + " Assignments";
       else assignment_number = number.toString() + " Assignment";
-      response.redirect("/users/student_portal");
+      schedule(request, response);
     });
   }
+}
+
+let studentSchedule = new Object();
+
+function schedule(request, response) {
+  let date = new Date();
+  let weekday = new Array(7);
+  weekday[0] = "Sunday";
+  weekday[1] = "Monday";
+  weekday[2] = "Tuesday";
+  weekday[3] = "Wednesday";
+  weekday[4] = "Thursday";
+  weekday[5] = "Friday";
+  weekday[6] = "Saturday";
+  let day = weekday[date.getDay()];
+  mySqlConnection.query(
+    "SELECT * FROM s_time_table WHERE batch_code = ? AND day = ?",
+    [user.batch_code, day],
+    (err, rows) => {
+      if (err) response.status(500).send(err);
+      if (rows) {
+        if (rows[0].t_9 != "") studentSchedule["09:00 - 10:00"] = rows[0].t_9;
+        else studentSchedule["09:00 - 10:00"] = "Free";
+        if (rows[0].t_10 != "") studentSchedule["10:00 - 11:00"] = rows[0].t_10;
+        else studentSchedule["10:00 - 11:00"] = "Free";
+        if (rows[0].t_11 != "") studentSchedule["11:00 - 12:00"] = rows[0].t_11;
+        else studentSchedule["11:00 - 12:00"] = "Free";
+        if (rows[0].t_12 != "") studentSchedule["12:00 - 13:00"] = rows[0].t_12;
+        else studentSchedule["12:00 - 13:00"] = "Free";
+        if (rows[0].t_2 != "") studentSchedule["14:00 - 15:00"] = rows[0].t_2;
+        else studentSchedule["14:00 - 15:00"] = "Free";
+        if (rows[0].t_3 != "") studentSchedule["15:00 - 16:00"] = rows[0].t_3;
+        else studentSchedule["15:00 - 16:00"] = "Free";
+        if (rows[0].t_4 != "") studentSchedule["16:00 - 17:00"] = rows[0].t_4;
+        else studentSchedule["16:00 - 17:00"] = "Free";
+        if (rows[0].t_5 != "") studentSchedule["17:00 - 18:00"] = rows[0].t_5;
+        else studentSchedule["17:00 - 18:00"] = "Free";
+      }
+      callRender(request, response);
+    }
+  );
+}
+
+function callRender(request, response) {
+  response.redirect("/users/student_portal");
 }
 
 // Get request for Student Portal
@@ -107,23 +153,10 @@ router.get("/student_portal", (request, response) => {
       email: user.email,
       photo: user.photo,
       batch_code: user.batch_code,
+      studentSchedule: studentSchedule,
     });
   }
 });
-
-// function renderStudentPortal(m_name, assignment_number, response) {
-//   response.render("student_portal", {
-//     roll_no: user.roll_no,
-//     f_name: user.f_name,
-//     m_name: m_name,
-//     l_name: user.l_name,
-//     assignment_number: assignment_number,
-//     phone: user.phone,
-//     email: user.email,
-//     photo: user.photo,
-//     batch_code: user.batch_code,
-//   });
-// }
 
 // Post request for Student Portal
 
@@ -136,7 +169,7 @@ router.get("/faculty_login", (request, response) => {
 
 // Post request for Faculty Login
 app.post("/faculty_login", function (request, response) {
-  let(username, password) = request.body;
+  let { username, password } = request.body;
   if (username && password) {
     connection.query(
       "SELECT * FROM students WHERE username = ? AND password = ?",
