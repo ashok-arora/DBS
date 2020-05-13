@@ -3,7 +3,7 @@ const app = express();
 const router = express.Router();
 const mySqlConnection = require("../db/db");
 const bcrypt = require("bcrypt");
-let user, edit, add_id;
+let superAdmin, edit, add_id;
 let path = require("path");
 
 app.use(express.static(path.join(__dirname + "../public/css")));
@@ -24,7 +24,7 @@ router.get("/", (request, response) => {
 // Get request for Super Admin Login
 router.get("/login", (request, response) => {
   // If already logged in don't open login page
-  if (!request.session.user)
+  if (!request.session.superAdmin)
     response.status(200).sendFile(path.join(__dirname + "/../super.html"));
   else response.redirect("/super/portal");
 });
@@ -38,15 +38,15 @@ router.post("/login", function (request, response) {
     [id],
     (err, rows) => {
       if (err) response.status(500).send(err);
-      user = rows[0];
+      superAdmin = rows[0];
       // Checking if the admin is super user or not
-      if (user.super) {
-        if (user) {
-          const result = bcrypt.compareSync(password, user.password);
+      if (superAdmin.super) {
+        if (superAdmin) {
+          const result = bcrypt.compareSync(password, superAdmin.password);
           // Easy way to prevent extracting password form cookie, will try better solution later
           password = bcrypt.hashSync(password, 10);
           if (result) {
-            request.session.user = user;
+            request.session.superAdmin = superAdmin;
             response.redirect("/super/portal");
           } else {
             response.status(400).send("Password incorrect");
@@ -64,19 +64,17 @@ router.post("/login", function (request, response) {
 // Get request for Super Admin Portal
 router.get("/portal", (request, response) => {
   // If not logged in open login page
-  if (!request.session.user) response.redirect("/super/login");
+  if (!request.session.superAdmin) response.redirect("/super/login");
   else {
-    let m_name = "";
-    if (user.m_name) m_name = user.m_name;
     response.render("super_portal", {
-      admin_id: user.admin_id,
-      f_name: user.f_name,
-      m_name: m_name,
-      l_name: user.l_name,
-      post: user.post,
-      phone: user.phone,
-      email: user.email,
-      photo: user.photo,
+      admin_id: superAdmin.admin_id,
+      f_name: superAdmin.f_name,
+      m_name: superAdmin.m_name,
+      l_name: superAdmin.l_name,
+      post: superAdmin.post,
+      phone: superAdmin.phone,
+      email: superAdmin.email,
+      photo: superAdmin.photo,
     });
   }
 });
@@ -1909,11 +1907,12 @@ router.get("/admin_add", (request, response) => {
 // Post request for adding admin data
 router.post("/admin_add", (request, response) => {
   let { f_name, m_name, l_name, post, phone, Email } = request.body;
-  let password = bcrypt.hashSync("1234", 10),
+  let s = 0,
+    password = bcrypt.hashSync("1234", 10),
     photo = "https://i.ibb.co/RStWntb/pic.jpg";
   mySqlConnection.query(
     "INSERT INTO admin VALUES (?)",
-    [[add_id, f_name, m_name, l_name, password, post, phone, Email, photo]],
+    [[add_id, f_name, m_name, l_name, password, post, phone, Email, photo, s]],
     (err) => {
       if (err) response.status(500).send(err);
       else response.redirect("/super/portal");
@@ -1923,15 +1922,11 @@ router.post("/admin_add", (request, response) => {
 
 // Get request for updating admin data
 router.get("/admin", (request, response) => {
-  // Middle Name
-  let m_name = "";
-  if (edit.m_name) m_name = edit.m_name;
-
   // Rendering Page
   response.render("admin", {
     admin_id: edit.admin_id,
     f_name: edit.f_name,
-    m_name: m_name,
+    m_name: edit.m_name,
     l_name: edit.l_name,
     post: edit.post,
     Email: edit.Email,
@@ -1943,25 +1938,14 @@ router.get("/admin", (request, response) => {
 // Post request for updating admin data
 router.post("/admin", (request, response) => {
   let { f_name, m_name, l_name, post, phone, Email } = request.body;
-  if (m_name == "") {
-    mySqlConnection.query(
-      "UPDATE admin SET f_name = ?, l_name = ?, post = ?, phone = ?, Email = ? WHERE admin_id = ?",
-      [f_name, l_name, post, phone, Email, edit.admin_id],
-      (err) => {
-        if (err) response.status(500).send(err);
-        else response.redirect("/super/portal");
-      }
-    );
-  } else {
-    mySqlConnection.query(
-      "UPDATE admin SET f_name = ?, m_name = ?, l_name = ?, post = ?, phone = ?, Email = ? WHERE admin_id = ?",
-      [f_name, m_name, l_name, post, phone, Email, edit.admin_id],
-      (err) => {
-        if (err) response.status(500).send(err);
-        else response.redirect("/super/portal");
-      }
-    );
-  }
+  mySqlConnection.query(
+    "UPDATE admin SET f_name = ?, m_name = ?, l_name = ?, post = ?, phone = ?, Email = ? WHERE admin_id = ?",
+    [f_name, m_name, l_name, post, phone, Email, edit.admin_id],
+    (err) => {
+      if (err) response.status(500).send(err);
+      else response.redirect("/super/portal");
+    }
+  );
 });
 
 // Get request for adding assignment data
@@ -2320,15 +2304,11 @@ router.post("/faculty_add", (request, response) => {
 
 // Get request for updating faculty data
 router.get("/faculty", (request, response) => {
-  // Middle Name
-  let m_name = "";
-  if (edit.m_name) m_name = edit.m_name;
-
   // Rendering Page
   response.render("faculty", {
     faculty_id: edit.faculty_id,
     f_name: edit.f_name,
-    m_name: m_name,
+    m_name: edit.m_name,
     l_name: edit.l_name,
     gender: edit.gender,
     dob: convertDate(edit.dob),
@@ -2355,48 +2335,26 @@ router.post("/faculty", (request, response) => {
     post,
     branch_id,
   } = request.body;
-  if (m_name == "") {
-    mySqlConnection.query(
-      "UPDATE faculty SET f_name = ?, l_name = ?, gender = ?, dob = ?, room = ?, phone = ?, email = ?, post = ?, branch_id = ? WHERE faculty_id = ?",
-      [
-        f_name,
-        l_name,
-        gender,
-        dob,
-        room,
-        phone,
-        email,
-        post,
-        branch_id,
-        edit.faculty_id,
-      ],
-      (err) => {
-        if (err) response.status(500).send(err);
-        else response.redirect("/super/portal");
-      }
-    );
-  } else {
-    mySqlConnection.query(
-      "UPDATE faculty SET f_name = ?, m_name = ?, l_name = ?, gender = ?, dob = ?, room = ?, phone = ?, email = ?, post = ?, branch_id = ? WHERE faculty_id = ?",
-      [
-        f_name,
-        m_name,
-        l_name,
-        gender,
-        dob,
-        room,
-        phone,
-        email,
-        post,
-        branch_id,
-        edit.faculty_id,
-      ],
-      (err) => {
-        if (err) response.status(500).send(err);
-        else response.redirect("/super/portal");
-      }
-    );
-  }
+  mySqlConnection.query(
+    "UPDATE faculty SET f_name = ?, m_name = ?, l_name = ?, gender = ?, dob = ?, room = ?, phone = ?, email = ?, post = ?, branch_id = ? WHERE faculty_id = ?",
+    [
+      f_name,
+      m_name,
+      l_name,
+      gender,
+      dob,
+      room,
+      phone,
+      email,
+      post,
+      branch_id,
+      edit.faculty_id,
+    ],
+    (err) => {
+      if (err) response.status(500).send(err);
+      else response.redirect("/super/portal");
+    }
+  );
 });
 
 // Get request for adding funds data
@@ -2976,15 +2934,11 @@ router.post("/student_add", (request, response) => {
 
 // Get request for updating student data
 router.get("/student", (request, response) => {
-  // Middle Name
-  let m_name = "";
-  if (edit.m_name) m_name = edit.m_name;
-
   // Rendering Page
   response.render("student", {
     roll_no: edit.roll_no,
     f_name: edit.f_name,
-    m_name: m_name,
+    m_name: edit.m_name,
     l_name: edit.l_name,
     gender: edit.gender,
     dob: convertDate(edit.dob),
@@ -3015,52 +2969,28 @@ router.post("/student", (request, response) => {
     email,
     batch_code,
   } = request.body;
-  if (m_name == "") {
-    mySqlConnection.query(
-      "UPDATE student SET f_name = ?, l_name = ?, gender = ?, dob = ?, cgpa = ?, semester = ?, hostel_no = ?, room = ?, phone = ?, email = ?, batch_code = ? WHERE roll_no = ?",
-      [
-        f_name,
-        l_name,
-        gender,
-        dob,
-        cgpa,
-        semester,
-        hostel_no,
-        room,
-        phone,
-        email,
-        batch_code,
-        edit.roll_no,
-      ],
-      (err) => {
-        if (err) response.status(500).send(err);
-        else response.redirect("/super/portal");
-      }
-    );
-  } else {
-    mySqlConnection.query(
-      "UPDATE faculty SET f_name = ?, m_name = ?, l_name = ?, gender = ?, dob = ?, cgpa = ?, semester = ?, hostel_no = ?, room = ?, phone = ?, email = ?, batch_code = ? WHERE roll_no = ?",
-      [
-        f_name,
-        m_name,
-        l_name,
-        gender,
-        dob,
-        cgpa,
-        semester,
-        hostel_no,
-        room,
-        phone,
-        email,
-        batch_code,
-        edit.roll_no,
-      ],
-      (err) => {
-        if (err) response.status(500).send(err);
-        else response.redirect("/super/portal");
-      }
-    );
-  }
+  mySqlConnection.query(
+    "UPDATE faculty SET f_name = ?, m_name = ?, l_name = ?, gender = ?, dob = ?, cgpa = ?, semester = ?, hostel_no = ?, room = ?, phone = ?, email = ?, batch_code = ? WHERE roll_no = ?",
+    [
+      f_name,
+      m_name,
+      l_name,
+      gender,
+      dob,
+      cgpa,
+      semester,
+      hostel_no,
+      room,
+      phone,
+      email,
+      batch_code,
+      edit.roll_no,
+    ],
+    (err) => {
+      if (err) response.status(500).send(err);
+      else response.redirect("/super/portal");
+    }
+  );
 });
 
 // Get request for adding student_club data
