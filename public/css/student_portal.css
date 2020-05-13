@@ -205,12 +205,32 @@ i:hover {
   background-color: var(--inactive);
 }
 
-.ElementsContainer {
+.Element {
   display: flex;
   flex-direction: column;
-  border-radius: 1em;
-  padding: 10px 0px;
-  background-color: var(--primary);
-  margin-bottom: 20px;
   width: 100%;
+  border-radius: 1em;
+  padding: 10px;
+  margin-bottom: 20px;
+  align-items: center;
+  background-color: var(--primary);
+}
+
+table {
+  display: table;
+  border-width: 1px;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+tbody {
+  display: table-row-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+
+td,
+th {
+    padding: 5px;
+    border: 1px solid;
 }
