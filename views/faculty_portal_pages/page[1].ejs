@@ -1,42 +1,47 @@
 <link rel="stylesheet" href="../../public/css/student_portal.css">
-<% var studentCode; %>
+<% var facultyCode, assignment_number = "ASSIGNMENTS";%>
 <div style="display: flex; flex-direction: column; width: 100%; height: 100%">
-  <div class="ElementsContainer">
-    <h3 style="align-self: center">CLASSES</h3>
-    <form action="" ; method="POST">
-      <label>Subject Code: </label>
-      <input type="text" ; placeholder="XXXNNNN" name="subjectCode">
-      <br><br><label>Faculty Code: </label>
-      <input type="text" ; placeholder="Faculty code" name="facultyCode">
-      <br><br><label>Starting Time:</label>
-      <input type="text" ; placeholder="Time" name="startingTime">
-      <br><br><label>Ending Time:</label>
-      <input type="text" ; placeholder="Time" name="endingTime">
-      <br><br><input type="submit" ; value="Add" name="action">
-      <input type="submit" ; value="Remove" name="action">
-    </form>
+  <div class="Element">
+    <h3 style="color: var(--secondary); margin-bottom: 10px;">
+      <%=assignment_number%> <br />
+    </h3>
+    <!-- TODO add link in action method -->
+    <div style="height: 100%; flex: 2; margin: 0; align-self: center;">
+      <form action="" ; method="POST">
+        <label>Subject Code: </label>
+        <input type="text" ; placeholder="XXXNNNN" name="subjectCode">
+        <br><br><label>Assignment Name: </label>
+        <input type="text" ; placeholder="Assignment Name" name="assignmentName">
+        <br><br><label>Due Date:</label>
+        <input type="text" ; placeholder="Date Format" name="dueDate">
+        <br><br><input type="submit" ; value="Add" name="action">
+        <input type="submit" ; value="Remove" name="action">
+        <input type="submit" ; value="Edit" name="action">
+      </form>
+    </div>
   </div>
-  <div class="ElementsContainer">
-    <h3 style="align-self: center">STUDENT ATTENDANCE</h3>
+  <div class="Element">
+    <h3 style="color: var(--secondary); margin-bottom: 10px;">ATTENDANCE</h3>
     <!-- TODO set studentCode on submission and change defaultPage to this page -->
     <form action="" ; method="POST">
-      <% if(studentCode == null) {%>
-      <label>Student Roll No: </label>
-      <input type="text" ; placeholder="XXXNNNN" ; name="studentRollNo">
-      <br><br><input type="submit" ; value="submit" name="action">
-      <% } else { %>
-      <br><br><label>Faculty Code: </label>
-      <input type="text" ; placeholder="Faculty code" ; name="faculty">
-      <br><br><label>Current Attendance: </label>
-      <label>9999999</label>
-      <br><br><label>New Attendance:</label>
-      <input type="text" ; placeholder="Attendance" name="newAttendance">
-      <br><br><input type="submit" ; value="Add" name="action">
-      <input type="submit" ; value="Remove" name="action">
-      <% } %>
+      <table style="">
+        <tbody>
+          <% if(faculyCode == null) {%>
+            <label>Faculty Code</label>
+            <input type="text" ; placeholder="Faculty code" ; name="faculty">
+            <br><br><label>Timing</label>
+            <input type="text" ; placeholder="X - Y" name="timing">
+            <br><br><label>BATCH</label>
+            <input type="text" ; placeholder="20XXAAA" name="batch">
+            <br><br><input type="submit" ; value="Add" name="action">
+            <input type="submit" ; value="Remove" name="action">
+            <% } else { %>
+            <label>Student Roll No</label>
+            <input type="text" ; placeholder="XXXNNNN" ; name="studentRollNo">
+            <br><br><input type="submit" ; value="submit" name="action">
+            <% } %>
+        </tbody>
+      </table>
     </form>
-  </div>
-  <div class="ElementsContainer">
-    <h3 style="align-self: center;">DATESHEET</h3>
   </div>
 </div>
