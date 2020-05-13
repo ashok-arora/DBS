@@ -68,6 +68,7 @@ router.get("/portal", (request, response) => {
       phone: admin.phone,
       Email: admin.Email,
       photo: admin.photo,
+      style: "/css/admin_portal.css",
     });
   }
 });
@@ -242,6 +243,7 @@ router.get("/student_edit", (request, response) => {
           hostel_no: edit.hostel_no,
           room: edit.room,
           backlogs: backlogs,
+          style: "/css/admin_portal.css",
         });
       } else {
         branch_id = "Batch Code is wrong.";
@@ -262,6 +264,7 @@ router.get("/student_edit", (request, response) => {
           hostel_no: edit.hostel_no,
           room: edit.room,
           backlogs: backlogs,
+          style: "/css/admin_portal.css",
         });
       }
     }
@@ -565,6 +568,7 @@ router.get("/faculty_edit", (request, response) => {
     phone: edit.phone,
     email: edit.email,
     subjects: subjects,
+    style: "/css/admin_portal.css",
   });
 });
 
@@ -761,6 +765,7 @@ router.get("/admin_edit", (request, response) => {
     Email: edit.Email,
     phone: edit.phone,
     photo: edit.photo,
+    style: "/css/admin_portal.css",
   });
 });
 
@@ -873,6 +878,7 @@ router.get("/club_edit", (request, response) => {
           phone: phone,
           email: email,
           members: members,
+          style: "/css/admin_portal.css",
         });
       }
     }
@@ -1073,6 +1079,7 @@ router.get("/research_edit", (request, response) => {
         expected_completion_date: convertDate(edit.expected_completion_date),
         proposers: proposers,
         students: students,
+        style: "/css/admin_portal.css",
       });
     }
   );
@@ -1274,6 +1281,7 @@ router.get("/subjects_edit", (request, response) => {
         batch_code: edit.batch_code,
         branch_id: edit.branch_id,
         subjects: subjects,
+        style: "/css/admin_portal.css",
       });
     }
   );

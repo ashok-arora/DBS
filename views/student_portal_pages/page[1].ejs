@@ -2,12 +2,32 @@
 <div style="display: flex; flex-direction: column; width: 100%; height: 100%;">
   <div class="ElementsContainer" style="height: 150px;">
     <h3 style="align-self: center;">ATTENDANCE</h3>
+    <% for (let i = 0; i < studentAttendance.length; i++) { %>
+    <p>
+      <%=attendanceSubjects%>: <%=studentAttendance[i]%> /
+      <%=facultyAttendance[i]%>
+      (<%=studentAttendance[i]/facultyAttendance[i]*100%>%)
+    </p>
+    <% } %>
   </div>
   <div
     class="ElementsContainer"
     style="height: 100px; background-color: var(--primary);"
   >
     <h3 style="align-self: center;">GRADES</h3>
+    <% for (let i = 0; i < studentTGrades.length; i++) { %>
+    <p>
+      <%=gradesSubjects[i]%>: <% for (term in studentTGrades) { %> <%=term%> -
+      <%=studentTGrades[i][term]%> / <%=maxTGrades[i][term]%>
+      (<%=studentTGrades[i][term]/maxTGrades[i][term]*100%>%) <%}%>
+    </p>
+    <% } %> <% for (let i = 0; i < studentLGrades.length; i++) { %>
+    <p>
+      <%=gradesSubjects[i]%>: <% for (term in studentLGrades) { %> <%=term%> -
+      <%=studentLGrades[i][term]%> / <%=maxLGrades[i][term]%>
+      (<%=studentLGrades[i][term]/maxLGrades[i][term]*100%>%) <%}%>
+    </p>
+    <% } %>
   </div>
   <div class="ElementsContainer" style="background-color: var(--primary);">
     <h3 style="align-self: center;">DATASHEET</h3>
