@@ -1,43 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
+
+  <style>
+
+    button, .bt {
+      box-shadow: 0px 5px 0px 0px #282828;
+      background:linear-gradient(to bottom, #eae0c2 5%, #ccc2a6 100%);
+      background-color:#ebdbb2;
+      border-radius:15px;
+      border:2px solid #282828;
+      cursor:pointer;
+      color:#32302f;
+      font-family: 'Montserrat';
+      font-size:20px;
+      padding:12px 20px;
+      text-decoration:none;
+      text-shadow:0px 1px 0px #ffffff;
+      width: 200px;
+    }
+    button, .bt:hover {
+      background:linear-gradient(to bottom, #ccc2a6 5%, #ebdbb2 100%);
+      background-color:#ebdbb2;
+    }
+
+    input[type=text] {
+      font-family: 'Montserrat';
+      font-size:20px;
+      padding: 12px 16px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      background-color:#32302f;
+      border:1px solid #ebdbb2;
+      color: #ebdbb2;
+      border-radius:20px;
+      width: 400px;
+    }
+
+    form{
+      margin-top: 0px;
+      margin-left: 300px;
+    }
+
+    #dashboard{
+      margin-top: 50px;
+      margin-left: 30px;
+      width: 1000px;
+      height: 600px;
+      padding: 10px;
+      border: 2px solid #ebdbb2;
+      border-radius: 15px;
+      background-color: #282828;
+      overflow-y:auto;
+    }
+
+    #photo{
+      width: 200px; 
+      height: 200px; 
+      margin-top: 125px; 
+      margin-left: 60px;
+      border-radius: 15px;
+    }
+
+    #info{ 
+      font-family: 'Montserrat';
+      font-size:20px;
+      width:200px;
+      height: 100px; 
+      margin-top: 0; 
+      margin-left: 0;
+    }
+
+    #label{
+      font-size:20px;
+      font-weight: 600;
+    }
+
+    td{
+      min-width: 150px;
+      padding: 0px 20px 0px 20px;
+    }
+
+    input{
+      text-align: center;
+    }
+
+    tr#label:hover {
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    a{
+      text-decoration: none;
+    }
+
+    bt{
+      width: 200px; 
+      height: 200px; 
+      margin-top: 125px; 
+      margin-left: 60px;
+      border-radius: 15px;
+    }
+
+  </style>
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Student Edit</title>
   </head>
   <body>
-    <button 
-    style=
-     "background-color: #282828;
-      border: 1px solid #ebdbb2;
-      color: #ebdbb2;
-      padding: 20px 20px;
-      text-align: center;
-      font-size: 20px;
-      position: absolute;
-      top:50px;
-      left:80px;
-      border-radius: 10px;"
-      onclick="window.location.href = '/admin/admin_portal';">
-      Back
-    </button>
-    <!-- Batch Code -->
-    <p><%=batch_code%></p>
-    <p><%=branch_id%></p>
-    <!-- Subjects -->
-    <form action="./subjects_edit" method="POST">
+      <div id="dashboard">
+      <button 
+      style=
+        "position: absolute;
+        top:80px;
+        left:350px;
+        border-radius: 10px;
+        width:150px;"
+        onclick="window.location.href = '/admin/admin_portal';">Go Back</button>
+      <div id="info"  style="float:none">
+      
+      <!-- Subjects -->
+      <form action="./subjects_edit" method="POST">
         <label for="category">
-            <input type="text" value="subjects" name="category" style="display: none;" />
+        <input
+            type="text"
+            value="subjects"
+            name="category"
+            style="display: none;"
+        />
         </label>
-        <% if(subjects.length != 0) { %>
-        <% for(let i=0; i<subjects.length; i++) {%>
-        <label for="subjects">
-            <input type="text" value="<%=subjects[i]%>" name="subjects" required />
-        </label>
-        <% } %>
-        <button type="submit">SUBMIT</button>
-        <% } %>
-    </form>
-
+        <table border="0" cellpadding="3">
+          <tr id="label">
+            <td>Batch Code</td>
+            <td>      
+                <label for="batch_code">
+                    <input disabled type="text" value="<%=batch_code%>" name="batch_code" required />
+                </label>
+            </td>
+          </tr>
+          <tr id="label">
+            <td>Batch ID</td>
+            <td>      
+                <label for="branch_id">
+                    <input disabled type="text" value="<%=branch_id%>" name="branch_id" required />
+                </label>
+            </td>
+          </tr>
+          <% if(subjects.length != 0) { %>
+            <% for(let i=0; i<subjects.length; i++) {%>
+                <tr id="label">
+                <td>Subjects <%=i+1%></td>
+                <td>     
+                    <label for="subjects">
+                        <input type="text" value="<%=subjects[i]%>" name="subjects" required />
+                    </label>
+                </td>
+            </tr>
+            <% } %>
+          <% } %>
+        <tr>
+            <td style="text-align:center; padding: 20px 0 20px 0">
+            </td>
+            <td style="text-align:center; padding: 20px 0 20px 0">
+            <button type="submit">Save Changes</button>
+            </td>
+            </tr>
+        </tbody>
+        </table>
+    </form> 
   </body>
 </html>
