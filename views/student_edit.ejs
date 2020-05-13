@@ -1,204 +1,405 @@
 <!DOCTYPE html>
 <html lang="en">
+
+  <style>
+
+    button, .bt {
+      box-shadow: 0px 5px 0px 0px #282828;
+      background:linear-gradient(to bottom, #eae0c2 5%, #ccc2a6 100%);
+      background-color:#ebdbb2;
+      border-radius:15px;
+      border:2px solid #282828;
+      cursor:pointer;
+      color:#32302f;
+      font-family: 'Montserrat';
+      font-size:20px;
+      padding:12px 20px;
+      text-decoration:none;
+      text-shadow:0px 1px 0px #ffffff;
+      width: 200px;
+    }
+    button, .bt:hover {
+      background:linear-gradient(to bottom, #ccc2a6 5%, #ebdbb2 100%);
+      background-color:#ebdbb2;
+    }
+
+    input[type=text] {
+      font-family: 'Montserrat';
+      font-size:20px;
+      padding: 12px 16px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      background-color:#32302f;
+      border:1px solid #ebdbb2;
+      color: #ebdbb2;
+      border-radius:20px;
+      width: 400px;
+    }
+
+    form{
+      margin-top: 0px;
+      margin-left: 300px;
+    }
+
+    #dashboard{
+      margin-top: 50px;
+      margin-left: 30px;
+      width: 1000px;
+      height: 600px;
+      padding: 10px;
+      border: 2px solid #ebdbb2;
+      border-radius: 15px;
+      background-color: #282828;
+      overflow-y:auto;
+    }
+
+    #photo{
+      width: 200px; 
+      height: 200px; 
+      margin-top: 125px; 
+      margin-left: 60px;
+      border-radius: 15px;
+    }
+
+    #info{ 
+      font-family: 'Montserrat';
+      font-size:20px;
+      width:200px;
+      height: 100px; 
+      margin-top: 0; 
+      margin-left: 0;
+    }
+
+    #label{
+      font-size:20px;
+      font-weight: 600;
+    }
+
+    td{
+      min-width: 150px;
+      padding: 0px 20px 0px 20px;
+    }
+
+    input{
+      text-align: center;
+    }
+
+    tr#label:hover {
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    a{
+      text-decoration: none;
+    }
+
+    bt{
+      width: 200px; 
+      height: 200px; 
+      margin-top: 125px; 
+      margin-left: 60px;
+      border-radius: 15px;
+    }
+
+  </style>
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Student Edit</title>
   </head>
   <body>
-    <button 
-    style=
-     "background-color: #282828;
-      border: 1px solid #ebdbb2;
-      color: #ebdbb2;
-      padding: 20px 20px;
-      text-align: center;
-      font-size: 20px;
-      position: absolute;
-      top:50px;
-      left:80px;
-      border-radius: 10px;"
-      onclick="window.location.href = '/admin/admin_portal';">
-      Back
-    </button>
-    <!-- Roll No. -->
-    <%=roll_no%>
+      <div id="dashboard">
+      <button 
+      style=
+        "position: absolute;
+        top:80px;
+        left:350px;
+        border-radius: 10px;
+        width:150px;"
+        onclick="window.location.href = '/admin/admin_portal';">Go Back</button>
+        <div id="info"  style="float:none">
 
-    <!-- Name -->
-    <form action="./student_edit" method="POST">
-      <label for="category">
-        <input
-          type="text"
-          value="name"
-          name="category"
-          style="display: none;"
-        />
-      </label>
-      <label for="f_name">
-        <input type="text" value="<%=f_name%>" name="f_name" required />
-      </label>
-      <label for="m_name">
-        <input type="text" value="<%=m_name%>" name="m_name" required />
-      </label>
-      <label for="l_name">
-        <input type="text" value="<%=l_name%>" name="l_name" required />
-      </label>
-      <button type="submit" formnovalidate>SUBMIT</button>
-    </form>
 
-    <!-- Batch & Branch -->
-    <form action="./student_edit" method="POST">
-      <label for="category">
-        <input
-          type="text"
-          value="batch"
-          name="category"
-          style="display: none;"
-        />
-      </label>
-      <label for="batch_code">
-        <input type="text" value="<%=batch_code%>" name="batch_code" required />
-      </label>
-      <p><%=branch_id%></p>
-      <button type="submit">SUBMIT</button>
-    </form>
+        <!-- Name -->
+        <form action="./student_edit" method="POST">
+          <label for="category">
+            <input
+              type="text"
+              value="name"
+              name="category"
+              style="display: none;"
+            />
+          </label>
+          <table border="0" cellpadding="3">
+            <tbody>
+            <tr id="label">
+              <td>Roll Number</td>
+              <td>
+                  <input disabled type="text" value="<%=roll_no%>" required />
+                </label>
+              </td>
+            </tr>
+            <tr id="label">
+              <td>First Name</td>
+              <td>      
+                <label for="f_name">
+                <input type="text" value="<%=f_name%>" name="f_name" required />
+                </label>
+              </td>
+            </tr>
+            <tr id="label">
+              <td>Middle Name</td>
+              <td>      
+                <label for="m_name">
+                <input type="text" value="<%=m_name%>" name="m_name" required />
+                </label>
+              </td>
+            </tr>
+            <tr id="label">
+              <td>Last Name</td>
+              <td>      
+                <label for="l_name">
+                <input type="text" value="<%=l_name%>" name="l_name" required />
+                </label>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </form>
 
-    <!-- Gender & DOB -->
-    <form action="./student_edit" method="POST">
-      <label for="category">
-        <input
-          type="text"
-          value="gender"
-          name="category"
-          style="display: none;"
-        />
-      </label>
-      <label for="gender">
-        <input type="text" value="<%=gender%>" name="gender" required />
-      </label>
-      <label for="dob">
-        <input type="text" value="<%=dob%>" name="dob" required />
-      </label>
-      <button type="submit">SUBMIT</button>
-    </form>
+        <!-- Batch & Branch -->
+        <form action="./student_edit" method="POST">
+          <label for="category">
+            <input
+              type="text"
+              value="batch"
+              name="category"
+              style="display: none;"
+            />
+          </label>
+          <table border="0" cellpadding="3">
+            <tr id="label">
+              <td>Batch</td>
+              <td>      
+                <label for="batch_code">
+                <input type="text" value="<%=batch_code%>" name="batch_code" required />
+                </label>
+              </td>
+            </tr>
+            <tr id="label">
+              <td>Branch</td>
+              <td>      
+                <label for="branch_id">
+                <input disabled type="text" value="<%=branch_id%>" name="branch_id" required />
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align:center; padding: 20px 0 20px 0">
+              </td>
+              <td style="text-align:center; padding: 20px 0 20px 0">
+                <button type="submit">Save Changes</button>
+              </td>
+              </tr>
+            </tbody>
+            </table>
 
-    <!-- Phone & E-mail -->
-    <form action="./student_edit" method="POST">
-      <label for="category">
-        <input type="text" value="phone" name="category" style="display: none;" />
-      </label>
-      <label for="phone">
-        <input type="text" value="<%=phone%>" name="phone" required />
-      </label>
-      <label for="email">
-        <input type="text" value="<%=email%>" name="email" required />
-      </label>
-      <button type="submit">SUBMIT</button>
-    </form>
+        </form>
 
-    <!-- CGPA & Semester -->
-    <form action="./student_edit" method="POST">
-      <label for="category">
-        <input
-          type="text"
-          value="cgpa"
-          name="category"
-          style="display: none;"
-        />
-      </label>
-      <label for="cgpa">
-        <input type="text" value="<%=cgpa%>" name="cgpa" required />
-      </label>
-      <label for="semester">
-        <input type="text" value="<%=semester%>" name="semester" required />
-      </label>
-      <button type="submit">SUBMIT</button>
-    </form>
+        <!-- Gender & DOB -->
+        <form action="./student_edit" method="POST">
+          <label for="category">
+            <input
+              type="text"
+              value="gender"
+              name="category"
+              style="display: none;"
+            />
+          </label>
+          <table border="0" cellpadding="3">
+            <tr id="label">
+              <td>Gender</td>
+              <td>      
+                <label for="gender">
+                <input type="text" value="<%=gender%>" name="gender" required />
+                </label>
+              </td>
+            </tr>
+            <tr id="label">
+              <td>D.O.B.</td>
+              <td>      
+                <label for="dob">
+                <input type="text" value="<%=dob%>" name="dob" required />
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align:center; padding: 20px 0 20px 0">
+              </td>
+              <td style="text-align:center; padding: 20px 0 20px 0">
+                <button type="submit">Save Changes</button>
+              </td>
+              </tr>
+            </tbody>
+            </table>
 
-    <!-- Room Details -->
-    <form action="./student_edit" method="POST">
-      <label for="category">
-        <input
-          type="text"
-          value="room"
-          name="category"
-          style="display: none;"
-        />
-      </label>
-      <label for="hostel_no">
-        <input type="text" value="<%=hostel_no%>" name="hostel_no" required />
-      </label>
-      <label for="room">
-        <input type="text" value="<%=room%>" name="room" required />
-      </label>
-      <button type="submit">SUBMIT</button>
-    </form>
+        </form>
 
-    <!-- Subjects -->
-    <!-- <form action="./student_edit" method="POST">
-      <label for="category">
-        <input
-          type="text"
-          value="subjects"
-          name="category"
-          style="display: none;"
-        />
-      </label>
-      <label for="number">
-        <input
-          type="text"
-          value="<%=subjects.length%>"
-          name="number"
-          style="display: none;"
-        />
-      </label>
-      <% for(let i=0; i<subjects.length; i++) { %>
-      <label for="subject<%=i%>">
-        <input
-          type="text"
-          value="<%=subjects[i]%>"
-          name="subject<%=i%>"
-          required
-        />
-      </label>
-      <% } %>
-      <button type="submit">SUBMIT</button>
-    </form> -->
+        <!-- Phone & Email -->
+        <form action="./student_edit" method="POST">
+          <label for="category">
+            <input
+              type="text"
+              value="phone"
+              name="category"
+              style="display: none;"
+            />
+          </label>
+          <table border="0" cellpadding="3">
+            <tr id="label">
+              <td>Phone</td>
+              <td>      
+                <label for="phone">
+                <input type="text" value="<%=phone%>" name="phone" required />
+                </label>
+              </td>
+            </tr>
+            <tr id="label">
+              <td>Email</td>
+              <td>      
+                <label for="email">
+                <input type="text" value="<%=email%>" name="email" required />
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align:center; padding: 20px 0 20px 0">
+              </td>
+              <td style="text-align:center; padding: 20px 0 20px 0">
+                <button type="submit">Save Changes</button>
+              </td>
+              </tr>
+            </tbody>
+            </table>
 
-    <!-- Backlogs -->
-    <form action="./student_edit" method="POST">
-      <label for="category">
-        <input
-          type="text"
-          value="backlogs"
-          name="category"
-          style="display: none;"
-        />
-      </label>
-      <% if(backlogs.length != 0) { %>
-        <% for(let i=0; i<backlogs.length; i++) {%>
-        <label for="backlogs">
-          <input type="text" value="<%=backlogs[i]%>" name="backlogs" required />
-        </label>
-        <% } %>
-      <% } %>
-      <button type="submit">SUBMIT</button>
-    </form>
+        </form>
 
-    <!-- Photo -->
-    <!-- <form action="./student_edit" method="POST">
-      <label for="category">
-        <input
-          type="text"
-          value="photo"
-          name="category"
-          style="display: none;"
-        />
-      </label>
-      <label for="gender">
-        <input type="text" value="<%=gender%>" name="gender" required />
-      </label>
-      <button type="submit">SUBMIT</button>
-    </form> -->
+        <!-- CGPA & Semester -->
+        <form action="./student_edit" method="POST">
+          <label for="category">
+            <input
+              type="text"
+              value="cgpa"
+              name="category"
+              style="display: none;"
+            />
+          </label>
+          <table border="0" cellpadding="3">
+            <tr id="label">
+              <td>CGPA </td>
+              <td>      
+                <label for="cgpa">
+                <input type="text" value="<%=cgpa%>" name="cgpa" required />
+                </label>
+              </td>
+            </tr>
+            <tr id="label">
+              <td>Semester</td>
+              <td>      
+                <label for="semester">
+                <input type="text" value="<%=semester%>" name="semester" required />
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align:center; padding: 20px 0 20px 0">
+              </td>
+              <td style="text-align:center; padding: 20px 0 20px 0">
+                <button type="submit">Save Changes</button>
+              </td>
+              </tr>
+            </tbody>
+            </table>
+
+        </form>
+
+        <!-- Room Details -->
+        <form action="./student_edit" method="POST">
+          <label for="category">
+            <input
+              type="text"
+              value="room"
+              name="category"
+              style="display: none;"
+            />
+          </label>
+          <table border="0" cellpadding="3">
+            <tr id="label">
+              <td>Hostel </td>
+              <td>      
+                <label for="hostel_no">
+                <input type="text" value="<%=hostel_no%>" name="hostel_no" required />
+                </label>
+              </td>
+            </tr>
+            <tr id="label">
+              <td>Room Num</td>
+              <td>      
+                <label for="room">
+                <input type="text" value="<%=room%>" name="room" required />
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align:center; padding: 20px 0 20px 0">
+              </td>
+              <td style="text-align:center; padding: 20px 0 20px 0">
+                <button type="submit">Save Changes</button>
+              </td>
+              </tr>
+            </tbody>
+            </table>
+
+        </form>        
+
+
+        <!-- Room Details -->
+        <form action="./student_edit" method="POST">
+          <label for="category">
+            <input
+              type="text"
+              value="backlogs"
+              name="category"
+              style="display: none;"
+            />
+          </label>
+          <table border="0" cellpadding="3">
+              <% if(backlogs.length != 0) { %>
+                <% for(let i=0; i<backlogs.length; i++) {%>
+                  <tr id="label">
+                  <td>Backlog <%=i+1%></td>
+                  <td>     
+                    <label for="backlogs">
+                      <input type="text" value="<%=backlogs[i]%>" name="backlogs" required />
+                    </label>
+                  </td>
+                </tr>
+                <% } %>
+              <% } %>
+
+            <tr>
+              <td style="text-align:center; padding: 20px 0 20px 0">
+              </td>
+              <td style="text-align:center; padding: 20px 0 20px 0">
+                <button type="submit">Save Changes</button>
+              </td>
+              </tr>
+            </tbody>
+            </table>
+
+        </form> 
+
+      </div>
+    </div>
   </body>
 </html>

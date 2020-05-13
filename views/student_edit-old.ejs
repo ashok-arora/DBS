@@ -1,0 +1,194 @@
+<button 
+    style=
+     "background-color: #282828;
+      border: 1px solid #ebdbb2;
+      color: #ebdbb2;
+      padding: 20px 20px;
+      text-align: center;
+      font-size: 20px;
+      position: absolute;
+      top:50px;
+      left:80px;
+      border-radius: 10px;"
+      onclick="window.location.href = '/admin/admin_portal';">
+      Back
+    </button>
+    <!-- Roll No. -->
+    <%=roll_no%>
+
+    <!-- Name -->
+    <form action="./student_edit" method="POST">
+      <label for="category">
+        <input
+          type="text"
+          value="name"
+          name="category"
+          style="display: none;"
+        />
+      </label>
+      <label for="f_name">
+        <input type="text" value="<%=f_name%>" name="f_name" required />
+      </label>
+      <label for="m_name">
+        <input type="text" value="<%=m_name%>" name="m_name" required />
+      </label>
+      <label for="l_name">
+        <input type="text" value="<%=l_name%>" name="l_name" required />
+      </label>
+      <button type="submit" formnovalidate>SUBMIT</button>
+    </form>
+
+    <!-- Batch & Branch -->
+    <form action="./student_edit" method="POST">
+      <label for="category">
+        <input
+          type="text"
+          value="batch"
+          name="category"
+          style="display: none;"
+        />
+      </label>
+      <label for="batch_code">
+        <input type="text" value="<%=batch_code%>" name="batch_code" required />
+      </label>
+      <p><%=branch_id%></p>
+      <button type="submit">SUBMIT</button>
+    </form>
+
+    <!-- Gender & DOB -->
+    <form action="./student_edit" method="POST">
+      <label for="category">
+        <input
+          type="text"
+          value="gender"
+          name="category"
+          style="display: none;"
+        />
+      </label>
+      <label for="gender">
+        <input type="text" value="<%=gender%>" name="gender" required />
+      </label>
+      <label for="dob">
+        <input type="text" value="<%=dob%>" name="dob" required />
+      </label>
+      <button type="submit">SUBMIT</button>
+    </form>
+
+    <!-- Phone & E-mail -->
+    <form action="./student_edit" method="POST">
+      <label for="category">
+        <input type="text" value="phone" name="category" style="display: none;" />
+      </label>
+      <label for="phone">
+        <input type="text" value="<%=phone%>" name="phone" required />
+      </label>
+      <label for="email">
+        <input type="text" value="<%=email%>" name="email" required />
+      </label>
+      <button type="submit">SUBMIT</button>
+    </form>
+
+    <!-- CGPA & Semester -->
+    <form action="./student_edit" method="POST">
+      <label for="category">
+        <input
+          type="text"
+          value="cgpa"
+          name="category"
+          style="display: none;"
+        />
+      </label>
+      <label for="cgpa">
+        <input type="text" value="<%=cgpa%>" name="cgpa" required />
+      </label>
+      <label for="semester">
+        <input type="text" value="<%=semester%>" name="semester" required />
+      </label>
+      <button type="submit">SUBMIT</button>
+    </form>
+
+    <!-- Room Details -->
+    <form action="./student_edit" method="POST">
+      <label for="category">
+        <input
+          type="text"
+          value="room"
+          name="category"
+          style="display: none;"
+        />
+      </label>
+      <label for="hostel_no">
+        <input type="text" value="<%=hostel_no%>" name="hostel_no" required />
+      </label>
+      <label for="room">
+        <input type="text" value="<%=room%>" name="room" required />
+      </label>
+      <button type="submit">SUBMIT</button>
+    </form>
+
+    <!-- Subjects -->
+    <!-- <form action="./student_edit" method="POST">
+      <label for="category">
+        <input
+          type="text"
+          value="subjects"
+          name="category"
+          style="display: none;"
+        />
+      </label>
+      <label for="number">
+        <input
+          type="text"
+          value="<%=subjects.length%>"
+          name="number"
+          style="display: none;"
+        />
+      </label>
+      <% for(let i=0; i<subjects.length; i++) { %>
+      <label for="subject<%=i%>">
+        <input
+          type="text"
+          value="<%=subjects[i]%>"
+          name="subject<%=i%>"
+          required
+        />
+      </label>
+      <% } %>
+      <button type="submit">SUBMIT</button>
+    </form> -->
+
+    <!-- Backlogs -->
+    <form action="./student_edit" method="POST">
+      <label for="category">
+        <input
+          type="text"
+          value="backlogs"
+          name="category"
+          style="display: none;"
+        />
+      </label>
+      <% if(backlogs.length != 0) { %>
+        <% for(let i=0; i<backlogs.length; i++) {%>
+        <label for="backlogs">
+          <input type="text" value="<%=backlogs[i]%>" name="backlogs" required />
+        </label>
+        <% } %>
+      <% } %>
+      <button type="submit">SUBMIT</button>
+    </form>
+
+    <!-- Photo -->
+    <!-- <form action="./student_edit" method="POST">
+      <label for="category">
+        <input
+          type="text"
+          value="photo"
+          name="category"
+          style="display: none;"
+        />
+      </label>
+      <label for="gender">
+        <input type="text" value="<%=gender%>" name="gender" required />
+      </label>
+      <button type="submit">SUBMIT</button>
+    </form> -->
