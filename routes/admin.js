@@ -3,26 +3,33 @@ const app = express();
 const router = express.Router();
 const mySqlConnection = require("../db/db");
 const bcrypt = require("bcrypt");
-let user, edit;
+let admin, edit;
 let path = require("path");
 
 app.use(express.static(path.join(__dirname + "../public/css")));
 
+function convertDate(str) {
+  var date = new Date(str),
+    mnth = ("0" + (date.getMonth() + 1)).slice(-2),
+    day = ("0" + date.getDate()).slice(-2);
+  return [date.getFullYear(), mnth, day].join("");
+}
+
 // Redirecting to Admin Login if no page detail provided in URL
 router.get("/", (request, response) => {
-  response.redirect("/admin/admin_login");
+  response.redirect("/admin/login");
 });
 
 // Get request for Admin Login
-router.get("/admin_login", (request, response) => {
+router.get("/login", (request, response) => {
   // If already logged in don't open login page
-  if (!request.session.user)
+  if (!request.session.admin)
     response.status(200).sendFile(path.join(__dirname + "/../admin.html"));
-  else response.redirect("/admin/admin_portal");
+  else response.redirect("/admin/portal");
 });
 
 // Post request for Admin Login
-router.post("/admin_login", function (request, response) {
+router.post("/login", function (request, response) {
   let id = request.body.id,
     password = request.body.password;
   mySqlConnection.query(
@@ -30,14 +37,14 @@ router.post("/admin_login", function (request, response) {
     [id],
     (err, rows) => {
       if (err) response.status(500).send(err);
-      user = rows[0];
-      if (user) {
-        const result = bcrypt.compareSync(password, user.password);
+      admin = rows[0];
+      if (admin) {
+        const result = bcrypt.compareSync(password, admin.password);
         // Easy way to prevent extracting password form cookie, will try better solution later
         password = bcrypt.hashSync(password, 10);
         if (result) {
-          request.session.user = user;
-          response.redirect("/admin/admin_portal");
+          request.session.admin = admin;
+          response.redirect("/admin/portal");
         } else {
           response.status(400).send("Password incorrect");
         }
@@ -49,23 +56,24 @@ router.post("/admin_login", function (request, response) {
 });
 
 // Get request for Admin Portal
-router.get("/admin_portal", (request, response) => {
-  let m_name = "";
-  if (user.m_name) m_name = user.m_name;
-  response.render("admin_portal", {
-    admin_id: user.admin_id,
-    f_name: user.f_name,
-    m_name: m_name,
-    l_name: user.l_name,
-    post: user.post,
-    phone: user.phone,
-    Email: user.Email,
-    photo: user.photo,
-  });
+router.get("/portal", (request, response) => {
+  if (!request.session.admin) response.redirect("/admin/login");
+  else {
+    response.render("admin_portal", {
+      admin_id: admin.admin_id,
+      f_name: admin.f_name,
+      m_name: admin.m_name,
+      l_name: admin.l_name,
+      post: admin.post,
+      phone: admin.phone,
+      Email: admin.Email,
+      photo: admin.photo,
+    });
+  }
 });
 
 // Post request for Admin Portal
-router.post("/admin_portal", (request, response) => {
+router.post("/portal", (request, response) => {
   let id = request.body.id,
     category = request.body.category;
   switch (category) {
@@ -184,7 +192,7 @@ router.post("/admin_portal", (request, response) => {
       break;
 
     default:
-      response.render("/admin/admin_portal");
+      response.render("/admin/portal");
   }
 });
 
@@ -210,60 +218,52 @@ router.get("/student_edit", (request, response) => {
 
   // Branch
   let branch_id = "";
-  console.log(edit.batch_code);
   mySqlConnection.query(
     "SELECT * FROM batch WHERE batch_code = ?",
     [edit.batch_code],
     (err, rows) => {
       if (err) response.status(500).send(err);
       if (rows) {
-        console.log(rows);
         branch_id = rows[0].branch_id;
+        // Rendering Page
+        response.render("student_edit", {
+          roll_no: edit.roll_no,
+          f_name: edit.f_name,
+          m_name: edit.m_name,
+          l_name: edit.l_name,
+          batch_code: edit.batch_code,
+          branch_id: branch_id,
+          gender: edit.gender,
+          dob: convertDate(edit.dob),
+          phone: edit.phone,
+          email: edit.email,
+          cgpa: edit.cgpa,
+          semester: edit.semester,
+          hostel_no: edit.hostel_no,
+          room: edit.room,
+          backlogs: backlogs,
+        });
       } else {
         branch_id = "Batch Code is wrong.";
+        // Rendering Page
+        response.render("student_edit", {
+          roll_no: edit.roll_no,
+          f_name: edit.f_name,
+          m_name: edit.m_name,
+          l_name: edit.l_name,
+          batch_code: edit.batch_code,
+          branch_id: branch_id,
+          gender: edit.gender,
+          dob: convertDate(edit.dob),
+          phone: edit.phone,
+          email: edit.email,
+          cgpa: edit.cgpa,
+          semester: edit.semester,
+          hostel_no: edit.hostel_no,
+          room: edit.room,
+          backlogs: backlogs,
+        });
       }
-    }
-  );
-
-  // Middle Name
-  let m_name = "";
-  if (edit.m_name) m_name = edit.m_name;
-
-  // Subjects from batch_subjects
-  let subjects = [];
-  mySqlConnection.query(
-    "SELECT * FROM batch_subjects WHERE batch_code = ?",
-    [edit.batch_code],
-    (err, rows) => {
-      if (err) response.status(500).send(err);
-      if (rows) {
-        for (row of rows) {
-          subjects.push(row.subject_code);
-        }
-        subjects.push("Add");
-      } else {
-        subjects = ["Add"];
-      }
-      // Rendering Page
-      response.render("student_edit", {
-        roll_no: edit.roll_no,
-        f_name: edit.f_name,
-        m_name: m_name,
-        l_name: edit.l_name,
-        batch_code: edit.batch_code,
-        branch_id: branch_id,
-        gender: edit.gender,
-        dob: edit.dob,
-        phone: edit.phone,
-        email: edit.email,
-        cgpa: edit.cgpa,
-        semester: edit.semester,
-        hostel_no: edit.hostel_no,
-        room: edit.room,
-        backlogs: backlogs,
-        // Delete bottom line
-        subjects: subjects,
-      });
     }
   );
 });
@@ -277,35 +277,25 @@ router.post("/student_edit", (request, response) => {
         let f_name = request.body.f_name,
           m_name = request.body.m_name,
           l_name = request.body.l_name;
-        if (m_name == "") {
-          mySqlConnection.query(
-            "UPDATE student SET f_name = ?, l_name = ? WHERE roll_no = ?",
-            [f_name, l_name, edit.roll_no],
-            (err) => {
-              if (err) response.status(500).send(err);
-            }
-          );
-        } else {
-          mySqlConnection.query(
-            "UPDATE student SET f_name = ?, m_name = ?, l_name = ? WHERE roll_no = ?",
-            [f_name, m_name, l_name, edit.roll_no],
-            (err) => {
-              if (err) response.status(500).send(err);
-            }
-          );
-        }
         mySqlConnection.query(
-          "SELECT * FROM student WHERE roll_no = ?",
-          [edit.roll_no],
-          (err, rows) => {
+          "UPDATE student SET f_name = ?, m_name = ?, l_name = ? WHERE roll_no = ?",
+          [f_name, m_name, l_name, edit.roll_no],
+          (err) => {
             if (err) response.status(500).send(err);
-            edit = rows[0];
-            if (edit) {
-              request.session.edit = edit;
-              response.redirect("/admin/student_edit");
-            } else {
-              response.status(400).send("Roll No. does not exist.");
-            }
+            mySqlConnection.query(
+              "SELECT * FROM student WHERE roll_no = ?",
+              [edit.roll_no],
+              (err, rows) => {
+                if (err) response.status(500).send(err);
+                edit = rows[0];
+                if (edit) {
+                  request.session.edit = edit;
+                  response.redirect("/admin/student_edit");
+                } else {
+                  response.status(400).send("Roll No. does not exist.");
+                }
+              }
+            );
           }
         );
       }
@@ -460,34 +450,63 @@ router.post("/student_edit", (request, response) => {
             [edit.roll_no],
             (err, rows) => {
               if (err) response.status(500).send(err);
-              for (let i = 0; i < rows.length; i++) {
-                id.push(rows[i].s_no);
+              else {
+                for (row of rows) {
+                  id.push(row.s_no);
+                }
+                for (let i = 0; i < id.length; i++) {
+                  if (backlogs[i] != "") {
+                    mySqlConnection.query(
+                      "SELECT * FROM batch_subjects WHERE batch_code = ?",
+                      [edit.batch_code],
+                      (err, rows) => {
+                        if (err) response.status(500).send(err);
+                        for (row in rows) {
+                          if (row.subject_code == backlogs[i]) {
+                            mySqlConnection.query(
+                              "UPDATE backlogs SET subject_code = ? WHERE s_no = ?",
+                              [backlogs[i], id[i]],
+                              (err) => {
+                                if (err) response.status(500).send(err);
+                              }
+                            );
+                          }
+                        }
+                      }
+                    );
+                  } else {
+                    mySqlConnection.query(
+                      "DELETE FROM backlogs WHERE s_no = ?",
+                      [id[i]],
+                      (err) => {
+                        if (err) response.status(500).send(err);
+                      }
+                    );
+                  }
+                }
+                if (backlogs[backlogs.length - 1] != "Add") {
+                  mySqlConnection.query(
+                    "SELECT * FROM batch_subjects WHERE batch_code = ?",
+                    [edit.batch_code],
+                    (err, rows) => {
+                      if (err) response.status(500).send(err);
+                      for (row in rows) {
+                        if (row.subject_code == backlogs[backlogs.length - 1]) {
+                          mySqlConnection.query(
+                            "INSERT INTO backlogs (subject_code, roll_no) VALUES (?)",
+                            [backlogs[backlogs.length - 1], edit.roll_no],
+                            (err) => {
+                              if (err) response.status(500).send(err);
+                            }
+                          );
+                        }
+                      }
+                    }
+                  );
+                }
               }
             }
           );
-          for (let i = 0; i < id.length; i++) {
-            mySqlConnection.query(
-              "UPDATE backlogs SET subject_code = ? WHERE s_no = ?",
-              [backlogs[i], id[i]],
-              (err) => {
-                if (err) response.status(500).send(err);
-              }
-            );
-          }
-          if (backlogs[backlogs.length - 1] != "Add") {
-            input =
-              `("` +
-              backlogs[backlogs.length - 1].toString() +
-              `", "` +
-              edit.roll_no.toString() +
-              `")`;
-            mySqlConnection.query(
-              "INSERT INTO backlogs (subject_code, roll_no) VALUES" + input,
-              (err) => {
-                if (err) response.status(500).send(err);
-              }
-            );
-          }
         }
         mySqlConnection.query(
           "SELECT * FROM student WHERE roll_no = ?",
@@ -532,20 +551,16 @@ router.get("/faculty_edit", (request, response) => {
     }
   );
 
-  // Middle Name
-  let m_name = "";
-  if (edit.m_name) m_name = edit.m_name;
-
   // Rendering Page
   response.render("faculty_edit", {
     faculty_id: edit.faculty_id,
     f_name: edit.f_name,
-    m_name: m_name,
+    m_name: edit.m_name,
     l_name: edit.l_name,
     post: edit.post,
     branch_id: edit.branch_id,
     gender: edit.gender,
-    dob: edit.dob,
+    dob: convertDate(edit.dob),
     room: edit.room,
     phone: edit.phone,
     email: edit.email,
@@ -562,35 +577,25 @@ router.post("/faculty_edit", (request, response) => {
         let f_name = request.body.f_name,
           m_name = request.body.m_name,
           l_name = request.body.l_name;
-        if (m_name == "") {
-          mySqlConnection.query(
-            "UPDATE faculty SET f_name = ?, l_name = ? WHERE faculty_id = ?",
-            [f_name, l_name, edit.faculty_id],
-            (err) => {
-              if (err) response.status(500).send(err);
-            }
-          );
-        } else {
-          mySqlConnection.query(
-            "UPDATE faculty SET f_name = ?, m_name = ?, l_name = ? WHERE faculty_id = ?",
-            [f_name, m_name, l_name, edit.faculty_id],
-            (err) => {
-              if (err) response.status(500).send(err);
-            }
-          );
-        }
         mySqlConnection.query(
-          "SELECT * FROM faculty WHERE faculty_id = ?",
-          [edit.faculty_id],
-          (err, rows) => {
+          "UPDATE faculty SET f_name = ?, m_name = ?, l_name = ? WHERE faculty_id = ?",
+          [f_name, m_name, l_name, edit.faculty_id],
+          (err) => {
             if (err) response.status(500).send(err);
-            edit = rows[0];
-            if (edit) {
-              request.session.edit = edit;
-              response.redirect("/admin/faculty_edit");
-            } else {
-              response.status(400).send("Id does not exist.");
-            }
+            mySqlConnection.query(
+              "SELECT * FROM faculty WHERE faculty_id = ?",
+              [edit.faculty_id],
+              (err, rows) => {
+                if (err) response.status(500).send(err);
+                edit = rows[0];
+                if (edit) {
+                  request.session.edit = edit;
+                  response.redirect("/admin/faculty_edit");
+                } else {
+                  response.status(400).send("Id does not exist.");
+                }
+              }
+            );
           }
         );
       }
@@ -746,15 +751,11 @@ router.post("/faculty_edit", (request, response) => {
 
 // Get request for editing admin data
 router.get("/admin_edit", (request, response) => {
-  // Middle Name
-  let m_name = "";
-  if (edit.m_name) m_name = edit.m_name;
-
   // Rendering Page
   response.render("admin_edit", {
     admin_id: edit.admin_id,
     f_name: edit.f_name,
-    m_name: m_name,
+    m_name: edit.m_name,
     l_name: edit.l_name,
     post: edit.post,
     Email: edit.Email,
@@ -772,35 +773,25 @@ router.post("/admin_edit", (request, response) => {
         let f_name = request.body.f_name,
           m_name = request.body.m_name,
           l_name = request.body.l_name;
-        if (m_name == "") {
-          mySqlConnection.query(
-            "UPDATE admin SET f_name = ?, l_name = ? WHERE admin_id = ?",
-            [f_name, l_name, edit.admin_id],
-            (err) => {
-              if (err) response.status(500).send(err);
-            }
-          );
-        } else {
-          mySqlConnection.query(
-            "UPDATE admin SET f_name = ?, m_name = ?, l_name = ? WHERE admin_id = ?",
-            [f_name, m_name, l_name, edit.admin_id],
-            (err) => {
-              if (err) response.status(500).send(err);
-            }
-          );
-        }
         mySqlConnection.query(
-          "SELECT * FROM admin WHERE admin_id = ?",
-          [edit.admin_id],
-          (err, rows) => {
+          "UPDATE admin SET f_name = ?, m_name = ?, l_name = ? WHERE admin_id = ?",
+          [f_name, m_name, l_name, edit.admin_id],
+          (err) => {
             if (err) response.status(500).send(err);
-            edit = rows[0];
-            if (edit) {
-              request.session.edit = edit;
-              response.redirect("/admin/admin_edit");
-            } else {
-              response.status(400).send("Id does not exist.");
-            }
+            mySqlConnection.query(
+              "SELECT * FROM admin WHERE admin_id = ?",
+              [edit.admin_id],
+              (err, rows) => {
+                if (err) response.status(500).send(err);
+                edit = rows[0];
+                if (edit) {
+                  request.session.edit = edit;
+                  response.redirect("/admin/admin_edit");
+                } else {
+                  response.status(400).send("Id does not exist.");
+                }
+              }
+            );
           }
         );
       }
@@ -1079,7 +1070,7 @@ router.get("/research_edit", (request, response) => {
         research_id: edit.research_id,
         research_name: edit.research_name,
         room: edit.room,
-        expected_completion_date: edit.expected_completion_date,
+        expected_completion_date: convertDate(edit.expected_completion_date),
         proposers: proposers,
         students: students,
       });
@@ -1352,12 +1343,11 @@ router.post("/subjects_edit", (request, response) => {
 });
 
 router.get("/logout", (request, response) => {
-  if (request.session.user) {
+  if (request.session.admin) {
     request.session.destroy(() => {
-      response.redirect("/admin/admin_login");
+      response.redirect("/admin/login");
     });
   }
 });
-
 
 module.exports = router;

@@ -116,7 +116,7 @@
             left:350px;
             border-radius: 10px;
             width:150px;"
-            onclick="window.location.href = '/admin/admin_portal';">Go Back</button>
+            onclick="window.location.href = '/admin/portal';">Go Back</button>
         <div id="info"  style="float:none">
         <!-- Club ID & Name -->
         <form action="./research_edit" method="POST">
@@ -205,7 +205,7 @@
                 <td>Expected Completion Date</td>
                 <td>      
                     <label for="expected_completion_date">
-                        <input type="text" value="<%=expected_completion_date%>" name="expected_completion_date" required />
+                        <input type="text" value="<%=expected_completion_date%>" name="expected_completion_date" placeholder="YYYYMMDD" required />
                     </label>
                 </td>
             </tr>
