@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<link rel="stylesheet" href="/css/super_portal.css">
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -7,6 +8,8 @@
   </head>
 
   <body>
+    <h2>&nbsp; &nbsp;The following tables are available for editing, click on one of them to see more options.</h2>
+    <div class="container">
     <!-- Admin -->
     <button onclick="admin()" id="admin">admin</button>
     <form
@@ -33,7 +36,7 @@
         </label>
       </label>
       <label for="id" id="admin_id" style="display: none;">
-        <input type="text" placeholder="Id" name="id" required />
+        <input type="text" placeholder="Enter Admin ID" name="id" required />
       </label>
       <label for="submit" id="admin_submit" style="display: none;">
         <button type="submit" value="add" name="task" id="view">
@@ -77,7 +80,7 @@
         </label>
       </label>
       <label for="id" id="assignment_id" style="display: none;">
-        <input type="text" placeholder="Serial No." name="id" required />
+        <input type="text" placeholder="Enter Assignment Serial Number" name="id" required />
       </label>
       <label for="submit" id="assignment_submit" style="display: none;">
         <button type="submit" value="update" name="task" id="view">
@@ -959,23 +962,25 @@
         </button>
       </label>
     </form>
-    <button
-      style="
-        background-color: #282828;
-        border: 1px solid #fabd2f;
-        color: #ebdbb2;
-        padding: 20px 20px;
-        text-align: center;
-        font-size: 20px;
-        position: absolute;
-        top: 50px;
-        left: 80px;
-        border-radius: 10px;
-      "
-      onclick="window.location.href = '/super/portal';"
-    >
-      Back
+    </div>
+    
+    <button id="back" onclick="window.location.href = '/super/portal';" >
+      Go Back
     </button>
+
+    <button
+    style="
+      position: absolute;
+      top: 140px;
+      left: 80px;
+      border-radius: 10px;
+      width: 120px;
+      height: 60px;
+    "
+    onclick="window.location.href = './logout;"
+  >
+  Logout
+  </button>
     <script src="/js/script.js"></script>
   </body>
 </html>

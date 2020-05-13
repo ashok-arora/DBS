@@ -3354,4 +3354,13 @@ router.post("/t_grades", (request, response) => {
   );
 });
 
+router.get("/logout", (request, response) => {
+  if (request.session.user) {
+    request.session.destroy(() => {
+      response.redirect("/admin/admin_login");
+    });
+  }
+});
+
+
 module.exports = router;
