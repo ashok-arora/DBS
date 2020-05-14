@@ -7,7 +7,6 @@
     flex: 3;
     display: flex;
     flex-direction: column;
-    /* background-color: red; */
   }
 
   .RightContainer {
@@ -20,23 +19,36 @@
     padding: 0px 10px;
     border-radius: 1em;
     justify-content: space-between;
-    background-color: var(--primary);
+    background-color: var(--sfTileBackground);
+    border: 2px solid var(--sfTileBorder);
     margin-bottom: 20px;
   }
 
-  .RightContainer div {
-    margin-left: 20px;
+  .RightContainer {
+    margin-left: 60px;
     border-radius: 1em;
     display: flex;
     width: calc(100% - 40px);
     flex-direction: column;
-    background-color: var(--primary);
+    border: 2px solid var(--sfTileBorder);
+    background-color: var(--sfTileBackground);
+    padding: 10px;
+  }
+
+  .RightContainer div {
+    margin-left: 10px;
+    border-radius: 1em;
+    display: flex;
+    width: calc(100% - 40px);
+    flex-direction: column;
+    background-color: var(--sfTileBackground);
     padding: 10px;
     height: calc(100% - 20px);
   }
 
   .UpcomingEventsDiv {
-    border-bottom: 3px solid var(--secondary);
+    border: 0;
+    border-bottom: 3px solid var(--sfTileBorder);
   }
 
   .LeftContainer div .CollegeNewsDiv {
@@ -45,7 +57,8 @@
     width: calc(100% - 40px);
     border-radius: 0;
     padding-bottom: 5px;
-    border-bottom: 3px solid var(--secondary);
+    border: 0;
+    border-bottom: 3px solid var(--sfTileBorder);
   }
 
   .CollegeNewsDiv p {
@@ -68,80 +81,60 @@
       </h1>
       <img src="/assets/man_with_laptop.png" height="150px" />
     </div>
-    <div style="flex-direction: column; padding: 10px">
+    <div style="flex-direction: column; padding: 10px;">
       <h2 style="align-self: center; color: var(--secondary);">
         Class Schedule
       </h2>
-      <table>
+      <table style="color: var(--sfTileBorder);">
         <tbody>
           <tr>
             <td><strong>Time</strong></td>
             <td><strong>Subject</strong></td>
           </tr>
+          <% for (time in facultySchedule) { %>
           <tr>
-            <td><strong>9-10</strong></td>
-            <td>BCS1101 - Maths</td>
+            <td><strong><%=time%></strong></td>
+            <td><%=facultySchedule[time]%></td>
           </tr>
-          <tr>
-            <td><strong>10-11</strong></td>
-            <td>BCS1201 - DCS</td>
-          </tr>
-          <tr>
-            <td><strong>11-12</strong></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td><strong>12-01</strong></td>
-            <td>IMT1201 - DBS</td>
-          </tr>
-          <tr>
-            <td><strong>02-03</strong></td>
-            <td>IMT1201 - Maths</td>
-          </tr>
-          <tr>
-            <td><strong>03-04</strong></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td><strong>04-05</strong></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td><strong>05-06</strong></td>
-            <td>BCS1201 - DCS</td>
-          </tr>
+          <% } %>
         </tbody>
       </table>
     </div>
-    <div style="
-        flex-direction: column;
-        margin-bottom: 0px;
-      ">
+    <div style="flex-direction: column; margin-bottom: 0px;">
       <h2 style="align-self: center; color: var(--secondary);">
         College News
       </h2>
       <div class="CollegeNewsDiv">
-        <p>02 May 2020</p>
-        <a href="https://www.iiitm.ac.in/index.php/en/component/content/category/79-latest-news?Itemid=437"
-          target="_blank">Essential Items Distribution Camp
-          Organized by ABV-IIITM, Gwalior</a>
+        <p style="color: #ffffff;">02 May 2020</p>
+        <a
+          href="https://www.iiitm.ac.in/index.php/en/component/content/category/79-latest-news?Itemid=437"
+          target="_blank"
+          >Essential Items Distribution Camp Organized by ABV-IIITM, Gwalior</a
+        >
       </div>
       <div class="CollegeNewsDiv">
-        <p>17 April 2020</p>
-        <a href="https://www.iiitm.ac.in/index.php/en/component/content/article/79-latest-news/293-notice-regarding-covid-19-dated-27th-march-2020?Itemid=437"
-          target="_blank">Notice regarding Covid-19 dated
-          17.04.2020</a>
+        <p style="color: #ffffff;">17 April 2020</p>
+        <a
+          href="https://www.iiitm.ac.in/index.php/en/component/content/article/79-latest-news/293-notice-regarding-covid-19-dated-27th-march-2020?Itemid=437"
+          target="_blank"
+          >Notice regarding Covid-19 dated 17.04.2020</a
+        >
       </div>
       <div class="CollegeNewsDiv">
-        <p>27 March 2020</p>
-        <a href="https://www.iiitm.ac.in/index.php/en/component/content/category/79-latest-news?Itemid=437"
-          target="_blank">Notice regarding Covid-19 dated 27th March
-          2020</a>
+        <p style="color: #ffffff;">27 March 2020</p>
+        <a
+          href="https://www.iiitm.ac.in/index.php/en/component/content/category/79-latest-news?Itemid=437"
+          target="_blank"
+          >Notice regarding Covid-19 dated 27th March 2020</a
+        >
       </div>
       <div class="CollegeNewsDiv">
-        <p>19 March 2020</p>
-        <a href="https://www.iiitm.ac.in/index.php/en/component/content/article/79-latest-news/290-notice-regarding-covid-19?Itemid=437"
-          target="_blank">Notice Regarding COVID-19</a>
+        <p style="color: #ffffff;">19 March 2020</p>
+        <a
+          href="https://www.iiitm.ac.in/index.php/en/component/content/article/79-latest-news/290-notice-regarding-covid-19?Itemid=437"
+          target="_blank"
+          >Notice Regarding COVID-19</a
+        >
       </div>
     </div>
   </div>
@@ -150,17 +143,26 @@
       <h2 style="align-self: center; color: var(--secondary);">
         Upcoming Events!
       </h2>
-      <div class="UpcomingEventsDiv" style="height: fit-content; border-radius: 0px; padding-bottom: 0px;">
+      <div
+        class="UpcomingEventsDiv"
+        style="height: fit-content; border-radius: 0px; padding-bottom: 0px;"
+      >
         <h2>
           Webinar on Advanced Front End Web Development With React
         </h2>
       </div>
-      <div class="UpcomingEventsDiv" style="height: fit-content; border-radius: 0px; padding-bottom: 0px;">
+      <div
+        class="UpcomingEventsDiv"
+        style="height: fit-content; border-radius: 0px; padding-bottom: 0px;"
+      >
         <h2>
           GDG Gwalior, Blockchain 101 on Tezos
         </h2>
       </div>
-      <div class="UpcomingEventsDiv" style="height: fit-content; border-radius: 0px; padding-bottom: 0px;">
+      <div
+        class="UpcomingEventsDiv"
+        style="height: fit-content; border-radius: 0px; padding-bottom: 0px;"
+      >
         <h2>
           Opening Lockdown,
         </h2>

@@ -1,124 +1,123 @@
-<% var gradesAssignment = 30; var gradesExam = 90;%>
 <style>
-    .ContainerWrapper2 {
-        display: flex;
-        flex: 1;
-        flex-direction: column;
-    }
+  .ContainerWrapper2 {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+  }
 
-    .GridHeading {
-        width: calc(100% - 60px);
-        margin: 10px;
-        padding: 20px 20px;
-        border-radius: 1.5em;
-        background-color: var(--primary2);
-        text-align: center;
-    }
+  .GridHeading {
+    width: calc(100% - 60px);
+    margin: 10px;
+    padding: 20px 20px;
+    border-radius: 1.5em;
+    background-color: var(--sfTileBackground);
+    text-align: center;
+  }
 
-    .GridContainer {
-        display: grid;
-        grid-template-columns: auto auto auto auto;
-        gap: 10px;
-    }
+  .GridContainer {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 10px;
+  }
 
-    .GridContainer div {
-        height: 100px;
-        width: 100px;
-        border-radius: 1em;
-        background-color: var(--primary);
-        margin: 10px;
-    }
+  .GridContainer div {
+    height: 100px;
+    width: 100px;
+    border-radius: 1em;
+    background-color: var(--sfTileBackground);
+    margin: 10px;
+  }
 
-    .Page2Form input[type=text] {
-        width: 250px;
-    }
+  .Page2Form input[type="text"] {
+    width: 250px;
+  }
 
-    .Page2Form .ResultTd{
-        display: flex;
-        justify-content: center;
-    }
+  .Page2Form .ResultTd {
+    display: flex;
+    justify-content: center;
+  }
 
-    .Page2Form .ResultPage2 {
-        display: flex;
-        background-color: var(--inactive);
-        border: 2px solid var(--secondary);
-        width: 245px;
-        padding: 10px 0px;
-        justify-content: center;
-        border-radius: 1em;
-    }
+  .Page2Form .ResultPage2 {
+    display: flex;
+    background-color: var(--inactive);
+    border: 2px solid var(--secondary);
+    width: 245px;
+    padding: 10px 0px;
+    justify-content: center;
+    border-radius: 1em;
+  }
 </style>
 <div style="display: flex; justify-content: space-between; width: 100%;">
+  <div class="ContainerWrapper2">
     <div class="ContainerWrapper2">
-        <div class="GridHeading">
-            <h3>Assignments</h3>
-        </div>
-        <div class="Element" style="padding: 5px; width: calc(100% - 30px);align-self: center;">
-            <form>
-                <table>
-                    <tbody class="FormTbody Page2Form">
-                        <tr>
-                            <td><label>Assignment</label></td>
-                            <td><input type="text" placeholder="Assignemnt name"></td>
-                        </tr>
-                        <tr>
-                            <td><label>Roll no</label></td>
-                            <td><input type="text" placeholder="Roll no"></td>
-                        </tr>
-                        <tr>
-                            <td><label>Grades</label></td>
-                            <td class="ResultTd">
-                                <div class="ResultPage2">
-                                    <label style="color: white; font-weight: bold;">
-                                        <%= gradesAssignment %>
-                                    </label>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td style="display: flex; justify-content: center;"><input type="submit" value="Submit" name="examSubmit"></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </form>
-        </div>
+      <div
+        class="GridHeading"
+        style="
+          background-color: var(--sfTileBackground);
+          border: 2px solid var(--sfTileBorder);
+        "
+      >
+        <h3>Grades</h3>
+      </div>
+      <div
+        class="Element"
+        style="padding: 5px; width: calc(100% - 30px); align-self: center;"
+      >
+        <form action="faculty_portal" method="POST">
+          <label for="category">
+            <input
+              type="text"
+              value="grades"
+              name="category"
+              style="display: none;"
+            />
+          </label>
+          <input type="checkbox" name="term" value="assignment" />
+          <label for="assignment"> Assignment</label>
+          <input type="checkbox" name="term" value="attendance" />
+          <label for="attendance"> Attendance</label>
+          <input type="checkbox" name="term" value="minor1" />
+          <label for="minor1"> Minor 1</label>
+          <input type="checkbox" name="term" value="minor2" />
+          <label for="minor2"> Minor 2</label>
+          <input type="checkbox" name="term" value="mid_sem" />
+          <label for="midsem"> Mid-Sem</label>
+          <input type="checkbox" name="term" value="major" />
+          <label for="hajor"> Major</label>
+          <table>
+            <tbody class="FormTbody Page2Form">
+              <tr>
+                <td><label>Subject Code:</label></td>
+                <td>
+                  <input
+                    type="text"
+                    placeholder="Subject Code"
+                    name="subject_code"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td><label>Roll No.:</label></td>
+                <td>
+                  <input type="text" placeholder="Roll No." name="roll_no" />
+                </td>
+              </tr>
+              <tr>
+                <td><label>Grades</label></td>
+                <td>
+                  <input type="text" placeholder="Grades" name="grades" />
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td style="display: flex; justify-content: center;">
+                  <input type="submit" value="submit" />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </form>
+      </div>
     </div>
-    <div class="ContainerWrapper2">
-        <div class="ContainerWrapper2">
-            <div class="GridHeading">
-                <h3>Exams</h3>
-            </div>
-            <div class="Element" style="padding: 5px; width: calc(100% - 30px);align-self: center;">
-                <form>
-                    <table>
-                        <tbody class="FormTbody Page2Form">
-                            <tr>
-                                <td><label>Exam</label></td>
-                                <td><input type="text" placeholder="Exam"></td>
-                            </tr>
-                            <tr>
-                                <td><label>Roll no</label></td>
-                                <td><input type="text" placeholder="Roll no"></td>
-                            </tr>
-                            <tr>
-                                <td><label>Grades</label></td>
-                                <td class="ResultTd">
-                                    <div class="ResultPage2">
-                                        <label style="color: white; font-weight: bold;">
-                                            <%= gradesExam %>
-                                        </label>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td style="display: flex; justify-content: center;"><input type="submit" value="submit" name="examSubmit"></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </form>
-            </div>
-        </div>
-    </div>
+  </div>
 </div>

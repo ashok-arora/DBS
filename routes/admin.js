@@ -7,6 +7,7 @@ let admin, edit;
 let path = require("path");
 
 app.use(express.static(path.join(__dirname + "../public/css")));
+app.use(express.static(path.join(__dirname + "../public/js")));
 
 function convertDate(str) {
   var date = new Date(str),

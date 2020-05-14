@@ -1,3 +1,139 @@
+// Student Portal
+
+var sActive = 0;
+var lastS = sActive;
+pages = ["home"];
+function changeSSelection(nextIndex) {
+  document.getElementById("sideBarIcon[" + sActive + "]").style.display =
+    "none";
+  var elem = document.getElementById("sideBarIcon[" + nextIndex + "]");
+  elem.style.display = "initial";
+  if (nextIndex != 3) {
+    document.getElementById("belowHeaderBody[" + sActive + "]").style.display =
+      "none";
+    var page = document.getElementById("belowHeaderBody[" + nextIndex + "]");
+    page.style.display = "initial";
+    page.style.flex = "1";
+  } else {
+    var page = document.getElementById("belowHeaderBody[" + nextIndex + "]");
+    page.style.display = "initial";
+  }
+  lastS = sActive;
+  sActive = nextIndex;
+}
+
+function changeToLastSSelection() {
+  changeSSelection(lastS);
+}
+changeSSelection(0);
+
+// Student Portal ends
+
+// Faculty Portal
+
+var fActive = 0;
+var lastF = fActive;
+pages = ["home"];
+function changeFSelection(nextIndex) {
+  document.getElementById("sideBarIcon[" + fActive + "]").style.display =
+    "none";
+  var elem = document.getElementById("sideBarIcon[" + nextIndex + "]");
+  elem.style.display = "initial";
+  if (nextIndex != 5) {
+    document.getElementById("belowHeaderBody[" + fActive + "]").style.display =
+      "none";
+    var page = document.getElementById("belowHeaderBody[" + nextIndex + "]");
+    page.style.display = "initial";
+    page.style.flex = "1";
+  } else {
+    var page = document.getElementById("belowHeaderBody[" + nextIndex + "]");
+    page.style.display = "initial";
+  }
+  lastF = fActive;
+  fActive = nextIndex;
+}
+
+function changeToLastFSelection() {
+  changeFSelection(lastF);
+}
+changeFSelection(0);
+
+// Faculty Portal ends
+
+// Admin Portal
+
+function dashboard() {
+  document.getElementById("dashboard").style.display = "block";
+  document.getElementById("student_form").style.display = "none";
+  document.getElementById("faculty_form").style.display = "none";
+  document.getElementById("admin_form").style.display = "none";
+  document.getElementById("club_form").style.display = "none";
+  document.getElementById("research_form").style.display = "none";
+  document.getElementById("subjects_form").style.display = "none";
+}
+
+function student_edit() {
+  document.getElementById("dashboard").style.display = "none";
+  document.getElementById("student_form").style.display = "block";
+  document.getElementById("faculty_form").style.display = "none";
+  document.getElementById("admin_form").style.display = "none";
+  document.getElementById("club_form").style.display = "none";
+  document.getElementById("research_form").style.display = "none";
+  document.getElementById("subjects_form").style.display = "none";
+}
+
+function faculty_edit() {
+  document.getElementById("dashboard").style.display = "none";
+  document.getElementById("faculty_form").style.display = "block";
+  document.getElementById("student_form").style.display = "none";
+  document.getElementById("admin_form").style.display = "none";
+  document.getElementById("club_form").style.display = "none";
+  document.getElementById("research_form").style.display = "none";
+  document.getElementById("subjects_form").style.display = "none";
+}
+
+function admin_edit() {
+  document.getElementById("dashboard").style.display = "none";
+  document.getElementById("admin_form").style.display = "block";
+  document.getElementById("faculty_form").style.display = "none";
+  document.getElementById("student_form").style.display = "none";
+  document.getElementById("club_form").style.display = "none";
+  document.getElementById("research_form").style.display = "none";
+  document.getElementById("subjects_form").style.display = "none";
+}
+
+function club_edit() {
+  document.getElementById("dashboard").style.display = "none";
+  document.getElementById("club_form").style.display = "block";
+  document.getElementById("student_form").style.display = "none";
+  document.getElementById("faculty_form").style.display = "none";
+  document.getElementById("admin_form").style.display = "none";
+  document.getElementById("research_form").style.display = "none";
+  document.getElementById("subjects_form").style.display = "none";
+}
+
+function research_edit() {
+  document.getElementById("dashboard").style.display = "none";
+  document.getElementById("research_form").style.display = "block";
+  document.getElementById("student_form").style.display = "none";
+  document.getElementById("faculty_form").style.display = "none";
+  document.getElementById("admin_form").style.display = "none";
+  document.getElementById("club_form").style.display = "none";
+  document.getElementById("subjects_form").style.display = "none";
+}
+
+function subjects_edit() {
+  document.getElementById("dashboard").style.display = "none";
+  document.getElementById("subjects_form").style.display = "block";
+  document.getElementById("student_form").style.display = "none";
+  document.getElementById("faculty_form").style.display = "none";
+  document.getElementById("admin_form").style.display = "none";
+  document.getElementById("club_form").style.display = "none";
+  document.getElementById("research_form").style.display = "none";
+}
+
+// Admin Portal ends
+
 // Super Portal
 
 function admin() {

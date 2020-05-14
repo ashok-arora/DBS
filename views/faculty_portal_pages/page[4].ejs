@@ -1,47 +1,385 @@
 <style>
-    .MyModal {
-        position: fixed;
-        display: flex;
-        width: 100vw;
-        height: 100vh;
-        top: 0%;
-        left: 0%;
-        z-index: 10;
-        align-items: center;
-        justify-content: center;
-        background-color: black;
-        background-color: rgba(0, 0, 0, 0.8);
-    }
-
-    .ModalContent {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 400px;
-        z-index: 11;
-        border-radius: 1em;
-        padding: 10px;
-        background-color: var(--primary);
-    }
-
-    .Button {
-        border-radius: 1em;
-        padding: 10px 20px;
-        background-color: var(--primary2);
-        text-align: center;
-    }
-
-    .Button:hover {
-        cursor: pointer;
-    }
+  .Page3Heading {
+    align-self: center;
+    margin-bottom: 10px;
+  }
 </style>
-<div class="MyModal">
-    <div class="ModalContent">
-        <h2>Are you sure you want to logout?</h2>
-        <div style="display: flex;">
-            <a href="./logout"><div class="Button" style="margin-right: 20px;"><h3>Yes</h2></div></a>
-            <div class="Button" onclick="changeToLastSelection()"><h3>No</h3></div>
-            
-        </div>
-    </div>
+<div
+  style="display: flex; flex-direction: column; width: 100%; padding: 10px 0px;"
+></div>
+  <div class="Element" style="margin-bottom: 0px;">
+    <h3 class="Page3Heading">Academic Calendar</h3>
+    <table width="100%" style="color: var(--sfTileBorder);">
+      <tbody>
+        <tr>
+          <td><strong>S.No.</strong></td>
+          <td><strong>Event</strong></td>
+          <td><strong>From Date</strong></td>
+          <td><strong>Day</strong></td>
+          <td><strong>To Date</strong></td>
+          <td><strong>Day</strong></td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>
+            Registration for 2<sup>nd</sup> semester B. Tech (CSE), IPG , MBA,
+            M. Tech &amp; PhD
+          </td>
+          <td>02/01/2020</td>
+          <td>Thursday</td>
+          <td>02/01/2020</td>
+          <td>Thursday</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><strong>Classes Begin</strong></td>
+          <td>03/01/2020</td>
+          <td>Friday</td>
+          <td>03/01/2020</td>
+          <td>Friday</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>
+            Last date for late Registration for all students B. Tech (CSE), IPG,
+            MBA,&nbsp;M. Tech &amp; PhD ( With late fine of Rs. 2000) "No
+            Registration will be&nbsp;entertained after January 07- 2020”
+          </td>
+          <td>03/01/2020</td>
+          <td>Friday</td>
+          <td>07/01/2020</td>
+          <td>Tuesday</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Last date of course registration</td>
+          <td>09/01/2020</td>
+          <td>Thursday</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Foundation day of ABV - IIITM Gwalior</td>
+          <td>17/01/2020</td>
+          <td>Friday</td>
+          <td>17/01/2020</td>
+          <td>Friday</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td><strong>Minor Test-I</strong></td>
+          <td>28/01/2020</td>
+          <td>Tuesday</td>
+          <td>31/01/2020</td>
+          <td>Friday</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>GATE Examination</td>
+          <td>01/02/2020</td>
+          <td>Saturday</td>
+          <td>09/02/2020</td>
+          <td>Sunday</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>
+            Last date for return of corrected answer sheets of Minor Test-I
+          </td>
+          <td>12/02/2020</td>
+          <td>Wednesday</td>
+          <td>12/02/2020</td>
+          <td>Wednesday</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>Aurora Fest</td>
+          <td>14/02/2020</td>
+          <td>Friday</td>
+          <td>16/02/2020</td>
+          <td>Sunday</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>
+            Last date for submission of Minor Test -I Marks to Academic Section
+          </td>
+          <td>17/02/2020</td>
+          <td>Monday</td>
+          <td>17/02/2020</td>
+          <td>Monday</td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td>Class committee meeting and Mid Term feedback</td>
+          <td>19/02/2020</td>
+          <td>Wednesday</td>
+          <td>19/02/2020</td>
+          <td>Wednesday</td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td><strong>Ph.D. progress reports</strong></td>
+          <td>20/02/2020</td>
+          <td>Thursday</td>
+          <td>21/02/2020</td>
+          <td>Friday</td>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td>Mid Term laboratory practical examinations</td>
+          <td>24/02/2020</td>
+          <td>Monday</td>
+          <td>28/02/2020</td>
+          <td>Friday</td>
+        </tr>
+        <tr>
+          <td>14</td>
+          <td>
+            Mid-Term Evaluation of IPG/PG (M. Tech/MBA) Projects (No classes)
+          </td>
+          <td>04/03/2020</td>
+          <td>Tuesday</td>
+          <td>06/03/2020</td>
+          <td>Friday</td>
+        </tr>
+        <tr>
+          <td>15</td>
+          <td><strong>Mid-Term Break</strong></td>
+          <td>07/03/2020</td>
+          <td>Saturday</td>
+          <td>11/03/2020</td>
+          <td>Wednesday</td>
+        </tr>
+        <tr>
+          <td>16</td>
+          <td>
+            Submission of Mid -Term IPG/PG(M. Tech/MBA) Project Evaluation marks
+            of major Projects to Academic Section
+          </td>
+          <td>11/03/2020</td>
+          <td>Wednesday</td>
+          <td>11/03/2020</td>
+          <td>Wednesday</td>
+        </tr>
+        <tr>
+          <td>17</td>
+          <td><strong>Minor Test-II</strong></td>
+          <td>16/03/2020</td>
+          <td>Monday</td>
+          <td>19/03/2020</td>
+          <td>Thursday</td>
+        </tr>
+        <tr>
+          <td>18</td>
+          <td>
+            Last date for return of corrected answer sheets of Minor Test-II
+          </td>
+          <td>07/04/2020</td>
+          <td>Tuesday</td>
+          <td>07/04/2020</td>
+          <td>Tuesday</td>
+        </tr>
+        <tr>
+          <td>19</td>
+          <td>
+            Re-Minor Test -I &amp; II (for the students of genuine/medical
+            ground(s) / approved by the competent authority)
+          </td>
+          <td>07/04/2020</td>
+          <td>Tuesday</td>
+          <td>09/04/2020</td>
+          <td>Thursday</td>
+        </tr>
+        <tr>
+          <td>20</td>
+          <td>Final laboratory practical examinations</td>
+          <td>13/04/2020</td>
+          <td>Monday</td>
+          <td>17/04/2020</td>
+          <td>Friday</td>
+        </tr>
+        <tr>
+          <td>21</td>
+          <td>
+            Submission of Re-Minor Test- I &amp; II Marks to Academic Section
+          </td>
+          <td>17/04/2020</td>
+          <td>Friday</td>
+          <td>17/04/2020</td>
+          <td>Friday</td>
+        </tr>
+        <tr>
+          <td>22</td>
+          <td>Display of Pre-Major Marks</td>
+          <td>27/04/2020</td>
+          <td>Monday</td>
+          <td>27/04/2020</td>
+          <td>Monday</td>
+        </tr>
+        <tr>
+          <td>23</td>
+          <td><strong>End of Classes</strong></td>
+          <td>30/04/2020</td>
+          <td>Thursday</td>
+          <td>30/04/2020</td>
+          <td>Thursday</td>
+        </tr>
+        <tr>
+          <td>24</td>
+          <td><strong>Major Examination</strong></td>
+          <td>01/05/2020</td>
+          <td>Friday</td>
+          <td>08/05/2020</td>
+          <td>Friday</td>
+        </tr>
+        <tr>
+          <td>25</td>
+          <td>
+            Re-Major Examination(for the student of genuine/medical ground(s) /
+            approved by the competent authority, as per institute norms)
+          </td>
+          <td>14/05/2020</td>
+          <td>Thursday</td>
+          <td>15/05/2020</td>
+          <td>Friday</td>
+        </tr>
+        <tr>
+          <td>26</td>
+          <td>
+            Summer training begins / Registration of B. Tech Project semester
+          </td>
+          <td>15/05/2020</td>
+          <td>Friday</td>
+          <td>15/05/2020</td>
+          <td>Friday</td>
+        </tr>
+        <tr>
+          <td>27</td>
+          <td>Last date for showing evaluated answer scripts</td>
+          <td>15/05/2020</td>
+          <td>Friday</td>
+          <td>15/05/2020</td>
+          <td>Friday</td>
+        </tr>
+        <tr>
+          <td>28</td>
+          <td>Submission of grades of all subjects to Academic Section</td>
+          <td>18/05/2020</td>
+          <td>Monday</td>
+          <td>18/05/2020</td>
+          <td>Monday</td>
+        </tr>
+        <tr>
+          <td>29</td>
+          <td>Registration for Summer Semester 2020</td>
+          <td>18/05/2020</td>
+          <td>Monday</td>
+          <td>18/05/2020</td>
+          <td>Monday</td>
+        </tr>
+        <tr>
+          <td>30</td>
+          <td><strong>Moderation of Grades</strong></td>
+          <td>19/05/2020</td>
+          <td>Tuesday</td>
+          <td>19/05/2020</td>
+          <td>Tuesday</td>
+        </tr>
+        <tr>
+          <td>31</td>
+          <td>Submission of final grades to Academic Section</td>
+          <td>20/05/2020</td>
+          <td>Wednesday</td>
+          <td>20/05/2020</td>
+          <td>Wednesday</td>
+        </tr>
+        <tr>
+          <td>32</td>
+          <td>End-semester evaluation of IPG/PG (M Tech/MBA) Projects</td>
+          <td>21/05/2020</td>
+          <td>Thursday</td>
+          <td>23/05/2020</td>
+          <td>Saturday</td>
+        </tr>
+        <tr>
+          <td>33</td>
+          <td>Vacation</td>
+          <td>24/05/2020</td>
+          <td>Sunday</td>
+          <td>20/07/2020</td>
+          <td>Monday</td>
+        </tr>
+        <tr>
+          <td>34</td>
+          <td>Submission of final project grades to Academic Section</td>
+          <td>26/5/2020</td>
+          <td>Tuesday</td>
+          <td>26/05/2020</td>
+          <td>Tuesday</td>
+        </tr>
+        <tr>
+          <td>35</td>
+          <td>End of summer training</td>
+          <td>19/07/2020</td>
+          <td>Sunday</td>
+          <td>19/07/2020</td>
+          <td>Sunday</td>
+        </tr>
+        <tr>
+          <td>36</td>
+          <td>
+            Registration of new student B. Tech (CSE), IPG, MBA, M. Tech &amp;
+            PhD Tentative
+          </td>
+          <td>21/07/2020</td>
+          <td>Tuesday</td>
+          <td>21/07/2020</td>
+          <td>Tuesday</td>
+        </tr>
+        <tr>
+          <td>37</td>
+          <td>
+            Orientation programme for new student B. Tech (CSE), IPG, MBA,
+            M.Tech &amp; PhD 2020 Entry Tentative
+          </td>
+          <td>23/07/2020</td>
+          <td>Thursday</td>
+          <td>23/07/2020</td>
+          <td>Thursday</td>
+        </tr>
+        <tr>
+          <td>38</td>
+          <td>
+            Registration for old students B. Tech (CSE), IPG, MBA, M Tech &amp;
+            PhD
+          </td>
+          <td>24/07/2020</td>
+          <td>Friday</td>
+          <td>24/07/2020</td>
+          <td>Friday</td>
+        </tr>
+        <tr>
+          <td>39</td>
+          <td>
+            Late registration for all students B. Tech (CSE), IPG, MBA, M. Tech
+            &amp; PhD (With late fine of Rs. 2000)
+          </td>
+          <td>25/07/2020</td>
+          <td>Monday</td>
+          <td>29/07/2020</td>
+          <td>Friday</td>
+        </tr>
+        <tr>
+          <td>40</td>
+          <td>Class Begin</td>
+          <td>27/07/2020</td>
+          <td>Monday</td>
+          <td>27/07/2020</td>
+          <td>Monday</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
