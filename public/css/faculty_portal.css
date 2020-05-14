@@ -43,8 +43,8 @@ h3 {
   border-radius: 1em;
   margin-top: auto;
   margin-bottom: auto;
-  min-height: calc(50% - 4em);
-  max-height: 300px;
+  min-height: calc(50% - 3em);
+  max-height: 460px;
   width: 60px;
   padding: 1.5em 0px;
   flex-direction: column;
@@ -91,7 +91,6 @@ h3 {
   background-color: var(--sfBackground);
   border-top-left-radius: 1em;
   border-bottom-left-radius: 1em;
-  /* z-index: calc(inherit + 2); */
 }
 
 .SelectedPortion::after {
@@ -149,7 +148,7 @@ h3 {
   margin-left: 80px;
   height: 100%;
   width: 100%;
-  /* background-color: var(--background); */
+  /* background-color: var(--sfBackground); */
 }
 
 .HeaderWrap {
@@ -202,14 +201,16 @@ i:hover {
   background-color: var(--sfBackground);
 }
 
-.ElementsContainer {
+.Element {
   display: flex;
   flex-direction: column;
+  width: calc(100% - 20px);
   border-radius: 1em;
-  padding: 10px 0px;
-  background-color: var(--sfTileBackground);
+  padding: 10px;
   margin-bottom: 20px;
-  width: 100%;
+  align-items: center;
+  background-color: var(--sfTileBackground);
+  border: 2px solid var(--sfTileBorder);
 }
 
 table {
@@ -234,4 +235,26 @@ td,
 th {
   padding: 5px;
   border: 1px solid;
+}
+
+label {
+  color: var(--sfTileBorder);
+  font-size: 20px;
+}
+
+input[type="text"] {
+  padding: 12px 16px;
+  margin: 8px 0px;
+  box-sizing: border-box;
+  background-color: var(--inactive);
+  border: 2px solid var(--sfTileBorder);
+  border-radius: 1em;
+  width: 400px;
+}
+
+input[type="submit"] {
+  padding: 10px 20px;
+  border-radius: 2em;
+  border: none;
+  background-color: var(--sfTileBorder);
 }

@@ -1,35 +1,70 @@
 <link rel="stylesheet" href="../../public/css/student_portal.css" />
+<style>
+  .ElementS {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 20px);
+    border-radius: 1em;
+    height: 500px;
+    padding-top: 10px;
+    margin-bottom: 20px;
+    align-items: center;
+    background-color: var(--sfTileBackground);
+    border: 2px solid var(--sfTileBorder);
+  }
+</style>
 <div style="display: flex; flex-direction: column; width: 100%; height: 100%;">
-  <div class="ElementsContainer" style="height: 150px;">
+  <div
+    class="ElementS"
+    style="height: 150px; background-color: var(--sfTileBackground);"
+  >
     <h3 style="align-self: center;">ATTENDANCE</h3>
-    <% for (let i = 0; i < studentAttendance.length; i++) { %>
-    <p>
-      <%=attendanceSubjects%>: <%=studentAttendance[i]%> /
-      <%=facultyAttendance[i]%>
-      (<%=studentAttendance[i]/facultyAttendance[i]*100%>%)
-    </p>
-    <% } %>
+    <table style="width: 70%; color: var(--sfTileBorder);">
+      <tbody>
+        <% for (let i = 0; i < studentAttendance.length; i++) { %>
+        <tr>
+          <td><%=attendanceSubjects%></td>
+          <td>
+            <%=studentAttendance[i]%> / <%=facultyAttendance[i]%>
+            (<%=studentAttendance[i]/facultyAttendance[i]*100%>%)
+          </td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
   </div>
   <div
-    class="ElementsContainer"
-    style="height: 100px; background-color: var(--primary);"
+    class="ElementS"
+    style="height: 100px; background-color: var(--sfTileBackground);"
   >
     <h3 style="align-self: center;">GRADES</h3>
-    <% for (let i = 0; i < studentTGrades.length; i++) { %>
-    <p>
-      <%=gradesSubjects[i]%>: <% for (term in studentTGrades) { %> <%=term%> -
-      <%=studentTGrades[i][term]%> / <%=maxTGrades[i][term]%>
-      (<%=studentTGrades[i][term]/maxTGrades[i][term]*100%>%) <%}%>
-    </p>
-    <% } %> <% for (let i = 0; i < studentLGrades.length; i++) { %>
-    <p>
-      <%=gradesSubjects[i]%>: <% for (term in studentLGrades) { %> <%=term%> -
-      <%=studentLGrades[i][term]%> / <%=maxLGrades[i][term]%>
-      (<%=studentLGrades[i][term]/maxLGrades[i][term]*100%>%) <%}%>
-    </p>
-    <% } %>
+    <table style="width: 70%; color: var(--sfTileBorder);">
+      <tbody>
+        <% for (var i = 0; i < studentTGrades.length; i++) { %> <% for (term in
+        studentTGrades) { %>
+        <tr>
+          <td><%=gradesSubjects[i]%></td>
+          <td><%=term%></td>
+          <td>
+            <%=studentTGrades[i][term]%> / <%=maxTGrades[i][term]%>
+            (<%=studentTGrades[i][term]/maxTGrades[i][term]*100%>%)
+          </td>
+        </tr>
+        <% } %> <% } %> <% for (let j = i; j < studentLGrades.length; j++) { %>
+        <% for (term in studentLGrades) { %>
+        <tr>
+          <td><%=gradesSubjects[j]%></td>
+          <td><%=term%></td>
+          <td>
+            <%=studentLGrades[j][term]%> / <%=maxLGrades[j][term]%>
+            (<%=studentLGrades[j][term]/maxLGrades[j][term]*100%>%)
+          </td>
+        </tr>
+        <% } %> <% } %>
+      </tbody>
+    </table>
   </div>
-  <div class="ElementsContainer" style="background-color: var(--primary);">
+  <!-- <div class="ElementsContainer" style="background-color: var(--sfTileBackground);">
     <h3 style="align-self: center;">DATASHEET</h3>
-  </div>
+  </div> -->
 </div>

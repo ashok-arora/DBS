@@ -71,33 +71,34 @@
     font-weight: bold;
   }
 </style>
+<% var f_name = "Vishnu";%>
 <div style="display: flex; width: 100%; justify-content: space-between;">
   <div class="LeftContainer">
     <div>
       <h1 style="color: var(--secondary);">
-        Hello, <%=f_name%>!<br />
+        Hello, Dr. <%=f_name%>!<br />
         Welcome Back!
       </h1>
       <img src="/assets/man_with_laptop.png" height="150px" />
     </div>
-    <div
-      style="
-        background-color: var(--sfTileBackground);
-        border: 2px solid var(--sfTileBorder);
-        padding: 0px 30px;
-        height: 100px;
-        width: calc(100% - 60px);
-        justify-content: flex-start;
-      "
-    >
-      <i
-        class="material-icons"
-        style="color: white; align-self: center; font-size: 60px;"
-        >done_all</i
-      >
-      <h2 style="margin-left: 50px; margin-top: 34px; color: var(--secondary);">
-        <%=assignment_number%> are due!
+    <div style="flex-direction: column; padding: 10px;">
+      <h2 style="align-self: center; color: var(--secondary);">
+        Class Schedule
       </h2>
+      <table style="color: var(--sfTileBorder);">
+        <tbody>
+          <tr>
+            <td><strong>Time</strong></td>
+            <td><strong>Subject</strong></td>
+          </tr>
+          <% for (time in facultySchedule) { %>
+          <tr>
+            <td><strong><%=time%></strong></td>
+            <td><%=facultySchedule[time]%></td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
     </div>
     <div style="flex-direction: column; margin-bottom: 0px;">
       <h2 style="align-self: center; color: var(--secondary);">

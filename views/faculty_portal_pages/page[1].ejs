@@ -1,0 +1,107 @@
+<link rel="stylesheet" href="../../public/css/student_portal.css" />
+<style>
+  .AttendanceButton {
+    display: flex;
+    justify-content: flex-end;
+  }
+</style>
+<div style="display: flex; flex-direction: column; width: 100%; height: 100%;">
+  <div class="Element">
+    <h3
+      style="color: var(--secondary); margin-bottom: 10px; margin-left: 150px;"
+    >
+      ADD ASSIGNMENT <br />
+    </h3>
+    <!-- TODO add link in action method -->
+    <div style="height: 100%; flex: 2; margin: 0; align-self: center;">
+      <form action="faculty_portal" method="POST">
+        <label for="category">
+          <input
+            type="text"
+            value="assignment"
+            name="category"
+            style="display: none;"
+          />
+        </label>
+        <table style="border-width: 0px;">
+          <tbody class="FormTbody">
+            <tr>
+              <td><label>Subject Code:</label></td>
+              <td>
+                <input
+                  type="text"
+                  placeholder="Subject Code"
+                  name="subject_code"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td><label>Assignment Name:</label></td>
+              <td>
+                <input
+                  type="text"
+                  placeholder="Assignment Name"
+                  name="assignment_name"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td><label>Due Date:</label></td>
+              <td>
+                <input type="text" placeholder="YYYYMMMDD" name="due_date" />
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td style="display: flex; justify-content: center;">
+                <input class="AssignmentButtons" type="submit" value="Add" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+  </div>
+  <div class="Element">
+    <h3
+      style="color: var(--secondary); margin-bottom: 10px; margin-left: 150px;"
+    >
+      FACULTY ATTENDANCE
+    </h3>
+    <!-- TODO set studentCode on submission and change defaultPage to this page -->
+    <form action="faculty_portal" method="POST">
+      <label for="category">
+        <input
+          type="text"
+          value="fAttendance"
+          name="category"
+          style="display: none;"
+        />
+      </label>
+      <table style="border-width: 0px;">
+        <tbody class="FormTbody">
+          <tr>
+            <td><label>Subject Code: </label></td>
+            <td>
+              <input
+                type="text"
+                ;
+                placeholder="Subject Code"
+                name="subject_code"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td
+              class="AttendanceButton"
+              style="display: flex; justify-content: center;"
+            >
+              <input type="submit" value="Submit" />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+</div>

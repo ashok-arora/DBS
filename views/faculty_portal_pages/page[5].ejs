@@ -1,0 +1,47 @@
+<style>
+    .MyModal {
+        position: fixed;
+        display: flex;
+        width: 100vw;
+        height: 100vh;
+        top: 0%;
+        left: 0%;
+        z-index: 10;
+        align-items: center;
+        justify-content: center;
+        background-color: black;
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .ModalContent {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 400px;
+        z-index: 11;
+        border-radius: 1em;
+        padding: 10px;
+        background-color: var(--primary);
+    }
+
+    .Button {
+        border-radius: 1em;
+        padding: 10px 20px;
+        background-color: var(--primary2);
+        text-align: center;
+    }
+
+    .Button:hover {
+        cursor: pointer;
+    }
+</style>
+<div class="MyModal">
+    <div class="ModalContent">
+        <h2>Are you sure you want to logout?</h2>
+        <div style="display: flex;">
+            <a href="./logout"><div class="Button" style="margin-right: 20px;"><h3>Yes</h2></div></a>
+            <div class="Button" onclick="changeToLastFSelection()"><h3>No</h3></div>
+            
+        </div>
+    </div>
+</div>

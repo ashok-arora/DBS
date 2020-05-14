@@ -1,28 +1,4 @@
 <style>
-  .ElementS {
-    display: flex;
-    flex-direction: column;
-    width: calc(100% - 20px);
-    border-radius: 1em;
-    height: 300px;
-    padding-top: 10px;
-    margin-bottom: 20px;
-    align-items: center;
-    background-color: var(--sfTileBackground);
-    border: 2px solid var(--sfTileBorder);
-  }
-  .Element {
-    display: flex;
-    flex-direction: column;
-    width: calc(100% - 20px);
-    border-radius: 1em;
-    padding: 10px;
-    margin-bottom: 20px;
-    align-items: center;
-    background-color: var(--sfTileBackground);
-    border: 2px solid var(--sfTileBorder);
-  }
-
   .Page3Heading {
     align-self: center;
     margin-bottom: 10px;
@@ -30,22 +6,7 @@
 </style>
 <div
   style="display: flex; flex-direction: column; width: 100%; padding: 10px 0px;"
->
-  <div class="ElementS" style="flex-direction: column; padding: 10px;">
-    <h2 style="align-self: center; color: var(--secondary);">
-      Class Schedule
-    </h2>
-    <table style="width: 70%; color: var(--sfTileBorder);">
-      <tbody>
-        <% for (time in studentSchedule) { %>
-        <tr>
-          <td><%=time%></td>
-          <td><%=studentSchedule[time]%></td>
-          <% } %>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+></div>
   <div class="Element" style="margin-bottom: 0px;">
     <h3 class="Page3Heading">Academic Calendar</h3>
     <table width="100%" style="color: var(--sfTileBorder);">
