@@ -1,84 +1,252 @@
 <!DOCTYPE html>
+
+<style>
+
+  button, .bt {
+    box-shadow: 0px 5px 0px 0px #282828;
+    background:linear-gradient(to bottom, #eae0c2 5%, #ccc2a6 100%);
+    background-color:#ebdbb2;
+    border-radius:15px;
+    border:2px solid #282828;
+    cursor:pointer;
+    color:#32302f;
+    font-family: 'Montserrat';
+    font-size:20px;
+    padding:12px 20px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #ffffff;
+    width: 200px;
+  }
+  button, .bt:hover {
+    background:linear-gradient(to bottom, #ccc2a6 5%, #ebdbb2 100%);
+    background-color:#ebdbb2;
+  }
+
+  input[type=text] {
+    font-family: 'Montserrat';
+    font-size:20px;
+    padding: 12px 16px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    background-color:#32302f;
+    border:1px solid #ebdbb2;
+    color: #ebdbb2;
+    border-radius:20px;
+    width: 400px;
+
+  }
+
+  form{
+    margin-top: 0px;
+    margin-left: 300px;
+  }
+
+  #dashboard{
+    margin-top: 50px;
+    margin-left: 30px;
+    width: 1000px;
+    height: 600px;
+    padding: 10px;
+    border: 2px solid #ebdbb2;
+    border-radius: 15px;
+    background-color: #282828;
+    overflow-y:auto;
+  }
+
+  #photo{
+    width: 200px; 
+    height: 200px; 
+    margin-top: 125px; 
+    margin-left: 60px;
+    border-radius: 15px;
+  }
+
+  #info{ 
+    font-family: 'Montserrat';
+    font-size:20px;
+    width:200px;
+    height: 100px; 
+    margin-top: 0; 
+    margin-left: 0;
+  }
+
+  #label{
+    font-size:20px;
+    font-weight: 600;
+  }
+
+  td{
+    min-width: 150px;
+    padding: 0px 20px 0px 20px;
+  }
+
+  input{
+    text-align: center;
+  }
+
+  tr#label:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
+  a{
+    text-decoration: none;
+  }
+
+  bt{
+    width: 200px; 
+    height: 200px; 
+    margin-top: 125px; 
+    margin-left: 60px;
+    border-radius: 15px;
+  }
+
+</style>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Student Add</title>
   </head>
 
-  <body style="color: white;">
-    <!-- Roll No. -->
-    <p>Roll No.: <%=roll_no%></p>
-    <!-- Other Info -->
-    <form action="./student_add" method="POST">
-      <label for="f_name">
-        First Name:
-        <input type="text" name="f_name" placeholder="First Name" required />
-      </label>
-      <label for="m_name">
-        Middle Name:
-        <input type="text" name="m_name" value="" placeholder="Middle Name" />
-      </label>
-      <label for="l_name">
-        Last Name:
-        <input type="text" name="l_name" placeholder="Last Name" required />
-      </label>
-      <label for="gender">
-        Gender:
-        <input type="text" name="gender" placeholder="Gender" required />
-      </label>
-      <label for="dob">
-        Date of Birth:
-        <input type="text" name="dob" placeholder="YYYYMMDD" required />
-      </label>
-      <label for="cgpa">
-        CGPA:
-        <input type="text" name="cgpa" placeholder="CGPA" required />
-      </label>
-      <label for="semester">
-        Semester:
-        <input type="text" name="semester" placeholder="Semester" required />
-      </label>
-      <label for="hostel_no">
-        Hostel No.:
-        <input type="text" name="hostel_no" placeholder="Hostel No." required />
-      </label>
-      <label for="room">
-        Room: <input type="text" name="room" placeholder="Room" required />
-      </label>
-      <label for="phone">
-        Phone: <input type="text" name="phone" placeholder="Phone" required />
-      </label>
-      <label for="email">
-        E-Mail: <input type="text" name="email" placeholder="E-Mail" required />
-      </label>
-      <label for="batch_code">
-        Batch Code:
-        <input
-          type="text"
-          name="batch_code"
-          placeholder="Batch Code"
-          required
-        />
-      </label>
-      <button type="submit">SUBMIT</button>
-    </form>
-    <button
-      style="
-        background-color: #282828;
-        border: 1px solid #fabd2f;
-        color: #ebdbb2;
-        padding: 20px 20px;
-        text-align: center;
-        font-size: 20px;
-        position: absolute;
-        top: 50px;
-        left: 80px;
+  <body>
+    <div id="dashboard">
+
+      <button 
+        style=
+        "position: absolute;
+        top:80px;
+        left:350px;
         border-radius: 10px;
-      "
-      onclick="window.location.href = '/super/portal';"
-    >
-      Back
-    </button>
+        width:150px;"
+        onclick="window.location.href = '/super/portal';">
+        Go Back
+      </button>
+
+      <div id="info"  style="float:none">
+      <form action="./student_add" method="POST">
+        <table border="0" cellpadding="15">
+          <tbody>
+          <tr id="label">
+            <td>Roll Number</td>
+            <td>
+                <input disabled type="text" value="<%=roll_no%>" required />
+              </label>
+            </td>
+          </tr>
+          <tr id="label">
+            <td>First Name</td>
+            <td>      
+              <label for="f_name">
+              <input type="text" placeholder="Enter First Name"  name="f_name" required />
+              </label>
+            </td>
+          </tr>
+          <tr id="label">
+            <td>Middle Name</td>
+            <td>      
+              <label for="m_name">
+              <input type="text" value=" " placeholder="Enter Middle Name" name="m_name" required />
+              </label>
+            </td>
+          </tr>
+          <tr id="label">
+            <td>Last Name</td>
+            <td>      
+              <label for="l_name">
+              <input type="text" placeholder="Enter Last Name" name="l_name" required />
+              </label>
+            </td>
+          </tr>
+
+          <tr id="label">
+            <td>Gender</td>
+            <td>      
+              <label for="gender">
+              <input type="text" placeholder="Enter Gender " name="gender" required />
+              </label>
+            </td>
+          </tr>
+          <tr id="label">
+            <td>D.O.B.</td>
+            <td>      
+              <label for="dob">
+              <input type="text" placeholder="Enter D.O.B." name="dob" required />
+              </label>
+            </td>
+          </tr>
+
+          <tr id="label">
+            <td>CGPA </td>
+            <td>      
+              <label for="cgpa">
+              <input type="text" placeholder="Enter CGPA" name="cgpa" required />
+              </label>
+            </td>
+          </tr>
+          <tr id="label">
+            <td>Semester</td>
+            <td>      
+              <label for="semester">
+              <input type="text" placeholder="Enter Semester" name="semester" required />
+              </label>
+            </td>
+          </tr>
+
+          <tr id="label">
+            <td>Hostel </td>
+            <td>      
+              <label for="hostel_no">
+              <input type="text" placeholder="Enter Hostel" name="hostel_no" required />
+              </label>
+            </td>
+          </tr>
+          <tr id="label">
+            <td>Room Num</td>
+            <td>      
+              <label for="room">
+              <input type="text" placeholder="Enter Room Number" name="room" required />
+              </label>
+            </td>
+          </tr>
+
+          <tr id="label">
+            <td>Phone</td>
+            <td>      
+              <label for="phone">
+              <input type="text" placeholder="Enter Phone"  name="phone" required />
+              </label>
+            </td>
+          </tr>
+          <tr id="label">
+            <td>Email</td>
+            <td>      
+              <label for="email">
+              <input type="text" placeholder="Enter Email" name="email" required />
+              </label>
+            </td>
+          </tr>
+
+          <tr id="label">
+            <td>Batch Code</td>
+            <td>      
+              <label for="batch_code">
+              <input type="text" placeholder="Enter Batch Code" name="batch_code" required />
+              </label>
+            </td>
+          </tr>
+
+
+          <tr>
+            <td style="text-align:center; padding: 20px 0 20px 0">
+            </td>
+            <td style="text-align:center; padding: 20px 0 20px 0">
+              <button type="submit">Save Changes</button>
+            </td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
   </body>
 </html>

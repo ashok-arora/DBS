@@ -293,7 +293,7 @@ router.post("/portal", (request, response) => {
             break;
           case "add":
             {
-              response.redirect("/super/backklogs_add");
+              response.redirect("/super/backlogs_add");
             }
             break;
           case "update":
@@ -3283,5 +3283,14 @@ router.post("/t_grades", (request, response) => {
     }
   );
 });
+
+router.get("/logout", (request, response) => {
+  if (request.session.user) {
+    request.session.destroy(() => {
+      response.redirect("/super/login");
+    });
+  }
+});
+
 
 module.exports = router;

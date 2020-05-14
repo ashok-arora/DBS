@@ -1,47 +1,173 @@
 <!DOCTYPE html>
+
+<style>
+
+  button, .bt {
+    box-shadow: 0px 5px 0px 0px #282828;
+    background:linear-gradient(to bottom, #eae0c2 5%, #ccc2a6 100%);
+    background-color:#ebdbb2;
+    border-radius:15px;
+    border:2px solid #282828;
+    cursor:pointer;
+    color:#32302f;
+    font-family: 'Montserrat';
+    font-size:20px;
+    padding:12px 20px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #ffffff;
+    width: 200px;
+  }
+  button, .bt:hover {
+    background:linear-gradient(to bottom, #ccc2a6 5%, #ebdbb2 100%);
+    background-color:#ebdbb2;
+  }
+
+  input[type=text] {
+    font-family: 'Montserrat';
+    font-size:20px;
+    padding: 12px 16px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    background-color:#32302f;
+    border:1px solid #ebdbb2;
+    color: #ebdbb2;
+    border-radius:20px;
+    width: 400px;
+
+  }
+
+  form{
+    margin-top: 0px;
+    margin-left: 300px;
+  }
+
+  #dashboard{
+    margin-top: 50px;
+    margin-left: 30px;
+    width: 1000px;
+    height: 600px;
+    padding: 10px;
+    border: 2px solid #ebdbb2;
+    border-radius: 15px;
+    background-color: #282828;
+    overflow-y:auto;
+  }
+
+  #photo{
+    width: 200px; 
+    height: 200px; 
+    margin-top: 125px; 
+    margin-left: 60px;
+    border-radius: 15px;
+  }
+
+  #info{ 
+    font-family: 'Montserrat';
+    font-size:20px;
+    width:200px;
+    height: 100px; 
+    margin-top: 0; 
+    margin-left: 0;
+  }
+
+  #label{
+    font-size:20px;
+    font-weight: 600;
+  }
+
+  td{
+    min-width: 150px;
+    padding: 0px 20px 0px 20px;
+  }
+
+  input{
+    text-align: center;
+  }
+
+  tr#label:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
+  a{
+    text-decoration: none;
+  }
+
+  bt{
+    width: 200px; 
+    height: 200px; 
+    margin-top: 125px; 
+    margin-left: 60px;
+    border-radius: 15px;
+  }
+
+</style>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Research Proposers Edit</title>
   </head>
 
-  <body style="color: white;">
-    <!-- Serial No. -->
-    <p>Serial No.: <%=s_no%></p>
-    <!-- Other Info -->
-    <form action="./research_proposers" method="POST">
-      <label for="research_id">
-        Research Id:
-        <input
-          type="text"
-          value="<%=research_id%>"
-          name="research_id"
-          required
-        />
-      </label>
-      <label for="faculty_id">
-        Faculty Id:
-        <input type="text" value="<%=faculty_id%>" name="faculty_id" required />
-      </label>
-      <button type="submit">Submit</button>
-    </form>
-    <button
-      style="
-        background-color: #282828;
-        border: 1px solid #fabd2f;
-        color: #ebdbb2;
-        padding: 20px 20px;
-        text-align: center;
-        font-size: 20px;
-        position: absolute;
-        top: 50px;
-        left: 80px;
+  <body>
+    <div id="dashboard">
+
+      <button 
+        style=
+        "position: absolute;
+        top:80px;
+        left:350px;
         border-radius: 10px;
-      "
-      onclick="window.location.href = '/super/portal';"
-    >
-      Back
-    </button>
+        width:150px;"
+        onclick="window.location.href = '/super/portal';">
+        Go Back
+      </button>
+
+      <div id="info"  style="float:none">
+      <form action="./research_proposers" method="POST">
+        <table border="0" cellpadding="15">
+          <tbody>
+            
+          <tr>
+          <td id="label">Serial Num</td>
+          <td>
+            <label for="s_no">
+              <input disabled type="text" value="<%=s_no%>" name="s_no" required />
+            </label>
+          </td>
+          </tr>
+ 
+        
+
+          <tr>
+            <td id="label">Research ID</td>
+            <td>
+              <label for="research_id">
+                <input type="text" value="<%=research_id%>" name="research_id" required />
+              </label>   
+            </td>
+          </tr>  
+
+          <tr>
+            <td id="label">Faculty ID</td>
+            <td>
+              <label for="faculty_id">
+                <input type="text" value="<%=faculty_id%>" name="faculty_id" required />
+              </label>  
+            </td>
+          </tr>  
+
+
+          <tr>
+            <td style="text-align:center; padding: 20px 0 20px 0">
+            </td>
+            <td style="text-align:center; padding: 20px 0 20px 0">
+              <button type="submit">Save Changes</button>
+            </td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
   </body>
 </html>

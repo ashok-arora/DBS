@@ -1,80 +1,283 @@
 <!DOCTYPE html>
+
+<style>
+
+  button, .bt {
+    box-shadow: 0px 5px 0px 0px #282828;
+    background:linear-gradient(to bottom, #eae0c2 5%, #ccc2a6 100%);
+    background-color:#ebdbb2;
+    border-radius:15px;
+    border:2px solid #282828;
+    cursor:pointer;
+    color:#32302f;
+    font-family: 'Montserrat';
+    font-size:20px;
+    padding:12px 20px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #ffffff;
+    width: 200px;
+  }
+  button, .bt:hover {
+    background:linear-gradient(to bottom, #ccc2a6 5%, #ebdbb2 100%);
+    background-color:#ebdbb2;
+  }
+
+  input[type=text] {
+    font-family: 'Montserrat';
+    font-size:20px;
+    padding: 12px 16px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    background-color:#32302f;
+    border:1px solid #ebdbb2;
+    color: #ebdbb2;
+    border-radius:20px;
+    width: 400px;
+
+  }
+
+  form{
+    margin-top: 0px;
+    margin-left: 300px;
+  }
+
+  #dashboard{
+    margin-top: 50px;
+    margin-left: 30px;
+    width: 1000px;
+    height: 600px;
+    padding: 10px;
+    border: 2px solid #ebdbb2;
+    border-radius: 15px;
+    background-color: #282828;
+    overflow-y:auto;
+  }
+
+  #photo{
+    width: 200px; 
+    height: 200px; 
+    margin-top: 125px; 
+    margin-left: 60px;
+    border-radius: 15px;
+  }
+
+  #info{ 
+    font-family: 'Montserrat';
+    font-size:20px;
+    width:200px;
+    height: 100px; 
+    margin-top: 0; 
+    margin-left: 0;
+  }
+
+  #label{
+    font-size:20px;
+    font-weight: 600;
+  }
+
+  td{
+    min-width: 150px;
+    padding: 0px 20px 0px 20px;
+  }
+
+  input{
+    text-align: center;
+  }
+
+  tr#label:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
+  a{
+    text-decoration: none;
+  }
+
+  bt{
+    width: 200px; 
+    height: 200px; 
+    margin-top: 125px; 
+    margin-left: 60px;
+    border-radius: 15px;
+  }
+
+</style>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Subject Add</title>
   </head>
 
-  <body style="color: white;">
-    <!-- Subject Code -->
-    <p>Subject Code: <%=subject_code%></p>
-    <!-- Other Info -->
-    <form action="./subject_add" method="POST">
-      <label for="subject_name">
-        Subject Name:
-        <input
-          type="text"
-          name="subject_name"
-          placeholder="Subject Name"
-          required
-        />
-      </label>
-      <label for="proposer">
-        Proposer:
-        <input type="text" name="proposer" placeholder="Proposer" required />
-      </label>
-      <label for="taught_by">
-        Taught by:
-        <input type="text" name="taught_by" placeholder="Taught by" required />
-      </label>
-      <label for="credits">
-        Credits:
-        <input type="text" name="credits" placeholder="Credits" required />
-      </label>
-      <label for="l">
-        L:
-        <input type="text" name="l" placeholder="L" required />
-      </label>
-      <label for="t">
-        T:
-        <input type="text" name="t" placeholder="T" required />
-      </label>
-      <label for="p">
-        P:
-        <input type="text" name="p" placeholder="P" required />
-      </label>
-      <label for="room_no">
-        Room No.:
-        <input type="text" name="room_no" placeholder="Room No." required />
-      </label>
-      <label for="faculty_attendance">
-        Faculty Attendance:
-        <input
-          type="text"
-          name="faculty_attendance"
-          placeholder="Faculty Attendance"
-          required
-        />
-      </label>
-      <button type="submit">SUBMIT</button>
-    </form>
-    <button
-      style="
-        background-color: #282828;
-        border: 1px solid #fabd2f;
-        color: #ebdbb2;
-        padding: 20px 20px;
-        text-align: center;
-        font-size: 20px;
-        position: absolute;
-        top: 50px;
-        left: 80px;
+  <body>
+    <div id="dashboard">
+
+      <button 
+        style=
+        "position: absolute;
+        top:80px;
+        left:350px;
         border-radius: 10px;
-      "
-      onclick="window.location.href = '/super/portal';"
-    >
-      Back
-    </button>
+        width:150px;"
+        onclick="window.location.href = '/super/portal';">
+        Go Back
+      </button>
+
+      <div id="info"  style="float:none">
+      <form action="./subject_add" method="POST">
+        <table border="0" cellpadding="15">
+          <tbody>
+            
+          <tr>
+          <td id="label">Subject Code</td>
+          <td>
+            <label for="subject_code">
+              <input disabled
+                type="text"
+                value="<%=subject_code%>"
+                name="subject_code"
+                required
+              />
+            </label>
+          </td>
+          </tr> 
+
+          <tr>
+            <td id="label">Subject Name</td>
+            <td>
+              <label for="subject_name">
+                <input
+                  type="text"
+                  placeholder="Enter Subject Name"
+                  name="subject_name"
+                  required
+                />
+              </label>
+            </td>
+          </tr>           
+
+          <tr>
+            <td id="label">Proposers</td>
+            <td>
+              <label for="proposer">
+                <input
+                  type="text"
+                  placeholder="Enter Proposer"
+                  name="proposer"
+                  required
+                />
+              </label>
+            </td>
+          </tr>
+
+          <tr>
+            <td id="label">Taught by</td>
+            <td>
+              <label for="taught_by">
+                <input
+                  type="text"
+                  placeholder="Enter Faculty Name"
+                  name="taught_by"
+                  required
+                />
+              </label>
+            </td>
+          </tr>
+
+          <tr>
+            <td id="label">Credits</td>
+            <td>
+              <label for="credits">
+                <input
+                  type="text"
+                  placeholder="Enter Credits"
+                  name="credits"
+                  required
+                />
+              </label>
+            </td>
+          </tr>
+
+          <tr>
+            <td id="label">L Credits</td>
+            <td>
+              <label for="l">
+                <input
+                  type="text"
+                  placeholder="Enter L Credits"
+                  name="l"
+                  required
+                />
+              </label>
+            </td>
+          </tr>
+
+          <tr>
+            <td id="label">T Credits</td>
+            <td>
+              <label for="t">
+                <input
+                  type="text"
+                  placeholder="Enter T Credits"
+                  name="t"
+                  required
+                />
+              </label>
+            </td>
+          </tr>
+
+          <tr>
+            <td id="label">P Credits</td>
+            <td>
+              <label for="p">
+                <input
+                  type="text"
+                  placeholder="Enter P Credits"
+                  name="p"
+                  required
+                />
+              </label>
+            </td>
+          </tr>
+
+          <tr>
+            <td id="label">Room Num</td>
+            <td>
+              <label for="room_no">
+                <input
+                  type="text"
+                  placeholder="Enter Room Number"
+                  name="room_no"
+                  required
+                />
+              </label>
+            </td>
+          </tr>
+
+          <tr>
+            <td id="label">Faculty Attendance</td>
+            <td>
+              <label for="faculty_attendance">
+                <input
+                  type="text"
+                  placeholder="Enter Faculty Attendance"
+                  name="faculty_attendance"
+                  required
+                />
+              </label>
+            </td>
+          </tr>
+
+          <tr>
+            <td style="text-align:center; padding: 20px 0 20px 0">
+            </td>
+            <td style="text-align:center; padding: 20px 0 20px 0">
+              <button type="submit">Save Changes</button>
+            </td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
   </body>
 </html>
