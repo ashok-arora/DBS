@@ -95,7 +95,6 @@ function findStudentAssignments(request, response, subjects) {
 }
 
 let studentSchedule = new Object();
-
 function schedule(request, response) {
   let date = new Date();
   let weekday = new Array(7);
@@ -112,7 +111,7 @@ function schedule(request, response) {
     [user.batch_code, day],
     (err, rows) => {
       if (err) response.status(500).send(err);
-      if (rows) {
+      if (rows.length != 0) {
         if (rows[0].t_9 != "") studentSchedule["09:00 - 10:00"] = rows[0].t_9;
         else studentSchedule["09:00 - 10:00"] = "Free";
         if (rows[0].t_10 != "") studentSchedule["10:00 - 11:00"] = rows[0].t_10;
@@ -129,8 +128,128 @@ function schedule(request, response) {
         else studentSchedule["16:00 - 17:00"] = "Free";
         if (rows[0].t_5 != "") studentSchedule["17:00 - 18:00"] = rows[0].t_5;
         else studentSchedule["17:00 - 18:00"] = "Free";
+      } else {
+        studentSchedule["09:00 - 10:00"] = "Free";
+        studentSchedule["10:00 - 11:00"] = "Free";
+        studentSchedule["11:00 - 12:00"] = "Free";
+        studentSchedule["12:00 - 13:00"] = "Free";
+        studentSchedule["14:00 - 15:00"] = "Free";
+        studentSchedule["15:00 - 16:00"] = "Free";
+        studentSchedule["16:00 - 17:00"] = "Free";
+        studentSchedule["17:00 - 18:00"] = "Free";
       }
-      callRender(request, response);
+      attendanceData(request, response);
+    }
+  );
+}
+
+let studentAttendance = [];
+let facultyAttendance = [];
+let attendanceSubjects = [];
+function attendanceData(request, response) {
+  mySqlConnection.query(
+    "SELECT * FROM attendance WHERE roll_no = ?",
+    [user.roll_no],
+    (err, rows) => {
+      if (err) response.status(500).send(err);
+      if (rows) {
+        for (row of rows) {
+          studentAttendance.push(row.attendance);
+          mySqlConnection.query(
+            "SELECT * FROM subject WHERE subject_code = ?",
+            [row.subject_code],
+            (err, newRows) => {
+              if (err) response.status(500).send(err);
+              else {
+                facultyAttendance.push(newRows[0].faculty_attendance);
+                attendanceSubjects.push(newRows[0].subject_name);
+                if (row == rows[rows.length - 1]) theoryData(request, response);
+              }
+            }
+          );
+        }
+      }
+    }
+  );
+}
+
+let studentTGrades = [];
+let maxTGrades = [];
+let gradesSubjects = [];
+function theoryData(request, response) {
+  mySqlConnection.query(
+    "SELECT * FROM t_grades WHERE roll_no = ?",
+    [user.roll_no],
+    (err, rows) => {
+      if (err) response.status(500).send(err);
+      if (rows) {
+        for (row of rows) {
+          temp = new Object();
+          temp["Assignment"] = row.assignment_marks;
+          temp["Attendance"] = row.attendance_marks;
+          temp["Minor 1"] = row.minor1;
+          temp["Minor 2"] = row.minor2;
+          temp["Major"] = row.major;
+          studentTGrades.push(temp);
+          temp = new Object();
+          mySqlConnection.query(
+            "SELECT * FROM max_t_grades WHERE subject_code = ?",
+            [row.subject_code],
+            (err, newRows) => {
+              if (err) response.status(500).send(err);
+              else {
+                temp["Assignment"] = newRows.assignment_marks;
+                temp["Attendance"] = newRows.attendance_marks;
+                temp["Minor 1"] = newRows.minor1;
+                temp["Minor 2"] = newRows.minor2;
+                temp["Major"] = newRows.major;
+                maxTGrades.push(temp);
+                gradesSubjects.push(newRows.subject_code);
+                if (row == rows[rows.length - 1]) labData(request, response);
+              }
+            }
+          );
+        }
+      }
+    }
+  );
+}
+
+let studentLGrades = [];
+let maxLGrades = [];
+function labData(request, response) {
+  mySqlConnection.query(
+    "SELECT * FROM l_grades WHERE roll_no = ?",
+    [user.roll_no],
+    (err, rows) => {
+      if (err) response.status(500).send(err);
+      if (rows) {
+        for (row of rows) {
+          temp = new Object();
+          temp["Assignment"] = row.assignment_marks;
+          temp["Attendance"] = row.attendance_marks;
+          temp["Mid-Sem"] = row.mid_sem;
+          temp["Major"] = row.major;
+          studentLGrades.push(temp);
+          temp = new Object();
+          mySqlConnection.query(
+            "SELECT * FROM max_l_grades WHERE subject_code = ?",
+            [row.subject_code],
+            (err, newRows) => {
+              if (err) response.status(500).send(err);
+              else {
+                temp["Assignment"] = newRows.assignment_marks;
+                temp["Attendance"] = newRows.attendance_marks;
+                temp["Mid-Sem"] = newRows.mid_sem;
+                temp["Major"] = newRows.major;
+                maxLGrades.push(temp);
+                gradesSubjects.push(newRows.subject_code);
+                if (row == rows[rows.length - 1]) callRender(request, response);
+              }
+            }
+          );
+        }
+      }
     }
   );
 }
@@ -154,6 +273,15 @@ router.get("/student_portal", (request, response) => {
       photo: user.photo,
       batch_code: user.batch_code,
       studentSchedule: studentSchedule,
+      studentAttendance: studentAttendance,
+      facultyAttendance: facultyAttendance,
+      attendanceSubjects: attendanceSubjects,
+      studentTGrades: studentTGrades,
+      maxTGrades: maxTGrades,
+      studentLGrades: studentLGrades,
+      maxLGrades: maxLGrades,
+      gradesSubjects: gradesSubjects,
+      style: "/css/student_portal.css",
     });
   }
 });
