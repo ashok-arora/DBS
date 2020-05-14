@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<link rel="stylesheet" href="/css/super_portal.css">
+<link rel="stylesheet" href="/css/super_portal.css" />
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -8,979 +8,991 @@
   </head>
 
   <body>
-    <h2>&nbsp; &nbsp;The following tables are available for editing, click on one of them to see more options.</h2>
+    <h2>
+      &nbsp; &nbsp;The following tables are available for editing, click on one
+      of them to see more options.
+    </h2>
     <div class="container">
-    <!-- Admin -->
-    <button onclick="admin()" id="admin">admin</button>
-    <form
-      action="./portal"
-      method="POST"
-      id="admin_form"
-      style="display: none;"
-      novalidate
-    >
-      <label for="category">
-        <input
-          type="text"
-          value="admin"
-          name="category"
-          style="display: none;"
-        />
-        <label for="task">
-          <button type="submit" value="view" name="task" id="view">
-            View Table
-          </button>
-          <button onclick="getAdminId()" type="button">
-            Edit Table
-          </button>
-        </label>
-      </label>
-      <label for="id" id="admin_id" style="display: none;">
-        <input type="text" placeholder="Enter Admin ID" name="id" required />
-      </label>
-      <label for="submit" id="admin_submit" style="display: none;">
-        <button type="submit" value="add" name="task" id="view">
-          Add
-        </button>
-        <button type="submit" value="update" name="task" id="view">
-          Update
-        </button>
-        <button type="submit" value="remove" name="task" id="view">
-          Remove
-        </button>
-      </label>
-    </form>
-
-    <!-- Assignment -->
-    <button onclick="assignment()" id="assignment">assignment</button>
-    <form
-      action="./portal"
-      method="POST"
-      id="assignment_form"
-      style="display: none;"
-      novalidate
-    >
-      <label for="category">
-        <input
-          type="text"
-          value="assignment"
-          name="category"
-          style="display: none;"
-        />
-        <label for="task">
-          <button type="submit" value="view" name="task" id="view">
-            View Table
-          </button>
-          <button type="submit" value="add" name="task" id="view">
-            Add Data
-          </button>
-          <button onclick="getAssignmentId()" type="button">
-            Edit Table
-          </button>
-        </label>
-      </label>
-      <label for="id" id="assignment_id" style="display: none;">
-        <input type="text" placeholder="Enter Assignment Serial Number" name="id" required />
-      </label>
-      <label for="submit" id="assignment_submit" style="display: none;">
-        <button type="submit" value="update" name="task" id="view">
-          Update
-        </button>
-        <button type="submit" value="remove" name="task" id="view">
-          Remove
-        </button>
-      </label>
-    </form>
-
-    <!-- Attendance -->
-    <button onclick="attendance()" id="attendance">attendance</button>
-    <form
-      action="./portal"
-      method="POST"
-      id="attendance_form"
-      style="display: none;"
-      novalidate
-    >
-      <label for="category">
-        <input
-          type="text"
-          value="attendance"
-          name="category"
-          style="display: none;"
-        />
-        <label for="task">
-          <button type="submit" value="view" name="task" id="view">
-            View Table
-          </button>
-          <button type="submit" value="add" name="task" id="view">
-            Add Data
-          </button>
-          <button onclick="getAttendanceId()" type="button">
-            Edit Table
-          </button>
-        </label>
-      </label>
-      <label for="id" id="attendance_id" style="display: none;">
-        <input type="text" placeholder="Serial No." name="id" required />
-      </label>
-      <label for="submit" id="attendance_submit" style="display: none;">
-        <button type="submit" value="update" name="task" id="view">
-          Update
-        </button>
-        <button type="submit" value="remove" name="task" id="view">
-          Remove
-        </button>
-      </label>
-    </form>
-
-    <!-- Backlogs -->
-    <button onclick="backlogs()" id="backlogs">backlogs</button>
-    <form
-      action="./portal"
-      method="POST"
-      id="backlogs_form"
-      style="display: none;"
-      novalidate
-    >
-      <label for="category">
-        <input
-          type="text"
-          value="backlogs"
-          name="category"
-          style="display: none;"
-        />
-        <label for="task">
-          <button type="submit" value="view" name="task" id="view">
-            View Table
-          </button>
-          <button type="submit" value="add" name="task" id="view">
-            Add Data
-          </button>
-          <button onclick="getBacklogsId()" type="button">
-            Edit Table
-          </button>
-        </label>
-      </label>
-      <label for="id" id="backlogs_id" style="display: none;">
-        <input type="text" placeholder="Serial No." name="id" required />
-      </label>
-      <label for="submit" id="backlogs_submit" style="display: none;">
-        <button type="submit" value="update" name="task" id="view">
-          Update
-        </button>
-        <button type="submit" value="remove" name="task" id="view">
-          Remove
-        </button>
-      </label>
-    </form>
-
-    <!-- Batch -->
-    <button onclick="batch()" id="batch">batch</button>
-    <form
-      action="./portal"
-      method="POST"
-      id="batch_form"
-      style="display: none;"
-      novalidate
-    >
-      <label for="category">
-        <input
-          type="text"
-          value="batch"
-          name="category"
-          style="display: none;"
-        />
-        <label for="task">
-          <button type="submit" value="view" name="task" id="view">
-            View Table
-          </button>
-          <button onclick="getBatchId()" type="button">
-            Edit Table
-          </button>
-        </label>
-      </label>
-      <label for="id" id="batch_id" style="display: none;">
-        <input type="text" placeholder="Id" name="id" required />
-      </label>
-      <label for="submit" id="batch_submit" style="display: none;">
-        <button type="submit" value="add" name="task" id="view">
-          Add
-        </button>
-        <button type="submit" value="update" name="task" id="view">
-          Update
-        </button>
-        <button type="submit" value="remove" name="task" id="view">
-          Remove
-        </button>
-      </label>
-    </form>
-
-    <!-- Batch Subjects -->
-    <button onclick="batchSubjects()" id="batch_subjects">
-      batch_subjects
-    </button>
-    <form
-      action="./portal"
-      method="POST"
-      id="batch_subjects_form"
-      style="display: none;"
-      novalidate
-    >
-      <label for="category">
-        <input
-          type="text"
-          value="batch_subjects"
-          name="category"
-          style="display: none;"
-        />
-        <label for="task">
-          <button type="submit" value="view" name="task" id="view">
-            View Table
-          </button>
-          <button type="submit" value="add" name="task" id="view">
-            Add Data
-          </button>
-          <button onclick="getBatchSubjectsId()" type="button">
-            Edit Table
-          </button>
-        </label>
-      </label>
-      <label for="id" id="batch_subjects_id" style="display: none;">
-        <input type="text" placeholder="Serial No." name="id" required />
-      </label>
-      <label for="submit" id="batch_subjects_submit" style="display: none;">
-        <button type="submit" value="update" name="task" id="view">
-          Update
-        </button>
-        <button type="submit" value="remove" name="task" id="view">
-          Remove
-        </button>
-      </label>
-    </form>
-
-    <!-- Branch -->
-    <button onclick="branch()" id="branch">branch</button>
-    <form
-      action="./portal"
-      method="POST"
-      id="branch_form"
-      style="display: none;"
-      novalidate
-    >
-      <label for="category">
-        <input
-          type="text"
-          value="branch"
-          name="category"
-          style="display: none;"
-        />
-        <label for="task">
-          <button type="submit" value="view" name="task" id="view">
-            View Table
-          </button>
-          <button onclick="getBranchId()" type="button">
-            Edit Table
-          </button>
-        </label>
-      </label>
-      <label for="id" id="branch_id" style="display: none;">
-        <input type="text" placeholder="Id" name="id" required />
-      </label>
-      <label for="submit" id="branch_submit" style="display: none;">
-        <button type="submit" value="add" name="task" id="view">
-          Add
-        </button>
-        <button type="submit" value="update" name="task" id="view">
-          Update
-        </button>
-        <button type="submit" value="remove" name="task" id="view">
-          Remove
-        </button>
-      </label>
-    </form>
-
-    <!-- Club -->
-    <button onclick="club()" id="club">club</button>
-    <form
-      action="./portal"
-      method="POST"
-      id="club_form"
-      style="display: none;"
-      novalidate
-    >
-      <label for="category">
-        <input
-          type="text"
-          value="club"
-          name="category"
-          style="display: none;"
-        />
-        <label for="task">
-          <button type="submit" value="view" name="task" id="view">
-            View Table
-          </button>
-          <button onclick="getClubId()" type="button">
-            Edit Table
-          </button>
-        </label>
-      </label>
-      <label for="id" id="club_id" style="display: none;">
-        <input type="text" placeholder="Id" name="id" required />
-      </label>
-      <label for="submit" id="club_submit" style="display: none;">
-        <button type="submit" value="add" name="task" id="view">
-          Add
-        </button>
-        <button type="submit" value="update" name="task" id="view">
-          Update
-        </button>
-        <button type="submit" value="remove" name="task" id="view">
-          Remove
-        </button>
-      </label>
-    </form>
-
-    <!-- Faculty -->
-    <button onclick="faculty()" id="faculty">faculty</button>
-    <form
-      action="./portal"
-      method="POST"
-      id="faculty_form"
-      style="display: none;"
-      novalidate
-    >
-      <label for="category">
-        <input
-          type="text"
-          value="faculty"
-          name="category"
-          style="display: none;"
-        />
-        <label for="task">
-          <button type="submit" value="view" name="task" id="view">
-            View Table
-          </button>
-          <button onclick="getFacultyId()" type="button">
-            Edit Table
-          </button>
-        </label>
-      </label>
-      <label for="id" id="faculty_id" style="display: none;">
-        <input type="text" placeholder="Id" name="id" required />
-      </label>
-      <label for="submit" id="faculty_submit" style="display: none;">
-        <button type="submit" value="add" name="task" id="view">
-          Add
-        </button>
-        <button type="submit" value="update" name="task" id="view">
-          Update
-        </button>
-        <button type="submit" value="remove" name="task" id="view">
-          Remove
-        </button>
-      </label>
-    </form>
-
-    <!-- Funds -->
-    <button onclick="funds()" id="funds">funds</button>
-    <form
-      action="./portal"
-      method="POST"
-      id="funds_form"
-      style="display: none;"
-      novalidate
-    >
-      <label for="category">
-        <input
-          type="text"
-          value="funds"
-          name="category"
-          style="display: none;"
-        />
-        <label for="task">
-          <button type="submit" value="view" name="task" id="view">
-            View Table
-          </button>
-          <button type="submit" value="add" name="task" id="view">
-            Add Data
-          </button>
-          <button onclick="getFundsId()" type="button">
-            Edit Table
-          </button>
-        </label>
-      </label>
-      <label for="id" id="funds_id" style="display: none;">
-        <input type="text" placeholder="Serial No." name="id" required />
-      </label>
-      <label for="submit" id="funds_submit" style="display: none;">
-        <button type="submit" value="update" name="task" id="view">
-          Update
-        </button>
-        <button type="submit" value="remove" name="task" id="view">
-          Remove
-        </button>
-      </label>
-    </form>
-
-    <!-- Faculty Time Table -->
-    <button onclick="fTimeTable()" id="f_time_table">f_time_table</button>
-    <form
-      action="./portal"
-      method="POST"
-      id="f_time_table_form"
-      style="display: none;"
-      novalidate
-    >
-      <label for="category">
-        <input
-          type="text"
-          value="f_time_table"
-          name="category"
-          style="display: none;"
-        />
-        <label for="task">
-          <button type="submit" value="view" name="task" id="view">
-            View Table
-          </button>
-          <button type="submit" value="add" name="task" id="view">
-            Add Data
-          </button>
-          <button onclick="getFTimeTableId()" type="button">
-            Edit Table
-          </button>
-        </label>
-      </label>
-      <label for="id" id="f_time_table_id" style="display: none;">
-        <input type="text" placeholder="Serial No." name="id" required />
-      </label>
-      <label for="submit" id="f_time_table_submit" style="display: none;">
-        <button type="submit" value="update" name="task" id="view">
-          Update
-        </button>
-        <button type="submit" value="remove" name="task" id="view">
-          Remove
-        </button>
-      </label>
-    </form>
-
-    <!-- Hostel -->
-    <button onclick="hostel()" id="hostel">hostel</button>
-    <form
-      action="./portal"
-      method="POST"
-      id="hostel_form"
-      style="display: none;"
-      novalidate
-    >
-      <label for="category">
-        <input
-          type="text"
-          value="hostel"
-          name="category"
-          style="display: none;"
-        />
-        <label for="task">
-          <button type="submit" value="view" name="task" id="view">
-            View Table
-          </button>
-          <button onclick="getHostelId()" type="button">
-            Edit Table
-          </button>
-        </label>
-      </label>
-      <label for="id" id="hostel_id" style="display: none;">
-        <input type="text" placeholder="Id" name="id" required />
-      </label>
-      <label for="submit" id="hostel_submit" style="display: none;">
-        <button type="submit" value="add" name="task" id="view">
-          Add
-        </button>
-        <button type="submit" value="update" name="task" id="view">
-          Update
-        </button>
-        <button type="submit" value="remove" name="task" id="view">
-          Remove
-        </button>
-      </label>
-    </form>
-
-    <!-- Lab Grades -->
-    <button onclick="lGrades()" id="l_grades">l_grades</button>
-    <form
-      action="./portal"
-      method="POST"
-      id="l_grades_form"
-      style="display: none;"
-      novalidate
-    >
-      <label for="category">
-        <input
-          type="text"
-          value="l_grades"
-          name="category"
-          style="display: none;"
-        />
-        <label for="task">
-          <button type="submit" value="view" name="task" id="view">
-            View Table
-          </button>
-          <button type="submit" value="add" name="task" id="view">
-            Add Data
-          </button>
-          <button onclick="getLGradesId()" type="button">
-            Edit Table
-          </button>
-        </label>
-      </label>
-      <label for="id" id="l_grades_id" style="display: none;">
-        <input type="text" placeholder="Serial No." name="id" required />
-      </label>
-      <label for="submit" id="l_grades_submit" style="display: none;">
-        <button type="submit" value="update" name="task" id="view">
-          Update
-        </button>
-        <button type="submit" value="remove" name="task" id="view">
-          Remove
-        </button>
-      </label>
-    </form>
-
-    <!-- Maximum Lab Grades -->
-    <button onclick="maxLGrades()" id="max_l_grades">max_l_grades</button>
-    <form
-      action="./portal"
-      method="POST"
-      id="max_l_grades_form"
-      style="display: none;"
-      novalidate
-    >
-      <label for="category">
-        <input
-          type="text"
-          value="max_l_grades"
-          name="category"
-          style="display: none;"
-        />
-        <label for="task">
-          <button type="submit" value="view" name="task" id="view">
-            View Table
-          </button>
-          <button onclick="getMaxLGradesId()" type="button">
-            Edit Table
-          </button>
-        </label>
-      </label>
-      <label for="id" id="max_l_grades_id" style="display: none;">
-        <input type="text" placeholder="Id" name="id" required />
-      </label>
-      <label for="submit" id="max_l_grades_submit" style="display: none;">
-        <button type="submit" value="add" name="task" id="view">
-          Add
-        </button>
-        <button type="submit" value="update" name="task" id="view">
-          Update
-        </button>
-        <button type="submit" value="remove" name="task" id="view">
-          Remove
-        </button>
-      </label>
-    </form>
-
-    <!-- Maximum Theory Grades -->
-    <button onclick="maxTGrades()" id="max_t_grades">max_t_grades</button>
-    <form
-      action="./portal"
-      method="POST"
-      id="max_t_grades_form"
-      style="display: none;"
-      novalidate
-    >
-      <label for="category">
-        <input
-          type="text"
-          value="max_t_grades"
-          name="category"
-          style="display: none;"
-        />
-        <label for="task">
-          <button type="submit" value="view" name="task" id="view">
-            View Table
-          </button>
-          <button onclick="getMaxTGradesId()" type="button">
-            Edit Table
-          </button>
-        </label>
-      </label>
-      <label for="id" id="max_t_grades_id" style="display: none;">
-        <input type="text" placeholder="Id" name="id" required />
-      </label>
-      <label for="submit" id="max_t_grades_submit" style="display: none;">
-        <button type="submit" value="add" name="task" id="view">
-          Add
-        </button>
-        <button type="submit" value="update" name="task" id="view">
-          Update
-        </button>
-        <button type="submit" value="remove" name="task" id="view">
-          Remove
-        </button>
-      </label>
-    </form>
-
-    <!-- Research -->
-    <button onclick="research()" id="research">research</button>
-    <form
-      action="./portal"
-      method="POST"
-      id="research_form"
-      style="display: none;"
-      novalidate
-    >
-      <label for="category">
-        <input
-          type="text"
-          value="research"
-          name="category"
-          style="display: none;"
-        />
-        <label for="task">
-          <button type="submit" value="view" name="task" id="view">
-            View Table
-          </button>
-          <button onclick="getResearchId()" type="button">
-            Edit Table
-          </button>
-        </label>
-      </label>
-      <label for="id" id="research_id" style="display: none;">
-        <input type="text" placeholder="Id" name="id" required />
-      </label>
-      <label for="submit" id="research_submit" style="display: none;">
-        <button type="submit" value="add" name="task" id="view">
-          Add
-        </button>
-        <button type="submit" value="update" name="task" id="view">
-          Update
-        </button>
-        <button type="submit" value="remove" name="task" id="view">
-          Remove
-        </button>
-      </label>
-    </form>
-
-    <!-- Research Assistants -->
-    <button onclick="researchAssistants()" id="research_assistants">
-      research_assistants
-    </button>
-    <form
-      action="./portal"
-      method="POST"
-      id="research_assistants_form"
-      style="display: none;"
-      novalidate
-    >
-      <label for="category">
-        <input
-          type="text"
-          value="research_assistants"
-          name="category"
-          style="display: none;"
-        />
-        <label for="task">
-          <button type="submit" value="view" name="task" id="view">
-            View Table
-          </button>
-          <button type="submit" value="add" name="task" id="view">
-            Add Data
-          </button>
-          <button onclick="getResearchAssistantsId()" type="button">
-            Edit Table
-          </button>
-        </label>
-      </label>
-      <label for="id" id="research_assistants_id" style="display: none;">
-        <input type="text" placeholder="Serial No." name="id" required />
-      </label>
-      <label
-        for="submit"
-        id="research_assistants_submit"
+      <!-- Admin -->
+      <button onclick="admin()" id="admin">admin</button>
+      <form
+        action="./portal"
+        method="POST"
+        id="admin_form"
         style="display: none;"
+        novalidate
       >
-        <button type="submit" value="update" name="task" id="view">
-          Update
-        </button>
-        <button type="submit" value="remove" name="task" id="view">
-          Remove
-        </button>
-      </label>
-    </form>
-
-    <!-- Research Proposers -->
-    <button onclick="researchProposers()" id="research_proposers">
-      research_proposers
-    </button>
-    <form
-      action="./portal"
-      method="POST"
-      id="research_proposers_form"
-      style="display: none;"
-      novalidate
-    >
-      <label for="category">
-        <input
-          type="text"
-          value="research_proposers"
-          name="category"
-          style="display: none;"
-        />
-        <label for="task">
-          <button type="submit" value="view" name="task" id="view">
-            View Table
-          </button>
+        <label for="category">
+          <input
+            type="text"
+            value="admin"
+            name="category"
+            style="display: none;"
+          />
+          <label for="task">
+            <button type="submit" value="view" name="task" id="view">
+              View Table
+            </button>
+            <button onclick="getAdminId()" type="button">
+              Edit Table
+            </button>
+          </label>
+        </label>
+        <label for="id" id="admin_id" style="display: none;">
+          <input type="text" placeholder="Enter Admin ID" name="id" required />
+        </label>
+        <label for="submit" id="admin_submit" style="display: none;">
           <button type="submit" value="add" name="task" id="view">
-            Add Data
+            Add
           </button>
-          <button onclick="getResearchProposersId()" type="button">
-            Edit Table
+          <button type="submit" value="update" name="task" id="view">
+            Update
           </button>
-        </label>
-      </label>
-      <label for="id" id="research_proposers_id" style="display: none;">
-        <input type="text" placeholder="Serial No." name="id" required />
-      </label>
-      <label for="submit" id="research_proposers_submit" style="display: none;">
-        <button type="submit" value="update" name="task" id="view">
-          Update
-        </button>
-        <button type="submit" value="remove" name="task" id="view">
-          Remove
-        </button>
-      </label>
-    </form>
-
-    <!-- Student -->
-    <button onclick="student()" id="student">student</button>
-    <form
-      action="./portal"
-      method="POST"
-      id="student_form"
-      style="display: none;"
-      novalidate
-    >
-      <label for="category">
-        <input
-          type="text"
-          value="student"
-          name="category"
-          style="display: none;"
-        />
-        <label for="task">
-          <button type="submit" value="view" name="task" id="view">
-            View Table
-          </button>
-          <button onclick="getStudentId()" type="button">
-            Edit Table
+          <button type="submit" value="remove" name="task" id="view">
+            Remove
           </button>
         </label>
-      </label>
-      <label for="id" id="student_id" style="display: none;">
-        <input type="text" placeholder="Id" name="id" required />
-      </label>
-      <label for="submit" id="student_submit" style="display: none;">
-        <button type="submit" value="add" name="task" id="view">
-          Add
-        </button>
-        <button type="submit" value="update" name="task" id="view">
-          Update
-        </button>
-        <button type="submit" value="remove" name="task" id="view">
-          Remove
-        </button>
-      </label>
-    </form>
+      </form>
 
-    <!-- Student Club -->
-    <button onclick="studentClub()" id="student_club">student_club</button>
-    <form
-      action="./portal"
-      method="POST"
-      id="student_club_form"
-      style="display: none;"
-      novalidate
-    >
-      <label for="category">
-        <input
-          type="text"
-          value="student_club"
-          name="category"
-          style="display: none;"
-        />
-        <label for="task">
-          <button type="submit" value="view" name="task" id="view">
-            View Table
+      <!-- Assignment -->
+      <button onclick="assignment()" id="assignment">assignment</button>
+      <form
+        action="./portal"
+        method="POST"
+        id="assignment_form"
+        style="display: none;"
+        novalidate
+      >
+        <label for="category">
+          <input
+            type="text"
+            value="assignment"
+            name="category"
+            style="display: none;"
+          />
+          <label for="task">
+            <button type="submit" value="view" name="task" id="view">
+              View Table
+            </button>
+            <button type="submit" value="add" name="task" id="view">
+              Add Data
+            </button>
+            <button onclick="getAssignmentId()" type="button">
+              Edit Table
+            </button>
+          </label>
+        </label>
+        <label for="id" id="assignment_id" style="display: none;">
+          <input
+            type="text"
+            placeholder="Enter Assignment Serial Number"
+            name="id"
+            required
+          />
+        </label>
+        <label for="submit" id="assignment_submit" style="display: none;">
+          <button type="submit" value="update" name="task" id="view">
+            Update
           </button>
+          <button type="submit" value="remove" name="task" id="view">
+            Remove
+          </button>
+        </label>
+      </form>
+
+      <!-- Attendance -->
+      <button onclick="attendance()" id="attendance">attendance</button>
+      <form
+        action="./portal"
+        method="POST"
+        id="attendance_form"
+        style="display: none;"
+        novalidate
+      >
+        <label for="category">
+          <input
+            type="text"
+            value="attendance"
+            name="category"
+            style="display: none;"
+          />
+          <label for="task">
+            <button type="submit" value="view" name="task" id="view">
+              View Table
+            </button>
+            <button type="submit" value="add" name="task" id="view">
+              Add Data
+            </button>
+            <button onclick="getAttendanceId()" type="button">
+              Edit Table
+            </button>
+          </label>
+        </label>
+        <label for="id" id="attendance_id" style="display: none;">
+          <input type="text" placeholder="Serial No." name="id" required />
+        </label>
+        <label for="submit" id="attendance_submit" style="display: none;">
+          <button type="submit" value="update" name="task" id="view">
+            Update
+          </button>
+          <button type="submit" value="remove" name="task" id="view">
+            Remove
+          </button>
+        </label>
+      </form>
+
+      <!-- Backlogs -->
+      <button onclick="backlogs()" id="backlogs">backlogs</button>
+      <form
+        action="./portal"
+        method="POST"
+        id="backlogs_form"
+        style="display: none;"
+        novalidate
+      >
+        <label for="category">
+          <input
+            type="text"
+            value="backlogs"
+            name="category"
+            style="display: none;"
+          />
+          <label for="task">
+            <button type="submit" value="view" name="task" id="view">
+              View Table
+            </button>
+            <button type="submit" value="add" name="task" id="view">
+              Add Data
+            </button>
+            <button onclick="getBacklogsId()" type="button">
+              Edit Table
+            </button>
+          </label>
+        </label>
+        <label for="id" id="backlogs_id" style="display: none;">
+          <input type="text" placeholder="Serial No." name="id" required />
+        </label>
+        <label for="submit" id="backlogs_submit" style="display: none;">
+          <button type="submit" value="update" name="task" id="view">
+            Update
+          </button>
+          <button type="submit" value="remove" name="task" id="view">
+            Remove
+          </button>
+        </label>
+      </form>
+
+      <!-- Batch -->
+      <button onclick="batch()" id="batch">batch</button>
+      <form
+        action="./portal"
+        method="POST"
+        id="batch_form"
+        style="display: none;"
+        novalidate
+      >
+        <label for="category">
+          <input
+            type="text"
+            value="batch"
+            name="category"
+            style="display: none;"
+          />
+          <label for="task">
+            <button type="submit" value="view" name="task" id="view">
+              View Table
+            </button>
+            <button onclick="getBatchId()" type="button">
+              Edit Table
+            </button>
+          </label>
+        </label>
+        <label for="id" id="batch_id" style="display: none;">
+          <input type="text" placeholder="Id" name="id" required />
+        </label>
+        <label for="submit" id="batch_submit" style="display: none;">
           <button type="submit" value="add" name="task" id="view">
-            Add Data
+            Add
           </button>
-          <button onclick="getStudentClubId()" type="button">
-            Edit Table
+          <button type="submit" value="update" name="task" id="view">
+            Update
           </button>
-        </label>
-      </label>
-      <label for="id" id="student_club_id" style="display: none;">
-        <input type="text" placeholder="Serial No." name="id" required />
-      </label>
-      <label for="submit" id="student_club_submit" style="display: none;">
-        <button type="submit" value="update" name="task" id="view">
-          Update
-        </button>
-        <button type="submit" value="remove" name="task" id="view">
-          Remove
-        </button>
-      </label>
-    </form>
-
-    <!-- Subject -->
-    <button onclick="subject()" id="subject">subject</button>
-    <form
-      action="./portal"
-      method="POST"
-      id="subject_form"
-      style="display: none;"
-      novalidate
-    >
-      <label for="category">
-        <input
-          type="text"
-          value="subject"
-          name="category"
-          style="display: none;"
-        />
-        <label for="task">
-          <button type="submit" value="view" name="task" id="view">
-            View Table
-          </button>
-          <button onclick="getSubjectId()" type="button">
-            Edit Table
+          <button type="submit" value="remove" name="task" id="view">
+            Remove
           </button>
         </label>
-      </label>
-      <label for="id" id="subject_id" style="display: none;">
-        <input type="text" placeholder="Id" name="id" required />
-      </label>
-      <label for="submit" id="subject_submit" style="display: none;">
-        <button type="submit" value="add" name="task" id="view">
-          Add
-        </button>
-        <button type="submit" value="update" name="task" id="view">
-          Update
-        </button>
-        <button type="submit" value="remove" name="task" id="view">
-          Remove
-        </button>
-      </label>
-    </form>
+      </form>
 
-    <!-- Student Time Table -->
-    <button onclick="sTimeTable()" id="s_time_table">s_time_table</button>
-    <form
-      action="./portal"
-      method="POST"
-      id="s_time_table_form"
-      style="display: none;"
-      novalidate
-    >
-      <label for="category">
-        <input
-          type="text"
-          value="s_time_table"
-          name="category"
-          style="display: none;"
-        />
-        <label for="task">
-          <button type="submit" value="view" name="task" id="view">
-            View Table
+      <!-- Batch Subjects -->
+      <button onclick="batchSubjects()" id="batch_subjects">
+        batch_subjects
+      </button>
+      <form
+        action="./portal"
+        method="POST"
+        id="batch_subjects_form"
+        style="display: none;"
+        novalidate
+      >
+        <label for="category">
+          <input
+            type="text"
+            value="batch_subjects"
+            name="category"
+            style="display: none;"
+          />
+          <label for="task">
+            <button type="submit" value="view" name="task" id="view">
+              View Table
+            </button>
+            <button type="submit" value="add" name="task" id="view">
+              Add Data
+            </button>
+            <button onclick="getBatchSubjectsId()" type="button">
+              Edit Table
+            </button>
+          </label>
+        </label>
+        <label for="id" id="batch_subjects_id" style="display: none;">
+          <input type="text" placeholder="Serial No." name="id" required />
+        </label>
+        <label for="submit" id="batch_subjects_submit" style="display: none;">
+          <button type="submit" value="update" name="task" id="view">
+            Update
           </button>
+          <button type="submit" value="remove" name="task" id="view">
+            Remove
+          </button>
+        </label>
+      </form>
+
+      <!-- Branch -->
+      <button onclick="branch()" id="branch">branch</button>
+      <form
+        action="./portal"
+        method="POST"
+        id="branch_form"
+        style="display: none;"
+        novalidate
+      >
+        <label for="category">
+          <input
+            type="text"
+            value="branch"
+            name="category"
+            style="display: none;"
+          />
+          <label for="task">
+            <button type="submit" value="view" name="task" id="view">
+              View Table
+            </button>
+            <button onclick="getBranchId()" type="button">
+              Edit Table
+            </button>
+          </label>
+        </label>
+        <label for="id" id="branch_id" style="display: none;">
+          <input type="text" placeholder="Id" name="id" required />
+        </label>
+        <label for="submit" id="branch_submit" style="display: none;">
           <button type="submit" value="add" name="task" id="view">
-            Add Data
+            Add
           </button>
-          <button onclick="getSTimeTableId()" type="button">
-            Edit Table
+          <button type="submit" value="update" name="task" id="view">
+            Update
+          </button>
+          <button type="submit" value="remove" name="task" id="view">
+            Remove
           </button>
         </label>
-      </label>
-      <label for="id" id="s_time_table_id" style="display: none;">
-        <input type="text" placeholder="Serial No." name="id" required />
-      </label>
-      <label for="submit" id="s_time_table_submit" style="display: none;">
-        <button type="submit" value="update" name="task" id="view">
-          Update
-        </button>
-        <button type="submit" value="remove" name="task" id="view">
-          Remove
-        </button>
-      </label>
-    </form>
+      </form>
 
-    <!-- Theory Grades -->
-    <button onclick="tGrades()" id="t_grades">t_grades</button>
-    <form
-      action="./portal"
-      method="POST"
-      id="t_grades_form"
-      style="display: none;"
-      novalidate
-    >
-      <label for="category">
-        <input
-          type="text"
-          value="t_grades"
-          name="category"
-          style="display: none;"
-        />
-        <label for="task">
-          <button type="submit" value="view" name="task" id="view">
-            View Table
-          </button>
+      <!-- Club -->
+      <button onclick="club()" id="club">club</button>
+      <form
+        action="./portal"
+        method="POST"
+        id="club_form"
+        style="display: none;"
+        novalidate
+      >
+        <label for="category">
+          <input
+            type="text"
+            value="club"
+            name="category"
+            style="display: none;"
+          />
+          <label for="task">
+            <button type="submit" value="view" name="task" id="view">
+              View Table
+            </button>
+            <button onclick="getClubId()" type="button">
+              Edit Table
+            </button>
+          </label>
+        </label>
+        <label for="id" id="club_id" style="display: none;">
+          <input type="text" placeholder="Id" name="id" required />
+        </label>
+        <label for="submit" id="club_submit" style="display: none;">
           <button type="submit" value="add" name="task" id="view">
-            Add Data
+            Add
           </button>
-          <button onclick="getTGradesId()" type="button">
-            Edit Table
+          <button type="submit" value="update" name="task" id="view">
+            Update
+          </button>
+          <button type="submit" value="remove" name="task" id="view">
+            Remove
           </button>
         </label>
-      </label>
-      <label for="id" id="t_grades_id" style="display: none;">
-        <input type="text" placeholder="Serial No." name="id" required />
-      </label>
-      <label for="submit" id="t_grades_submit" style="display: none;">
-        <button type="submit" value="update" name="task" id="view">
-          Update
-        </button>
-        <button type="submit" value="remove" name="task" id="view">
-          Remove
-        </button>
-      </label>
-    </form>
+      </form>
+
+      <!-- Faculty -->
+      <button onclick="faculty()" id="faculty">faculty</button>
+      <form
+        action="./portal"
+        method="POST"
+        id="faculty_form"
+        style="display: none;"
+        novalidate
+      >
+        <label for="category">
+          <input
+            type="text"
+            value="faculty"
+            name="category"
+            style="display: none;"
+          />
+          <label for="task">
+            <button type="submit" value="view" name="task" id="view">
+              View Table
+            </button>
+            <button onclick="getFacultyId()" type="button">
+              Edit Table
+            </button>
+          </label>
+        </label>
+        <label for="id" id="faculty_id" style="display: none;">
+          <input type="text" placeholder="Id" name="id" required />
+        </label>
+        <label for="submit" id="faculty_submit" style="display: none;">
+          <button type="submit" value="add" name="task" id="view">
+            Add
+          </button>
+          <button type="submit" value="update" name="task" id="view">
+            Update
+          </button>
+          <button type="submit" value="remove" name="task" id="view">
+            Remove
+          </button>
+        </label>
+      </form>
+
+      <!-- Funds -->
+      <button onclick="funds()" id="funds">funds</button>
+      <form
+        action="./portal"
+        method="POST"
+        id="funds_form"
+        style="display: none;"
+        novalidate
+      >
+        <label for="category">
+          <input
+            type="text"
+            value="funds"
+            name="category"
+            style="display: none;"
+          />
+          <label for="task">
+            <button type="submit" value="view" name="task" id="view">
+              View Table
+            </button>
+            <button type="submit" value="add" name="task" id="view">
+              Add Data
+            </button>
+            <button onclick="getFundsId()" type="button">
+              Edit Table
+            </button>
+          </label>
+        </label>
+        <label for="id" id="funds_id" style="display: none;">
+          <input type="text" placeholder="Serial No." name="id" required />
+        </label>
+        <label for="submit" id="funds_submit" style="display: none;">
+          <button type="submit" value="update" name="task" id="view">
+            Update
+          </button>
+          <button type="submit" value="remove" name="task" id="view">
+            Remove
+          </button>
+        </label>
+      </form>
+
+      <!-- Faculty Time Table -->
+      <button onclick="fTimeTable()" id="f_time_table">f_time_table</button>
+      <form
+        action="./portal"
+        method="POST"
+        id="f_time_table_form"
+        style="display: none;"
+        novalidate
+      >
+        <label for="category">
+          <input
+            type="text"
+            value="f_time_table"
+            name="category"
+            style="display: none;"
+          />
+          <label for="task">
+            <button type="submit" value="view" name="task" id="view">
+              View Table
+            </button>
+            <button type="submit" value="add" name="task" id="view">
+              Add Data
+            </button>
+            <button onclick="getFTimeTableId()" type="button">
+              Edit Table
+            </button>
+          </label>
+        </label>
+        <label for="id" id="f_time_table_id" style="display: none;">
+          <input type="text" placeholder="Serial No." name="id" required />
+        </label>
+        <label for="submit" id="f_time_table_submit" style="display: none;">
+          <button type="submit" value="update" name="task" id="view">
+            Update
+          </button>
+          <button type="submit" value="remove" name="task" id="view">
+            Remove
+          </button>
+        </label>
+      </form>
+
+      <!-- Hostel -->
+      <button onclick="hostel()" id="hostel">hostel</button>
+      <form
+        action="./portal"
+        method="POST"
+        id="hostel_form"
+        style="display: none;"
+        novalidate
+      >
+        <label for="category">
+          <input
+            type="text"
+            value="hostel"
+            name="category"
+            style="display: none;"
+          />
+          <label for="task">
+            <button type="submit" value="view" name="task" id="view">
+              View Table
+            </button>
+            <button onclick="getHostelId()" type="button">
+              Edit Table
+            </button>
+          </label>
+        </label>
+        <label for="id" id="hostel_id" style="display: none;">
+          <input type="text" placeholder="Id" name="id" required />
+        </label>
+        <label for="submit" id="hostel_submit" style="display: none;">
+          <button type="submit" value="add" name="task" id="view">
+            Add
+          </button>
+          <button type="submit" value="update" name="task" id="view">
+            Update
+          </button>
+          <button type="submit" value="remove" name="task" id="view">
+            Remove
+          </button>
+        </label>
+      </form>
+
+      <!-- Lab Grades -->
+      <button onclick="lGrades()" id="l_grades">l_grades</button>
+      <form
+        action="./portal"
+        method="POST"
+        id="l_grades_form"
+        style="display: none;"
+        novalidate
+      >
+        <label for="category">
+          <input
+            type="text"
+            value="l_grades"
+            name="category"
+            style="display: none;"
+          />
+          <label for="task">
+            <button type="submit" value="view" name="task" id="view">
+              View Table
+            </button>
+            <button type="submit" value="add" name="task" id="view">
+              Add Data
+            </button>
+            <button onclick="getLGradesId()" type="button">
+              Edit Table
+            </button>
+          </label>
+        </label>
+        <label for="id" id="l_grades_id" style="display: none;">
+          <input type="text" placeholder="Serial No." name="id" required />
+        </label>
+        <label for="submit" id="l_grades_submit" style="display: none;">
+          <button type="submit" value="update" name="task" id="view">
+            Update
+          </button>
+          <button type="submit" value="remove" name="task" id="view">
+            Remove
+          </button>
+        </label>
+      </form>
+
+      <!-- Maximum Lab Grades -->
+      <button onclick="maxLGrades()" id="max_l_grades">max_l_grades</button>
+      <form
+        action="./portal"
+        method="POST"
+        id="max_l_grades_form"
+        style="display: none;"
+        novalidate
+      >
+        <label for="category">
+          <input
+            type="text"
+            value="max_l_grades"
+            name="category"
+            style="display: none;"
+          />
+          <label for="task">
+            <button type="submit" value="view" name="task" id="view">
+              View Table
+            </button>
+            <button onclick="getMaxLGradesId()" type="button">
+              Edit Table
+            </button>
+          </label>
+        </label>
+        <label for="id" id="max_l_grades_id" style="display: none;">
+          <input type="text" placeholder="Id" name="id" required />
+        </label>
+        <label for="submit" id="max_l_grades_submit" style="display: none;">
+          <button type="submit" value="add" name="task" id="view">
+            Add
+          </button>
+          <button type="submit" value="update" name="task" id="view">
+            Update
+          </button>
+          <button type="submit" value="remove" name="task" id="view">
+            Remove
+          </button>
+        </label>
+      </form>
+
+      <!-- Maximum Theory Grades -->
+      <button onclick="maxTGrades()" id="max_t_grades">max_t_grades</button>
+      <form
+        action="./portal"
+        method="POST"
+        id="max_t_grades_form"
+        style="display: none;"
+        novalidate
+      >
+        <label for="category">
+          <input
+            type="text"
+            value="max_t_grades"
+            name="category"
+            style="display: none;"
+          />
+          <label for="task">
+            <button type="submit" value="view" name="task" id="view">
+              View Table
+            </button>
+            <button onclick="getMaxTGradesId()" type="button">
+              Edit Table
+            </button>
+          </label>
+        </label>
+        <label for="id" id="max_t_grades_id" style="display: none;">
+          <input type="text" placeholder="Id" name="id" required />
+        </label>
+        <label for="submit" id="max_t_grades_submit" style="display: none;">
+          <button type="submit" value="add" name="task" id="view">
+            Add
+          </button>
+          <button type="submit" value="update" name="task" id="view">
+            Update
+          </button>
+          <button type="submit" value="remove" name="task" id="view">
+            Remove
+          </button>
+        </label>
+      </form>
+
+      <!-- Research -->
+      <button onclick="research()" id="research">research</button>
+      <form
+        action="./portal"
+        method="POST"
+        id="research_form"
+        style="display: none;"
+        novalidate
+      >
+        <label for="category">
+          <input
+            type="text"
+            value="research"
+            name="category"
+            style="display: none;"
+          />
+          <label for="task">
+            <button type="submit" value="view" name="task" id="view">
+              View Table
+            </button>
+            <button onclick="getResearchId()" type="button">
+              Edit Table
+            </button>
+          </label>
+        </label>
+        <label for="id" id="research_id" style="display: none;">
+          <input type="text" placeholder="Id" name="id" required />
+        </label>
+        <label for="submit" id="research_submit" style="display: none;">
+          <button type="submit" value="add" name="task" id="view">
+            Add
+          </button>
+          <button type="submit" value="update" name="task" id="view">
+            Update
+          </button>
+          <button type="submit" value="remove" name="task" id="view">
+            Remove
+          </button>
+        </label>
+      </form>
+
+      <!-- Research Assistants -->
+      <button onclick="researchAssistants()" id="research_assistants">
+        research_assistants
+      </button>
+      <form
+        action="./portal"
+        method="POST"
+        id="research_assistants_form"
+        style="display: none;"
+        novalidate
+      >
+        <label for="category">
+          <input
+            type="text"
+            value="research_assistants"
+            name="category"
+            style="display: none;"
+          />
+          <label for="task">
+            <button type="submit" value="view" name="task" id="view">
+              View Table
+            </button>
+            <button type="submit" value="add" name="task" id="view">
+              Add Data
+            </button>
+            <button onclick="getResearchAssistantsId()" type="button">
+              Edit Table
+            </button>
+          </label>
+        </label>
+        <label for="id" id="research_assistants_id" style="display: none;">
+          <input type="text" placeholder="Serial No." name="id" required />
+        </label>
+        <label
+          for="submit"
+          id="research_assistants_submit"
+          style="display: none;"
+        >
+          <button type="submit" value="update" name="task" id="view">
+            Update
+          </button>
+          <button type="submit" value="remove" name="task" id="view">
+            Remove
+          </button>
+        </label>
+      </form>
+
+      <!-- Research Proposers -->
+      <button onclick="researchProposers()" id="research_proposers">
+        research_proposers
+      </button>
+      <form
+        action="./portal"
+        method="POST"
+        id="research_proposers_form"
+        style="display: none;"
+        novalidate
+      >
+        <label for="category">
+          <input
+            type="text"
+            value="research_proposers"
+            name="category"
+            style="display: none;"
+          />
+          <label for="task">
+            <button type="submit" value="view" name="task" id="view">
+              View Table
+            </button>
+            <button type="submit" value="add" name="task" id="view">
+              Add Data
+            </button>
+            <button onclick="getResearchProposersId()" type="button">
+              Edit Table
+            </button>
+          </label>
+        </label>
+        <label for="id" id="research_proposers_id" style="display: none;">
+          <input type="text" placeholder="Serial No." name="id" required />
+        </label>
+        <label
+          for="submit"
+          id="research_proposers_submit"
+          style="display: none;"
+        >
+          <button type="submit" value="update" name="task" id="view">
+            Update
+          </button>
+          <button type="submit" value="remove" name="task" id="view">
+            Remove
+          </button>
+        </label>
+      </form>
+
+      <!-- Student -->
+      <button onclick="student()" id="student">student</button>
+      <form
+        action="./portal"
+        method="POST"
+        id="student_form"
+        style="display: none;"
+        novalidate
+      >
+        <label for="category">
+          <input
+            type="text"
+            value="student"
+            name="category"
+            style="display: none;"
+          />
+          <label for="task">
+            <button type="submit" value="view" name="task" id="view">
+              View Table
+            </button>
+            <button onclick="getStudentId()" type="button">
+              Edit Table
+            </button>
+          </label>
+        </label>
+        <label for="id" id="student_id" style="display: none;">
+          <input type="text" placeholder="Id" name="id" required />
+        </label>
+        <label for="submit" id="student_submit" style="display: none;">
+          <button type="submit" value="add" name="task" id="view">
+            Add
+          </button>
+          <button type="submit" value="update" name="task" id="view">
+            Update
+          </button>
+          <button type="submit" value="remove" name="task" id="view">
+            Remove
+          </button>
+        </label>
+      </form>
+
+      <!-- Student Club -->
+      <button onclick="studentClub()" id="student_club">student_club</button>
+      <form
+        action="./portal"
+        method="POST"
+        id="student_club_form"
+        style="display: none;"
+        novalidate
+      >
+        <label for="category">
+          <input
+            type="text"
+            value="student_club"
+            name="category"
+            style="display: none;"
+          />
+          <label for="task">
+            <button type="submit" value="view" name="task" id="view">
+              View Table
+            </button>
+            <button type="submit" value="add" name="task" id="view">
+              Add Data
+            </button>
+            <button onclick="getStudentClubId()" type="button">
+              Edit Table
+            </button>
+          </label>
+        </label>
+        <label for="id" id="student_club_id" style="display: none;">
+          <input type="text" placeholder="Serial No." name="id" required />
+        </label>
+        <label for="submit" id="student_club_submit" style="display: none;">
+          <button type="submit" value="update" name="task" id="view">
+            Update
+          </button>
+          <button type="submit" value="remove" name="task" id="view">
+            Remove
+          </button>
+        </label>
+      </form>
+
+      <!-- Subject -->
+      <button onclick="subject()" id="subject">subject</button>
+      <form
+        action="./portal"
+        method="POST"
+        id="subject_form"
+        style="display: none;"
+        novalidate
+      >
+        <label for="category">
+          <input
+            type="text"
+            value="subject"
+            name="category"
+            style="display: none;"
+          />
+          <label for="task">
+            <button type="submit" value="view" name="task" id="view">
+              View Table
+            </button>
+            <button onclick="getSubjectId()" type="button">
+              Edit Table
+            </button>
+          </label>
+        </label>
+        <label for="id" id="subject_id" style="display: none;">
+          <input type="text" placeholder="Id" name="id" required />
+        </label>
+        <label for="submit" id="subject_submit" style="display: none;">
+          <button type="submit" value="add" name="task" id="view">
+            Add
+          </button>
+          <button type="submit" value="update" name="task" id="view">
+            Update
+          </button>
+          <button type="submit" value="remove" name="task" id="view">
+            Remove
+          </button>
+        </label>
+      </form>
+
+      <!-- Student Time Table -->
+      <button onclick="sTimeTable()" id="s_time_table">s_time_table</button>
+      <form
+        action="./portal"
+        method="POST"
+        id="s_time_table_form"
+        style="display: none;"
+        novalidate
+      >
+        <label for="category">
+          <input
+            type="text"
+            value="s_time_table"
+            name="category"
+            style="display: none;"
+          />
+          <label for="task">
+            <button type="submit" value="view" name="task" id="view">
+              View Table
+            </button>
+            <button type="submit" value="add" name="task" id="view">
+              Add Data
+            </button>
+            <button onclick="getSTimeTableId()" type="button">
+              Edit Table
+            </button>
+          </label>
+        </label>
+        <label for="id" id="s_time_table_id" style="display: none;">
+          <input type="text" placeholder="Serial No." name="id" required />
+        </label>
+        <label for="submit" id="s_time_table_submit" style="display: none;">
+          <button type="submit" value="update" name="task" id="view">
+            Update
+          </button>
+          <button type="submit" value="remove" name="task" id="view">
+            Remove
+          </button>
+        </label>
+      </form>
+
+      <!-- Theory Grades -->
+      <button onclick="tGrades()" id="t_grades">t_grades</button>
+      <form
+        action="./portal"
+        method="POST"
+        id="t_grades_form"
+        style="display: none;"
+        novalidate
+      >
+        <label for="category">
+          <input
+            type="text"
+            value="t_grades"
+            name="category"
+            style="display: none;"
+          />
+          <label for="task">
+            <button type="submit" value="view" name="task" id="view">
+              View Table
+            </button>
+            <button type="submit" value="add" name="task" id="view">
+              Add Data
+            </button>
+            <button onclick="getTGradesId()" type="button">
+              Edit Table
+            </button>
+          </label>
+        </label>
+        <label for="id" id="t_grades_id" style="display: none;">
+          <input type="text" placeholder="Serial No." name="id" required />
+        </label>
+        <label for="submit" id="t_grades_submit" style="display: none;">
+          <button type="submit" value="update" name="task" id="view">
+            Update
+          </button>
+          <button type="submit" value="remove" name="task" id="view">
+            Remove
+          </button>
+        </label>
+      </form>
     </div>
-    
-    <button id="back" onclick="window.location.href = '/super/portal';" >
+
+    <button id="back" onclick="window.location.href = '/super/portal';">
       Go Back
     </button>
 
     <button
-    style="
-      position: absolute;
-      top: 140px;
-      left: 80px;
-      border-radius: 10px;
-      width: 120px;
-      height: 60px;
-    "
-    onclick="window.location.href = './logout;"
-  >
-  Logout
-  </button>
+      style="
+        position: absolute;
+        top: 140px;
+        left: 80px;
+        border-radius: 10px;
+        width: 120px;
+        height: 60px;
+      "
+      onclick="window.location.href = './logout';"
+    >
+      Logout
+    </button>
     <script src="/js/script.js"></script>
   </body>
 </html>
