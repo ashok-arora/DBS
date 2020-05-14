@@ -1,5 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<style>
+
+  button, .bt {
+    box-shadow: 0px 5px 0px 0px #282828;
+    background:linear-gradient(to bottom, #eae0c2 5%, #ccc2a6 100%);
+    background-color:#ebdbb2;
+    border-radius:15px;
+    border:2px solid #282828;
+    cursor:pointer;
+    color:#32302f;
+    font-family: 'Montserrat';
+    font-size:20px;
+    padding:12px 20px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #ffffff;
+    width: 200px;
+  }
+  button, .bt:hover {
+    background:linear-gradient(to bottom, #ccc2a6 5%, #ebdbb2 100%);
+    background-color:#ebdbb2;
+  }
+
+  input[type=text] {
+    font-family: 'Montserrat';
+    font-size:20px;
+    padding: 12px 16px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    background-color:#32302f;
+    border:1px solid #ebdbb2;
+    color: #ebdbb2;
+    border-radius:20px;
+    width: 400px;
+
+  }
+
+  form{
+    margin-top: 0px;
+    margin-left: 300px;
+  }
+
+  #dashboard{
+    margin-top: 50px;
+    margin-left: 30px;
+    width: 1000px;
+    height: 600px;
+    padding: 10px;
+    border: 2px solid #ebdbb2;
+    border-radius: 15px;
+    background-color: #282828;
+    overflow-y:auto;
+  }
+
+  #photo{
+    width: 200px; 
+    height: 200px; 
+    margin-top: 125px; 
+    margin-left: 60px;
+    border-radius: 15px;
+  }
+
+  #info{ 
+    font-family: 'Montserrat';
+    font-size:20px;
+    width:200px;
+    height: 100px; 
+    margin-top: 0; 
+    margin-left: 0;
+  }
+
+  #label{
+    font-size:20px;
+    font-weight: 600;
+  }
+
+  td{
+    min-width: 150px;
+    padding: 0px 20px 0px 20px;
+  }
+
+  input{
+    text-align: center;
+  }
+
+  tr#label:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
+  a{
+    text-decoration: none;
+  }
+
+  bt{
+    width: 200px; 
+    height: 200px; 
+    margin-top: 125px; 
+    margin-left: 60px;
+    border-radius: 15px;
+  }
+
+</style>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,20 +116,15 @@
     <%}%>
     <button
       style="
-        background-color: #282828;
-        border: 1px solid #fabd2f;
-        color: #ebdbb2;
-        padding: 20px 20px;
-        text-align: center;
-        font-size: 20px;
-        position: absolute;
-        top: 50px;
-        left: 80px;
-        border-radius: 10px;
+      position: absolute;
+      top: 30px;
+      left: 80px;
+      border-radius: 10px;
+      width: 140px;
+      height: 60px;
       "
       onclick="window.location.href = '/super/portal';"
-    >
-      Back
+    >Go Back
     </button>
   </body>
 </html>
