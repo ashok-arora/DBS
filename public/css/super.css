@@ -6,8 +6,8 @@
   --space-m: var(--space-root);
   --space-l: calc(var(--space-root) * 1.5);
   --space-xl: calc(var(--space-root) * 2);
-  --color-primary: #ee68da;
-  --color-secondary: #ee68da;
+  --color-primary: #68ee7c;
+  --color-secondary: #68ee7c;
   --color-tertiary: #121212;
   --color-box-hover: #1b1d24;
   --color-box-sides: #332940;
