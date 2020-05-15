@@ -3359,7 +3359,7 @@ router.post("/t_grades", (request, response) => {
 });
 
 router.get("/logout", (request, response) => {
-  if (request.session.user) {
+  if (request.session.superAdmin) {
     request.session.destroy(() => {
       response.redirect("/super/login");
     });
