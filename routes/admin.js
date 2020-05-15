@@ -1351,6 +1351,42 @@ router.post("/subjects_edit", (request, response) => {
   }
 });
 
+// Get request for Admin Password Change
+router.get("/change_password", (request, response) => {
+  if (request.session.admin) {
+    response.render("change_password", {
+      style: "/css/admin_portal.css",
+      req: "./change_password",
+    });
+  }
+});
+
+// Post request for Admin Password Change
+router.post("/change_password", function (request, response) {
+  let { password, newPassword, confirmNewPassword } = request.body;
+  if (newPassword == confirmNewPassword) {
+    if (bcrypt.compareSync(password, fUser.password)) {
+      password = bcrypt.hashSync(password, 10);
+      mySqlConnection.query(
+        "UPDATE admin SET password = ? WHERE admin_id = ?",
+        [bcrypt.hashSync(newPassword, 10), admin.admin_id],
+        (err) => {
+          if (err) response.status(500).send(err);
+          else {
+            newPassword = bcrypt.hashSync(newPassword, 10);
+            confirmNewPassword = bcrypt.hashSync(confirmNewPassword, 10);
+            response.redirect("/admin/logout");
+          }
+        }
+      );
+    } else {
+      response.status(400).send("Wrong Password.");
+    }
+  } else {
+    response.status(400).send("Passwords do not match.");
+  }
+});
+
 router.get("/logout", (request, response) => {
   if (request.session.admin) {
     request.session.destroy(() => {
