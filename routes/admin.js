@@ -498,7 +498,7 @@ router.post("/student_edit", (request, response) => {
                         if (row.subject_code == backlogs[backlogs.length - 1]) {
                           mySqlConnection.query(
                             "INSERT INTO backlogs (subject_code, roll_no) VALUES (?)",
-                            [backlogs[backlogs.length - 1], edit.roll_no],
+                            [[backlogs[backlogs.length - 1], edit.roll_no]],
                             (err) => {
                               if (err) response.status(500).send(err);
                             }
@@ -662,41 +662,12 @@ router.post("/faculty_edit", (request, response) => {
       }
       break;
 
-    case "cgpa":
-      {
-        let cgpa = request.body.cgpa,
-          semester = request.body.semester;
-        mySqlConnection.query(
-          "UPDATE student SET cgpa = ?, semester = ? WHERE roll_no = ?",
-          [cgpa, semester, edit.roll_no],
-          (err) => {
-            if (err) response.status(500).send(err);
-            mySqlConnection.query(
-              "SELECT * FROM faculty WHERE faculty_id = ?",
-              [edit.faculty_id],
-              (err, rows) => {
-                if (err) response.status(500).send(err);
-                edit = rows[0];
-                if (edit) {
-                  request.session.edit = edit;
-                  response.redirect("/admin/faculty_edit");
-                } else {
-                  response.status(400).send("Id does not exist.");
-                }
-              }
-            );
-          }
-        );
-      }
-      break;
-
     case "room":
       {
-        let hostel_no = request.body.hostel_no,
-          room = request.body.room;
+        let room = request.body.room;
         mySqlConnection.query(
-          "UPDATE student SET hostel_no = ?, room = ? WHERE roll_no = ?",
-          [hostel_no, room, edit.roll_no],
+          "UPDATE faculty SET room = ? WHERE faculty_id = ?",
+          [room, edit.faculty_id],
           (err) => {
             if (err) response.status(500).send(err);
             mySqlConnection.query(
@@ -1005,14 +976,14 @@ router.post("/club_edit", (request, response) => {
             );
           }
           if (members[members.length - 1] != "Add") {
-            input =
-              `("` +
-              members[members.length - 1].toString() +
-              `", "` +
-              edit.club_id.toString() +
-              `")`;
+            // input =
+            //   `("` +
+            //   members[members.length - 1].toString() +
+            //   `", "` +
+            //   edit.club_id.toString() +
             mySqlConnection.query(
-              "INSERT INTO student_club (roll_no, club_id) VALUES " + input,
+              "INSERT INTO student_club (roll_no, club_id) VALUES (?)",
+              [members[members.length - 1], edit.club_id],
               (err) => {
                 if (err) response.status(500).send(err);
               }
@@ -1169,15 +1140,15 @@ router.post("/research_edit", (request, response) => {
             );
           }
           if (proposers[proposers.length - 1] != "Add") {
-            input =
-              `("` +
-              proposers[proposers.length - 1].toString() +
-              `", "` +
-              edit.research_id.toString() +
-              `")`;
+            // input =
+            //   `("` +
+            //   proposers[proposers.length - 1].toString() +
+            //   `", "` +
+            //   edit.research_id.toString() +
+            //   `")`;
             mySqlConnection.query(
-              "INSERT INTO research_proposers (faculty_id, research_id) VALUES " +
-                input,
+              "INSERT INTO research_proposers (faculty_id, research_id) VALUES (?)",
+              [proposers[proposers.length - 1], edit.research_id],
               (err) => {
                 if (err) response.status(500).send(err);
               }
@@ -1226,15 +1197,15 @@ router.post("/research_edit", (request, response) => {
             );
           }
           if (students[students.length - 1] != "Add") {
-            input =
-              `("` +
-              students[students.length - 1].toString() +
-              `", "` +
-              edit.research_id.toString() +
-              `")`;
+            // input =
+            //   `("` +
+            //   students[students.length - 1].toString() +
+            //   `", "` +
+            //   edit.research_id.toString() +
+            //   `")`;
             mySqlConnection.query(
-              "INSERT INTO research_assistants (roll_no, research_id) VALUES " +
-                input,
+              "INSERT INTO research_assistants (roll_no, research_id) VALUES (?)",
+              [students[students.length - 1], edit.reseach_id],
               (err) => {
                 if (err) response.status(500).send(err);
               }
@@ -1317,15 +1288,15 @@ router.post("/subjects_edit", (request, response) => {
             );
           }
           if (subjects[subjects.length - 1] != "Add") {
-            input =
-              `("` +
-              subjects[subjects.length - 1].toString() +
-              `", "` +
-              edit.batch_code.toString() +
-              `")`;
+            // input =
+            //   `("` +
+            //   subjects[subjects.length - 1].toString() +
+            //   `", "` +
+            //   edit.batch_code.toString() +
+            //   `")`;
             mySqlConnection.query(
-              "INSERT INTO research_assistants (subject_code, batch_code) VALUES " +
-                input,
+              "INSERT INTO batch_subjects (subject_code, batch_code) VALUES (?)",
+              [subjects[subjects.length - 1], edit.batch_code],
               (err) => {
                 if (err) response.status(500).send(err);
               }
