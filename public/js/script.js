@@ -343,7 +343,7 @@ function branch() {
   document.getElementById("backlogs").style.display = "none";
   document.getElementById("batch").style.display = "none";
   document.getElementById("batch_subjects").style.display = "none";
-  document.getElementById(assignment).style.display = "none";
+  document.getElementById("assignment").style.display = "none";
   document.getElementById("club").style.display = "none";
   document.getElementById("faculty").style.display = "none";
   document.getElementById("funds").style.display = "none";

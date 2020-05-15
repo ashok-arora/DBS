@@ -401,7 +401,7 @@ router.post("/portal", (request, response) => {
                 [id],
                 (err, rows) => {
                   if (err) response.status(500).send(err);
-                  if (rows) {
+                  if (rows.length) {
                     response
                       .status(400)
                       .send(
@@ -2169,7 +2169,7 @@ router.get("/batch_subjects_add", (request, response) => {
 router.post("/batch_subjects_add", (request, response) => {
   let { batch_code, subject_code } = request.body;
   mySqlConnection.query(
-    "INSERT INTO batch_subjects VALUES (?)",
+    "INSERT INTO batch_subjects (batch_code, subject_code) VALUES (?)",
     [[batch_code, subject_code]],
     (err) => {
       if (err) response.status(500).send(err);
@@ -2593,7 +2593,7 @@ router.post("/hostel", (request, response) => {
   } = request.body;
 
   mySqlConnection.query(
-    "UPDATE hostel SET hostel_name = ?, boys_girls = ?, rooms, day_supervisor = ?, night_supervisor = ?, evening_supervisor = ?, mess_head = ? WHERE hostel_number = ?",
+    "UPDATE hostel SET hostel_name = ?, boys_girls = ?, rooms = ?, day_supervisor = ?, night_supervisor = ?, evening_supervisor = ?, mess_head = ? WHERE hostel_number = ?",
     [
       hostel_name,
       boys_girls,
@@ -2630,7 +2630,7 @@ router.post("/l_grades_add", (request, response) => {
     major,
   } = request.body;
   mySqlConnection.query(
-    "INSERT INTO l_grades VALUES (?)",
+    "INSERT INTO l_grades (roll_no, subject_code, assignment_marks, attendance_marks, mid_sem, major) VALUES (?)",
     [
       [
         roll_no,
@@ -2912,7 +2912,7 @@ router.get("/research_proposers_add", (request, response) => {
 router.post("/research_proposers_add", (request, response) => {
   let { research_id, faculty_id } = request.body;
   mySqlConnection.query(
-    "INSERT INTO research_proposers VALUES (?)",
+    "INSERT INTO research_proposers (research_id, faculty_id) VALUES (?)",
     [[research_id, faculty_id]],
     (err) => {
       if (err) response.status(500).send(err);
@@ -3039,7 +3039,7 @@ router.post("/student", (request, response) => {
     batch_code,
   } = request.body;
   mySqlConnection.query(
-    "UPDATE faculty SET f_name = ?, m_name = ?, l_name = ?, gender = ?, dob = ?, cgpa = ?, semester = ?, hostel_no = ?, room = ?, phone = ?, email = ?, batch_code = ? WHERE roll_no = ?",
+    "UPDATE student SET f_name = ?, m_name = ?, l_name = ?, gender = ?, dob = ?, cgpa = ?, semester = ?, hostel_no = ?, room = ?, phone = ?, email = ?, batch_code = ? WHERE roll_no = ?",
     [
       f_name,
       m_name,
@@ -3072,7 +3072,7 @@ router.get("/student_club_add", (request, response) => {
 router.post("/student_club_add", (request, response) => {
   let { roll_no, club_id } = request.body;
   mySqlConnection.query(
-    "INSERT INTO student_club VALUES (?)",
+    "INSERT INTO student_club (roll_no, club_id) VALUES (?)",
     [[roll_no, club_id]],
     (err) => {
       if (err) response.status(500).send(err);
@@ -3293,7 +3293,7 @@ router.post("/t_grades_add", (request, response) => {
     major,
   } = request.body;
   mySqlConnection.query(
-    "INSERT INTO t_grades VALUES (?)",
+    "INSERT INTO t_grades (roll_no, subject_code, assignment_marks, attendance_marks, minor1, minor2, major) VALUES (?)",
     [
       [
         roll_no,
