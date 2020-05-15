@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+
+    :root {
+        --color1: #282828;
+        --color2: #32302f;
+        --sfTileBorder: #ebdbb2;
+    }
+
+    body {
+        background: var(--color2);
+        font-size: 20px;
+        color: #ebdbb2;
+    }
+
+    button,
+    .bt {
+        box-shadow: 0px 5px 0px 0px #282828;
+        background: linear-gradient(to bottom, #eae0c2 5%, #ccc2a6 100%);
+        background-color: #ebdbb2;
+        border-radius: 15px;
+        border: 2px solid #282828;
+        cursor: pointer;
+        color: #32302f;
+        font-family: 'Montserrat';
+        font-size: 20px;
+        padding: 12px 20px;
+        text-decoration: none;
+        text-shadow: 0px 1px 0px #ffffff;
+        width: 200px;
+    }
+
+    button,
+    .bt:hover {
+        background: linear-gradient(to bottom, #ccc2a6 5%, #ebdbb2 100%);
+        background-color: #ebdbb2;
+    }
+
+    input[type=text] {
+        font-family: 'Montserrat';
+        font-size: 20px;
+        padding: 12px 16px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        background-color: #32302f;
+        border: 1px solid #ebdbb2;
+        color: #ebdbb2;
+        border-radius: 20px;
+    }
+
+    form {
+        margin-top: 0px;
+        margin-left: 300px;
+    }
+
+    #dashboard {
+        display: flex;
+        flex-direction: column;
+        width: 1000px;
+        height: 580px;
+        padding: 10px;
+        border: 2px solid #ebdbb2;
+        border-radius: 15px;
+        background-color: #282828;
+        overflow: auto;
+    }
+
+    #photo {
+        width: 200px;
+        height: 200px;
+        margin-top: 125px;
+        margin-left: 60px;
+        border-radius: 15px;
+    }
+
+    #info {
+        font-family: 'Montserrat';
+        font-size: 20px;
+        width: 200px;
+        height: 100px;
+        margin-top: 0;
+        margin-left: 0;
+    }
+
+    #label {
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    td {
+        min-width: 150px;
+        padding: 0px 20px 0px 20px;
+    }
+
+    input {
+        text-align: center;
+    }
+
+    tr#label:hover {
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    bt {
+        width: 200px;
+        height: 200px;
+        margin-top: 125px;
+        margin-left: 60px;
+        border-radius: 15px;
+    }
+
+    #introContainer {
+        background-color: var(--color2);
+        padding: 10px;
+    }
+</style>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Edit</title>
+</head>
+
+<body>
+    <div id="dashboard">
+        <div id="image" style="float:left">
+            <button style="
+          border-radius: 10px;
+          width:150px;" onclick="window.location.href = '/admin/portal';">Go Back</button>
+        </div>
+        <h1>FAQ!</h1>
+        <h3>Q: How are the passwords being stored on the server?</h3>
+        <div id="introContainer">
+            A: None of the passwords are stored on the server, instead a hash generated from the password is stored,
+            everytime a user tries to login, the hash of the entered password is computed and compared with the
+            respective account's password. This method ensured that even in case the server's get compromised, none of
+            the passwords are leaked.
+        </div>
+    </div>
+
+    <!-- Photo -->
+    <!-- <form action="./admin_edit" method="POST">
+      <label for="category">
+        <input
+          type="text"
+          value="photo"
+          name="category"
+          style="display: none;"
+        />
+      </label>
+      <button type="submit">SUBMIT</button>
+    </form> -->
+</body>
+
+</html>
