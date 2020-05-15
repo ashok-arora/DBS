@@ -75,6 +75,7 @@ router.get("/portal", (request, response) => {
       phone: superAdmin.phone,
       email: superAdmin.email,
       photo: superAdmin.photo,
+      style: "/css/admin_portal.css",
     });
   }
 });
@@ -94,6 +95,7 @@ router.post("/portal", (request, response) => {
                 if (rows) {
                   response.render("table", {
                     table: rows,
+                    style: "/css/admin_portal.css",
                   });
                 } else {
                   response.status(400).send("Table is empty.");
@@ -166,6 +168,7 @@ router.post("/portal", (request, response) => {
                 if (rows) {
                   response.render("table", {
                     table: rows,
+                    style: "/css/admin_portal.css",
                   });
                 } else {
                   response.status(400).send("Table is empty.");
@@ -225,6 +228,7 @@ router.post("/portal", (request, response) => {
                 if (rows) {
                   response.render("table", {
                     table: rows,
+                    style: "/css/admin_portal.css",
                   });
                 } else {
                   response.status(400).send("Table is empty.");
@@ -284,6 +288,7 @@ router.post("/portal", (request, response) => {
                 if (rows) {
                   response.render("table", {
                     table: rows,
+                    style: "/css/admin_portal.css",
                   });
                 } else {
                   response.status(400).send("Table is empty.");
@@ -343,6 +348,7 @@ router.post("/portal", (request, response) => {
                 if (rows.length) {
                   response.render("table", {
                     table: rows,
+                    style: "/css/admin_portal.css",
                   });
                 } else {
                   response.status(400).send("Table is empty.");
@@ -395,7 +401,7 @@ router.post("/portal", (request, response) => {
                 [id],
                 (err, rows) => {
                   if (err) response.status(500).send(err);
-                  if (rows) {
+                  if (rows.length) {
                     response
                       .status(400)
                       .send(
@@ -446,6 +452,7 @@ router.post("/portal", (request, response) => {
                   if (rows) {
                     response.render("table", {
                       table: rows,
+                      style: "/css/admin_portal.css",
                     });
                   } else {
                     response.status(400).send("Table is empty.");
@@ -506,6 +513,7 @@ router.post("/portal", (request, response) => {
                 if (rows) {
                   response.render("table", {
                     table: rows,
+                    style: "/css/admin_portal.css",
                   });
                 } else {
                   response.status(400).send("Table is empty.");
@@ -593,6 +601,7 @@ router.post("/portal", (request, response) => {
                 if (rows) {
                   response.render("table", {
                     table: rows,
+                    style: "/css/admin_portal.css",
                   });
                 } else {
                   response.status(400).send("Table is empty.");
@@ -672,6 +681,7 @@ router.post("/portal", (request, response) => {
                 if (rows) {
                   response.render("table", {
                     table: rows,
+                    style: "/css/admin_portal.css",
                   });
                 } else {
                   response.status(400).send("Table is empty.");
@@ -804,6 +814,7 @@ router.post("/portal", (request, response) => {
                 if (rows) {
                   response.render("table", {
                     table: rows,
+                    style: "/css/admin_portal.css",
                   });
                 } else {
                   response.status(400).send("Table is empty.");
@@ -865,6 +876,7 @@ router.post("/portal", (request, response) => {
                   if (rows) {
                     response.render("table", {
                       table: rows,
+                      style: "/css/admin_portal.css",
                     });
                   } else {
                     response.status(400).send("Table is empty.");
@@ -925,6 +937,7 @@ router.post("/portal", (request, response) => {
                 if (rows) {
                   response.render("table", {
                     table: rows,
+                    style: "/css/admin_portal.css",
                   });
                 } else {
                   response.status(400).send("Table is empty.");
@@ -1012,6 +1025,7 @@ router.post("/portal", (request, response) => {
                 if (rows) {
                   response.render("table", {
                     table: rows,
+                    style: "/css/admin_portal.css",
                   });
                 } else {
                   response.status(400).send("Table is empty.");
@@ -1073,6 +1087,7 @@ router.post("/portal", (request, response) => {
                   if (rows) {
                     response.render("table", {
                       table: rows,
+                      style: "/css/admin_portal.css",
                     });
                   } else {
                     response.status(400).send("Table is empty.");
@@ -1148,6 +1163,7 @@ router.post("/portal", (request, response) => {
                   if (rows) {
                     response.render("table", {
                       table: rows,
+                      style: "/css/admin_portal.css",
                     });
                   } else {
                     response.status(400).send("Table is empty.");
@@ -1221,6 +1237,7 @@ router.post("/portal", (request, response) => {
                 if (rows) {
                   response.render("table", {
                     table: rows,
+                    style: "/css/admin_portal.css",
                   });
                 } else {
                   response.status(400).send("Table is empty.");
@@ -1316,6 +1333,7 @@ router.post("/portal", (request, response) => {
                   if (rows) {
                     response.render("table", {
                       table: rows,
+                      style: "/css/admin_portal.css",
                     });
                   } else {
                     response.status(400).send("Table is empty.");
@@ -1378,6 +1396,7 @@ router.post("/portal", (request, response) => {
                   if (rows) {
                     response.render("table", {
                       table: rows,
+                      style: "/css/admin_portal.css",
                     });
                   } else {
                     response.status(400).send("Table is empty.");
@@ -1438,6 +1457,7 @@ router.post("/portal", (request, response) => {
                 if (rows) {
                   response.render("table", {
                     table: rows,
+                    style: "/css/admin_portal.css",
                   });
                 } else {
                   response.status(400).send("Table is empty.");
@@ -1556,6 +1576,7 @@ router.post("/portal", (request, response) => {
                   if (rows) {
                     response.render("table", {
                       table: rows,
+                      style: "/css/admin_portal.css",
                     });
                   } else {
                     response.status(400).send("Table is empty.");
@@ -1616,6 +1637,7 @@ router.post("/portal", (request, response) => {
                 if (rows) {
                   response.render("table", {
                     table: rows,
+                    style: "/css/admin_portal.css",
                   });
                 } else {
                   response.status(400).send("Table is empty.");
@@ -1783,6 +1805,7 @@ router.post("/portal", (request, response) => {
                   if (rows) {
                     response.render("table", {
                       table: rows,
+                      style: "/css/admin_portal.css",
                     });
                   } else {
                     response.status(400).send("Table is empty.");
@@ -1843,6 +1866,7 @@ router.post("/portal", (request, response) => {
                 if (rows) {
                   response.render("table", {
                     table: rows,
+                    style: "/css/admin_portal.css",
                   });
                 } else {
                   response.status(400).send("Table is empty.");
@@ -1892,7 +1916,7 @@ router.post("/portal", (request, response) => {
       break;
 
     default:
-      response.render("/super/portal");
+      response.redirect("/super/portal");
   }
 });
 
@@ -1901,6 +1925,7 @@ router.get("/admin_add", (request, response) => {
   // Rendering Page
   response.render("admin_add", {
     admin_id: add_id,
+    style: "/css/admin_portal.css",
   });
 });
 
@@ -1932,6 +1957,7 @@ router.get("/admin", (request, response) => {
     Email: edit.Email,
     phone: edit.phone,
     photo: edit.photo,
+    style: "/css/admin_portal.css",
   });
 });
 
@@ -1951,7 +1977,9 @@ router.post("/admin", (request, response) => {
 // Get request for adding assignment data
 router.get("/assignment_add", (request, response) => {
   // Rendering Page
-  response.render("assignment_add", {});
+  response.render("assignment_add", {
+    style: "/css/admin_portal.css",
+  });
 });
 
 // Post request for adding assignment data
@@ -1974,6 +2002,7 @@ router.get("/assignment", (request, response) => {
     s_no: edit.s_no,
     subject_code: edit.subject_code,
     assignment_name: edit.assignment_name,
+    style: "/css/admin_portal.css",
     due_date: convertDate(edit.due_date),
   });
 });
@@ -1994,7 +2023,9 @@ router.post("/assignment", (request, response) => {
 // Get request for adding attendance data
 router.get("/attendance_add", (request, response) => {
   // Rendering Page
-  response.render("attendance_add", {});
+  response.render("attendance_add", {
+    style: "/css/admin_portal.css",
+  });
 });
 
 // Post request for adding attendance data
@@ -2018,6 +2049,7 @@ router.get("/attendance", (request, response) => {
     roll_no: edit.roll_no,
     subject_code: edit.subject_code,
     attendance: edit.attendance,
+    style: "/css/admin_portal.css",
   });
 });
 
@@ -2037,7 +2069,9 @@ router.post("/attendance", (request, response) => {
 // Get request for adding backlogs data
 router.get("/backlogs_add", (request, response) => {
   // Rendering Page
-  response.render("backlogs_add", {});
+  response.render("backlogs_add", {
+    style: "/css/admin_portal.css",
+  });
 });
 
 // Post request for adding backlogs data
@@ -2060,6 +2094,7 @@ router.get("/backlogs", (request, response) => {
     s_no: edit.s_no,
     roll_no: edit.roll_no,
     subject_code: edit.subject_code,
+    style: "/css/admin_portal.css",
   });
 });
 
@@ -2081,6 +2116,7 @@ router.get("/batch_add", (request, response) => {
   // Rendering Page
   response.render("batch_add", {
     batch_code: add_id,
+    style: "/css/admin_portal.css",
   });
 });
 
@@ -2103,6 +2139,7 @@ router.get("/batch", (request, response) => {
   response.render("batch", {
     batch_code: edit.batch_code,
     branch_id: edit.branch_id,
+    style: "/css/admin_portal.css",
   });
 });
 
@@ -2123,14 +2160,16 @@ router.post("/batch", (request, response) => {
 // Get request for adding batch_subjects data
 router.get("/batch_subjects_add", (request, response) => {
   // Rendering Page
-  response.render("batch_subjects_add", {});
+  response.render("batch_subjects_add", {
+    style: "/css/admin_portal.css",
+  });
 });
 
 // Post request for adding batch_subjects data
 router.post("/batch_subjects_add", (request, response) => {
   let { batch_code, subject_code } = request.body;
   mySqlConnection.query(
-    "INSERT INTO batch_subjects VALUES (?)",
+    "INSERT INTO batch_subjects (batch_code, subject_code) VALUES (?)",
     [[batch_code, subject_code]],
     (err) => {
       if (err) response.status(500).send(err);
@@ -2146,6 +2185,7 @@ router.get("/batch_subjects", (request, response) => {
     s_no: edit.s_no,
     batch_code: edit.batch_code,
     subject_code: edit.subject_code,
+    style: "/css/admin_portal.css",
   });
 });
 
@@ -2167,6 +2207,7 @@ router.get("/branch_add", (request, response) => {
   // Rendering Page
   response.render("branch_add", {
     branch_id: add_id,
+    style: "/css/admin_portal.css",
   });
 });
 
@@ -2189,6 +2230,7 @@ router.get("/branch", (request, response) => {
   response.render("branch", {
     branch_id: edit.branch_id,
     branch_name: edit.branch_name,
+    style: "/css/admin_portal.css",
   });
 });
 
@@ -2211,6 +2253,7 @@ router.get("/club_add", (request, response) => {
   // Rendering Page
   response.render("club_add", {
     club_id: add_id,
+    style: "/css/admin_portal.css",
   });
 });
 
@@ -2235,6 +2278,7 @@ router.get("/club", (request, response) => {
     club_name: edit.club_name,
     club_room_no: edit.club_room_no,
     faculty_coordinator: edit.faculty_coordinator,
+    style: "/css/admin_portal.css",
   });
 });
 
@@ -2257,6 +2301,7 @@ router.get("/faculty_add", (request, response) => {
   // Rendering Page
   response.render("faculty_add", {
     faculty_id: add_id,
+    style: "/css/admin_portal.css",
   });
 });
 
@@ -2318,6 +2363,7 @@ router.get("/faculty", (request, response) => {
     post: edit.post,
     branch_id: edit.branch_id,
     photo: edit.photo,
+    style: "/css/admin_portal.css",
   });
 });
 
@@ -2360,7 +2406,9 @@ router.post("/faculty", (request, response) => {
 // Get request for adding funds data
 router.get("/funds_add", (request, response) => {
   // Rendering Page
-  response.render("funds_add", {});
+  response.render("funds_add", {
+    style: "/css/admin_portal.css",
+  });
 });
 
 // Post request for adding funds data
@@ -2383,6 +2431,7 @@ router.get("/funds", (request, response) => {
     s_no: edit.s_no,
     organization: edit.organization,
     research_id: edit.research_id,
+    style: "/css/admin_portal.css",
   });
 });
 
@@ -2402,7 +2451,9 @@ router.post("/funds", (request, response) => {
 // Get request for adding f_time_table data
 router.get("/f_time_table_add", (request, response) => {
   // Rendering Page
-  response.render("f_time_table_add", {});
+  response.render("f_time_table_add", {
+    style: "/css/admin_portal.css",
+  });
 });
 
 // Post request for adding f_time_table data
@@ -2444,6 +2495,7 @@ router.get("/f_time_table", (request, response) => {
     t_3: edit.t_3,
     t_4: edit.t_4,
     t_5: edit.t_5,
+    style: "/css/admin_portal.css",
   });
 });
 
@@ -2476,6 +2528,7 @@ router.get("/hostel_add", (request, response) => {
   // Rendering Page
   response.render("hostel_add", {
     hostel_number_id: add_id,
+    style: "/css/admin_portal.css",
   });
 });
 
@@ -2523,6 +2576,7 @@ router.get("/hostel", (request, response) => {
     night_supervisor: edit.night_supervisor,
     evening_supervisor: edit.evening_supervisor,
     mess_head: edit.mess_head,
+    style: "/css/admin_portal.css",
   });
 });
 
@@ -2539,7 +2593,7 @@ router.post("/hostel", (request, response) => {
   } = request.body;
 
   mySqlConnection.query(
-    "UPDATE hostel SET hostel_name = ?, boys_girls = ?, rooms, day_supervisor = ?, night_supervisor = ?, evening_supervisor = ?, mess_head = ? WHERE hostel_number = ?",
+    "UPDATE hostel SET hostel_name = ?, boys_girls = ?, rooms = ?, day_supervisor = ?, night_supervisor = ?, evening_supervisor = ?, mess_head = ? WHERE hostel_number = ?",
     [
       hostel_name,
       boys_girls,
@@ -2560,7 +2614,9 @@ router.post("/hostel", (request, response) => {
 // Get request for adding l_grades data
 router.get("/l_grades_add", (request, response) => {
   // Rendering Page
-  response.render("l_grades_add", {});
+  response.render("l_grades_add", {
+    style: "/css/admin_portal.css",
+  });
 });
 
 // Post request for adding l_grades data
@@ -2574,7 +2630,7 @@ router.post("/l_grades_add", (request, response) => {
     major,
   } = request.body;
   mySqlConnection.query(
-    "INSERT INTO l_grades VALUES (?)",
+    "INSERT INTO l_grades (roll_no, subject_code, assignment_marks, attendance_marks, mid_sem, major) VALUES (?)",
     [
       [
         roll_no,
@@ -2603,6 +2659,7 @@ router.get("/l_grades", (request, response) => {
     attendance_marks: edit.attendance_marks,
     mid_sem: edit.mid_sem,
     major: edit.major,
+    style: "/css/admin_portal.css",
   });
 });
 
@@ -2639,6 +2696,7 @@ router.get("/max_l_grades_add", (request, response) => {
   // Rendering Page
   response.render("max_l_grades_add", {
     subject_code: add_id,
+    style: "/css/admin_portal.css",
   });
 });
 
@@ -2664,6 +2722,7 @@ router.get("/max_l_grades", (request, response) => {
     attendance_marks: edit.attendance_marks,
     mid_sem: edit.mid_sem,
     major: edit.major,
+    style: "/css/admin_portal.css",
   });
 });
 
@@ -2686,6 +2745,7 @@ router.get("/max_t_grades_add", (request, response) => {
   // Rendering Page
   response.render("max_t_grades_add", {
     subject_code: add_id,
+    style: "/css/admin_portal.css",
   });
 });
 
@@ -2718,6 +2778,7 @@ router.get("/max_t_grades", (request, response) => {
     minor1: edit.minor1,
     minor2: edit.minor2,
     major: edit.major,
+    style: "/css/admin_portal.css",
   });
 });
 
@@ -2753,6 +2814,7 @@ router.get("/research_add", (request, response) => {
   // Rendering Page
   response.render("research_add", {
     research_id: add_id,
+    style: "/css/admin_portal.css",
   });
 });
 
@@ -2777,6 +2839,7 @@ router.get("/research", (request, response) => {
     research_name: edit.research_name,
     expected_completion_date: convertDate(edit.expected_completion_date),
     room: edit.room,
+    style: "/css/admin_portal.css",
   });
 });
 
@@ -2797,7 +2860,9 @@ router.post("/research", (request, response) => {
 // Get request for adding research_assistants data
 router.get("/research_assistants_add", (request, response) => {
   // Rendering Page
-  response.render("research_assistants_add", {});
+  response.render("research_assistants_add", {
+    style: "/css/admin_portal.css",
+  });
 });
 
 // Post request for adding research_assistants data
@@ -2820,6 +2885,7 @@ router.get("/research_assistants", (request, response) => {
     s_no: edit.s_no,
     roll_no: edit.roll_no,
     research_id: edit.research_id,
+    style: "/css/admin_portal.css",
   });
 });
 
@@ -2839,14 +2905,14 @@ router.post("/research_assistants", (request, response) => {
 // Get request for adding research_proposers data
 router.get("/research_proposers_add", (request, response) => {
   // Rendering Page
-  response.render("research_proposers_add", {});
+  response.render("research_proposers_add", { style: "/css/admin_portal.css" });
 });
 
 // Post request for adding research_proposers data
 router.post("/research_proposers_add", (request, response) => {
   let { research_id, faculty_id } = request.body;
   mySqlConnection.query(
-    "INSERT INTO research_proposers VALUES (?)",
+    "INSERT INTO research_proposers (research_id, faculty_id) VALUES (?)",
     [[research_id, faculty_id]],
     (err) => {
       if (err) response.status(500).send(err);
@@ -2862,6 +2928,7 @@ router.get("/research_proposers", (request, response) => {
     s_no: edit.s_no,
     research_id: edit.research_id,
     faculty_id: edit.faculty_id,
+    style: "/css/admin_portal.css",
   });
 });
 
@@ -2883,6 +2950,7 @@ router.get("/student_add", (request, response) => {
   // Rendering Page
   response.render("student_add", {
     roll_no: add_id,
+    style: "/css/admin_portal.css",
   });
 });
 
@@ -2950,6 +3018,7 @@ router.get("/student", (request, response) => {
     email: edit.email,
     batch_code: edit.batch_code,
     photo: edit.photo,
+    style: "/css/admin_portal.css",
   });
 });
 
@@ -2970,7 +3039,7 @@ router.post("/student", (request, response) => {
     batch_code,
   } = request.body;
   mySqlConnection.query(
-    "UPDATE faculty SET f_name = ?, m_name = ?, l_name = ?, gender = ?, dob = ?, cgpa = ?, semester = ?, hostel_no = ?, room = ?, phone = ?, email = ?, batch_code = ? WHERE roll_no = ?",
+    "UPDATE student SET f_name = ?, m_name = ?, l_name = ?, gender = ?, dob = ?, cgpa = ?, semester = ?, hostel_no = ?, room = ?, phone = ?, email = ?, batch_code = ? WHERE roll_no = ?",
     [
       f_name,
       m_name,
@@ -2996,14 +3065,14 @@ router.post("/student", (request, response) => {
 // Get request for adding student_club data
 router.get("/student_club_add", (request, response) => {
   // Rendering Page
-  response.render("student_club_add", {});
+  response.render("student_club_add", { style: "/css/admin_portal.css" });
 });
 
 // Post request for adding student_club data
 router.post("/student_club_add", (request, response) => {
   let { roll_no, club_id } = request.body;
   mySqlConnection.query(
-    "INSERT INTO student_club VALUES (?)",
+    "INSERT INTO student_club (roll_no, club_id) VALUES (?)",
     [[roll_no, club_id]],
     (err) => {
       if (err) response.status(500).send(err);
@@ -3019,6 +3088,7 @@ router.get("/student_club", (request, response) => {
     s_no: edit.s_no,
     roll_no: edit.roll_no,
     club_id: edit.club_id,
+    style: "/css/admin_portal.css",
   });
 });
 
@@ -3040,6 +3110,7 @@ router.get("/subject_add", (request, response) => {
   // Rendering Page
   response.render("subject_add", {
     subject_code: add_id,
+    style: "/css/admin_portal.css",
   });
 });
 
@@ -3093,6 +3164,7 @@ router.get("/subject", (request, response) => {
     p: edit.p,
     room_no: edit.room_no,
     faculty_attendance: edit.faculty_attendance,
+    style: "/css/admin_portal.css",
   });
 });
 
@@ -3133,7 +3205,7 @@ router.post("/subject", (request, response) => {
 // Get request for adding s_time_table data
 router.get("/s_time_table_add", (request, response) => {
   // Rendering Page
-  response.render("s_time_table_add", {});
+  response.render("s_time_table_add", { style: "/css/admin_portal.css" });
 });
 
 // Post request for adding s_time_table data
@@ -3175,6 +3247,7 @@ router.get("/s_time_table", (request, response) => {
     t_3: edit.t_3,
     t_4: edit.t_4,
     t_5: edit.t_5,
+    style: "/css/admin_portal.css",
   });
 });
 
@@ -3205,7 +3278,7 @@ router.post("/s_time_table", (request, response) => {
 // Get request for adding t_grades data
 router.get("/t_grades_add", (request, response) => {
   // Rendering Page
-  response.render("t_grades_add", {});
+  response.render("t_grades_add", { style: "/css/admin_portal.css" });
 });
 
 // Post request for adding t_grades data
@@ -3220,7 +3293,7 @@ router.post("/t_grades_add", (request, response) => {
     major,
   } = request.body;
   mySqlConnection.query(
-    "INSERT INTO t_grades VALUES (?)",
+    "INSERT INTO t_grades (roll_no, subject_code, assignment_marks, attendance_marks, minor1, minor2, major) VALUES (?)",
     [
       [
         roll_no,
@@ -3251,6 +3324,7 @@ router.get("/t_grades", (request, response) => {
     minor1: edit.minor1,
     minor2: edit.minor2,
     major: edit.major,
+    style: "/css/admin_portal.css",
   });
 });
 
@@ -3285,12 +3359,11 @@ router.post("/t_grades", (request, response) => {
 });
 
 router.get("/logout", (request, response) => {
-  if (request.session.user) {
+  if (request.session.superAdmin) {
     request.session.destroy(() => {
       response.redirect("/super/login");
     });
   }
 });
-
 
 module.exports = router;
