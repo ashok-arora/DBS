@@ -194,7 +194,7 @@ router.post("/portal", (request, response) => {
       break;
 
     default:
-      response.render("/admin/portal");
+      response.redirect("/admin/portal");
   }
 });
 
