@@ -213,6 +213,8 @@ function theoryData(request, response) {
             }
           );
         }
+      } else {
+        labData(request, response);
       }
     }
   );
@@ -228,7 +230,7 @@ function labData(request, response) {
     [sUser.roll_no],
     (err, rows) => {
       if (err) response.status(500).send(err);
-      if (rows) {
+      if (rows.length) {
         for (row of rows) {
           temp = new Object();
           temp["Assignment"] = row.assignment_marks;
@@ -254,6 +256,8 @@ function labData(request, response) {
             }
           );
         }
+      } else {
+        callRender(request, response);
       }
     }
   );
@@ -680,6 +684,78 @@ router.post("/faculty_portal", (request, response) => {
 
     default:
       fSchedule(request, response);
+  }
+});
+
+// Get request for Student Password Change
+router.get("/s_change_password", (request, response) => {
+  if (request.session.sUser) {
+    response.render("change_password", {
+      style: "/css/admin_portal.css",
+      req: "./f_change_password",
+    });
+  }
+});
+
+// Post request for Student Password Change
+router.post("/s_change_password", function (request, response) {
+  let { password, newPassword, confirmNewPassword } = request.body;
+  if (newPassword == confirmNewPassword) {
+    if (bcrypt.compareSync(password, sUser.password)) {
+      password = bcrypt.hashSync(password, 10);
+      mySqlConnection.query(
+        "UPDATE student SET password = ? WHERE roll_no = ?",
+        [bcrypt.hashSync(newPassword, 10), sUser.roll_no],
+        (err) => {
+          if (err) response.status(500).send(err);
+          else {
+            newPassword = bcrypt.hashSync(newPassword, 10);
+            confirmNewPassword = bcrypt.hashSync(confirmNewPassword, 10);
+            response.redirect("/users/logout");
+          }
+        }
+      );
+    } else {
+      response.status(400).send("Wrong Password.");
+    }
+  } else {
+    response.status(400).send("Passwords do not match.");
+  }
+});
+
+// Get request for Faculty Password Change
+router.get("/f_change_password", (request, response) => {
+  if (request.session.fUser) {
+    response.render("change_password", {
+      style: "/css/admin_portal.css",
+      req: "./f_change_password",
+    });
+  }
+});
+
+// Post request for Faculty Password Change
+router.post("/f_change_password", function (request, response) {
+  let { password, newPassword, confirmNewPassword } = request.body;
+  if (newPassword == confirmNewPassword) {
+    if (bcrypt.compareSync(password, fUser.password)) {
+      password = bcrypt.hashSync(password, 10);
+      mySqlConnection.query(
+        "UPDATE faculty SET password = ? WHERE faculty_id = ?",
+        [bcrypt.hashSync(newPassword, 10), fUser.faculty_id],
+        (err) => {
+          if (err) response.status(500).send(err);
+          else {
+            newPassword = bcrypt.hashSync(newPassword, 10);
+            confirmNewPassword = bcrypt.hashSync(confirmNewPassword, 10);
+            response.redirect("/users/logout");
+          }
+        }
+      );
+    } else {
+      response.status(400).send("Wrong Password.");
+    }
+  } else {
+    response.status(400).send("Passwords do not match.");
   }
 });
 

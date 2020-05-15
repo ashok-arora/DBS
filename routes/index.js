@@ -6,4 +6,14 @@ router.get("/", (request, response) =>
   response.status(200).sendFile(path.join(__dirname + "/../home.html"))
 );
 
+router.get("/project", (request, response) =>
+  response
+    .status(200)
+    .sendFile(path.join(__dirname + "/../project_details.html"))
+);
+
+router.get("/faq", (request, response) =>
+  response.status(200).sendFile(path.join(__dirname + "/../faq.html"))
+);
+
 module.exports = router;
