@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    :root {
+        --color1: #282828;
+        --color2: #32302f;
+    }
+
+    body {
+        background: var(--color2);
+        font-size: 20px;
+    }
+
+    button,
+    .bt {
+        box-shadow: 0px 5px 0px 0px #282828;
+        background: linear-gradient(to bottom, #eae0c2 5%, #ccc2a6 100%);
+        background-color: #ebdbb2;
+        border-radius: 15px;
+        border: 2px solid #282828;
+        cursor: pointer;
+        color: #32302f;
+        font-family: 'Montserrat';
+        font-size: 20px;
+        padding: 12px 20px;
+        text-decoration: none;
+        text-shadow: 0px 1px 0px #ffffff;
+        width: 200px;
+    }
+
+    button,
+    .bt:hover {
+        background: linear-gradient(to bottom, #ccc2a6 5%, #ebdbb2 100%);
+        background-color: #ebdbb2;
+    }
+
+    input[type=text] {
+        font-family: 'Montserrat';
+        font-size: 20px;
+        padding: 12px 16px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        background-color: #32302f;
+        border: 1px solid #ebdbb2;
+        color: #ebdbb2;
+        border-radius: 20px;
+    }
+
+    form {
+        margin-top: 0px;
+        margin-left: 300px;
+    }
+
+    #dashboard {
+        display: flex;
+        flex-direction: column;
+        margin-top: 50px;
+        margin-left: 50px;
+        width: 900px;
+        height: 580px;
+        padding: 10px;
+        border: 2px solid #ebdbb2;
+        border-radius: 15px;
+        background-color: #282828;
+        overflow: auto;
+    }
+
+    #photo {
+        width: 200px;
+        height: 200px;
+        margin-top: 125px;
+        margin-left: 60px;
+        border-radius: 15px;
+    }
+
+    #info {
+        font-family: 'Montserrat';
+        font-size: 20px;
+        width: 200px;
+        height: 100px;
+        margin-top: 0;
+        margin-left: 0;
+    }
+
+    #label {
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    td {
+        min-width: 150px;
+        padding: 0px 20px 0px 20px;
+    }
+
+    input {
+        text-align: center;
+    }
+
+    tr#label:hover {
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    bt {
+        width: 200px;
+        height: 200px;
+        margin-top: 125px;
+        margin-left: 60px;
+        border-radius: 15px;
+    }
+
+    #introContainer {
+        background-color: var(--color2);
+        padding: 10px;
+    }
+</style>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Edit</title>
+</head>
+<link rel="sylesheet" href="css/admin_portal.css">
+
+<body>
+    <div id="dashboard">
+        <div id="image" style="float:left">
+            <button style="
+          border-radius: 10px;
+          width:150px;" onclick="window.location.href = '/admin/portal';">Go Back</button>
+        </div>
+        <h1>Introduction</h1>
+        <div id="introContainer">
+            During College it’s tough to manage time, attend all classes and complete all assignments. It is difficult
+            for faculty to manage attendance and marks of all the students of all different batches. It is also equally
+            tough for students too to manage all the different classes and their assignments. Time-table changes from
+            time to time, all the extra classes assigned, and other such information is transmitted through a message
+            which gets lost and causes chaos.
+            <br><br>
+            This Management system serves as a medium to solve the above problems and make college life easier for both
+            students and faculty. The marks of each student for each subject will be stored and students will be
+            recommended about how much they need to score to pass. Similarly, the attendance of each student will also
+            be shown graphically with information about how much classes they need to attend to get to the bare minimum.
+            Dynamic Time-Table is also given with changes regarding extra classes reflected on that only.
+            <br><br>
+            With the intuitive User-Interface, this system can be used easily by everyone. The password is stored using
+            a combination of hashing and salting encryption system, thus, keeping each user’s information safe. All data
+            is stored in a cloud-based server, so information can be accessed from any system further removing the
+            hassle.
+        </div>
+        <br><br>
+        <h1>Overview</h1>
+        <div id="introContainer">
+            This Management System will be able to provide an interface:
+            <ul>
+                <li>for faculty to mark attendance of every student for a particular subject.</li>
+                <li>for faculty to assign homework and their respective due dates.</li>
+                <li>for faculty to view their day’s hectic time-table for each day.</li>
+                <li>for faculty to add respective lab (mid-sem | major) and theory (minor1 | minor2 | major) grades for
+                    each
+                    student.</li>
+                <li>for faculty to view each student’s progress throughout the semester.</li>
+                <li>for administrators to modify details about a particular faculty, student or club.</li>
+                <li>for super administrators to modify any part of the database thereby giving them complete control
+                    over the database.</li>
+                <li>for various club presidents and secretaries to add new club members to the database.</li>
+                <li>for research assistants and research proposers to view details regarding their project.</li>
+                <li>for students to view their attendance for a particular subject.</li>
+                <li>for students to check their assigned homework and respective due dates.</li>
+                <li>for students to check up-coming club events.</li>
+                <li>for students to keep themselves updated with college news.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Photo -->
+    <!-- <form action="./admin_edit" method="POST">
+      <label for="category">
+        <input
+          type="text"
+          value="photo"
+          name="category"
+          style="display: none;"
+        />
+      </label>
+      <button type="submit">SUBMIT</button>
+    </form> -->
+</body>
+
+</html>
