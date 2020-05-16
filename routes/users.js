@@ -64,7 +64,7 @@ function findStudentSubjects(request, response) {
           findStudentAssignments(request, response, subjects);
         } else {
           assignment_number = "No Assignments";
-          response.redirect("/users/student_portal");
+          schedule(request, response);
         }
       }
     );
@@ -93,6 +93,7 @@ function findStudentAssignments(request, response, subjects) {
 
 let studentSchedule = new Object();
 function schedule(request, response) {
+  studentSchedule = new Object();
   let date = new Date();
   let weekday = new Array(7);
   weekday[0] = "Sunday";
@@ -108,7 +109,7 @@ function schedule(request, response) {
     [sUser.batch_code, day],
     (err, rows) => {
       if (err) response.status(500).send(err);
-      if (rows.length != 0) {
+      if (rows.length) {
         if (rows[0].t_9 != "") studentSchedule["09:00 - 10:00"] = rows[0].t_9;
         else studentSchedule["09:00 - 10:00"] = "Free";
         if (rows[0].t_10 != "") studentSchedule["10:00 - 11:00"] = rows[0].t_10;
@@ -152,7 +153,7 @@ function attendanceData(request, response) {
     [sUser.roll_no],
     (err, rows) => {
       if (err) response.status(500).send(err);
-      if (rows) {
+      if (rows.length) {
         for (row of rows) {
           studentAttendance.push(row.attendance);
           mySqlConnection.query(
@@ -168,6 +169,8 @@ function attendanceData(request, response) {
             }
           );
         }
+      } else {
+        theoryData(request, response);
       }
     }
   );
@@ -175,17 +178,17 @@ function attendanceData(request, response) {
 
 let studentTGrades = [];
 let maxTGrades = [];
-let gradesSubjects = [];
+let gradesTSubjects = [];
 function theoryData(request, response) {
   studentTGrades = [];
   maxTGrades = [];
-  gradesSubjects = [];
+  gradesTSubjects = [];
   mySqlConnection.query(
     "SELECT * FROM t_grades WHERE roll_no = ?",
     [sUser.roll_no],
     (err, rows) => {
       if (err) response.status(500).send(err);
-      if (rows) {
+      if (rows.length) {
         for (row of rows) {
           temp = new Object();
           temp["Assignment"] = row.assignment_marks;
@@ -201,13 +204,13 @@ function theoryData(request, response) {
             (err, newRows) => {
               if (err) response.status(500).send(err);
               else {
-                temp["Assignment"] = newRows.assignment_marks;
-                temp["Attendance"] = newRows.attendance_marks;
-                temp["Minor 1"] = newRows.minor1;
-                temp["Minor 2"] = newRows.minor2;
-                temp["Major"] = newRows.major;
+                temp["Assignment"] = newRows[0].assignment_marks;
+                temp["Attendance"] = newRows[0].attendance_marks;
+                temp["Minor 1"] = newRows[0].minor1;
+                temp["Minor 2"] = newRows[0].minor2;
+                temp["Major"] = newRows[0].major;
                 maxTGrades.push(temp);
-                gradesSubjects.push(newRows.subject_code);
+                gradesTSubjects.push(newRows[0].subject_code);
                 if (row == rows[rows.length - 1]) labData(request, response);
               }
             }
@@ -222,9 +225,11 @@ function theoryData(request, response) {
 
 let studentLGrades = [];
 let maxLGrades = [];
+let gradesLSubjects = [];
 function labData(request, response) {
   studentLGrades = [];
   maxLGrades = [];
+  gradesLSubjects = [];
   mySqlConnection.query(
     "SELECT * FROM l_grades WHERE roll_no = ?",
     [sUser.roll_no],
@@ -245,12 +250,12 @@ function labData(request, response) {
             (err, newRows) => {
               if (err) response.status(500).send(err);
               else {
-                temp["Assignment"] = newRows.assignment_marks;
-                temp["Attendance"] = newRows.attendance_marks;
-                temp["Mid-Sem"] = newRows.mid_sem;
-                temp["Major"] = newRows.major;
+                temp["Assignment"] = newRows[0].assignment_marks;
+                temp["Attendance"] = newRows[0].attendance_marks;
+                temp["Mid-Sem"] = newRows[0].mid_sem;
+                temp["Major"] = newRows[0].major;
                 maxLGrades.push(temp);
-                gradesSubjects.push(newRows.subject_code);
+                gradesLSubjects.push(newRows[0].subject_code);
                 if (row == rows[rows.length - 1]) callRender(request, response);
               }
             }
@@ -287,9 +292,10 @@ router.get("/student_portal", (request, response) => {
       attendanceSubjects: attendanceSubjects,
       studentTGrades: studentTGrades,
       maxTGrades: maxTGrades,
+      gradesTSubjects: gradesTSubjects,
       studentLGrades: studentLGrades,
       maxLGrades: maxLGrades,
-      gradesSubjects: gradesSubjects,
+      gradesLSubjects: gradesLSubjects,
       style: "/css/student_portal.css",
     });
   }
@@ -346,7 +352,7 @@ function fSchedule(request, response) {
     [fUser.faculty_id, day],
     (err, rows) => {
       if (err) response.status(500).send(err);
-      if (rows.length != 0) {
+      if (rows.length) {
         if (rows[0].t_9 != "") facultySchedule["09:00 - 10:00"] = rows[0].t_9;
         else facultySchedule["09:00 - 10:00"] = "Free";
         if (rows[0].t_10 != "") facultySchedule["10:00 - 11:00"] = rows[0].t_10;
@@ -691,7 +697,7 @@ router.get("/s_change_password", (request, response) => {
   if (request.session.sUser) {
     response.render("change_password", {
       style: "/css/admin_portal.css",
-      req: "./f_change_password",
+      req: "./s_change_password",
     });
   }
 });
