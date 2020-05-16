@@ -1328,6 +1328,7 @@ router.get("/change_password", (request, response) => {
     response.render("change_password", {
       style: "/css/admin_portal.css",
       req: "./change_password",
+      back: "/portal",
     });
   }
 });

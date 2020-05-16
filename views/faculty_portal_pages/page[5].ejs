@@ -21,13 +21,14 @@
         z-index: 11;
         border-radius: 1em;
         padding: 10px;
-        background-color: var(--primary);
+        border: 2px solid var(--sfTileBorder);
+        background-color: var(--sfTileBackground);
     }
 
     .Button {
         border-radius: 1em;
         padding: 10px 20px;
-        background-color: var(--primary2);
+        background-color: var(--sfTileBorder);
         text-align: center;
     }
 
@@ -39,8 +40,8 @@
     <div class="ModalContent">
         <h2>Are you sure you want to logout?</h2>
         <div style="display: flex;">
-            <a href="./logout"><div class="Button" style="margin-right: 20px;"><h3>Yes</h2></div></a>
-            <div class="Button" onclick="changeToLastFSelection()"><h3>No</h3></div>
+            <a href="./logout"><div class="Button" style="margin-right: 20px;"><h3 style="color: var(--sfTileBackground);">Yes</h3></div></a>
+            <div class="Button" onclick="changeToLastFSelection()"><h3 style="color: var(--sfTileBackground);">No</h3></div>
             
         </div>
     </div>

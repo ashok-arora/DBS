@@ -17,7 +17,23 @@ body::-webkit-scrollbar {
 
 h3 {
   margin: 0;
-  color: var(--secondary);
+  color: var(--sfTileBorder);
+}
+
+h2 {
+  color: var(--sfTileBorder);
+}
+
+h1 {
+  color: var(--sfTileBorder);
+}
+
+p {
+  color: var(--sfTileBorder);
+}
+
+a{
+  color: var(--sfTileBorder);
 }
 
 .MainBody {
