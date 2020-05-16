@@ -41,19 +41,19 @@
     <table style="width: 70%; color: var(--sfTileBorder);">
       <tbody>
         <% for (var i = 0; i < studentTGrades.length; i++) { %> <% for (term in
-        studentTGrades) { %>
+        studentTGrades[i]) { %>
         <tr>
-          <td><%=gradesSubjects[i]%></td>
+          <td><%=gradesTSubjects[i]%></td>
           <td><%=term%></td>
           <td>
             <%=studentTGrades[i][term]%> / <%=maxTGrades[i][term]%>
             (<%=studentTGrades[i][term]/maxTGrades[i][term]*100%>%)
           </td>
         </tr>
-        <% } %> <% } %> <% for (let j = i; j < studentLGrades.length; j++) { %>
-        <% for (term in studentLGrades) { %>
+        <% } %> <% } %> <% for (let j = 0; j < studentLGrades.length; j++) { %>
+        <% for (term in studentLGrades[j]) { %>
         <tr>
-          <td><%=gradesSubjects[j]%></td>
+          <td><%=gradesLSubjects[j]%></td>
           <td><%=term%></td>
           <td>
             <%=studentLGrades[j][term]%> / <%=maxLGrades[j][term]%>
