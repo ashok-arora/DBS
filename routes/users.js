@@ -420,7 +420,7 @@ router.post("/faculty_portal", (request, response) => {
               for (row of rows) {
                 if (row.subject_code == subject_code) {
                   mySqlConnection.query(
-                    "INSERT INTO assignment (subject_code, assignment_name, due_date)VALUES (?)",
+                    "INSERT INTO assignment (subject_code, assignment_name, due_date) VALUES (?)",
                     [subject_code, assignment_name, due_date],
                     (err) => {
                       if (err) response.status(500).send(err);
@@ -658,9 +658,8 @@ router.post("/faculty_portal", (request, response) => {
                       if (err) response.status(500).send(err);
                       if (srows) {
                         mySqlConnection.query(
-                          "UPDATE attendance SET attendace = ? WHERE subject_code =  AND roll_no = ?"[
-                            (srows[0].attendance + 1, subject_code, roll_no)
-                          ],
+                          "UPDATE attendance SET attendance = ? WHERE subject_code = ? AND roll_no = ?",
+                          [srows[0].attendance + 1, subject_code, roll_no],
                           (err) => {
                             if (err) response.status(500).send(err);
                             else fSchedule(request, response);
