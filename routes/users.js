@@ -698,7 +698,7 @@ router.get("/s_change_password", (request, response) => {
     response.render("change_password", {
       style: "/css/admin_portal.css",
       req: "./s_change_password",
-      back: "/student_portal",
+      back: "/users/student_portal",
     });
   }
 });
@@ -735,7 +735,7 @@ router.get("/f_change_password", (request, response) => {
     response.render("change_password", {
       style: "/css/admin_portal.css",
       req: "./f_change_password",
-      back: "/faculty_portal",
+      back: "/users/faculty_portal",
     });
   }
 });
